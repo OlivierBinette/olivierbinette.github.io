@@ -1,0 +1,71 @@
+# jemdoc: menu{MENU}{index.html}, showsource
+= Bienvenue to Olivier Binette's Homepage
+
+~~~
+{}{img_left}{portrait.png}{Olivier Binette}{250px}{167px}{}
+
+=== Master student in mathematics based in Montréal
+
+I am broadly interested in the mathematical foundations of statistical learning, in the statistics of complex data and in the topological accuracy of some machine learning procedures.
+
+I also organize student *research seminars* at UQÀM, I am *teaching assistant* for probability and analysis courses, and *private instructor* in advanced courses.
+~~~
+
+
+== Research interests
+
+My research has focused on *Bayesian nonparametric inference* for directional statistics and on *consistency issues* relating to density estimation on compact metric spaces \[1\]. More recently, I worked on *information inequalities* \[2\] and developped an interest in *topological consistency* for surface estimation \[3\].
+
+#==== Project summaries
+#  - A circular analogue to the Bernstein polynomial densities
+#  - Density estimation on compact metric spaces using sieve priors
+#  - Note on Reverse Pinsker Inequalities
+
+
+
+~~~
+{}{raw}
+<a name="Publications"></a>
+~~~
+
+== Publications
+  - \[3\] *Binette, O.* (2018) Topologie et apprentissage machine. Notes From the Margin (13). p. 5-6. (Short paper for our Canadian mathematics student journal.)
+=== Preprints
+
+  - \[1\] *Binette, O.* et Guillotte, S. (2018) Bayesian Nonparametrics for Directional Statistics. [\https://arxiv.org/pdf/1807.00305.pdf arXiv:1807.00305]. Submitted.
+  - \[2\] *Binette, O.* (2018) Note on Reverse Pinsker Inequalities. [\https://arxiv.org/pdf/1805.05135.pdf arXiv:1805.05135]. Submitted.
+=== Posters
+  - *Binette, O.* & Coache, A. The Significance of the Adjusted R Squared. (Bio)Statistics Research Day. McGill University (Canada). 21 septembre 2018.
+  - *Binette, O.* Classification and Topology, or Consequences of Sobolev Consistency. Canadian Statistics Student Conference. McGill University (Canada) 2 Juin 2018. Best poster award.
+  - *Binette, O.* et Guillotte, S. Bayesian Nonparametrics for Directional Statistics. 11th Conference on Bayesian Nonparametrics. Paris (France). 26 Juin 2017.
+
+== Recently organized events and seminars
+  - Statistics Student Summit in Montreal (March 2019).
+  - UQAM's Graduate Student in Mathematics Seminar. (ongoing).
+  - Probability and Statistics Student Seminar. (summer 2018).
+  - /Le carréousel du géomètre/. Activity co-organized on the behalf of the Mathematical Science Institute at the Montreal Science Center. (summer 2018).
+  - Probability and Statistics Student Seminar. (summer 2017).
+
+
+~~~
+{}{raw}
+<a name="Talks"></a>
+~~~
+
+== Selected talks
+  - Classification and Topology. /MLBytes Speaker Series/ (Duke University). November 15, 2018.
+  - On Bayesian Nonparametrics Estimation of Discontinuous Densities. /Nonparametrics research group at Texas A&M/ (Texas). November 2, 2018. \[notes\] \[slides\]
+  - A Circular Analogue to the Bernstein Polynomial Densities, Bayesian Nonparametrics and Large Support Asymptotics. /Université du Québec à Montréal/ (Montréal). October 4, 2018.
+  - A Circular Analogue to the Bernstein Polynomial Densities. /Annual Meeting of the Statistics Society of Canada/. Montréal (Canada). June 4, 2018.
+  - Topologie et apprentissage machine. /XXIe Colloque panquébécois des étudiants de l’ISM/. Sherbrooke (Canada). May 25, 2018.
+  - Bayesian Nonparametrics for Directional Statistics. /Sherbrooke University/ (Sherbrooke). March 26, 2018.
+  - Bayesian Learning. /Mathematical Congress of the Americas/. Montréal (Canada). July 28, 2017.
+
+
+== Contact
+
+olivier.binette at gmail dot com
+
+Université du Québec à Montréal\n
+Pavillon Président-Kennedy\n
+PK-5518

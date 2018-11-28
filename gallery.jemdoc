@@ -1,0 +1,51 @@
+# jemdoc: menu{MENU}{gallery.html}, showsource
+= Gallery
+
+
+== Posters for the /Eureka!/ Science Festival
+~~~
+{}{raw}
+<a href="poster1.jpg" target="_blank" rel="noopener noreferrer"><img src="poster1.jpg" width="250px"> </img></a>
+<a href="poster2.jpg" target="_blank" rel="noopener noreferrer"><img src="poster2.jpg" width="250px"> </img></a>
+~~~
+
+== Rolling squares for the /Eureka!/ Science Festival
+~~~
+{}{raw}
+<iframe src="https://player.vimeo.com/video/270732286" width="300" height="200" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+~~~
+
+== Sampling Lipschitz continuous densities
+~~~
+{}{img_left}{lipschitz.png}{Olivier Binette}{200px}{}{}
+
+[\https://github.com/OlivierBinette/LipSample Matlab code] for the efficient simulation of Lipschitz continuous densities defined on the interval. A short paper about the simple idea is available [\https://mathstatnotes.files.wordpress.com/2017/11/simulation_et_ratatouille1.pdf here].
+
+~~~
+
+== Distributing points on the sphere and Bayesian numerical analysis.
+~~~
+{}{img_left}{points_on_sphere.png}{Olivier Binette}{200px}{}{}
+
+Distributing points $\{x_i\}_{i=1}^n$ on the sphere as to minimize the mean square error
+\(
+  \mathbb{E}\left[\left(q_n(f) - \int_{\mathbb{S}^2}f(s)\,ds\right)^2\right]
+\)
+of the quadrature formula $q_n(f) =\frac{1}{n}\sum_{i=1}^n f(x_i)$, where $ f$ is a centered Gaussian process with covariance function $ C(x,y) = \exp(\langle x, y \rangle)$. Shown is $ n=6, 12, 23$.
+~~~
+
+== Closed curve reconstruction using periodic splines, fused lasso and a travelling salesman
+
+~~~
+{}{img_left}{seal.png}{Olivier Binette}{200px}{}{}
+
+R code can be found [\https://github.com/OlivierBinette/Splinit here]. French slides about the project are [\https://mathstatnotes.files.wordpress.com/2018/04/beamerr4.pdf here].
+~~~
+
+== Javascript Mandelbrot set explorer
+
+~~~
+{}{img_left}{fractal.jpg}{Olivier Binette}{200px}{}{}
+
+You can zoom in and move around [\http://olivierbinette.github.io/Fractals/ here]. A menu in the right top corner provides color and quality adjustments. On a mobile device, you can double-tap to zoom in.
+~~~
