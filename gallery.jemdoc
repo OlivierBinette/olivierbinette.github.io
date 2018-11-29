@@ -39,7 +39,7 @@ of the quadrature formula $q_n(f) =\frac{1}{n}\sum_{i=1}^n f(x_i)$, where $ f$ i
 ~~~
 {}{img_left}{seal.png}{Olivier Binette}{200px}{}{}
 
-R code can be found [\https://github.com/OlivierBinette/Splinit here]. French slides about the project are [\https://mathstatnotes.files.wordpress.com/2018/04/beamerr4.pdf here].
+R code can be found [https://github.com/OlivierBinette/Splinit here]. French slides about the project are [https://mathstatnotes.files.wordpress.com/2018/04/beamerr4.pdf here].
 ~~~
 
 == Javascript Mandelbrot set explorer
@@ -47,5 +47,5 @@ R code can be found [\https://github.com/OlivierBinette/Splinit here]. French sl
 ~~~
 {}{img_left}{fractal.jpg}{Olivier Binette}{200px}{}{}
 
-You can zoom in and move around [\https://olivierbinette.github.io/Fractals/ here]. A menu in the right top corner provides color and quality adjustments. On a mobile device, you can double-tap to zoom in.
+You can zoom in and move around [https://olivierbinette.github.io/Fractals/ here]. A menu in the right top corner provides color and quality adjustments. On a mobile device, you can double-tap to zoom in.
 ~~~
