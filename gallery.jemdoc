@@ -19,7 +19,7 @@
 ~~~
 {}{img_left}{lipschitz.png}{Olivier Binette}{200px}{}{}
 
-[\https://github.com/OlivierBinette/LipSample Matlab code] for the efficient simulation of Lipschitz continuous densities defined on the interval. A short paper about the simple idea is available [\https://mathstatnotes.files.wordpress.com/2017/11/simulation_et_ratatouille1.pdf here].
+[https://github.com/OlivierBinette/LipSample Matlab code] for the efficient simulation of Lipschitz continuous densities defined on the interval. A short paper about the simple idea is available [https://mathstatnotes.files.wordpress.com/2017/11/simulation_et_ratatouille1.pdf here].
 
 ~~~
 
