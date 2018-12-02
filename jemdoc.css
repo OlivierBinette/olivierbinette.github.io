@@ -7,7 +7,7 @@ table#tlayout {
 }
 
 body {
-	background: white;
+	background: rgb();
 	font-family: Noto, Helvetica, sans-serif;
 	font-size: 11pt;
 	color: rgb(50,50,50);

@@ -1,0 +1,52 @@
+# jemdoc: menu{MENU}{project_density_estimation.html}, showsource
+= Density Estimation on Compact Metric Spaces using Sieve Priors
+
+/This is based on Section 3 of our paper Bayesian Nonparametrics and Sieve Priors for Directional Statistics, which can be accessed on arXiv. Please refer to that document for complete explanations and references./
+
+Consider the problem of estimating an unknown density $f_0$ defined on a (finitely measured) compact metric space $(\mathbb{M}, d)$ using an i.i.d. sample $X_i \sim f_0$, $i \in \{1,2,\dots, k\}$. This is of particular interest in the context of circular statistics and statistics on manifolds, where $\mathbb{M}$ could be the circle, the sphere or some other compact Riemannian surface. Applications range from the analysis of seasonal and angular measurements to the statistics of shapes and configurations.
+
+The goal here is to provide a general framework and theory for a Bayesian nonparametric approach to this problem. Here we focus on sieve priors, some instances of which are also Dirichlet Process Mixtures and Random Series with a random number of components.
+
+== Sieve priors
+
+Assume that $f_0 \in \mathbb{F}$, where $\mathbb{F}$ is some arbitrary set of densities on $\mathbb{M}$ (with respect to the aforementioned finite measure). We break up $\mathbb{F}$ into sets $\mathcal{S}_n$, $n\in \mathbb{N}$, called /sieves/ and such that
+\(
+  \mathbb{F} = \overline{\bigcup_{n} \mathcal{S}_n},
+\)
+where the overline represents $L^1$ closure in $\mathbb{F}$.
+Given priors $\Pi_n$ on $\mathcal{S}_n$ and a distribution $\rho$ on $\mathbb{N}$, we then obtain a /sieve prior/ $\Pi$ as
+\(
+  \Pi = \sum_{n \in \mathbb{N}} \rho(n) \Pi_n.
+\)
+
+For many useful statistical models, the sieves $\mathcal{S}_n$ appear as the images $\mathcal{S}_n = T_n(\mathbb{F})$ of positive linear operators $T_n: L^1(\mathbb{M}) \rightarrow L^1(\mathbb{M})$. This is the case, for instance, with the Bernstein-Dirichlet prior of Petrone and Wasserman (2002) and its multivariate variants.
+
+Here we state posterior consistency and convergence rates results in terms of properties of these operators and simple conditions on $\rho$ and $\Pi_n$.
+
+== Posterior consistency
+
+Let $\mathbb{F}$ be the set of all /bounded/ densities on the finitely measured compact metric space $(\mathbb{M}, d)$. We assume that $T_n:L^1(\mathbb{M}) \rightarrow L^1(\mathbb{M})$ is a sequence of linear operators mapping densities to densities and that $\Pi_n$ are priors on $T_n(\mathbb{F})$.
+
+*Theorem 3.3*
+  /Let $\mathbb{F}$, $\Pi_n$, $\Pi$ and $T_n$ be as above. Suppose that $T_n(\mathbb{F})\subset \mathbb{F}$ are of finite dimensions bounded by an increasing sequence $d_n\in \mathbb{N}$, and also that $\|T_nf-f\|_{\infty}\to 0$, $n\to \infty$, for every continuous function $f$ on $\mathbb{M}$. If $0< \rho(n)< c e^{-Cd_n}$, for some $c >0$, $C > 0$ and if $\Pi_n$ has support $T_n(\mathbb{F})$, then the posterior distribution of $\Pi$ is strongly consistent on $\mathbb{F}$./
+
+Note that no continuity or positivity assumption is made here on the density $f_0$.
+
+== Adaptative posterior contraction rates
+
+In order to obtain contraction rates, the following assumptions are made on the sequence of operators $T_n$ and on the distribution $\rho$ which induces the prior $\Pi = \sum_n \rho(n) \Pi_n$ defined as before, with $\Pi_n$ priors on $T_n(\mathbb{F})$.
+
+    . The sequence of linear operators $T_n : L^1(\mathbb{M}) \rightarrow L^1(\mathbb{M})$ with $T_n(\mathbb{F}) \subset \mathbb{F}$ maps densities to densities and is such that $\|T_n 1 - 1\|_\infty \rightarrow 0$ for the constant function $1$.
+    . There exists $d_n \in \mathbb{N}$ an increasing integer sequence with $d_n \geq \dim(T_n(\mathbb{F}))$ and satisfying $d_n \asymp n^d$ for some $d \geq 1$.
+    . The distribution $\rho$ on $\mathbb{N}$ satisfies $\log(\rho(n)) \asymp -d_n \log(d_n)$.
+
+*Theorem 3.5*
+    /Suppose that 1.-3. are satisfied. Let $f_0\in \mathbb{F}$ be such that $\|\log f_0\|_\infty < \infty$, $\|T_n f_0 - f_0\|_\infty = \mathcal{O}(n^{-\beta})$ for some $\beta > 0$ and/
+    \(
+        \Pi_n\left(\left\{ f \in T_n(\mathbb{F}) : \| f - T_n f_0 \|_\infty \leq \varepsilon \right\}\right) \geq \left(\varepsilon/d_n\right)^{\kappa d_n}
+    \)
+    /for some $\kappa > 0$, for every small $\varepsilon > 0$ and every large $n$. Then the posterior distribution of $\Pi$ contracts around $f_0$ at the rate $(n/\log(n))^{-\beta/(2\beta + d)}$./
+
+=== Remark
+
+When $\mathbb{M}$ has a well-defined Minkowski dimension $m \geq 1$, we can easily define operators $T_n$ satisfying assumption 1 and such that both $\|T_n f - f\|_\infty = \mathcal{O}(\omega_f(1/n))$ and $\dim T_n(\mathbb{F}) \asymp n^m$, where $\omega_f$ is the modulus of continuity of $f \in \mathcal{C}(\mathbb{M})$. In this case, we can let $d = m$ in assumption 2. If $f$ satisfies the Holder smoothness condition $\omega_f(\delta) \leq C \delta^\beta$ for $\beta \in (0,1]$ and some $C > 0$, then Theorem 3.5 yields the rate $(n/\log(n))^{-\beta/(2\beta + m)}$.
