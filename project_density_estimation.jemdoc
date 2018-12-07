@@ -41,11 +41,11 @@ In order to obtain contraction rates, the following assumptions are made on the 
     . The distribution $\rho$ on $\mathbb{N}$ satisfies $\log(\rho(n)) \asymp -d_n \log(d_n)$.
 
 *Theorem 3.5*
-    /Suppose that 1.-3. are satisfied. Let $f_0\in \mathbb{F}$ be such that $\|\log f_0\|_\infty < \infty$, $\|T_n f_0 - f_0\|_\infty = \mathcal{O}(n^{-\beta})$ for some $\beta > 0$ and/
-    \(
-        \Pi_n\left(\left\{ f \in T_n(\mathbb{F}) : \| f - T_n f_0 \|_\infty \leq \varepsilon \right\}\right) \geq \left(\varepsilon/d_n\right)^{\kappa d_n}
-    \)
-    /for some $\kappa > 0$, for every small $\varepsilon > 0$ and every large $n$. Then the posterior distribution of $\Pi$ contracts around $f_0$ at the rate $(n/\log(n))^{-\beta/(2\beta + d)}$./
+/Suppose that 1.-3. are satisfied. Let $f_0\in \mathbb{F}$ be such that $\|\log f_0\|_\infty < \infty$, $\|T_n f_0 - f_0\|_\infty = \mathcal{O}(n^{-\beta})$ for some $\beta > 0$ and suppose there exists $\kappa > 0$, $\varepsilon_0 > 0$ such that for every $n \in \mathbb{N}$ and every $0 < \varepsilon < \varepsilon_0 / d_n$,/
+\(
+    \Pi_n\left(\left\{ f \in T_n(\mathbb{F}) : \| f - T_n f_0 \|_\infty \leq \varepsilon \right\}\right) \geq \left(\varepsilon/d_n\right)^{\kappa d_n}
+\)
+/. Then the posterior distribution of $\Pi$ contracts around $f_0$ at the rate $(n/\log(n))^{-\beta/(2\beta + d)}$./
 
 === Remark
 
