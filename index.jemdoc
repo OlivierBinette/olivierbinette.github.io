@@ -1,7 +1,66 @@
-une nouvelle initiative visant à réunir les étudiants en statistique (du bac. au doctorat) lors d'une journée de conférences à Montréal. Notre conférencier invité est le Prof. Jeffrey Rosenthal de l'université de Toronto, auteur bien connu de plusieurs ouvrages de vulgarisation des sciences mathématiques.   L'événement est entièrement gratuit pour les étudiants des universités québécoises. Nous avons un budget pour rembourser les frais de déplacement d'étudiants de l'extérieur de Montréal. Tout ça est possible grâce au soutien de nos partenaires.  L’intérêt pour le sommet prélude un succès important dans le contexte du positionnement de Montréal.
+# jemdoc: menu{MENU}{index.html}, showsource, title{Olivier Binette}, analytics{UA-105034062-2}
+= Bienvenue to Olivier Binette's Homepage
 
-Comme commanditaire, AIWORX bénéficiera d’une visibilité auprès de tous les participants, et d’opportunités de réseautages uniques durant la journée et lors du 5@7.  Nous prendrons les moyens pour encourager le développement de liens entre les étudiants et les commanditaires. Les étudiant-es en statistique forment une communauté interdisciplinaire et contribuent, entre autres, à développer les fondements théoriques et méthodologiques de l'apprentissage machine. Soutenir le Sommet marque un engagement envers la relève scientifique et le développement des fondements de l'analyse de données.
+~~~
+{}{img_left}{portrait.jpg}{Olivier Binette}{250px}{167px}{}
 
-J'ai joint à ce courriel notre plan de commandite et l'affiche de l'événement.
+=== Master student in Mathematics
 
-Je souhaite sincèrement que AIworx puisse être notre premier commanditaire privé et je serai disponible pour m'assurer de répondre à vos besoins.  N'hésitez pas à m'écrire ou m'appeler au (418) 922-1294 pour avoir plus d'informations.
+(University of Quebec at Montréal)
+
+I am broadly interested in the mathematical foundations of statistical learning, in the statistics of complex data and in the topological accuracy of some machine learning procedures.
+
+I also organize student *research seminars* at UQÀM, I am *teaching assistant* for probability and analysis courses, and *private instructor* in advanced courses.
+~~~
+
+
+== Research interests
+
+My research has focused on *Bayesian nonparametric inference* for directional statistics and on *consistency issues* relating to density estimation on compact metric spaces \[1\]. More recently, I worked on *information inequalities* \[2\] and developped an interest in *topological consistency* for surface estimation \[3\].
+
+~~~
+{}{raw}
+<a name="Publications"></a>
+~~~
+
+== Publications
+  - \[3\] *Binette, O.* (2018) Topologie et apprentissage machine. Notes From the Margin (13). p. 5-6. (Short paper for our Canadian mathematics student journal.)
+=== Preprints
+
+  - \[1\] *Binette, O.* et Guillotte, S. (2018) Bayesian Nonparametrics for Directional Statistics. [https://arxiv.org/pdf/1807.00305.pdf arXiv:1807.00305]. Submitted.
+  - \[2\] *Binette, O.* (2018) Note on Reverse Pinsker Inequalities. [https://arxiv.org/pdf/1805.05135.pdf arXiv:1805.05135]. Submitted.
+=== Posters
+  - *Binette, O.* & Coache, A. The Significance of the Adjusted R Squared. (Bio)Statistics Research Day. McGill University (Canada). 21 septembre 2018.
+  - *Binette, O.* Classification and Topology, or Consequences of Sobolev Consistency. Canadian Statistics Student Conference. McGill University (Canada) 2 Juin 2018. Best poster award.
+  - *Binette, O.* et Guillotte, S. Bayesian Nonparametrics for Directional Statistics. 11th Conference on Bayesian Nonparametrics. Paris (France). 26 Juin 2017.
+
+== Recently organized events and seminars
+  - Statistics Student Summit in Montreal (March 2019).
+  - UQAM's Graduate Student in Mathematics Seminar. (ongoing).
+  - Probability and Statistics Student Seminar. (summer 2018).
+  - /Le carréousel du géomètre/. Activity co-organized on the behalf of the Mathematical Science Institute at the Montreal Science Center. (summer 2018).
+  - Probability and Statistics Student Seminar. (summer 2017).
+
+
+~~~
+{}{raw}
+<a name="Talks"></a>
+~~~
+
+== Selected talks
+  - Classification and Topology. /[http://dukeml.org/mlbytes.html MLBytes Speaker Series]/ (Duke University). November 15, 2018.
+  - On Bayesian Nonparametrics Estimation of Discontinuous Densities. /Nonparametrics research group at Texas A&M/ (Texas). November 2, 2018. \[[https://mathstatnotes.files.wordpress.com/2018/10/talk-texas_notes.pdf notes]\] \[[https://mathstatnotes.files.wordpress.com/2018/10/talk-texas.pdf slides]\]
+  - [https://www.mcgill.ca/channels/channels/event/olivier-binette-uqam-290203 A Circular Analogue to the Bernstein Polynomial Densities, Bayesian Nonparametrics and Large Support Asymptotics]. /Université du Québec à Montréal/ (Montréal). October 4, 2018.
+  - A Circular Analogue to the Bernstein Polynomial Densities. /Annual Meeting of the Statistics Society of Canada/. Montréal (Canada). June 4, 2018.
+  - Topologie et apprentissage machine. /XXIe Colloque panquébécois des étudiants de l’ISM/. Sherbrooke (Canada). May 25, 2018.
+  - [https://www.mcgill.ca/mathstat/channels/event/olivier-binette-departement-de-mathematiques-uqam-286255 Bayesian Nonparametrics for Directional Statistics]. /Sherbrooke University/ (Sherbrooke). March 26, 2018.
+  - Bayesian Learning. /Mathematical Congress of the Americas/. Montréal (Canada). July 28, 2017.
+
+
+== Contact
+
+olivier.binette at gmail dot com 
+
+Université du Québec à Montréal\n
+Pavillon Président-Kennedy\n
+PK-5518
