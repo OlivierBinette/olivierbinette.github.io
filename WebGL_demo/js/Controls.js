@@ -9,7 +9,7 @@ function Controls(target, camera, renderer, domElement) {
     this.domElement = domElement;
 
     this.fovScale = 1;
-    this.maxfov = 30;
+    this.maxfov = 70;
     this.zoom = 0;
 
     // Flag for dragging action.
@@ -20,8 +20,8 @@ function Controls(target, camera, renderer, domElement) {
 }
 
     Controls.prototype.handleMouseMove = function(event) {
-        this.mousePosition.x = 2 * event.clientX/window.innerWidth - 1;
-        this.mousePosition.y = 1 - 2*event.clientY/window.innerHeight;
+        this.mousePosition.x = 2 * (event.clientX || event.targetTouches[0].pageX)/window.innerWidth - 1;
+        this.mousePosition.y = 1 - 2*(event.clientY || event.targetTouches[0].pageY)/window.innerHeight;
 
         if(this.dragging){
             dx = this.mousePosition.x - this.pastMousePosition.x;
@@ -42,8 +42,8 @@ function Controls(target, camera, renderer, domElement) {
         this.pastMousePosition.x = this.mousePosition.x;
         this.pastMousePosition.y = this.mousePosition.y;
 
-        document.getElementById("tooltip").style.top = event.clientY;
-        document.getElementById("tooltip").style.left = event.clientX;
+        document.getElementById("tooltip").style.top = (event.clientY || event.targetTouches[0].pageY);
+        document.getElementById("tooltip").style.left = (event.clientX || event.targetTouches[0].pageX);
 
         this.onMouseMove(event);
     }
@@ -87,8 +87,11 @@ function Controls(target, camera, renderer, domElement) {
 
     Controls.prototype.setup = function() {
         this.domElement.addEventListener("mousemove", (e)=>this.handleMouseMove(e));
+        this.domElement.addEventListener("touchmove", (e)=>this.handleMouseMove(e));
         this.domElement.addEventListener("mouseup", (e)=>this.handleMouseUp(e));
+        this.domElement.addEventListener("touchend", (e)=>this.handleMouseUp(e));
         this.domElement.addEventListener("mousedown", (e)=>this.handleMouseDown(e));
+        this.domElement.addEventListener("touchstart", (e)=>this.handleMouseDown(e));
         this.domElement.addEventListener("mousewheel", (e)=>this.handleMouseWheel(e));
         this.domElement.addEventListener("wheel", (e)=>this.handleMouseWheel(e));
         this.domElement.addEventListener("resize", (e)=>this.handleResize(e));
