@@ -124,8 +124,8 @@ function highlightPoints(){
 makeLand();
 
 var quat = new THREE.Quaternion();
-quat.setFromAxisAngle({x:1/Math.sqrt(2), y:1/Math.sqrt(2), z:0}, -0.002);
 function animate() {
+    quat.setFromAxisAngle({x:1/Math.sqrt(2), y:1/Math.sqrt(2), z:0}, -0.002*controls.fovScale);
     world.applyQuaternion(quat);
     requestAnimationFrame( animate );
     renderer.render(scene, camera);
