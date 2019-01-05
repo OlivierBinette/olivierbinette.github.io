@@ -20,6 +20,7 @@ function Controls(target, camera, renderer, domElement) {
 }
 
     Controls.prototype.handleMouseMove = function(event) {
+        event.preventDefault();
         this.mousePosition.x = 2 * (event.clientX || event.targetTouches[0].pageX)/window.innerWidth - 1;
         this.mousePosition.y = 1 - 2*(event.clientY || event.targetTouches[0].pageY)/window.innerHeight;
 
