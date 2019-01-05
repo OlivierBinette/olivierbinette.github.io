@@ -41,7 +41,7 @@ for (var i = 0; i < 5000; i ++) dataset.push(rsphere());
 
 var points = new THREE.Group();
 var x, y, z, phi, lambda;
-data = d3.csv('quakes.csv', function(d){
+data = d3.csv('quakes-small.csv', function(d){
     phi = Math.PI*d.latitude/180.0;
     lambda = Math.PI*d.longitude/180.0;
     x = Math.cos(phi) * Math.cos(lambda);
@@ -124,10 +124,9 @@ function highlightPoints(){
 makeLand();
 
 var quat = new THREE.Quaternion();
+quat.setFromAxisAngle({x:1, y:1, z:0}, -0.02);
 function animate() {
-
-    //quat.
-
+    world.applyQuaternion(quat);
     requestAnimationFrame( animate );
     renderer.render(scene, camera);
 };
