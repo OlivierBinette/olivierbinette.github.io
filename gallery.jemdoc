@@ -1,7 +1,7 @@
 # jemdoc: menu{MENU}{gallery.html}, showsource
 = Gallery
 
-== Data Visualization with WebGL
+== 3D Data Visualization in Javascript
 ~~~
 {}{raw}
 <table style="border:0px; align:left;">
@@ -10,7 +10,7 @@
       <iframe src="WebGL_demo/index.html" width="330px" height="250px" frameborder="0 " style="border:none;outline:none;" scrolling="no"></iframe>
     </td>
     <td style="border:none; align:left; text-align: left;">
-      <p style="text-align:left;">Earthquakes of magnitude greater than 6 for the 2014-2019 period.
+      <p style="text-align:left;">Earthquakes of magnitude greater than 6 from January 1st 2014 up to January 1st 2019. Data is from the US Geographical Service.
       </p>
       <p> You can rotate the sphere by dragging it and zoom using your mouse wheel.
       </p>
