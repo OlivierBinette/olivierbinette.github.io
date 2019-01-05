@@ -47,16 +47,16 @@ data = d3.csv('quakes.csv', function(d){
     x = Math.cos(phi) * Math.cos(lambda);
     y = Math.sin(phi);
     z = -Math.cos(phi) * Math.sin(lambda);
-    var pt = new Point([x, y, z], 0.05*(d.mag**2)/64);
+    var pt = new Point([x, y, z]);//, 0.05*(d.mag**2)/64);
     pt["magnitude"] = d.mag;
     pt["place"] = d.place;
     pt["time"] = new Date(d.time);
-    pt.material = Point.DEFAULT_MAT.clone();
-    pt.material.color.setRGB(
-        (d.mag**2) / 64.0,
-        1 - (d.mag**2) / 64.0,
-        1 - (d.mag**2) / 64.0
-    );
+    //pt.material = Point.DEFAULT_MAT.clone();
+    //pt.material.color.setRGB(
+    //    (d.mag**2) / 64.0,
+    //    1 - (d.mag**2) / 64.0,
+    //    1 - (d.mag**2) / 64.0
+    //);
     points.add(pt);
 }).then(
     function(data) {
