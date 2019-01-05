@@ -18,7 +18,7 @@ Point.prototype = Object.create(THREE.Mesh.prototype);
 Point.prototype.constructor = Point;
 
 
-Point.DEFAULT_GEO = new THREE.SphereGeometry(0.02, 12, 12);
+Point.DEFAULT_GEO = new THREE.SphereGeometry(0.03, 12, 12);
 Point.DEFAULT_MAT = new THREE.MeshBasicMaterial({
     color: 0x3388ff,
     //side: THREE.FrontSide,
@@ -48,4 +48,3 @@ Point.prototype.unHighlight = function() {
 Point.prototype.setScale = function(scale) {
     this.scale.set(scale, scale, scale);
 }
-

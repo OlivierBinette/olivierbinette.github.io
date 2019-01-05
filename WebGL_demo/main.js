@@ -9,7 +9,7 @@ var scene = new THREE.Scene();
 scene.background = new THREE.Color( 0xffffff );
 
 // Camera
-var camera = new THREE.PerspectiveCamera( 70, window.innerWidth/window.innerHeight, 0.1, 1000 );
+var camera = new THREE.PerspectiveCamera( 30, window.innerWidth/window.innerHeight, 0.1, 1000 );
 camera.position.z = 5;
 scene.add(camera);
 
@@ -41,13 +41,13 @@ for (var i = 0; i < 5000; i ++) dataset.push(rsphere());
 
 var points = new THREE.Group();
 var x, y, z, phi, lambda;
-data = d3.csv('quakes-small.csv', function(d){
+data = d3.csv('quakes.csv', function(d){
     phi = Math.PI*d.latitude/180.0;
     lambda = Math.PI*d.longitude/180.0;
     x = Math.cos(phi) * Math.cos(lambda);
     y = Math.sin(phi);
     z = -Math.cos(phi) * Math.sin(lambda);
-    var pt = new Point([x, y, z], 0.04*(d.mag**2)/64);
+    var pt = new Point([x, y, z], 0.05*(d.mag**2)/64);
     pt["magnitude"] = d.mag;
     pt["place"] = d.place;
     pt["time"] = new Date(d.time);
