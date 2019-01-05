@@ -9,7 +9,7 @@ function Controls(target, camera, renderer, domElement) {
     this.domElement = domElement;
 
     this.fovScale = 1;
-    this.maxfov = 30;
+    this.maxfov = 70;
     this.zoom = 0;
 
     // Flag for dragging action.
@@ -34,13 +34,16 @@ function Controls(target, camera, renderer, domElement) {
                 axis.y = dx/len;
                 axis.x = -dy/len;
                 axis.z = 0;
-                quat.setFromAxisAngle(axis, Math.PI * this.fovScale * len / 2.0)
+                quat.setFromAxisAngle(axis, Math.PI * this.fovScale * len)
                 this.target.applyQuaternion(quat);
             }
         }
 
         this.pastMousePosition.x = this.mousePosition.x;
         this.pastMousePosition.y = this.mousePosition.y;
+
+        document.getElementById("tooltip").style.top = event.clientY;
+        document.getElementById("tooltip").style.left = event.clientX;
 
         this.onMouseMove(event);
     }
