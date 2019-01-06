@@ -53,9 +53,9 @@ data = d3.csv('quakes-small.csv', function(d){
     pt["time"] = new Date(d.time);
     pt.material = Point.DEFAULT_MAT.clone();
     pt.material.color.setRGB(
-        (d.mag**2) / 64.0,
-        1 - (d.mag**2) / 64.0,
-        1 - (d.mag**2) / 64.0
+      (d.mag**2 - 12) / 69.0,
+      1 - (d.mag**2 - 12) / 69.0,
+      1 - (d.mag**2 - 12) / 69.0
     );
     points.add(pt);
 }).then(
