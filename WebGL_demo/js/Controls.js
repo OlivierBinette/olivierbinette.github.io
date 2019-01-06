@@ -56,6 +56,7 @@ function Controls(target, camera, renderer, domElement) {
     }
 
     Controls.prototype.handleMouseDown = function(event) {
+        event.preventDefault();
         this.dragging = true;
         this.onMouseDown(event);
     }
