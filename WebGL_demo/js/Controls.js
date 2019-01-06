@@ -35,7 +35,7 @@ function Controls(target, camera, renderer, domElement) {
                 axis.y = dx/len;
                 axis.x = -dy/len;
                 axis.z = 0;
-                quat.setFromAxisAngle(axis, Math.PI * this.fovScale * len)
+                quat.setFromAxisAngle(axis, this.fovScale * len)
                 this.target.applyQuaternion(quat);
             }
         }

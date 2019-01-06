@@ -125,7 +125,7 @@ makeLand();
 
 var quat = new THREE.Quaternion();
 function animate() {
-    quat.setFromAxisAngle({x:1/Math.sqrt(2), y:1/Math.sqrt(2), z:0}, -0.001*controls.fovScale);
+    quat.setFromAxisAngle({x:1/Math.sqrt(2), y:1/Math.sqrt(2), z:0}, -0.0005*controls.fovScale);
     world.applyQuaternion(quat);
     requestAnimationFrame( animate );
     renderer.render(scene, camera);
