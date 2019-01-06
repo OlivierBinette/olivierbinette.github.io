@@ -1,7 +1,7 @@
 # jemdoc: menu{MENU}{gallery.html}, showsource
 = Gallery
 
-== 3D Data Visualization in Javascript
+== 3D Data Visualization with WebGL/three.js
 ~~~
 {}{raw}
 <table style="border:0px; align:left;">
