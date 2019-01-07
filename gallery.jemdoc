@@ -12,7 +12,7 @@
     <td style="border:none; align:left; text-align: left;">
       <p style="text-align:left;">Earthquakes of magnitude greater than 6 from January 1st 2014 up to January 1st 2019. Data is from the US Geological Survey (usgs.gov).
       </p>
-      <p> You can rotate the sphere by dragging it and zoom using your mouse wheel. Code is <a href="https://github.com/OlivierBinette/earthquakes/tree/master"> on GitHub</a>.
+      <p> You can rotate the sphere by dragging it and zoom using your mouse wheel. Full scale visualization is at <a href="https://olivierbinette.ca/earthquakes/">olivierbinette.ca/earthquakes</a> and code can be found <a href="https://github.com/OlivierBinette/earthquakes/tree/master"> on GitHub</a>.
       </p>
     </td>
   </tr>
