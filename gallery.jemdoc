@@ -1,6 +1,14 @@
 # jemdoc: menu{MENU}{gallery.html}, showsource
 = Gallery of a few things I made
 
+== UQAM math-stat scholarship guide
+~~~
+{}{img_left}{guide_bourses.png}{Olivier Binette}{400px}{}{}
+
+This guide provides examples of successful scholarship applications (CVs, statement of purposes, projects, etc) from UQAM students as well as links to helpful ressources. It is a work in progress hosted on [https://github.com/OlivierBinette/Guide-des-bourses-UQAM on GitHub].
+~~~
+
+
 == 3D Data Visualization with WebGL/three.js
 ~~~
 {}{raw}
