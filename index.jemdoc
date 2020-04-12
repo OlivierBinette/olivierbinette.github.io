@@ -6,61 +6,9 @@
 
 === Statistical Science PhD Student (Duke University)
 
-I am broadly interested in the mathematical foundations of statistical learning, in the statistics of complex data and in the topological accuracy of some machine learning procedures.
-
-I was previously at Université du Québec à Montréal for my Masters, where I organized student *research seminars*, was *teaching assistant* for statistics, probability and analysis courses, and *private instructor* in more advanced courses.
-~~~
-
-== Updates
-  - /April 2019:/ I am working on a professional development guide aimed at UQAM's math & stats majors. Update: the content is now part of STATQAM's website [https://statqam.uqam.ca/autres-sources-de-financement/ statqam.uqam.ca]. 
-  - /March 2019:/ Received the Alexander-Graham-Bell Canada Graduate Scholarship [http://www.nserc-crsng.gc.ca/Students-Etudiants/PG-CS/BellandPostgrad-BelletSuperieures_eng.asp (CGS D)]. Ranked first among all mathematic all mathematical sciences applicants.
-  - /March 2019:/ Going to Duke for my PhD. :^)
-
-== Research interests
-
-My research has focused on *Bayesian nonparametric inference* for directional statistics and on *consistency issues* relating to density estimation on compact metric spaces \[1\]. More recently, I worked on *information inequalities* \[2\] and developped an interest in *topological consistency* for surface estimation \[3\].
+This website is under (re)construction!
 
 ~~~
-{}{raw}
-<a name="Publications"></a>
-~~~
-
-== Publications
-  - \[2\] Binette, O. (2019) A Note on Reverse Pinsker Inequalities. /IEEE Transactions on Information Theory/ 65 (7). pp. 4094-4096. \[[https://ieeexplore.ieee.org/document/8630660 link]\] \[[https://arxiv.org/pdf/1805.05135.pdf  arXiv]\]
-
-  - \[3\] Binette, O. (2018) Topologie et apprentissage machine. Notes From the Margin (13). p. 5-6. (Short paper for our Canadian mathematics student journal.)
-
-=== Preprints
-  - \[1\] Binette, O. et Guillotte, S. (2018) Bayesian Nonparametrics for Directional Statistics. [https://arxiv.org/pdf/1807.00305.pdf arXiv:1807.00305]. Submitted.
-
-=== Posters
-
-  - Binette, O. & Luo, Y. An Analysis of Gibbs Posterior Concentration in Terms of the Separation alpha-Entropy. /Objective Bayes Methodology Conference./ University of Warwick (United Kingdom). June 28, 2019.
-  - Binette, O. & Guillotte, S. BNP Density Estimation on Compact Metric Spaces. /12th Conference on Bayesian Nonparametrics./ Oxford University (United Kingdom). June 24, 2019.
-  - Binette, O. & Coache, A. The Significance of the Adjusted R Squared. /(Bio)Statistics Research Day./ McGill University (Canada). September 21, 2018.
-  - Binette, O. Classification and Topology, or Consequences of Sobolev Consistency. /Canadian Statistics Student Conference./ McGill University (Canada). June 2, 2018. /Best poster award./
-  - Binette, O. et Guillotte, S. Bayesian Nonparametrics for Directional Statistics. /11th Conference on Bayesian Nonparametrics./ Paris (France). June 26 2017.
-
-== Recently organized events and seminars
-  - Statistics Student Summit in Montreal (March 2019). [http://sesam2019.ca sesam2019.ca]
-  - UQAM's Graduate Student in Mathematics Seminar. (Spring 2019).
-  - Probability and Statistics Student Seminar. (Summer 2018).
-  - [https://mathstatnotes.wordpress.com/2018/06/07/ism-at-the-eureka-science-festival/ /Le carréousel du géomètre/.] Activity co-organized on the behalf of the Mathematical Science Institute at the Montreal Science Center. (Summer 2018).
-  - Probability and Statistics Student Seminar. (Summer 2017).
-
-~~~
-{}{raw}
-<a name="Talks"></a>
-~~~
-
-== Selected talks
-  - Classification and Topology. /[http://dukeml.org/mlbytes.html MLBytes Speaker Series]/ (Duke University). November 15, 2018.
-  - On Bayesian Nonparametrics Estimation of Discontinuous Densities. /Nonparametrics research group at Texas A&M/ (Texas). November 2, 2018. \[[https://mathstatnotes.files.wordpress.com/2018/10/talk-texas_notes.pdf notes]\] \[[https://mathstatnotes.files.wordpress.com/2018/10/talk-texas.pdf slides]\]
-  - [https://www.mcgill.ca/channels/channels/event/olivier-binette-uqam-290203 A Circular Analogue to the Bernstein Polynomial Densities, Bayesian Nonparametrics and Large Support Asymptotics]. /Université du Québec à Montréal/ (Montréal). October 4, 2018.
-  - A Circular Analogue to the Bernstein Polynomial Densities. /Annual Meeting of the Statistics Society of Canada/. Montréal (Canada). June 4, 2018.
-  - Topologie et apprentissage machine. /XXIe Colloque panquébécois des étudiants de l’ISM/. Sherbrooke (Canada). May 25, 2018.
-  - [https://www.mcgill.ca/mathstat/channels/event/olivier-binette-departement-de-mathematiques-uqam-286255 Bayesian Nonparametrics for Directional Statistics]. /Sherbrooke University/ (Sherbrooke). March 26, 2018.
-  - Bayesian Learning. /Mathematical Congress of the Americas/. Montréal (Canada). July 28, 2017.
 
 
 == Contact
