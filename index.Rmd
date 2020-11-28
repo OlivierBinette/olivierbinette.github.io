@@ -1,0 +1,25 @@
+---
+title: Bienvenue!
+description: I am Olivier, a Statistical Science PhD student at Duke University. 
+site: distill::distill_website
+output:
+  distill::distill_article:
+    includes:
+       in_header: 
+    css: styles.css
+---
+
+### Background
+
+I have been trained as a mathematician and statistician at Université du Québec à Montréal (B.Sc. and M.Sc.), where I developed my interest in Bayesian nonparametrics and statistical learning theory. Prior to college, I would spend most of my time programming (in Java, C, some Javascript and PHP, VHDL) and working on microelectronics projects.
+
+Recently, I have been focusing on more applied statistical problems - I want my work to have a positive impact on people’s life. I am particularly interested in sound statistical inference using administrative data, as well as using such data to better represent hidden populations in official statistics. This ties to my ongoing work with Professor Rebecca Steorts on **entity resolution** and **multiple systems estimation**.
+
+In my free time, I like to get involved with other student on campus. I'm grateful for our international academic community and I try to give back as I can.
+
+### What's on here?
+
+This website lists some of what I do. Check out my [research](./research.html), my [software](./software.html), and my [blog](./blog.html).
+
+
+

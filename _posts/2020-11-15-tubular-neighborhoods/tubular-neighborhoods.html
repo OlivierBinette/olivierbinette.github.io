@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #545454; font-weight: bold; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #a1024a; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #008000; } /* Char */
+code span.cn { color: #d91e18; } /* Constant */
+code span.co { color: #545454; } /* Comment */
+code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #aa5d00; } /* DataType */
+code span.dv { color: #a1024a; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #a1024a; } /* Float */
+code span.fu { color: #4254a7; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #545454; font-weight: bold; } /* Information */
+code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
+code span.op { color: #696969; } /* Operator */
+code span.ot { color: #007faa; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #008000; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #008000; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #008000; } /* VerbatimString */
+code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Tubular neighborhoods</title>
+
+  <meta property="description" itemprop="description" content="Complete proof of the tubular neighborhood theorem for submanifolds of euclidean space. I was unable to find an elementary version in the litterature."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2016-12-02"/>
+  <meta property="article:created" itemprop="dateCreated" content="2016-12-02"/>
+  <meta name="article:author" content="Olivier Binette"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Tubular neighborhoods"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Complete proof of the tubular neighborhood theorem for submanifolds of euclidean space. I was unable to find an elementary version in the litterature."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Tubular neighborhoods"/>
+  <meta property="twitter:description" content="Complete proof of the tubular neighborhood theorem for submanifolds of euclidean space. I was unable to find an elementary version in the litterature."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Tubular neighborhoods"]},{"type":"character","attributes":{},"value":["Complete proof of the tubular neighborhood theorem for submanifolds of euclidean space. I was unable to find an elementary version in the litterature.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Olivier Binette"]}]}]},{"type":"character","attributes":{},"value":["12-02-2016"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["eq.png","tubular-neighborhoods_files/anchor-4.2.2/anchor.min.js","tubular-neighborhoods_files/bowser-1.9.3/bowser.min.js","tubular-neighborhoods_files/distill-2.2.21/template.v2.js","tubular-neighborhoods_files/header-attrs-2.4/header-attrs.js","tubular-neighborhoods_files/jquery-1.11.3/jquery.min.js","tubular-neighborhoods_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: hidden;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="tubular-neighborhoods_files/header-attrs-2.4/header-attrs.js"></script>
+  <script src="tubular-neighborhoods_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="tubular-neighborhoods_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="tubular-neighborhoods_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="tubular-neighborhoods_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="tubular-neighborhoods_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Tubular neighborhoods","description":"Complete proof of the tubular neighborhood theorem for submanifolds of euclidean space. I was unable to find an elementary version in the litterature.","authors":[{"author":"Olivier Binette","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2016-12-02T00:00:00.000-05:00","citationText":"Binette, 2016"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Tubular neighborhoods</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>Complete proof of the tubular neighborhood theorem for submanifolds of euclidean space. I was unable to find an elementary version in the litterature.</p></p>
+</div>
+
+<div class="d-byline">
+  Olivier Binette  
+  
+<br/>12-02-2016
+</div>
+
+<div class="d-article">
+<p>Let me introduce some notations. A <span class="math inline">\(\mathcal{C}^l\)</span> submanifold of dimension <span class="math inline">\(m\)</span> of <span class="math inline">\(\mathbb{R}^k\)</span> is a subset <span class="math inline">\(M\)</span> that is locally <span class="math inline">\(\mathcal{C}^l\)</span>-diffeomorphic to open balls of <span class="math inline">\(\mathbb{R}^m\)</span>. Similarily, a <span class="math inline">\(\mathcal{C}^l\)</span> manifold with boundary is locally diffeomorphic to open balls of the half space <span class="math inline">\(\mathbb{H}^k = \{(x_1, \dots, x_m)\in \mathbb{R}^m | x_m \geq 0\}\)</span>. If <span class="math inline">\(f : M \rightarrow N\)</span> is a differentiable map between manifolds, we denote by <span class="math inline">\(df_x: T_x M \rightarrow T_{f(x)} N\)</span> the differential of <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span>. Each tangent space <span class="math inline">\(T_x M\)</span> has an orthogonal complement <span class="math inline">\(N_x M\)</span> in <span class="math inline">\(\mathbb{R}^k\)</span>; the <em>normal bundle </em>of <span class="math inline">\(M\)</span> is <span class="math inline">\(N(M) = \{(x, v) \in \mathbb{R}^{2k} | x \in M,\, v \in N_x M\}\)</span>. In the following, we assume <span class="math inline">\(M\)</span> is compact.</p>
+<p>Given <span class="math inline">\(\varepsilon \gt; 0\)</span>, we let <span class="math inline">\(V_\varepsilon = \{(x, v) \in N(M) \,|\, |v| \le \varepsilon\}\)</span> and <span class="math inline">\(P_\varepsilon = \{y \in \mathbb{R}^k | d(y, M) \le \varepsilon \}\)</span>, where <span class="math inline">\(d\)</span> is the euclidean distance. The set <span class="math inline">\(V_\varepsilon\)</span> is an <span class="math inline">\(\varepsilon\)</span>-neighborhood of the cross-section <span class="math inline">\(M \times \{0\}\)</span> in <span class="math inline">\(N(M)\)</span>, and <span class="math inline">\(P_\varepsilon\)</span> is a <em>tubular neighborhood</em> of <span class="math inline">\(M\)</span> in <span class="math inline">\(\mathbb{R}^k\)</span>. We will prove the following theorem.</p>
+<p><strong>Tubular neighborhood theorem. </strong>Let <span class="math inline">\(M\)</span> be a compact submanifold of <span class="math inline">\(\mathbb{R}^k\)</span>, without boundary. For <span class="math inline">\(\varepsilon \gt; 0\)</span> sufficiently small, <span class="math inline">\(V_\varepsilon\)</span> and <span class="math inline">\(P_\varepsilon\)</span> are manifolds, diffeomorphic under the map <span class="math inline">\(F : V_\varepsilon \rightarrow P_\varepsilon : (x, v) \mapsto x+v\)</span>.</p>
+<p><strong>Corollary 1.</strong> If <span class="math inline">\(\varepsilon \gt; 0\)</span> is sufficiently small, then for each <span class="math inline">\(w \in P_\varepsilon\)</span> there exists an unique closest point to <span class="math inline">\(w\)</span> on <span class="math inline">\(M\)</span>.</p>
+<p>Note, however, that this corollary may not hold when <span class="math inline">\(M\)</span> is only a <span class="math inline">\(\mathcal{C}^1\)</span> manifold. We will require <span class="math inline">\(M\)</span> to be at least <span class="math inline">\(\mathcal{C}^2\)</span>. The proof will make clear why this is necessary, but I also present a counter-example.</p>
+<p><strong>Counterexample (<span class="math inline">\(\mathcal{C}^1\)</span> manifolds).</strong> Let <span class="math inline">\(M\)</span> be the graph of <span class="math inline">\(f: [-1,1] \rightarrow \mathbb{R} : t \mapsto t^{4/3}\)</span> in <span class="math inline">\(\mathbb{R}^2\)</span>. It is indeed a compact <span class="math inline">\(\mathcal{C}^1\)</span> manifold since <span class="math inline">\(f\)</span> is <span class="math inline">\(\mathcal{C}^1\)</span>. However, the points <span class="math inline">\(w_\varepsilon = (0, \varepsilon)\)</span> have, for all <span class="math inline">\(\varepsilon \gt; 0\)</span>, two closest points on <span class="math inline">\(M\)</span>. To see this, first note that if <span class="math inline">\(M\)</span> had an unique closest point to <span class="math inline">\(w_\varepsilon\)</span>, then that point would be <span class="math inline">\((0,0)\)</span>, by the parity of <span class="math inline">\(f\)</span>. Now, consider the function <span class="math inline">\(g_\varepsilon :[-\varepsilon, \varepsilon] \rightarrow \mathbb{R}: t \mapsto \varepsilon - \sqrt{\varepsilon^2 - t^2 }\)</span>, its graph being the lower half of a circle centered at <span class="math inline">\(w_\varepsilon\)</span> and crossing <span class="math inline">\((0,0)\)</span>. We find <span class="math display">\[\lim_{t \rightarrow 0} g_\varepsilon&#39;(t)/f&#39;(t) = \lim_{t \rightarrow 0} \frac{3}{4}\frac{t^{2/3}}{\sqrt{\varepsilon^2 - t^2}} = 0,\]</span> meaning that the graph of <span class="math inline">\(g_\varepsilon\)</span> is under <span class="math inline">\(M\)</span> near <span class="math inline">\((0,0)\)</span>. This is a contradiction, as me may thus shrink the circle to find two intersection points on <span class="math inline">\(M\)</span> closer to <span class="math inline">\(w_\varepsilon\)</span> than <span class="math inline">\((0,0)\)</span>.</p>
+<h2 id="proof-of-the-theorem.">Proof of the theorem.</h2>
+<p>In the following, <span class="math inline">\(M\)</span> is a compact <span class="math inline">\(\mathcal{C}^2\)</span> submanifold of <span class="math inline">\(\mathbb{R}^k\)</span> of dimension <span class="math inline">\(m\)</span>.</p>
+<p><strong>Lemma 1.</strong> The normal bundle <span class="math inline">\(N(M)\)</span> is a <span class="math inline">\(\mathcal{C}^1\)</span> submanifold of <span class="math inline">\(\mathbb{R}^{2k}\)</span> and <span class="math inline">\(T_{(x,v)} N(M) = T_xM \times N_x M\)</span>.</p>
+<p><strong>Proof.</strong> Let <span class="math inline">\((x_0, 0) \in N(M)\)</span> and consider a neighborhood <span class="math inline">\(\mathcal{U}\)</span> of <span class="math inline">\(x_0\)</span> in <span class="math inline">\(\mathbb{R}^k\)</span>. It may be chosen so that <span class="math inline">\(M\cap \mathcal{U} = \phi^{-1}(0)\)</span>, for some <span class="math inline">\(\phi : \mathcal{U} \rightarrow \mathbb{R}^{k-m}\)</span> with <span class="math inline">\(d\phi_x\)</span> surjective. Restricting <span class="math inline">\(\mathcal{U}\)</span> some more, we can find a <span class="math inline">\(\mathcal{C}^2\)</span> diffeomorphism <span class="math inline">\(\psi : \mathbb{R}^m \rightarrow M\cap \mathcal{U}\)</span>. Using <span class="math inline">\(\phi\)</span> and and <span class="math inline">\(\psi\)</span>, we construct a <span class="math inline">\(\mathcal{C}^1\)</span> map <span class="math inline">\(f : \mathbb{R}^k \times \mathbb{R}^k \rightarrow \mathbb{R}^k\)</span> having <span class="math inline">\(0\)</span> as a regular value and such that <span class="math inline">\(N(M\cap \mathcal{U}) = f^{-1}(0)\)</span>. It will follow from the preimage theorem that <span class="math inline">\(N(M \cap \mathcal{U})\)</span> is a <span class="math inline">\(\mathcal{C}^1\)</span> submanifold of dimension <span class="math inline">\(k\)</span>. Furthermore, <span class="math inline">\(N(M \cap \mathcal{U})\)</span> is an open neighborhood of <span class="math inline">\((x_0, v)\)</span> for all <span class="math inline">\(v \in T_{x_0}M\)</span> and we will have found that <span class="math inline">\(N(M)\)</span> is a <span class="math inline">\(\mathcal{C}^1\)</span> manifold.</p>
+<p>The map <span class="math inline">\(f\)</span> is defined as <span class="math inline">\(f: \mathbb{R}^k \times \mathbb{R}^k \rightarrow \mathbb{R}^k\)</span>, <span class="math inline">\(f(x, v) = \left(\phi(x), u(x, v)\right)\)</span>, where <span class="math inline">\(u : \mathbb{R}^{2k} \rightarrow \mathbb{R}^m : (x,v) \mapsto (\langle v, d\psi_{\psi^{-1}(x)}(e_1) \rangle, \dots, \langle v, d\psi_{\psi^{-1}(x)}(e_m) \rangle)\)</span> and <span class="math inline">\((e_i)\)</span> is a basis of <span class="math inline">\(\mathbb{R}^m\)</span>. Because the vectors <span class="math inline">\(d\psi_{\psi^{-1}(x)}(e_i)\)</span> form a basis of <span class="math inline">\(T_x M\)</span>, the zero set <span class="math inline">\(u^{-1}(0)\)</span> is precisely <span class="math inline">\(N_x M\)</span> and we find that <span class="math inline">\(f^{-1}(0) = M \cap \mathcal{U}\)</span>. To differentiate <span class="math inline">\(f\)</span>, we use the fact that <span class="math inline">\(\psi\)</span> is <span class="math inline">\(\mathcal{C}^2\)</span>. In its matrix form,</p>
+<p><span class="math display">\[
+  df_{(x,v)} = \left[\begin{array}{cc}d\phi_x&amp; 0\\ *&amp; \partial_2 u_{(x,v)}\end{array}\right]
+\]</span></p>
+<p>where both <span class="math inline">\(d\phi_x\)</span> and <span class="math inline">\(\partial_2 u_(x,v) = u(x, \cdot)\)</span> are surjective whenever <span class="math inline">\(x \in M\)</span>. Thus <span class="math inline">\(df_{(x,v)}\)</span> is indeed surjective for all <span class="math inline">\((x,v) \in f^{-1}(0)\)</span>. The assertion <span class="math inline">\(T_{(x,v)} N(M) = T_xM \times N_x M\)</span> follows from <span class="math inline">\(T_{(x,v)} N(M) = ker(df_{(x,v)}\)</span>.  QED.</p>
+<p><strong>Lemma 2.</strong> For all <span class="math inline">\(\varepsilon \gt; 0\)</span>, <span class="math inline">\(V_\varepsilon \subset N(M)\)</span> is a submanifold with boundary.</p>
+<p><strong>Proof.</strong> Let <span class="math inline">\(f : N(M) \rightarrow \mathbb{R} : (x,v) \mapsto ||v||^2\)</span>. For any <span class="math inline">\((x, v) \in f^{-1}(\varepsilon^2)\)</span>, we have <span class="math inline">\(df_{(x,v)}: T_x M \times N_x M \rightarrow \mathbb{R} : (y, u) \mapsto 2\langle u, v \rangle\)</span> is surjective. By the preimage theorem, we find that <span class="math inline">\(f^{-1}((-\infty, \varepsilon^2])\)</span> is a submanifold of <span class="math inline">\(N(M)\)</span> with boundary <span class="math inline">\(f^{-1}(\varepsilon^2)\)</span>. QED.</p>
+<p><strong>Lemma 3.</strong> The map <span class="math inline">\(F: V_\varepsilon \rightarrow \mathbb{R}^k\)</span> is a local diffeomorphism onto its image <span class="math inline">\(N_\varepsilon\)</span>.</p>
+<p>Proof. The differential of <span class="math inline">\(F\)</span> is simply <span class="math inline">\(dF_{(x,v)} : T_xM \times N_xM \rightarrow \mathbb{R}^k : (a, b) \mapsto a+b\)</span>, an isomorphism since <span class="math inline">\(\mathbb{R}^k\)</span> is the direct sum of <span class="math inline">\(T_xM\)</span> and <span class="math inline">\(N_xM\)</span>. By the inverse function theorem, it follows that <span class="math inline">\(F\)</span> is a local diffeomorphism onto its image. Now, it is clear that <span class="math inline">\(F(V_\varepsilon) \subset N_\varepsilon\)</span>. If <span class="math inline">\(w \in N_\varepsilon\)</span>, then by compacity of <span class="math inline">\(M\)</span> we can find a closest point <span class="math inline">\(x \in M\)</span>. It is straightforward to verify that <span class="math inline">\(w-x \in N_xM\)</span>, and thus <span class="math inline">\((x, w-x)\in V_\varepsilon\)</span>, <span class="math inline">\(F(x, w-x) = w\)</span>. QED.</p>
+<p><strong>Lemma 4 (See Spivak, 1970). </strong>If <span class="math inline">\(\varepsilon \gt; 0\)</span> is taken sufficiently small, then <span class="math inline">\(F : V_\varepsilon \rightarrow N_\varepsilon : (x, v) \mapsto x+v\)</span> is a diffeomorphism.</p>
+<p><strong>Proof. </strong>It suffices to show that <span class="math inline">\(F\)</span> is bijective, whenever <span class="math inline">\(\varepsilon \gt; 0\)</span> is sufficiently small. The local diffeomorphism will then be a global diffeomorphism. Note that <span class="math inline">\(F\)</span> is injective on <span class="math inline">\(M\times \{0\}\)</span>. Let <span class="math inline">\(A = \{(a, b) \in N(M)^2 | a \not = b,\, F(a) = F(b)\}\)</span> be the set of points showcasing the non-injectivity of <span class="math inline">\(F\)</span>. This set is disjoint from the compact set <span class="math inline">\((M \times \{0\})^2\)</span>. Therefore, if we can show that <span class="math inline">\(A\)</span> is closed, we will find <span class="math inline">\(d(A, (M \times \{0\})^2) \gt; 0\)</span> and taking <span class="math inline">\(\varepsilon \lt; d(A, (M \times \{0\})^2)\)</span> will suffice. Let <span class="math inline">\(\{(a_n, b_n)\}\)</span> be a sequence of points in <span class="math inline">\(A\)</span> converging to some <span class="math inline">\((a,b)\)</span>. By continuity of <span class="math inline">\(F\)</span>, we must have <span class="math inline">\(F(a) = F(b)\)</span>. We cannot have <span class="math inline">\(a = b\)</span>, as this would contradict the fact that <span class="math inline">\(F\)</span> is a local diffeomorphism. Therefore <span class="math inline">\(a \not = b\)</span> and <span class="math inline">\((a,b) \in A\)</span>. QED.</p>
+<p><strong>References:</strong></p>
+<p>Milnor, J.W. (1965) Topology from a differentiable point of view. Spivak, M. (1970) A comprehensive introduction to differential geometry.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

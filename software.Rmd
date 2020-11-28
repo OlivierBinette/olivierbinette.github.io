@@ -1,0 +1,47 @@
+---
+title: "Software"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
+```
+
+# R packages
+
+### [assert](https://github.com/OlivierBinette/assert)
+
+<!--[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/assert)](https://cran.r-project.org/package=assert) -->
+
+Lightweight validation tool for checking function arguments and data analysis scripts.
+
+```{r}
+install.packages("assert")
+```
+
+
+### [dgaFast](https://github.com/OlivierBinette/dgaFast)
+
+Multiple Systems Estimation Using Decomposable Graphical Models. This is an efficient re-implementation and extension of the `dga` R package.
+
+```{r}
+devtools::install_github("OlivierBinette/dgaFast")
+```
+
+
+# Javascript apps
+
+### [Fractals](https://olivierbinette.github.io/Fractals/)
+
+High resolution visualization for the Mandelbrot set. A [Java version](https://github.com/olivierBinette/Fractals) with more features is also available.
+
+### [Earthquakes](https://olivierbinette.github.io/earthquakes/)
+
+Visualize earthquakes on the globe.
+
+# Other software
+
+- **[splinit](https://github.com/OlivierBinette/splinit)**: Closed curve reconstruction in R using the fused lasso and minimal hamiltonian cycles.
+
+- **[lipsample](https://github.com/OlivierBinette/lipsample)**: Sampling from arbitrary Lipschitz continuous densities on the interval in matlab.
+
+- **[prettyplot](https://github.com/OlivierBinette/prettyplot)**: Prettier base plots in R.
