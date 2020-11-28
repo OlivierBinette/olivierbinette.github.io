@@ -6,7 +6,7 @@ title: "Teaching"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## TA at Duke University
+### TA at Duke University
 
 Head TA (weekly labs and office hours) for the following classes:
 
@@ -14,7 +14,7 @@ Head TA (weekly labs and office hours) for the following classes:
 
 - STA 360 - [Bayesian and Modern Statistics](https://github.com/resteorts/modern-bayes) (Head TA, Fall 2020)
 
-## TA at Université du Québec à Montréal
+### TA at Université du Québec à Montréal
 
 Instructional TA (weekly labs and office hours) for the following classes:
 
@@ -30,7 +30,7 @@ Instructional TA (weekly labs and office hours) for the following classes:
 
 - MAT 2150 - [Analysis II](https://etudier.uqam.ca/cours?sigle=MAT2150) (Fall 2017 & Fall 2018)
 
-## Other teaching activities
+### Other teaching activities
 
 - Co-produced an activity for children at the Eureka! Science Festival (Montreal Science Center, June 2018)
 
