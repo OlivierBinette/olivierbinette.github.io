@@ -9,7 +9,7 @@ navbar:
     - text: "Home"
       href: index.html
     - text: "CV"
-      href: cv.html
+      href: media/cv.pdf
     - text: "Research"
       href: research.html
     - text: "Teaching"
