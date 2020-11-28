@@ -9,7 +9,7 @@ output:
     css: styles.css
 ---
 
-## Background
+### Background
 
 I have been trained as a mathematician and statistician at Université du Québec à Montréal (B.Sc. and M.Sc.), where I developed my interest in Bayesian nonparametrics and statistical learning theory. Prior to college, I would spend most of my time programming (in Java, C, some Javascript and PHP, VHDL) and working on microelectronics projects.
 
@@ -21,13 +21,13 @@ In my free time, I like to get involved with other student on campus. I'm gratef
 
 This website lists some of what I do. Check out my [research](./research.html), my [software](./software.html), and my [blog](./blog.html).
 
-## News
+### News
 
-- 11/28/2020 - My package [`assert` version 1.0.1](https://github.com/olivierBinette/assert) has just been released!
+- 11/28/2020 - Package [`assert` version 1.0.1](https://github.com/olivierBinette/assert) has just been released!
 - 11/28/2020 - New website is up! I've imported a few of my blog posts from the past years.
 - 08/10/2020 - Our paper [*(Almost) All of Entity Resolution*](https://arxiv.org/abs/2008.04443) is now on arXiv.
 
-## Links
+### Links
 
 Some things I find interesting (more to come):
 

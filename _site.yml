@@ -5,6 +5,7 @@ description: |
 output_dir: "docs"
 theme: Olivier.css
 navbar:
+  search: true
   right:
     - text: "Home"
       href: index.html

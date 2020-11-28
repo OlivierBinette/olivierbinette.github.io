@@ -1,5 +1,5 @@
 ---
-title: "Olivier's open lab book"
+title: "Olivier's blog"
 listing: posts
 ---
 
