@@ -5,43 +5,42 @@
       "title": "Olivier's blog",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2020-11-28T14:35:43-05:00"
+      "last_modified": "2021-01-09T09:24:10-05:00"
     },
     {
       "path": "index.html",
       "title": "Bienvenue!",
-      "description": "I am Olivier, a Statistical Science PhD student at Duke University.",
       "author": [],
-      "contents": "\nBackground\nI have been trained as a mathematician and statistician at Université du Québec à Montréal (B.Sc. and M.Sc.), where I developed my interest in Bayesian nonparametrics and statistical learning theory. Prior to college, I would spend most of my time programming (in Java, C, some Javascript and PHP, VHDL) and working on microelectronics projects.\nRecently, I have been focusing on more applied statistical problems - I want my work to have a positive impact on people’s life. I am particularly interested in sound statistical inference using administrative data, as well as using such data to better represent hidden populations in official statistics. This ties to my ongoing work with Professor Rebecca Steorts on entity resolution and multiple systems estimation.\nIn my free time, I like to get involved with other student on campus. I’m grateful for our international academic community and I try to give back as I can.\nWhat’s on here?\nThis website lists some of what I do. Check out my research, my software, and my blog.\nNews\n11/28/2020 - Package assert version 1.0.1 has just been released!\n11/28/2020 - New website is up! I’ve imported a few of my blog posts from the past years.\n08/10/2020 - Our paper (Almost) All of Entity Resolution is now on arXiv.\nLinks\nSome things I find interesting (more to come):\n“23 things I didn’t learn in college or grad school.” A Twitter collection by D. Sivakumar.\n\n\n\n",
-      "last_modified": "2020-11-28T15:24:09-05:00"
+      "contents": "\nI am Olivier, currently a PhD student in the Statistical Science department at Duke University. I hold a mathematics B.Sc. and a statistics M.Sc. from Université du Québec à Montréal.\nI have broad ranging interests in statistics and recently I have been focusing on challenging applied problems. These relate to sound statistical inference using administrative data, as well as using such data to better represent hidden populations in official statistics.\nIn my free time, I like to get involved with other students on campus. I’m grateful for our international academic community and I try to give back as I can.\nWhat’s on here?\nThis website lists some of what I do. Check out my research, my software, and my blog.\nNews\n11/28/2020 - Package assert version 1.0.1 has just been released!\n11/28/2020 - New website is up! I’ve imported a few of my blog posts from the past years.\n08/10/2020 - Our paper (Almost) All of Entity Resolution is now on arXiv.\nLinks\nSome things I find interesting (more to come):\n“23 things I didn’t learn in college or grad school.” A Twitter collection by D. Sivakumar.\n\n\n\n",
+      "last_modified": "2021-01-09T09:24:12-05:00"
     },
     {
       "path": "research.html",
       "title": "Research",
       "author": [],
       "contents": "\n\nContents\nEntity resolution\nMultiple systems estimation\nBayesian nonparametrics\nSide projects\n\nEntity resolution\nBinette, O. and Steorts, R. C. (2020) (Almost) All of Entity Resolution. arXiv e-prints. arxiv:2008.04443 [pdf]\nMultiple systems estimation\nBinette, O. and Steorts, R. C. (2020) Discussion of read paper “Multiple-systems analysis for the quantification of modern slavery: classical and Bayesian approaches” by Bernard Silverman. Journal of the Royal Statistical Society Series A 183 (3). pp. 35 [link]\nBayesian nonparametrics\nBinette, O. (2019). A Note on Reverse Pinsker Inequalities. IEEE Transactions on Information Theory 65 (7). pp.4094-4096. [pdf]\nBinette, O. and Guillotte, S. (2019). Bayesian Nonparametrics for Directional Statistics. arXiv e-prints. arxiv:1807.00305. [pdf]\nBinette, O. and Pati, D. and Dunson, D. B. (2020) Bayesian Closed Surface Fitting Through Tensor Products. Journal of Machine Learning Research 21 (119) pp. 1-26 [pdf]\nSide projects\nBinette, O. (2018). Topology and Machine Learning. Notes from the Margin 13. pp. 5-6. [link]\nBinette, O. and Luo, L. An Analysis of Gibbs Posterior Concentration in Terms of the Separation \\(\\alpha\\)-Entropy. Objective Bayes Conference (poster presentation). Warwick (United Kingdom). June 28, 2019. [pdf]\nBinette, O. and Coache, A. The Significance of the Adjusted R Squared. (Bio)Statistics Research Day (poster presentation). Montréal (Canada). September 21, 2018. [pdf]\nBinette, O. Classification and Topology, or Consequences of Sobolev Consistency. Canadian Statistics Student Conference (poster presentation). Montréal (Canada). June 2, 2018. (Best poster award) [pdf]\n\n\n\n",
-      "last_modified": "2020-11-28T15:30:17-05:00"
+      "last_modified": "2021-01-09T09:24:15-05:00"
     },
     {
       "path": "software.html",
       "title": "Software",
       "author": [],
       "contents": "\nR packages\nassert\n\nLightweight validation tool for checking function arguments and data analysis scripts.\n\n\ninstall.packages(\"assert\")\n\n\n\ndgaFast\nMultiple Systems Estimation Using Decomposable Graphical Models. This is an efficient re-implementation and extension of the dga R package.\n\n\ndevtools::install_github(\"OlivierBinette/dgaFast\")\n\n\n\nJavascript apps\nFractals\nHigh resolution visualization for the Mandelbrot set. A Java version with more features is also available.\nEarthquakes\nVisualize earthquakes on the globe.\nOther software\nsplinit: Closed curve reconstruction in R using the fused lasso and minimal hamiltonian cycles.\nlipsample: Sampling from arbitrary Lipschitz continuous densities on the interval in matlab.\nprettyplot: Prettier base plots in R.\n\n\n\n",
-      "last_modified": "2020-11-28T14:16:57-05:00"
+      "last_modified": "2021-01-09T09:24:17-05:00"
     },
     {
       "path": "teaching.html",
       "title": "Teaching",
       "author": [],
       "contents": "\nTA at Duke University\nHead TA (weekly labs and office hours) for the following classes:\nSTA 490/690 - Entity Resolution (Spring 2021)\nSTA 360 - Bayesian and Modern Statistics (Head TA, Fall 2020)\nTA at Université du Québec à Montréal\nInstructional TA (weekly labs and office hours) for the following classes:\nSTT 1000 - Statistics I (Winter 2019)\nMAT 1130 - Analysis I (Winter 2019)\nMAT 2710 -Probability II (Fall 2018)\nMAT 2160 - Complex Analysis (Winter 2018)\nMAT 1190 - Analysis and algebra for the actuarial sciences (Winter 2018)\nMAT 2150 - Analysis II (Fall 2017 & Fall 2018)\nOther teaching activities\nCo-produced an activity for children at the Eureka! Science Festival (Montreal Science Center, June 2018)\n\n\n\n",
-      "last_modified": "2020-11-28T15:28:16-05:00"
+      "last_modified": "2021-01-09T09:24:21-05:00"
     },
     {
       "path": "values.html",
       "title": "Values",
       "author": [],
       "contents": "\nI am committed to making the world a better place through my work. The most fundamental values which underpin my commitment are listed below.\nI have always thought of mathematics and statistics as liberal arts. They are tools to help us make better sense of the world. I want to pursue research in a way which is compatible with this point of view and which ultimately promotes free and critical thought.\nI want my research, teaching, and mentoring to be positive not just in terms of their direct intended purposes, but also through their collateral effects. This includes their effects on well-being, on intellectual training, and on personal growth for trainees, students, collaborators, and for the broader community.\nI want my research to be open and freely accessible. Feedback and criticism is always welcome.\nI want to acknowledge uncertainty and uphold truth in my work, despite potential pressure to the contrary. Too often we see wild claims from weak observational studies in the scientific literature. Science cannot be reduced to “\\(p < 0.05\\)”.\nCompromises are necessary to rally people. I do not compromise on core principles of truth and inclusivity, but I otherwise want to be accommodating with collegiality in mind.\n\n\n\n",
-      "last_modified": "2020-11-28T14:17:01-05:00"
+      "last_modified": "2021-01-09T09:24:22-05:00"
     }
   ],
   "collections": ["posts/posts.json"]

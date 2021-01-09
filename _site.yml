@@ -19,6 +19,4 @@ navbar:
       href: software.html
     - text: "Blog"
       href: blog.html
-    - text: "Values"
-      href: values.html
 output: distill::distill_article
