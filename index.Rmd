@@ -21,7 +21,7 @@ This website lists some of what I do. Check out my [research](./research.html), 
 
 ### News
 
-- 11/28/2020 - Package [`assert` version 1.0.1](https://github.com/olivierBinette/assert) has just been released!
+- 11/28/2020 - Package [`assert` version 1.0.1](https://github.com/olivierBinette/assert) has just been released.
 - 11/28/2020 - New website is up! I've imported a few of my blog posts from the past years.
 - 08/10/2020 - Our paper [*(Almost) All of Entity Resolution*](https://arxiv.org/abs/2008.04443) is now on arXiv.
 
