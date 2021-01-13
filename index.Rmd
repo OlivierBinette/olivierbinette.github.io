@@ -8,7 +8,7 @@ output:
        in_header: 
     css: styles.css
 ---
-
+ 
 I am Olivier, currently a PhD student in the Statistical Science department at Duke University. I hold a mathematics B.Sc. and a statistics M.Sc. from Université du Québec à Montréal.
 
 I have broad ranging interests in statistics and recently I have been focusing on challenging applied problems. These relate to sound statistical inference using administrative data, as well as using such data to better represent hidden populations in official statistics.
