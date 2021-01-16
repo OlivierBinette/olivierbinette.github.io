@@ -6,13 +6,16 @@ title: "Teaching"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### TA at Duke University
+### Tutorials
 
-Head TA (weekly labs and office hours) for the following classes:
+- [Getting started with git and GitHub (video)](https://www.youtube.com/watch?v=kHhBHJu_7us)
+
+### TA at Duke University
+Instructional TA (weekly labs and office hours) for the following classes:
 
 - STA 490/690 - Entity Resolution (Spring 2021)
 
-- STA 360 - [Bayesian and Modern Statistics](https://github.com/resteorts/modern-bayes) (Head TA, Fall 2020)
+- STA 360 - [Bayesian and Modern Statistics](https://github.com/resteorts/modern-bayes) (Fall 2020)
 
 ### TA at Université du Québec à Montréal
 
@@ -32,7 +35,7 @@ Instructional TA (weekly labs and office hours) for the following classes:
 
 ### Other teaching activities
 
-- Co-produced an activity for children at the Eureka! Science Festival (Montreal Science Center, June 2018)
+- [Co-produced an activity for children at the Eureka! Science Festival (Montreal Science Center, June 2018)](https://olivierbinette.github.io/posts/2020-11-15-ism-at-the-eureka-science-festival/)
 
 
 

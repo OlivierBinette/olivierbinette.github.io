@@ -8,7 +8,7 @@ output:
        in_header: 
     css: styles.css
 ---
-
+ 
 I am Olivier, currently a PhD student in the Statistical Science department at Duke University. I hold a mathematics B.Sc. and a statistics M.Sc. from Université du Québec à Montréal.
 
 I have broad ranging interests in statistics and recently I have been focusing on challenging applied problems. These relate to sound statistical inference using administrative data, as well as using such data to better represent hidden populations in official statistics.
@@ -21,7 +21,7 @@ This website lists some of what I do. Check out my [research](./research.html), 
 
 ### News
 
-- 11/28/2020 - Package [`assert` version 1.0.1](https://github.com/olivierBinette/assert) has just been released!
+- 11/28/2020 - Package [`assert` version 1.0.1](https://github.com/olivierBinette/assert) has just been released.
 - 11/28/2020 - New website is up! I've imported a few of my blog posts from the past years.
 - 08/10/2020 - Our paper [*(Almost) All of Entity Resolution*](https://arxiv.org/abs/2008.04443) is now on arXiv.
 
