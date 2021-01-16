@@ -25,8 +25,8 @@
       "path": "software.html",
       "title": "Software",
       "author": [],
-      "contents": "\nR packages\nassert\n\nLightweight validation tool for checking function arguments and data analysis scripts.\n\n\ninstall.packages(\"assert\")\n\n\n\ndgaFast\nMultiple Systems Estimation Using Decomposable Graphical Models. This is an efficient re-implementation and extension of the dga R package.\n\n\ndevtools::install_github(\"OlivierBinette/dgaFast\")\n\n\n\nJavascript apps\nFractals\nHigh resolution visualization for the Mandelbrot set. A Java version with more features is also available.\nEarthquakes\nVisualize earthquakes on the globe.\nOther software\nsplinit: Closed curve reconstruction in R using the fused lasso and minimal hamiltonian cycles.\nlipsample: Sampling from arbitrary Lipschitz continuous densities on the interval in matlab.\nprettyplot: Prettier base plots in R.\n\n\n\n",
-      "last_modified": "2021-01-09T09:24:17-05:00"
+      "contents": "\nR packages\nassert\n\nLightweight validation tool for checking function arguments and data analysis scripts.\n\n\ninstall.packages(\"assert\")\n\n\n\ndgaFast\nMultiple Systems Estimation Using Decomposable Graphical Models. This is an efficient re-implementation and extension of the dga R package.\n\n\ndevtools::install_github(\"OlivierBinette/dgaFast\")\n\n\n\nTessTools\nTools for the use of Tesseract OCR in R and for the analysis of historical newspaper archives.\n\n\ndevtools::install_github(\"OlivierBinette/TessTools\")\n\n\n\nsplinit\nPeriodic spline regression and closed curve reconstruction.\n\n\ndevtools::install_github(\"OlivierBinette/splinit\")\n\n\n\npretty\nBetter baser plots in R.\n\n\ndevtools::install_github(\"OlivierBinette/pretty\")\n\n\n\nJavascript apps\nFractals\nHigh resolution visualization for the Mandelbrot set. A Java version with more features is also available.\nEarthquakes\nVisualize earthquakes on the globe.\nOther software\nlipsample: Sampling from arbitrary Lipschitz continuous densities on the interval in matlab.\n\n\n\n",
+      "last_modified": "2021-01-16T13:13:06-05:00"
     },
     {
       "path": "teaching.html",

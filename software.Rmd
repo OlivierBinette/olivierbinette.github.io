@@ -28,6 +28,31 @@ devtools::install_github("OlivierBinette/dgaFast")
 ```
 
 
+### [TessTools](https://github.com/OlivierBinette/TessTools)
+
+Tools for the use of Tesseract OCR in R and for the analysis of historical newspaper archives.
+
+```{r}
+devtools::install_github("OlivierBinette/TessTools")
+```
+
+
+### [splinit](https://github.com/OlivierBinette/splinit)
+
+Periodic spline regression and closed curve reconstruction.
+
+```{r}
+devtools::install_github("OlivierBinette/splinit")
+```
+
+### [pretty](https://github.com/OlivierBinette/pretty)
+
+Better baser plots in R.
+
+```{r}
+devtools::install_github("OlivierBinette/pretty")
+```
+
 # Javascript apps
 
 ### [Fractals](https://olivierbinette.github.io/Fractals/)
@@ -40,8 +65,4 @@ Visualize earthquakes on the globe.
 
 # Other software
 
-- **[splinit](https://github.com/OlivierBinette/splinit)**: Closed curve reconstruction in R using the fused lasso and minimal hamiltonian cycles.
-
 - **[lipsample](https://github.com/OlivierBinette/lipsample)**: Sampling from arbitrary Lipschitz continuous densities on the interval in matlab.
-
-- **[prettyplot](https://github.com/OlivierBinette/prettyplot)**: Prettier base plots in R.
