@@ -30,5 +30,6 @@ This website lists some of what I do. Check out my [research](./research.html), 
 Some things I find interesting (more to come):
 
 - ["23 things I didn't learn in college or grad school."](https://twitter.com/dsivakumar/timelines/1328255107599802368) A Twitter collection by D. Sivakumar.
+- [Teaching Tech Together](https://teachtogether.tech/en/index.html) by Greg Wilson
 
 
