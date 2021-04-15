@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Binette, O. and Pati, D. and Dunson, D. B. (2020) Bayesian Closed Surface Fitting Through Tensor Products. *Journal of Machine Learning Research 21* (119) pp. 1-26 [[pdf](https://jmlr.org/papers/volume21/13-233/13-233.pdf)]
 
-### Side projects
+### Side projects (mainly posters)
 
 - Binette, O. (2018). Topology and Machine Learning. *Notes from the Margin 13*. pp. 5-6.	[[link](https://issuu.com/cms-studc/docs/margin-spring2018)]
 

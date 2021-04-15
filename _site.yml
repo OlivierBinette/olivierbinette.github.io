@@ -17,6 +17,4 @@ navbar:
       href: teaching.html
     - text: "Software"
       href: software.html
-    - text: "Blog"
-      href: blog.html
 output: distill::distill_article
