@@ -5,7 +5,7 @@ title: "Teaching"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
+ 
 ### Tutorials
 
 - [Getting started with git and GitHub (video)](https://www.youtube.com/watch?v=kHhBHJu_7us)

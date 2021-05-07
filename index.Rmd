@@ -4,7 +4,7 @@ description:
 site: distill::distill_website
 output: distill::distill_article
 ---
-
+ 
 
 <!--<img src="media/portrait.jpg" alt="portrait" width="200" style="float:left;margin-right:20px;">-->
 I am Olivier, a PhD student in the Statistical Science department at Duke University. I hold a Mathematics B.Sc. and a Statistics M.Sc. from Université du Québec à Montréal. My research is currently supported by Professor Rebecca C. Steorts at Duke, by an Alexander-Graham-Bell Canada Graduate Scholarship, and by a doctoral award from the Fonds de Recherche du Québec - Nature et Technologies. I was awarded the Canada Governor General's Academic Medal in 2020 for outstanding academic achievements during my M.Sc.

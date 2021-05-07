@@ -5,7 +5,7 @@ title: "Values"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
+ 
 I am committed to making the world a better place through my work. The most fundamental values which underpin my commitment are listed below.
 
 -   I have always thought of mathematics and statistics as **liberal arts**. They are tools to help us make better sense of the world. I want to pursue research in a way which is compatible with this point of view and which ultimately promotes **free and critical thought**.

@@ -9,7 +9,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
+ 
 ### Entity resolution
 
 - Binette, O. and Steorts, R. C. (2020) (Almost) All of Entity Resolution. *arXiv e-prints.* arxiv:2008.04443 [[pdf]](https://arxiv.org/pdf/2008.04443.pdf)
