@@ -15,7 +15,7 @@ Instructional TA (weekly labs and office hours) for the following classes:
 
 - STA 490/690 - Entity Resolution (Spring 2021)
 
-- STA 360 - [Bayesian and Modern Statistics](https://github.com/resteorts/modern-bayes) (Fall 2020)
+- STA 360 - [Bayesian and Modern Statistics](https://github.com/resteorts/modern-bayes) (Fall 2020) [[teaching evaluation](media/teaching-evaluations/Binette_Olivier_STA360_FA20_Steorts.pdf)]
 
 ### TA at Université du Québec à Montréal
 
