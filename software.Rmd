@@ -8,9 +8,35 @@ knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
 
 # R packages
 
+### [FingermatchR](https://github.com/forensic-science/fingermatchR)
+
+Fingerprint matching tools based on NIST's Biometric Image Software, on FingerJet minutiae extraction tool, and on the libfmr library.
+
+```{r}
+devtools::install_github("forensic-science/fingermatchR")
+```
+
+### [MSETools](https://github.com/OlivierBinette/MSETools)
+
+Code and analyses for the paper titled “On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery” (Binette and Steorts, 2021).
+
+```{r}
+devtools::install_github("OlivierBinette/MSETools")
+```
+
+### [cache](https://github.com/OlivierBinette/cache)
+
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/assert)](https://cran.r-project.org/package=cache)
+
+Simple interface to caching which works across interactive R sessions, R scripts and Rmarkdown documents.
+
+```{r}
+install.packages("assert")
+```
+
 ### [assert](https://github.com/OlivierBinette/assert)
 
-<!--[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/assert)](https://cran.r-project.org/package=assert) -->
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/assert)](https://cran.r-project.org/package=assert)
 
 Lightweight validation tool for checking function arguments and data analysis scripts.
 
@@ -18,10 +44,9 @@ Lightweight validation tool for checking function arguments and data analysis sc
 install.packages("assert")
 ```
 
-
 ### [dgaFast](https://github.com/OlivierBinette/dgaFast)
 
-Multiple Systems Estimation Using Decomposable Graphical Models. This is an efficient re-implementation and extension of the `dga` R package.
+Multiple Systems Estimation Using Decomposable Graphical Models. This is an efficient re-implementation and extension of the [**dga**](https://github.com/hrdag/dga) R package (it is now part of [**dga**](https://github.com/hrdag/dga)).
 
 ```{r}
 devtools::install_github("OlivierBinette/dgaFast")

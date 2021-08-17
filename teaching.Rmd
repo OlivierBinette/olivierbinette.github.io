@@ -25,7 +25,7 @@ Instructional TA (weekly labs and office hours) for the following classes:
 
 - MAT 1130 - [Analysis I](https://etudier.uqam.ca/cours?sigle=MAT1130) (Winter 2019)
 
-- MAT 2710 -[Probability II](https://etudier.uqam.ca/cours?sigle=MAT2710) (Fall 2018)
+- MAT 2710 - [Probability II](https://etudier.uqam.ca/cours?sigle=MAT2710) (Fall 2018)
 
 - MAT 2160 - [Complex Analysis](https://etudier.uqam.ca/cours?sigle=MAT2160) (Winter 2018)
 
