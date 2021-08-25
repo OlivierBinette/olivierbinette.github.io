@@ -9,8 +9,8 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "CV"
-      href: media/cv.pdf
+    - text: "Resume"
+      href: media/resume2021.pdf
     - text: "Research"
       href: research.html
     - text: "Teaching"
