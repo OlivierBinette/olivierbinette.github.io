@@ -13,6 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ### TA at Duke University
 Instructional TA (weekly labs and office hours) for the following classes:
 
+- STA 199 - Introduction to Data Science (Fall 2021)
+
 - STA 490/690 - Entity Resolution (Spring 2021)
 
 - STA 360 - [Bayesian and Modern Statistics](https://github.com/resteorts/modern-bayes) (Fall 2020) [[teaching evaluation](media/teaching-evaluations/Binette_Olivier_STA360_FA20_Steorts.pdf)]

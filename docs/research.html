@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,13 +77,14 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
+
 
   <!--radix_placeholder_meta_tags-->
   <title>Olivier Binette: Research</title>
@@ -452,7 +453,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   </style>
 
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
   <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -1859,7 +1860,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -2336,7 +2340,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2397,25 +2401,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#entity-resolution">Entity resolution</a></li>
 <li><a href="#multiple-systems-estimation">Multiple systems estimation</a></li>
 <li><a href="#bayesian-nonparametrics">Bayesian nonparametrics</a></li>
-<li><a href="#side-projects-mainly-posters">Side projects (mainly posters)</a></li>
+<li><a href="#side-projects-posters">Side projects (posters)</a></li>
 </ul>
 </nav>
 </div>
 <h3 id="entity-resolution">Entity resolution</h3>
 <ul>
+<li>Binette, O. and Steorts, R. C. (2020) Modern Bayesian Entity Resolution. <em>Submitted</em></li>
 <li>Binette, O. and Steorts, R. C. (2020) (Almost) All of Entity Resolution. <em>arXiv e-prints.</em> arxiv:2008.04443 <a href="https://arxiv.org/pdf/2008.04443.pdf">[pdf]</a></li>
 </ul>
 <h3 id="multiple-systems-estimation">Multiple systems estimation</h3>
 <ul>
+<li>Binette, O. and Steorts, R. C. (2021) On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery. <em>Submitted</em></li>
 <li>Binette, O. and Steorts, R. C. (2020) Discussion of read paper “Multiple-systems analysis for the quantification of modern slavery: classical and Bayesian approaches” by Bernard Silverman. <em>Journal of the Royal Statistical Society Series A 183</em> (3). pp. 35 [<a href="https://rss.onlinelibrary.wiley.com/doi/10.1111/rssa.12505">link</a>]</li>
 </ul>
 <h3 id="bayesian-nonparametrics">Bayesian nonparametrics</h3>
 <ul>
+<li><p>Binette, O. and Pati, D. and Dunson, D. B. (2020) Bayesian Closed Surface Fitting Through Tensor Products. <em>Journal of Machine Learning Research 21</em> (119) pp. 1-26 [<a href="https://jmlr.org/papers/volume21/13-233/13-233.pdf">pdf</a>]</p></li>
 <li><p>Binette, O. (2019). A Note on Reverse Pinsker Inequalities. <em>IEEE Transactions on Information Theory 65</em> (7). pp.4094-4096. <a href="https://arxiv.org/pdf/1805.05135.pdf">[pdf]</a></p></li>
 <li><p>Binette, O. and Guillotte, S. (2019). Bayesian Nonparametrics for Directional Statistics. <em>arXiv e-prints.</em> arxiv:1807.00305. [<a href="https://arxiv.org/pdf/1807.00305.pdf">pdf</a>]</p></li>
-<li><p>Binette, O. and Pati, D. and Dunson, D. B. (2020) Bayesian Closed Surface Fitting Through Tensor Products. <em>Journal of Machine Learning Research 21</em> (119) pp. 1-26 [<a href="https://jmlr.org/papers/volume21/13-233/13-233.pdf">pdf</a>]</p></li>
 </ul>
-<h3 id="side-projects-mainly-posters">Side projects (mainly posters)</h3>
+<h3 id="side-projects-posters">Side projects (posters)</h3>
 <ul>
 <li><p>Binette, O. (2018). Topology and Machine Learning. <em>Notes from the Margin 13</em>. pp. 5-6. [<a href="https://issuu.com/cms-studc/docs/margin-spring2018">link</a>]</p></li>
 <li><p>Binette, O. and Luo, L. An Analysis of Gibbs Posterior Concentration in Terms of the Separation <span class="math inline">\(\alpha\)</span>-Entropy. <em>Objective Bayes Conference</em> (poster presentation). Warwick (United Kingdom). June 28, 2019. [<a href="media/poster.pdf">pdf</a>]</p></li>

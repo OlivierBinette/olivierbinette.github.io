@@ -12,22 +12,25 @@ knitr::opts_chunk$set(echo = FALSE)
  
 ### Entity resolution
 
+- Binette, O. and Steorts, R. C. (2020) Modern Bayesian Entity Resolution. *Submitted*
 - Binette, O. and Steorts, R. C. (2020) (Almost) All of Entity Resolution. *arXiv e-prints.* arxiv:2008.04443 [[pdf]](https://arxiv.org/pdf/2008.04443.pdf)
 
 ### Multiple systems estimation
 
+- Binette, O. and Steorts, R. C. (2021) On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery. *Submitted*
 - Binette, O. and Steorts, R. C. (2020) Discussion of read paper "Multiple-systems analysis for the quantification of modern slavery: classical and Bayesian approaches" by Bernard Silverman. *Journal of the Royal Statistical Society Series A 183* (3). pp. 35 [[link](https://rss.onlinelibrary.wiley.com/doi/10.1111/rssa.12505)]
 
 
 ### Bayesian nonparametrics
 
+
+- Binette, O. and Pati, D. and Dunson, D. B. (2020) Bayesian Closed Surface Fitting Through Tensor Products. *Journal of Machine Learning Research 21* (119) pp. 1-26 [[pdf](https://jmlr.org/papers/volume21/13-233/13-233.pdf)]
+
 - Binette, O. (2019). A Note on Reverse Pinsker Inequalities. *IEEE Transactions on Information Theory 65* (7). pp.4094-4096. [[pdf]](https://arxiv.org/pdf/1805.05135.pdf)
 
 - Binette, O. and Guillotte, S. (2019). Bayesian Nonparametrics for Directional Statistics. *arXiv e-prints.* arxiv:1807.00305. [[pdf](https://arxiv.org/pdf/1807.00305.pdf)]
 
-- Binette, O. and Pati, D. and Dunson, D. B. (2020) Bayesian Closed Surface Fitting Through Tensor Products. *Journal of Machine Learning Research 21* (119) pp. 1-26 [[pdf](https://jmlr.org/papers/volume21/13-233/13-233.pdf)]
-
-### Side projects (mainly posters)
+### Side projects (posters)
 
 - Binette, O. (2018). Topology and Machine Learning. *Notes from the Margin 13*. pp. 5-6.	[[link](https://issuu.com/cms-studc/docs/margin-spring2018)]
 
