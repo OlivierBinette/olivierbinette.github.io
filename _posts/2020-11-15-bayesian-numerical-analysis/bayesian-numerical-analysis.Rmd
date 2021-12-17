@@ -1,0 +1,17 @@
+---
+title: "Bayesian numerical analysis"
+author:
+  - name: Olivier Binette
+date: 11-19-2017
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+Distributing points $\{x_i\}_{i=1}^n$ on the sphere as to minimize the mean square error
+
+$\mathbb{E}\left[\left(q_n(f) - \int_{\mathbb{S}^2}f(s)\,ds\right)^2\right]$
+
+of the quadrature formula $q_n(f) =\frac{1}{n}\sum_{i=1}^n f(x_i)$, where $f$ is a centered Gaussian process with covariance function $C(x,y) = \exp(\langle x, y \rangle)$. Shown is $n=6, 12, 23$.
+
+![](img.png)

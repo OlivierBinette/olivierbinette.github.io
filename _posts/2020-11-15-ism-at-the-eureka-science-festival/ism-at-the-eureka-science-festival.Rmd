@@ -1,0 +1,18 @@
+---
+title: "ISM at the Eureka! Science Festival!"
+author:
+  - name: Olivier Binette
+date: 06-07-2018
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+  We’ve been hard at work getting ready for the Eureka! science festival held this weekend at the Montreal Science Centre. Come check it out!
+
+
+![](img1.png)
+
+At the festival:
+
+![](img2.png) 

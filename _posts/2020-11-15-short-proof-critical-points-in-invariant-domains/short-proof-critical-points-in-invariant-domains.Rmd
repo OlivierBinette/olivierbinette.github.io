@@ -1,0 +1,32 @@
+---
+title: "Short proof: critical points in invariant domains"
+description: |
+  "When mixing coffee in your favorite mug, at every instant a particule is staying still."
+author:
+  - name: Olivier Binette
+date: 04-29-2017
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+Let $f : \mathbb{R}^k \rightarrow \mathbb{R}^k$ be a ${}\mathcal{C}^1$ vector field and denote by $\phi(x): t \mapsto \phi_t(x)$ its stream. That is, $\phi_0(x) = x$ and $\frac{d}{dt}\phi_t(x) = f(\phi_t(x))$. A domain $D \subset \mathbb{R}^k$ is said to be invariant (under the stream of $f$) if $\phi_t(x) \in D$ for all $x \in D$ and $t \geq 0$. The curve $\{  \phi_t(x) \,|\, t \in \mathbb{R} \}$ is said to be a closed orbit of $f$ if there exists $T \gt; 0$ such that $\phi_0(x) = \phi_T(x)$.
+
+<strong>Theorem.</strong>
+<em>If $D \subset \mathbb{R}^k$ is invariant and diffeomorphic to a closed ball of $\mathbb{R}^k$, then $f$ has a zero in $D$.</em>
+
+<strong>Corollary.</strong>
+<em>If $k=2$, then any closed orbit of $f$ encloses a zero of $f$.</em>
+
+<em>Proof of the theorem.</em>
+Suppose that $\|f(x)\| \gt; \alpha \gt; 0$ for all $x \in D$ and let $M = \sup_{x \in D} \|f(x)\|$. Since $f$ is uniformly continuous on $D$, there exists $\delta \gt; 0$ such that $\|x-y\| \lt; \delta$ implies $\|f(x) - f(y)\| \lt; \alpha$. Also, by Brouwer's fixed point theorem, there exists $x_0 \in D$ such that $\phi_{\delta / M}(x_0) = x_0$. This yields a closed orbit $\Gamma = \{\phi_t(x_0) \,|\, t \geq 0\}$ such that any two points on $\Gamma$ are at distance at most $\delta$ from each other. Since $\Gamma$ is closed, there must exist $a,b \in \Gamma$ such that $\langle f(a), f(b) \rangle \leq 0$. Hence we find that $\|f(a) - f(b)\| \gt; \|f(a)\| \gt; \alpha$, even though $\|a-b\| \lt; \delta$. This is impossible. Thus $\|f\|$ is not bounded away from zero and $f$ must have a zero in the compact $D$. $\Box$
+
+<em>Proof of the corollary.</em>
+When $k=2$, the Jordan-Brouwer theorem implies that closed orbits separate the plane in two connected components, one of which is bounded. Schoenflies' theorem, strengthening the above, ensures that the union of bounded component with the closed orbit is diffeomorphic to the closed disk. Invariance follows from the unicity of the solution to initial value problems when $f$ is $\mathcal{C}^1$. $\Box$
+
+This can be generalized as follows. For the sake of mixing things up, we state the result in topological terms.
+
+**Theorem** (Particular case of the Poincaré-Hopf theorem.)
+
+<em>Let $M$ be a compact submanifold of $\mathbb{R}^k$ with non-zero Euler characteristic $\chi(M)$, and let $\phi : [0,1] \times M \rightarrow M : (t,x) \mapsto \phi_t(x)$ be a smooth isotopy. Then for all $t \in [0,1]$, there exists distinct points $x_1, x_2, \dots x_{|\chi(M)|}$ such that</em>
+<p style="text-align: center;">$\frac{d}{dt}\phi_t(x_i) = 0.$</p>
