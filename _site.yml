@@ -1,4 +1,4 @@
-name: "test-distill=blog"
+name: "Olivier Binette"
 title: "Olivier Binette"
 description: |
   Olivier's personal website.
@@ -17,4 +17,6 @@ navbar:
       href: teaching.html
     - text: "Software"
       href: software.html
+    - text: "Blog"
+      href: blog.html
 output: distill::distill_article

@@ -47,7 +47,7 @@ $$
 $$
 then $c(\theta) = \left(\int e^{-l_\theta(x_1)} \, dx_1\right)^n$. This data-dependent prior, tilting $\pi$ by the function $c(\theta)^n$, is what allows Gibbs learning to target general risk-minimizing parameters rather than likelihood Kullback-Leibler minimizers.
 
-Some of my ongoing research, presented as a poster at the O'Bayes conference in Warwick last summer, focused on understand the theoretical behaviour of Gibbs posterior distributions. I studied the posterior convergence and finite sample concentration properties of Gibbs posterior distributions under the large sample regime with additive losses $\ell_\theta^{(n)}(X_1, \dots, X_n) = \sum_{i=1}^n\ell_\theta(X_i)$. I've attached [the poster](http://olivierbinette.ca/blog/media/2019-10-11/poster.pdf) (joint work with Yu Luo) below and you can find the additional references [here](http://olivierbinette.ca/blog/media/2019-10-11/references.pdf).
+Some of my ongoing research, presented as a poster at the O'Bayes conference in Warwick last summer, focused on understand the theoretical behaviour of Gibbs posterior distributions. I studied the posterior convergence and finite sample concentration properties of Gibbs posterior distributions under the large sample regime with additive losses $\ell_\theta^{(n)}(X_1, \dots, X_n) = \sum_{i=1}^n\ell_\theta(X_i)$. I've attached [the poster](http://olivierbinette.github.io/blog/media/2019-10-11/poster.pdf) (joint work with Yu Luo) below and you can find the additional references [here](http://olivierbinette.github.io/blog/media/2019-10-11/references.pdf).
 
 Note that this is very preliminary work. We're still in the process of exploring interesting directions (and I have very limited time this semester with the beginning of my PhD at Duke).
 
