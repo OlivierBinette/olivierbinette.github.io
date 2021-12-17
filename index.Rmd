@@ -10,12 +10,12 @@ output: distill::distill_article
 
 
 <center>
-<img src="assets/portrait2.jpg" alt="portrait" width="25%" style="border-radius: 50%; margin-top:10%">
+<img src="media/portrait2.jpg" alt="portrait" width="25%" style="border-radius: 50%; margin-top:10%">
 </center>
 
 # 👋 Welcome!
 
-This website lists some of what I do. Check out my [research](./research.html), [teaching](./teaching.html), and [software](./software.html).
+This website lists some of what I do. Check out my [ research](./research.html), [teaching](./teaching.html), and [software](./software.html).
 
 You can also find me on [Github](https://github.com/olivierbinette), [LinkedIn](https://www.linkedin.com/in/olivier-binette/), and reach me at olivier.binette [at] duke.edu
 

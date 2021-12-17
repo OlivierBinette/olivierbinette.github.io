@@ -200,8 +200,8 @@
     "categories": [],
     "contents": "\nProblem from Félix Locas:\nLet \\(r(n) = \\lfloor \\log_2 \\frac{n}{\\log_2 n} \\rfloor\\). Show that $\\(\\lim_{n \\rightarrow \\infty} \\left( \\log 2+\\sum_{k=1}^{r(n)} \\frac{1}{k(k+1) 2^k} \\right)^n = 1.\\)\nMy solution:\nThe series \\(\\sum_{k=1}^{\\infty} \\frac{1}{k(k+1) 2^k}\\) is easy to calculate. It is, for instance, the difference between the integrals of geometric series: \\[\\sum_{k=1}^\\infty \\frac{1}{k(k+1) 2^k} = \\sum_{k=1}^\\infty \\frac{1}{k 2^k} - \\sum_{k=1}^\\infty \\frac{1}{(k+1) 2^k} = 1-\\log 2.\\]\nFurthermore, abbreviating \\(r = r(n)\\), \\[r^{3/2} 2^{r} \\sum_{k=r+1}^\\infty \\frac{1}{k(k+1) 2^{k}} \\le \\sum_{k=0}^\\infty \\frac{1}{\\sqrt{r} 2^k} \\xrightarrow{r \\rightarrow \\infty} 0\\]\nimplies that for \\(n\\) sufficiently large we have $_{k=r+1}^ < r^{-3/2} 2^{-r} $ and \\[\\log 2+\\sum_{k=1}^{r(n)} \\frac{1}{k(k+1) 2^k} = 1-\\sum_{k=r+1}^{\\infty} \\frac{1}{k(k+1) 2^k} \\geq 1 - r^{-3/2} 2^{-r}. \\qquad (*)\\]\nFinally, since \\(r = \\log_2 \\frac{n}{\\log_2 n} - \\varepsilon_n\\) for some \\(0 \\le\\varepsilon_n < 1\\), we have \\[n r^{-3/2} 2^{-r} = \\frac{2^{\\varepsilon_n}\\log_2 n}{(\\log_2 n - \\log_2 \\log_2 n - \\varepsilon_n)^{3/2}} \\rightarrow 0\\]\nwhich implies that \\[\\left( 1 - r^{-3/2} 2^{-r} \\right)^n \\rightarrow 1.\\]\nSince also \\(\\log 2+\\sum_{k=1}^{r(n)} \\frac{1}{k(k+1) 2^k} \\le 1\\) comparing this with \\((*)\\) yields \\[\\lim_{n \\rightarrow \\infty} \\left( \\log 2+\\sum_{k=1}^{r(n)} \\frac{1}{k(k+1) 2^k} \\right)^n = 1.\\]\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-12-16T20:41:06-05:00",
-    "input_file": {}
+    "last_modified": "2021-12-16T22:10:37-05:00",
+    "input_file": "analysis-problem.knit.md"
   },
   {
     "path": "posts/2020-11-15-constructive-approximation-of-compact-hypersurfaces/",
