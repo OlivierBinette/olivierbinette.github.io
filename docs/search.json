@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "path": "blog.html",
+      "title": "Olivier's blog",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2021-12-16T22:36:18-05:00"
+    },
+    {
       "path": "index.html",
       "title": "👋 Welcome!",
       "author": [],
