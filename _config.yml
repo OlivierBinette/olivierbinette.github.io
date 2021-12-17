@@ -92,7 +92,7 @@ defaults:
       # can be overridden in the front matter for a specific post
       hidden: false
 
-plugins:
+plugins:https://raw.githubusercontent.com/sergiokopplin/indigo/gh-pages/assets/screen-shot.png
   - jekyll-seo-tag
   - jekyll-gist
   - jekyll-feed
