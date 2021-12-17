@@ -10,7 +10,7 @@ output: distill::distill_article
 
 
 <center>
-<img src="media/portrait2.jpg" alt="portrait" width="25%" style="border-radius: 50%; margin-top:10%">
+<img src="assets/portrait2.jpg" alt="portrait" width="25%" style="border-radius: 50%; margin-top:10%">
 </center>
 
 # 👋 Welcome!
