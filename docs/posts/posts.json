@@ -132,7 +132,7 @@
     "categories": [],
     "contents": "\n\n\nI wanted to make a web tool for high-dimensional data exploration through spherical multidimensional scaling (S-MDS). The basic idea of S-MDS is to map a possibly high-dimensional dataset on the sphere while approximately preserving a matrix of pairwise distances (or divergences). An interactive visualization tool could help explore the mapped dataset and translate observations back to the original data domain. I’m not quite finished, but I made a frontend prototype. The next step would be to implement the multidimensional scaling algorithm in Javascript. I may get to this if I find the time.\n\n\n\n\nIn the current applet, you can visualize the positions and depths of earthquakes of magnitude greater than 6 from January 1st 2014 up to January 1st 2019. Data is from the US Geological Survey (usgs.gov). Code is on GitHub.\n\n\n\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-12-16T21:43:51-05:00",
+    "last_modified": "2021-12-16T22:18:19-05:00",
     "input_file": "3d-data-visualization-with-webglthreejs.knit.md"
   },
   {
