@@ -8,7 +8,6 @@ date: 12-02-2016
 output:
   distill::distill_article:
     self_contained: false
-categories: 
 ---
 
 Let me introduce some notations. A $\mathcal{C}^l$ submanifold of dimension $m$ of $\mathbb{R}^k$ is a subset $M$ that is locally $\mathcal{C}^l$-diffeomorphic to open balls of $\mathbb{R}^m$. Similarily, a $\mathcal{C}^l$ manifold with boundary is locally diffeomorphic to open balls of the half space $\mathbb{H}^k = \{(x_1, \dots, x_m)\in \mathbb{R}^m | x_m \geq 0\}$.
