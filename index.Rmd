@@ -27,7 +27,3 @@ I have broad ranging interests in statistics. My M.Sc. research focused on theor
 
 In my free time, I like to get involved with other students on campus. I work with the Duke Applied Machine Learning Group and with the Data+ program as a project manager, I am a mentor for the Twoples directed reading program, and I am research coordinator for the Duke GPSG Community Pantry. I am very grateful for our international academic community and I try to give back as I can.
 
-### What's on here?
-
-This website lists some of what I do. Check out my [research](./research.html), [teaching](./teaching.html), and [software](./software.html).
-
