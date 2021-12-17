@@ -1,7 +1,7 @@
 ---
 title: 	👋 Welcome!
 description:
-site: distill::distill_websitehttps://www.google.com/search?q=rstudio+distill+link+to+social+media&sxsrf=AOaemvJDnj9Hw-NcCjmzPMQqq3qm4ThaMw:1639707835036&source=lnms&tbm=nws&sa=X&ved=2ahUKEwilgKvY4-n0AhWlUt8KHdSeD68Q_AUoAnoECAEQBA
+site: distill::distill_website
 header-includes: header.html
 output: distill::distill_article
 ---
