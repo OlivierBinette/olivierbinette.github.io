@@ -454,7 +454,7 @@ The complete Python module (still under development) implementing this approach 
 
 - A future for black box entity resolution? 
   - Entity resolution is often an underspecified problem - different approaches can lead to very different answers and we need assumptions, or an understanding of the data-generating mechanism, to make it tractable.
-  - This makes it important to develop a *practice* of record linkage, such as standards for its use, validation, and evaluation, which goes beyond the suggestion of generic methodology. This practice should be rooted in the simplicity of effective methods rather than the use of black-box methods which can overstate their accuracy.
+  - This makes it important to develop a *practice* of record linkage, such as standards for its use, validation, and evaluation, which goes beyond the suggestion of generic methodology. This practice should be rooted in the simplicity of effective methods combined with the support of more sophisticated methods, rather than only the use of black-box methods which can overstate their accuracy.
 
 
 
