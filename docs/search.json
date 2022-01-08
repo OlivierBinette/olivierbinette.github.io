@@ -12,21 +12,21 @@
       "title": "Consulting",
       "author": [],
       "contents": "\nRecord linkage.) is the problem of identifying records which refer to the same person or entity. A typical use case is to construct individual customer profiles given disparate order records and data spread across multiple sources. These profiles can be used to gain insights into the behavior of customers and to guide marketing efforts.\nI provide end-to-end solutions to record linkage and data analysis in such business settings. Use the form below to contact me and learn more about my services:\n\n  \n\n\n\n\n",
-      "last_modified": "2022-01-08T07:24:31-05:00"
+      "last_modified": "2022-01-08T07:29:21-05:00"
     },
     {
       "path": "index.html",
       "title": "👋 Welcome!",
       "author": [],
       "contents": "\n\n\n\n\n\n Github LinkedIn Email\n\n\n👋 Welcome!\nThis website lists some of what I do. Check out my research, teaching, and software.\nHire me\nI consult with small and medium-sized businesses on the topics of record linkage and deduplication, survey methods, data analysis, R/Python package development, and statistical learning. Learn more on my consulting page.\nAbout me\nI am a PhD Candidate in the Statistical Science Department at Duke University. I have a Mathematics B.Sc. and a Statistics M.Sc. from Université du Québec à Montréal. My research is currently supported by Professor Rebecca C. Steorts at Duke, by an Alexander-Graham-Bell Canada Graduate Scholarship, and by a doctoral award from the Fonds de Recherche du Québec - Nature et Technologies. I was awarded the Canada Governor General’s Academic Medal in 2020 for outstanding academic achievements during my M.Sc.\nI have broad ranging interests in statistics. My M.Sc. research focused on theoretical properties of Bayesian nonparametric procedures. Recently, I have been working on more applied problems. I am particularly interested in issues surrounding inference with “big” administrative data, as well as using such data to better represent hidden populations in official statistics. This research involves privacy considerations, entity resolution for data integration and multiple systems estimation to account for missing data.\nIn my free time, I like to get involved with other students on campus. I work with the Duke Applied Machine Learning Group and with the Data+ program as a project manager, I am a mentor for the Twoples directed reading program, and I am research coordinator for the Duke GPSG Community Pantry. I am very grateful for our international academic community and I try to give back as I can.\n\n\n\n",
-      "last_modified": "2022-01-08T07:24:24-05:00"
+      "last_modified": "2022-01-08T07:29:16-05:00"
     },
     {
       "path": "research.html",
       "title": "Research",
       "author": [],
       "contents": "\n\nContents\nMultiple systems estimation\nEntity resolution\nBayesian nonparametrics\nSide projects (posters)\n\nMultiple systems estimation\nBinette, O. and Steorts, R. C. (2021) On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery. Journal of the Royal Statistical Society, Series A (to appear)\nBinette, O. and Steorts, R. C. (2020) Discussion of read paper “Multiple-systems analysis for the quantification of modern slavery: classical and Bayesian approaches” by Bernard Silverman. Journal of the Royal Statistical Society Series A 183 (3). pp. 35 [link]\nEntity resolution\nBinette, O. and Steorts, R. C. (2021) Modern Bayesian Entity Resolution. Submitted\nBinette, O. and Steorts, R. C. (2021) (Almost) All of Entity Resolution. arXiv e-prints. arxiv:2008.04443 [pdf]\nBayesian nonparametrics\nBinette, O. and Pati, D. and Dunson, D. B. (2020) Bayesian Closed Surface Fitting Through Tensor Products. Journal of Machine Learning Research 21 (119) pp. 1-26 [pdf]\nBinette, O. (2019). A Note on Reverse Pinsker Inequalities. IEEE Transactions on Information Theory 65 (7). pp.4094-4096. [pdf]\nBinette, O. and Guillotte, S. (2019). Bayesian Nonparametrics for Directional Statistics. arXiv e-prints. arxiv:1807.00305. [pdf]\nSide projects (posters)\nBinette, O. (2018). Topology and Machine Learning. Notes from the Margin 13. pp. 5-6. [link]\nBinette, O. and Luo, L. An Analysis of Gibbs Posterior Concentration in Terms of the Separation \\(\\alpha\\)-Entropy. Objective Bayes Conference (poster presentation). Warwick (United Kingdom). June 28, 2019. [pdf]\nBinette, O. and Coache, A. The Significance of the Adjusted R Squared. (Bio)Statistics Research Day (poster presentation). Montréal (Canada). September 21, 2018. [pdf]\nBinette, O. Classification and Topology, or Consequences of Sobolev Consistency. Canadian Statistics Student Conference (poster presentation). Montréal (Canada). June 2, 2018. (Best poster award) [pdf]\n\n\n\n",
-      "last_modified": "2022-01-08T07:24:25-05:00"
+      "last_modified": "2022-01-08T07:29:14-05:00"
     },
     {
       "path": "software.html",
@@ -40,7 +40,7 @@
       "title": "Teaching",
       "author": [],
       "contents": "\nTutorials\nGetting started with git and GitHub (video)\nTA at Duke University\nInstructional TA (weekly labs and office hours) for the following classes:\nSTA 199 - Introduction to Data Science (Fall 2021)\nSTA 490/690 - Entity Resolution (Spring 2021)\nSTA 360 - Bayesian and Modern Statistics (Fall 2020) [teaching evaluation]\nTA at Université du Québec à Montréal\nInstructional TA (weekly labs and office hours) for the following classes:\nSTT 1000 - Statistics I (Winter 2019)\nMAT 1130 - Analysis I (Winter 2019)\nMAT 2710 - Probability II (Fall 2018)\nMAT 2160 - Complex Analysis (Winter 2018)\nMAT 1190 - Analysis and algebra for the actuarial sciences (Winter 2018)\nMAT 2150 - Analysis II (Fall 2017 & Fall 2018)\nOther teaching activities\nCo-produced an activity for children at the Eureka! Science Festival (Montreal Science Center, June 2018)\n\n\n\n",
-      "last_modified": "2022-01-08T07:24:37-05:00"
+      "last_modified": "2022-01-08T07:29:19-05:00"
     }
   ],
   "collections": ["posts/posts.json"]
