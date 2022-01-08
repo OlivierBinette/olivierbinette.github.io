@@ -31,6 +31,9 @@ icon_link(icon="fa fa-envelope", text="Email", url="mailto:olivier.binette@duke.
 
 This website lists some of what I do. Check out my [ research](./research.html), [teaching](./teaching.html), and [software](./software.html).
 
+### Hire me
+
+I consult with small and medium-sized businesses on the topics of record linkage and deduplication, survey methods, data analysis, R/Python package development, and statistical learning. Learn more on my **consulting** page.
 
 ### About me
 
