@@ -6,6 +6,18 @@ title: "Software"
 knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
 ```
 
+# Python packages
+
+### [GroupByRule](https://github.com/olivierbinette/groupbyrule)
+
+Deduplicate data using fuzzy and deterministic matching rules.
+
+```{bash, eval=FALSE}
+pip install git+https://github.com/OlivierBinette/groupbyrule.git
+```
+
+
+
 # R packages
 
 ### [FingermatchR](https://github.com/forensic-science/fingermatchR)
