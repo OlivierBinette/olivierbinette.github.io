@@ -6,9 +6,6 @@ title: "Teaching"
 knitr::opts_chunk$set(echo = TRUE)
 ```
  
-### Tutorials
-
-- [Getting started with git and GitHub (video)](https://www.youtube.com/watch?v=kHhBHJu_7us)
 
 ### TA at Duke University
 Instructional TA (weekly labs and office hours) for the following classes:
