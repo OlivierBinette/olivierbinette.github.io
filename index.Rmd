@@ -46,7 +46,7 @@ In my free time, I like to get involved with other students at Duke. I am Resear
 Sponsor my open source work and community involvement through Github:
 
 <center>
-    <iframe src="https://github.com/sponsors/OlivierBinette/button" title="Sponsor OlivierBinette" height="35" width="116" style="border: 0; max-width:200px"></iframe>
+    <iframe src="https://github.com/sponsors/OlivierBinette/button" title="Sponsor OlivierBinette" height="35" width="116" style="border: 0; max-width:200px; background:white;"></iframe>
 </center>
 
 ### Hire me
