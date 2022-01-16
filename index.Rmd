@@ -45,11 +45,10 @@ In my free time, I like to get involved with other students at Duke. I am Resear
 
 Sponsor my open source work and community involvement through Github:
 
-<div>
-  <center style="max-width:200px">
-    <iframe src="https://github.com/sponsors/OlivierBinette/button" title="Sponsor OlivierBinette" height="35" width="116" style="border: 0;"></iframe>
-  </center>
-</div>
+<center>
+    <iframe src="https://github.com/sponsors/OlivierBinette/button" title="Sponsor OlivierBinette" height="35" width="116" style="border: 0; max-width:200px"></iframe>
+</center>
+
 ### Hire me
 
 I consult with small and medium-sized businesses on the topics of record linkage and deduplication, survey methods, data analysis, R/Python package development, and statistical learning. Learn more on my [**consulting**](consulting.html) page.
