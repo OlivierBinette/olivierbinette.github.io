@@ -8,6 +8,15 @@ knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
 
 # Python packages
 
+### [StringCompare](https://github.com/olivierbinette/StringCompare)
+
+**StringCompare** is a Python package (implemented in C++ through pybind11) for efficient string similarity computation and approximate string matching.
+
+```{bash, eval=FALSE}
+pip install git+https://github.com/OlivierBinette/stringcompare.git
+```
+
+
 ### [GroupByRule](https://github.com/olivierbinette/groupbyrule)
 
 Deduplicate data using fuzzy and deterministic matching rules.
