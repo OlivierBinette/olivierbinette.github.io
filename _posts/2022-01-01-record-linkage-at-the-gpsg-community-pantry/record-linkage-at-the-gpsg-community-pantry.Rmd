@@ -496,7 +496,7 @@ Indeed, using the same notations as above, we can write
 $$
 R = \frac{\sum_{ c \in  C} \sum_{e \in \hat C \cap  c} {\lvert e\rvert \choose 2} }{ \sum_{ c \in  C} {\lvert  c \rvert \choose 2}}.
 $$
-If precision is 1, then the denominator can be computed from the sizes of merged predicted clusters. On the other hand, the nominator simplifies to $\sum_{e \in \hat C}{\lvert e \rvert \choose 2}$ which can be computed exactly from the sizes of predicted clusters. In the case of the Pantry, wrongly separated clusters are likely to be due to small differences in names and emails. Therefore, we can identify clusters which should have been merged together as follows:
+If precision is 1, then the denominator can be computed from the sizes of predicted clusters which are identified to be merged. On the other hand, the nominator simplifies to $\sum_{e \in \hat C}{\lvert e \rvert \choose 2}$ which can be computed exactly from the sizes of predicted clusters. In the case of the Pantry, wrongly separated clusters are likely to be due to small differences in names and emails. Our procedure to identify clusters which should have been merged together is as follows:
 
 1. Make a spreadsheet containing canonical customer records (one representative record for each predicted individual customer).
 2. Create a new empty column named "trueClustersA".
@@ -519,7 +519,7 @@ Precision is somewhat low due to about 3 relatively large clusters (around 30-50
 
 **Estimated Recall: 99.6%**
 
-This is certainly an underestimate, but it does show that missing links are not obviously showing up. Given the structure of the Pantry data, it is likely that recall is indeed quite high.
+This is certainly an overestimate, but it does show that missing links are not obviously showing up. Given the structure of the Pantry data, it is likely that recall is indeed quite high.
 
 ## Final thoughts
 
