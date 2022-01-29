@@ -1,7 +1,5 @@
 ---
 title: "Short proof: critical points in invariant domains"
-description: |
-  "When mixing coffee in your favorite mug, at every instant a particule is staying still."
 author:
   - name: Olivier Binette
 date: 04-29-2017

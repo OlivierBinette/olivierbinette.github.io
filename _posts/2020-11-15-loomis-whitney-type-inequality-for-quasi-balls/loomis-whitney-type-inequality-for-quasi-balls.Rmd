@@ -6,6 +6,7 @@ date: 02-10-2017
 output:
   distill::distill_article:
     self_contained: false
+draft: true
 ---
 
 Consider the problem of estimating the volume of a tumor, given X-ray scans along orthogonal axes. It may be known that the tumor has a somewhat spherical shape. To formalise this idea, let $T \subset \mathbb{R}^3$ be the tumor, $s$ the area of its surface, $m$ its volume and $C = s^3/m^2$. From the isoperimetric inequality, we have $C \geq 6^2 \pi$, with equality iff $T$ is a ball. Correspondingly, we say that $T$ is a quasi-ball if $C \approx 6^2 \pi$. In reality, $C$ is unknown but its distribution may be determined.

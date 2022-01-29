@@ -6,6 +6,7 @@ date: 11-19-2017
 output:
   distill::distill_article:
     self_contained: false
+draft: true
 ---
 
 Distributing points $\{x_i\}_{i=1}^n$ on the sphere as to minimize the mean square error

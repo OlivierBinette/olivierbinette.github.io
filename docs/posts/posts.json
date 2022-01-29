@@ -20,6 +20,26 @@
     "input_file": {}
   },
   {
+    "path": "posts/2022-01-29-a-brief-introduction-to-hyperparameter-optimization/",
+    "title": "A Brief Introduction to Hyperparameter Optimization",
+    "description": {},
+    "author": [
+      {
+        "name": "Olivier Binette",
+        "url": "https://olivierbinette.github.io"
+      }
+    ],
+    "date": "2021-12-23",
+    "categories": [
+      "Machine Learning",
+      "Hyperparameter Optimzation"
+    ],
+    "contents": "\n\n\n\n",
+    "preview": "http://dukegpsc.org/wp-content/uploads/2019/07/pantry.jpg",
+    "last_modified": "2022-01-29T09:39:28-05:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2020-11-16-new-website/",
     "title": "New website!",
     "description": "Welcome to my new blog and website! I've imported a few posts from my past blogs as well.",

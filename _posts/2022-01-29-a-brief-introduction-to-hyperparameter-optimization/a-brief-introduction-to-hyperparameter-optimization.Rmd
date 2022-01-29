@@ -1,0 +1,27 @@
+---
+title: "A Brief Introduction to Hyperparameter Optimization"
+description: 
+preview: http://dukegpsc.org/wp-content/uploads/2019/07/pantry.jpg
+author:
+  - name: Olivier Binette
+    url: https://olivierbinette.github.io
+    affiliation: Duke University
+    orcid_id: 0000-0001-6009-5206
+date: 2021-12-23
+categories: 
+  - Machine Learning
+  - Hyperparameter Optimzation
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+draft: false
+repository_url: https://github.com/olivierbinette/olivierbinette.github.io
+citation_url: https://olivierbinette.github.io/posts/2022-01-29-a-brief-introduction-to-hyperparameter-optimization
+creative-commons: CC BY-SA
+---
+
+
+
+
