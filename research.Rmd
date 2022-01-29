@@ -17,8 +17,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Entity resolution
 
-- Binette, O. and Steorts, R. C. (2021) Modern Bayesian Entity Resolution. *Submitted*
-- Binette, O. and Steorts, R. C. (2021) (Almost) All of Entity Resolution. *arXiv e-prints.* arxiv:2008.04443 [[pdf]](https://arxiv.org/pdf/2008.04443.pdf)
+- Binette, O. and Steorts, R. C. (2021) Modern Bayesian Entity Resolution. *Wiley StatsRef* (to appear)
+- Binette, O. and Steorts, R. C. (2021) (Almost) All of Entity Resolution. *Science Advances* (to appear)
 
 
 ### Bayesian nonparametrics
@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Binette, O. and Guillotte, S. (2019). Bayesian Nonparametrics for Directional Statistics. *arXiv e-prints.* arxiv:1807.00305. [[pdf](https://arxiv.org/pdf/1807.00305.pdf)]
 
-### Side projects (posters)
+<!--### Side projects (posters)
 
 - Binette, O. (2018). Topology and Machine Learning. *Notes from the Margin 13*. pp. 5-6.	[[link](https://issuu.com/cms-studc/docs/margin-spring2018)]
 
@@ -40,4 +40,4 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Binette, O. Classification and Topology, or Consequences of Sobolev Consistency. *Canadian Statistics Student Conference* (poster presentation). Montréal (Canada). June 2, 2018. (Best poster award) [[pdf](media/poster topology and machine learning.pdf)]
 
-
+-->
