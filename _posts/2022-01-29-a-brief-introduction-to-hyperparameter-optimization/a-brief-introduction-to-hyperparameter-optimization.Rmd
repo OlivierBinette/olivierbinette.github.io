@@ -6,7 +6,7 @@ author:
     url: https://olivierbinette.github.io
     affiliation: Duke University
     orcid_id: 0000-0001-6009-5206
-date: 2021-12-23
+date: 2022-01-29
 categories: 
   - Machine Learning
   - Hyperparameter Optimzation
