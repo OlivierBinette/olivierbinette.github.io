@@ -1,7 +1,6 @@
 ---
 title: "A Brief Introduction to Hyperparameter Optimization"
 description: 
-preview: http://dukegpsc.org/wp-content/uploads/2019/07/pantry.jpg
 author:
   - name: Olivier Binette
     url: https://olivierbinette.github.io
@@ -16,7 +15,7 @@ output:
     self_contained: false
     toc: true
     toc_depth: 3
-draft: false
+draft: true
 repository_url: https://github.com/olivierbinette/olivierbinette.github.io
 citation_url: https://olivierbinette.github.io/posts/2022-01-29-a-brief-introduction-to-hyperparameter-optimization
 creative-commons: CC BY-SA
