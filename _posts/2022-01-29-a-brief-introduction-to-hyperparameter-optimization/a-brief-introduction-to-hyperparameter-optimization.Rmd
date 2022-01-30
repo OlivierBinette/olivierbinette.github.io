@@ -1,6 +1,8 @@
 ---
 title: "A Brief Introduction to Hyperparameter Optimization"
-description: 
+description: |
+  I review a few hyperparameter optimization techniques at a high conceptual level: grid search, randomized search, sequential model-based optimization (TPE, Bayesian optimization), and Hyperband.
+preview: https://pyro.ai/examples/_images/gp_19_0.png
 author:
   - name: Olivier Binette
     url: https://olivierbinette.github.io
@@ -20,6 +22,193 @@ repository_url: https://github.com/olivierbinette/olivierbinette.github.io
 citation_url: https://olivierbinette.github.io/posts/2022-01-29-a-brief-introduction-to-hyperparameter-optimization
 creative-commons: CC BY-SA
 ---
+
+## 1 Introduction
+
+Machine learning is easy, right? You pick a model, fit it to your data, and out come predictions.
+
+![](ml.svg)
+
+That's how machine learning is taught at colleges. That's how it's sold to businesses as well. Sometimes we talk about the fancy math and algorithms under the hood to make it look serious, but we rarely talk about how difficult it is to transform whatever data can gather into useful, actionable predictions that have business value.
+
+There are many challenges. First, there's the transformation of a business problem into something that's remotely approachable by machine learning and statistics. Second, there's the development of a data collection plan or, more often than not, the identification of observational data which is already available. With the collection of this data comes the third step, modeling, which bridges between numbers and useful answers. Modeling may have to account for all kinds of issue with your data, such as class imbalance, missingness, and non-representativeness. You also want to obtain *good* answers, so throughout this step **you loop between model specification, evaluation, and refinement**. It is a lengthy process of research and investigation into the performance of your model, insights into the *why* of what you observe, and various fixes and improvements to your model. Finally, in a fourth stage, you must account for how your model will be used and the management of its lifecycle.
+
+![](workflow.svg)
+
+Moral of the story: there is a lot work involved. We need all hands on deck. And even more than that, **we need robust automatization tools** to support this machine learning workflow. 
+
+This blog post is about a single set of tools -- **hyperparameter optimization techniques** -- used to help with the model specification, evaluation, and refinement loop. I will focus on the standard machine learning framework of supervised learning. In this context, machine learning algorithms can be seen as black boxes which take in some data, a bunch of tuning *hyperparameters* specified by the user of the algorithm, and which output predictions. The quality of the predictions can be evaluated through data splitting or cross-validation. That is, we're always able to compare predictions to ground truth for the data we have at hand.
+
+My goal is to describe key approaches to hyperparameter optimization (see Table 1) in order to provide **conceptual understanding that can be helpful practice.** First, I describe *black-box* methods which treat the machine learning algorithm as, well, a black blox. This includes **grid search**, **randomized search**, and sequential model-based optimization, such as the **Tree-Structured Parzen Estimator (TPE)** and **Bayesian optimization.** Second, I discuss a few methods which integrate with the learning algorithms themselves, namely **Hyperband** and **Bayesian model selection**.
+
+
+| Black-box methods | Integrated methods |
+| :----- | :-----  |
+| Grid Search | Hyperband|
+|Randomized Search | Bayesian Model Selection |
+| Sequential Model-Based Optimization | |
+Table: Table 1:  Different types of hyperparameter optimization methods
+
+
+<!--**Disclaimer:** my goal in this post is **not** to say that grid search is bad, or that you should be using algorithm X instead of agorithm Y for hyperparameter optimization. The model specification, evaluation and refinement loop is an important part of the machine learning workflow which leads to useful insights into the behavior and performance of your model. It should not be entirely automated. Hyperparameter optimization techniques should be used to gain more insights into your model and to improve your productivity, not as a drop-in replacement for model building. Use whatever technique works the best for you given what you're trying to achieve.
+-->
+
+Before getting into the detail of these methods though, let's go over some basic concepts and terminology which I'll be using.
+
+## 1.1 Background and Terminology
+
+First, let's talk about models, parameters and performance evaluation. It's pretty basic stuff, but it will allow me to introduce some terminology.
+
+### Models, Parameters and Performance Evaluation
+
+A **model** is a mathematical representation of something going on in the real world. For instance, suppose you want to predict whether or not a given stock $X$ is going to go up tomorrow. A model for this could be: predict it's going to go up with probability $\alpha$ if it went up today, otherwise predict it's not going to go up with probability $\beta$. There's only one **variable** in this model (whether or not the stock went up today), and there are two **parameters**, the probabilities $\alpha$ and $\beta$. Here the parameters could be learned if we had historical data.
+
+You could consider more sophisticated models such as classical time series models or reccurent neural networks. In all cases, you have variables (the input to your model), parameters (what you learn from data), and you end up with predictions.
+
+You can compare the performance of any model by comparing the predictions to what actually happened. For instance, you could look at how often your predictions were right. That's a performance **evaluation metric**. Your goal is usually to build a model which will keep on performing well.
+
+Formally, let $R$ be the (average) future performance of your model. You don't know this quantity, but you can estimate it as $\hat R$ using techniques such as cross-validation and its variants. There might be a bias and a variance to $\hat R$, but the best we can do in practice is to try to find the model with the best estimated performance (modulo certain adjustments).
+
+This brings us to the question: **how should you choose a model?** The standard in machine learning is to choose a model which maximizes $\hat R$. It's not the only solution, and it's not always the best solution (it's better to do model averaging if $\hat R$ has some variance), but it's what we'll focus on through this blog post.
+
+Furthermore, we'll approach this problem through the lens of hyperparameter selection.
+
+### Hyperparameters
+
+Hyperparameters are things that have you have to specify before you can run a model, such as:
+
+- what data features to use,
+- what type of model to use (linear model? random forest? neural network?)
+- other decisions that go into the specification of a model:
+  - the number of layers in your neural network,
+  - the learning rate for the gradient descent algorithm,
+  - the maximum depth for decision trees, etc.
+
+There is only a practical distinction between parameters and hyperparameters. They are things that are usually set separately from the other model parameters, or that do not nicely fit within a model's learning algorithm. Depending on the framework you're using, parameters can become hyperparameters and vice versa. For example, by using ensemble methods, you could easily transform the "model type choice" hyperparameter to a simple parameter of your ensemble that is learned from data.
+
+The key thing is that, in practice, there will typically be some distinction between parameters of your model and a set of hyperparameters that you have to specify.
+
+Through experience, you can learn what hyperparameters work well for the kinds of problems that you work on. Other times, you might carefully tune parameters and investigate the impact of your choices on model performance. 
+
+The manual process of hyperparameter tuning can lead to important insights into the performance and behavior of your model. However, it can also be a menial task that would be better automated through hyperparameter optimization algorithms aiming to maximize $\hat R$, such as those that I review below.
+
+### Example
+
+Let's look at an example to make things concrete. This is adapted from [scikit-optimize's tutorial for tuning scikit-learn estimators](https://scikit-optimize.github.io/stable/auto_examples/hyperparameter-optimization.html).
+
+We'll consider the [California housing dataset](https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset) from the scikit-learn library. Each row in this dataset represents a census block and contains aggregated information regarding houses in that block. Our goal will be to predict median house price at the block level given these other covariates.
+
+```{python}
+import pandas as pd
+import numpy as np
+from sklearn.datasets import fetch_california_housing
+
+dataset = fetch_california_housing(as_frame=True)
+
+X = dataset.data # Covariates
+n_features = X.shape[1] # Number of features
+y = dataset.target # Median house prices
+
+X
+```
+
+For the regression, we'll use scikit-learn's gradient boosted trees estimator. This model has a number of internal parameters which don't need to know much about, as well as hyperparameters which can be used to tune the model. This includes the `max_depth` hyperparameter for the maximum depth of decision trees, `learning_rate` for the learning rate of gradient boosting, `max_features` for the maximum number of features to use in each decision trees, and a few more. Ranges of reasonable values for these parameters are specified in the `space` variable below.
+
+```{python}
+from sklearn.ensemble import GradientBoostingRegressor
+from skopt.space import Real, Integer
+
+
+model = GradientBoostingRegressor(n_estimators=50, random_state=0)
+
+space  = [Integer(1, 5, name='max_depth'),
+          Real(10**-5, 10**0, "log-uniform", name='learning_rate'),
+          Integer(1, n_features, name='max_features'),
+          Integer(2, 100, name='min_samples_split'),
+          Integer(1, 100, name='min_samples_leaf')]
+```
+
+Now, the last thing we need is an estimator $\hat R$ for the model's performance. This is our `Rhat()` function (i.e. $\hat R$) which we'll try to maximize. Here we use a cross-validated mean absolute error score.
+
+```{python}
+from sklearn.model_selection import cross_val_score
+
+def Rhat(**params):
+  model.set_params(**params)
+  
+  return -np.mean(cross_val_score(model, X, y, cv=5, n_jobs=-1,
+                                  scoring="neg_mean_absolute_error"))
+```
+
+
+With this, we can fit the model to the data (using default hyperparameter values to begin with), and evaluate the model's performance.
+
+```{python}
+model.fit(X, y)
+
+Rhat()
+```
+
+Here the unit for median house price was in hundreds of thousands of dollars and we can interpret the model performance at this scale. The value $\hat R \approx 0.5$ means that, on average, the absolute error of the model is $50,000. We'll see if we can do better using hyperparameter optimization.
+
+
+## 2 Black-Box Methods
+
+Black-box hyperparameter optimization algorithms consider the underlying machine algorithm as unknown. We only assume that, given a set of hyperparameters $\lambda$, we can compute the estimated model performance $\hat R(\lambda)$. There is usually variance in $\hat R(\lambda)$, but this is not something that I will talk about in this post. We can therefore see $\hat R$ as a deterministic function to be optimized.
+
+We can use almost any technique to try to optimize $\hat R$, but there are a number of challenges with hyperparameter optimization:
+
+1. $\hat R$ is usually rather costly to evaluate.
+2. We usually do not have gradient information regarding $\hat R$ (otherwise, hyperparameters for which we have gradient information could easily be incorporated as parameters of the underlying ML algorithms).
+3. The hyperparameter space is usually complex. It can contain discrete variables and can even be tree-structured, where some hyperparameters are only defined conditionally on other hyperparameters.
+4. The hyperparameter space is usually somewhat high-dimensional, with more than just 2-3 dimensions.
+
+### 2.1 Grid Search
+
+
+```{python}
+from sklearn.model_selection import GridSearchCV
+
+# Budget of 81 evaluations
+grid = {
+  'max_depth': [1, 3, 5],
+  #'learning_rate': [0.02, 0.1, 0.5],
+  #'max_features': [2, 4, 8],
+  #'min_samples_leaf': [1, 10, 20]
+}
+
+def scoring(estimator, X_test, y_test):
+  y_pred = estimator.predict(X_test)
+  return -np.mean(np.abs(y_test - y_pred))
+
+results = GridSearchCV(model, grid, cv=5, njobs=-1, scoring=scoring).fit(X, y)
+```
+
+
+
+```{python}
+results
+```
+
+
+### 2.2 Random Search
+
+### 2.3 Sequential Model-Based Optimization
+
+## 3 Integrated Methods
+
+### 3.1 Hyperband
+
+### 3.2 Bayesian Model Selection
+
+## 4 Discussion
+
+
+
+
+
+
+
 
 
 

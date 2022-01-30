@@ -89,6 +89,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>A Brief Introduction to Hyperparameter Optimization</title>
 
+  <meta property="description" itemprop="description" content="I review a few hyperparameter optimization techniques at a high conceptual level: grid search, randomized search, sequential model-based optimization (TPE, Bayesian optimization), and Hyperband."/>
 
 
   <!--  https://schema.org/Article -->
@@ -99,11 +100,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="A Brief Introduction to Hyperparameter Optimization"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="I review a few hyperparameter optimization techniques at a high conceptual level: grid search, randomized search, sequential model-based optimization (TPE, Bayesian optimization), and Hyperband."/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="A Brief Introduction to Hyperparameter Optimization"/>
+  <meta property="twitter:description" content="I review a few hyperparameter optimization techniques at a high conceptual level: grid search, randomized search, sequential model-based optimization (TPE, Bayesian optimization), and Hyperband."/>
 
   <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
   <meta name="citation_title" content="A Brief Introduction to Hyperparameter Optimization"/>
@@ -116,12 +119,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","output","draft","repository_url","citation_url","creative-commons"]}},"value":[{"type":"character","attributes":{},"value":["A Brief Introduction to Hyperparameter Optimization"]},{"type":"NULL"},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Olivier Binette"]},{"type":"character","attributes":{},"value":["https://olivierbinette.github.io"]},{"type":"character","attributes":{},"value":["Duke University"]},{"type":"character","attributes":{},"value":["0000-0001-6009-5206"]}]}]},{"type":"character","attributes":{},"value":["2022-01-29"]},{"type":"character","attributes":{},"value":["Machine Learning","Hyperparameter Optimzation"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["https://github.com/olivierbinette/olivierbinette.github.io"]},{"type":"character","attributes":{},"value":["https://olivierbinette.github.io/posts/2022-01-29-a-brief-introduction-to-hyperparameter-optimization"]},{"type":"character","attributes":{},"value":["CC BY-SA"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview","author","date","categories","output","draft","repository_url","citation_url","creative-commons"]}},"value":[{"type":"character","attributes":{},"value":["A Brief Introduction to Hyperparameter Optimization"]},{"type":"character","attributes":{},"value":["I review a few hyperparameter optimization techniques at a high conceptual level: grid search, randomized search, sequential model-based optimization (TPE, Bayesian optimization), and Hyperband.\n"]},{"type":"character","attributes":{},"value":["https://pyro.ai/examples/_images/gp_19_0.png"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Olivier Binette"]},{"type":"character","attributes":{},"value":["https://olivierbinette.github.io"]},{"type":"character","attributes":{},"value":["Duke University"]},{"type":"character","attributes":{},"value":["0000-0001-6009-5206"]}]}]},{"type":"character","attributes":{},"value":["2022-01-29"]},{"type":"character","attributes":{},"value":["Machine Learning","Hyperparameter Optimzation"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["https://github.com/olivierbinette/olivierbinette.github.io"]},{"type":"character","attributes":{},"value":["https://olivierbinette.github.io/posts/2022-01-29-a-brief-introduction-to-hyperparameter-optimization"]},{"type":"character","attributes":{},"value":["CC BY-SA"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["a-brief-introduction-to-hyperparameter-optimization_files/anchor-4.2.2/anchor.min.js","a-brief-introduction-to-hyperparameter-optimization_files/bowser-1.9.3/bowser.min.js","a-brief-introduction-to-hyperparameter-optimization_files/distill-2.2.21/template.v2.js","a-brief-introduction-to-hyperparameter-optimization_files/header-attrs-2.11/header-attrs.js","a-brief-introduction-to-hyperparameter-optimization_files/jquery-3.6.0/jquery-3.6.0.js","a-brief-introduction-to-hyperparameter-optimization_files/jquery-3.6.0/jquery-3.6.0.min.js","a-brief-introduction-to-hyperparameter-optimization_files/jquery-3.6.0/jquery-3.6.0.min.map","a-brief-introduction-to-hyperparameter-optimization_files/popper-2.6.0/popper.min.js","a-brief-introduction-to-hyperparameter-optimization_files/tippy-6.2.7/tippy-bundle.umd.min.js","a-brief-introduction-to-hyperparameter-optimization_files/tippy-6.2.7/tippy-light-border.css","a-brief-introduction-to-hyperparameter-optimization_files/tippy-6.2.7/tippy.css","a-brief-introduction-to-hyperparameter-optimization_files/tippy-6.2.7/tippy.umd.min.js","a-brief-introduction-to-hyperparameter-optimization_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["a-brief-introduction-to-hyperparameter-optimization_files/anchor-4.2.2/anchor.min.js","a-brief-introduction-to-hyperparameter-optimization_files/bowser-1.9.3/bowser.min.js","a-brief-introduction-to-hyperparameter-optimization_files/distill-2.2.21/template.v2.js","a-brief-introduction-to-hyperparameter-optimization_files/header-attrs-2.11/header-attrs.js","a-brief-introduction-to-hyperparameter-optimization_files/jquery-3.6.0/jquery-3.6.0.js","a-brief-introduction-to-hyperparameter-optimization_files/jquery-3.6.0/jquery-3.6.0.min.js","a-brief-introduction-to-hyperparameter-optimization_files/jquery-3.6.0/jquery-3.6.0.min.map","a-brief-introduction-to-hyperparameter-optimization_files/popper-2.6.0/popper.min.js","a-brief-introduction-to-hyperparameter-optimization_files/tippy-6.2.7/tippy-bundle.umd.min.js","a-brief-introduction-to-hyperparameter-optimization_files/tippy-6.2.7/tippy-light-border.css","a-brief-introduction-to-hyperparameter-optimization_files/tippy-6.2.7/tippy.css","a-brief-introduction-to-hyperparameter-optimization_files/tippy-6.2.7/tippy.umd.min.js","a-brief-introduction-to-hyperparameter-optimization_files/webcomponents-2.0.0/webcomponents.js","ml.png","ml.svg","techniques.svg","workflow.svg"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1463,7 +1466,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"A Brief Introduction to Hyperparameter Optimization","authors":[{"author":"Olivier Binette","authorURL":"https://olivierbinette.github.io","affiliation":"Duke University","affiliationURL":"#","orcidID":"0000-0001-6009-5206"}],"publishedDate":"2022-01-29T00:00:00.000-05:00","citationText":"Binette, 2022"}
+{"title":"A Brief Introduction to Hyperparameter Optimization","description":"I review a few hyperparameter optimization techniques at a high conceptual level: grid search, randomized search, sequential model-based optimization (TPE, Bayesian optimization), and Hyperband.","authors":[{"author":"Olivier Binette","authorURL":"https://olivierbinette.github.io","affiliation":"Duke University","affiliationURL":"#","orcidID":"0000-0001-6009-5206"}],"publishedDate":"2022-01-29T00:00:00.000-05:00","citationText":"Binette, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1480,7 +1483,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="dt=tag">Hyperparameter Optimzation</div>
 </div>
 <!--/radix_placeholder_categories-->
-
+<p><p>I review a few hyperparameter optimization techniques at a high conceptual level: grid search, randomized search, sequential model-based optimization (TPE, Bayesian optimization), and Hyperband.</p></p>
 </div>
 
 <div class="d-byline">
@@ -1490,7 +1493,175 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#introduction">1 Introduction</a></li>
+<li><a href="#background-and-terminology">1.1 Background and Terminology</a>
+<ul>
+<li><a href="#models-parameters-and-performance-evaluation">Models, Parameters and Performance Evaluation</a></li>
+<li><a href="#hyperparameters">Hyperparameters</a></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+<li><a href="#black-box-methods">2 Black-Box Methods</a>
+<ul>
+<li><a href="#grid-search">2.1 Grid Search</a></li>
+<li><a href="#random-search">2.2 Random Search</a></li>
+<li><a href="#sequential-model-based-optimization">2.3 Sequential Model-Based Optimization</a></li>
+</ul></li>
+<li><a href="#integrated-methods">3 Integrated Methods</a>
+<ul>
+<li><a href="#hyperband">3.1 Hyperband</a></li>
+<li><a href="#bayesian-model-selection">3.2 Bayesian Model Selection</a></li>
+</ul></li>
+<li><a href="#discussion">4 Discussion</a></li>
+</ul>
+</nav>
+</div>
+<h2 id="introduction">1 Introduction</h2>
+<p>Machine learning is easy, right? You pick a model, fit it to your data, and out come predictions.</p>
+<p><img src="ml.svg" /></p>
+<p>That’s how machine learning is taught at colleges. That’s how it’s sold to businesses as well. Sometimes we talk about the fancy math and algorithms under the hood to make it look serious, but we rarely talk about how difficult it is to transform whatever data can gather into useful, actionable predictions that have business value.</p>
+<p>There are many challenges. First, there’s the transformation of a business problem into something that’s remotely approachable by machine learning and statistics. Second, there’s the development of a data collection plan or, more often than not, the identification of observational data which is already available. With the collection of this data comes the third step, modeling, which bridges between numbers and useful answers. Modeling may have to account for all kinds of issue with your data, such as class imbalance, missingness, and non-representativeness. You also want to obtain <em>good</em> answers, so throughout this step <strong>you loop between model specification, evaluation, and refinement</strong>. It is a lengthy process of research and investigation into the performance of your model, insights into the <em>why</em> of what you observe, and various fixes and improvements to your model. Finally, in a fourth stage, you must account for how your model will be used and the management of its lifecycle.</p>
+<p><img src="workflow.svg" /></p>
+<p>Moral of the story: there is a lot work involved. We need all hands on deck. And even more than that, <strong>we need robust automatization tools</strong> to support this machine learning workflow.</p>
+<p>This blog post is about a single set of tools – <strong>hyperparameter optimization techniques</strong> – used to help with the model specification, evaluation, and refinement loop. I will focus on the standard machine learning framework of supervised learning. In this context, machine learning algorithms can be seen as black boxes which take in some data, a bunch of tuning <em>hyperparameters</em> specified by the user of the algorithm, and which output predictions. The quality of the predictions can be evaluated through data splitting or cross-validation. That is, we’re always able to compare predictions to ground truth for the data we have at hand.</p>
+<p>My goal is to describe key approaches to hyperparameter optimization (see Table 1) in order to provide <strong>conceptual understanding that can be helpful practice.</strong> First, I describe <em>black-box</em> methods which treat the machine learning algorithm as, well, a black blox. This includes <strong>grid search</strong>, <strong>randomized search</strong>, and sequential model-based optimization, such as the <strong>Tree-Structured Parzen Estimator (TPE)</strong> and <strong>Bayesian optimization.</strong> Second, I discuss a few methods which integrate with the learning algorithms themselves, namely <strong>Hyperband</strong> and <strong>Bayesian model selection</strong>.</p>
+<table>
+<caption>Table 1: Different types of hyperparameter optimization methods</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Black-box methods</th>
+<th style="text-align: left;">Integrated methods</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Grid Search</td>
+<td style="text-align: left;">Hyperband</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Randomized Search</td>
+<td style="text-align: left;">Bayesian Model Selection</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sequential Model-Based Optimization</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<!--**Disclaimer:** my goal in this post is **not** to say that grid search is bad, or that you should be using algorithm X instead of agorithm Y for hyperparameter optimization. The model specification, evaluation and refinement loop is an important part of the machine learning workflow which leads to useful insights into the behavior and performance of your model. It should not be entirely automated. Hyperparameter optimization techniques should be used to gain more insights into your model and to improve your productivity, not as a drop-in replacement for model building. Use whatever technique works the best for you given what you're trying to achieve.
+-->
+<p>Before getting into the detail of these methods though, let’s go over some basic concepts and terminology which I’ll be using.</p>
+<h2 id="background-and-terminology">1.1 Background and Terminology</h2>
+<p>First, let’s talk about models, parameters and performance evaluation. It’s pretty basic stuff, but it will allow me to introduce some terminology.</p>
+<h3 id="models-parameters-and-performance-evaluation">Models, Parameters and Performance Evaluation</h3>
+<p>A <strong>model</strong> is a mathematical representation of something going on in the real world. For instance, suppose you want to predict whether or not a given stock <span class="math inline">\(X\)</span> is going to go up tomorrow. A model for this could be: predict it’s going to go up with probability <span class="math inline">\(\alpha\)</span> if it went up today, otherwise predict it’s not going to go up with probability <span class="math inline">\(\beta\)</span>. There’s only one <strong>variable</strong> in this model (whether or not the stock went up today), and there are two <strong>parameters</strong>, the probabilities <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. Here the parameters could be learned if we had historical data.</p>
+<p>You could consider more sophisticated models such as classical time series models or reccurent neural networks. In all cases, you have variables (the input to your model), parameters (what you learn from data), and you end up with predictions.</p>
+<p>You can compare the performance of any model by comparing the predictions to what actually happened. For instance, you could look at how often your predictions were right. That’s a performance <strong>evaluation metric</strong>. Your goal is usually to build a model which will keep on performing well.</p>
+<p>Formally, let <span class="math inline">\(R\)</span> be the (average) future performance of your model. You don’t know this quantity, but you can estimate it as <span class="math inline">\(\hat R\)</span> using techniques such as cross-validation and its variants. There might be a bias and a variance to <span class="math inline">\(\hat R\)</span>, but the best we can do in practice is to try to find the model with the best estimated performance (modulo certain adjustments).</p>
+<p>This brings us to the question: <strong>how should you choose a model?</strong> The standard in machine learning is to choose a model which maximizes <span class="math inline">\(\hat R\)</span>. It’s not the only solution, and it’s not always the best solution (it’s better to do model averaging if <span class="math inline">\(\hat R\)</span> has some variance), but it’s what we’ll focus on through this blog post.</p>
+<p>Furthermore, we’ll approach this problem through the lens of hyperparameter selection.</p>
+<h3 id="hyperparameters">Hyperparameters</h3>
+<p>Hyperparameters are things that have you have to specify before you can run a model, such as:</p>
+<ul>
+<li>what data features to use,</li>
+<li>what type of model to use (linear model? random forest? neural network?)</li>
+<li>other decisions that go into the specification of a model:
+<ul>
+<li>the number of layers in your neural network,</li>
+<li>the learning rate for the gradient descent algorithm,</li>
+<li>the maximum depth for decision trees, etc.</li>
+</ul></li>
+</ul>
+<p>There is only a practical distinction between parameters and hyperparameters. They are things that are usually set separately from the other model parameters, or that do not nicely fit within a model’s learning algorithm. Depending on the framework you’re using, parameters can become hyperparameters and vice versa. For example, by using ensemble methods, you could easily transform the “model type choice” hyperparameter to a simple parameter of your ensemble that is learned from data.</p>
+<p>The key thing is that, in practice, there will typically be some distinction between parameters of your model and a set of hyperparameters that you have to specify.</p>
+<p>Through experience, you can learn what hyperparameters work well for the kinds of problems that you work on. Other times, you might carefully tune parameters and investigate the impact of your choices on model performance.</p>
+<p>The manual process of hyperparameter tuning can lead to important insights into the performance and behavior of your model. However, it can also be a menial task that would be better automated through hyperparameter optimization algorithms aiming to maximize <span class="math inline">\(\hat R\)</span>, such as those that I review below.</p>
+<h3 id="example">Example</h3>
+<p>Let’s look at an example to make things concrete. This is adapted from <a href="https://scikit-optimize.github.io/stable/auto_examples/hyperparameter-optimization.html">scikit-optimize’s tutorial for tuning scikit-learn estimators</a>.</p>
+<p>We’ll consider the <a href="https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset">California housing dataset</a> from the scikit-learn library. Each row in this dataset represents a census block and contains aggregated information regarding houses in that block. Our goal will be to predict median house price at the block level given these other covariates.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> fetch_california_housing</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> fetch_california_housing(as_frame<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> dataset.data <span class="co"># Covariates</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>n_features <span class="op">=</span> X.shape[<span class="dv">1</span>] <span class="co"># Number of features</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> dataset.target <span class="co"># Median house prices</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>X</span></code></pre></div>
+<pre><code>       MedInc  HouseAge  AveRooms  ...  AveOccup  Latitude  Longitude
+0      8.3252      41.0  6.984127  ...  2.555556     37.88    -122.23
+1      8.3014      21.0  6.238137  ...  2.109842     37.86    -122.22
+2      7.2574      52.0  8.288136  ...  2.802260     37.85    -122.24
+3      5.6431      52.0  5.817352  ...  2.547945     37.85    -122.25
+4      3.8462      52.0  6.281853  ...  2.181467     37.85    -122.25
+...       ...       ...       ...  ...       ...       ...        ...
+20635  1.5603      25.0  5.045455  ...  2.560606     39.48    -121.09
+20636  2.5568      18.0  6.114035  ...  3.122807     39.49    -121.21
+20637  1.7000      17.0  5.205543  ...  2.325635     39.43    -121.22
+20638  1.8672      18.0  5.329513  ...  2.123209     39.43    -121.32
+20639  2.3886      16.0  5.254717  ...  2.616981     39.37    -121.24
+
+[20640 rows x 8 columns]</code></pre>
+</div>
+<p>For the regression, we’ll use scikit-learn’s gradient boosted trees estimator. This model has a number of internal parameters which don’t need to know much about, as well as hyperparameters which can be used to tune the model. This includes the <code>max_depth</code> hyperparameter for the maximum depth of decision trees, <code>learning_rate</code> for the learning rate of gradient boosting, <code>max_features</code> for the maximum number of features to use in each decision trees, and a few more. Ranges of reasonable values for these parameters are specified in the <code>space</code> variable below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> GradientBoostingRegressor</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skopt.space <span class="im">import</span> Real, Integer</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> GradientBoostingRegressor(n_estimators<span class="op">=</span><span class="dv">50</span>, random_state<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>space  <span class="op">=</span> [Integer(<span class="dv">1</span>, <span class="dv">5</span>, name<span class="op">=</span><span class="st">&#39;max_depth&#39;</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>          Real(<span class="dv">10</span><span class="op">**-</span><span class="dv">5</span>, <span class="dv">10</span><span class="op">**</span><span class="dv">0</span>, <span class="st">&quot;log-uniform&quot;</span>, name<span class="op">=</span><span class="st">&#39;learning_rate&#39;</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>          Integer(<span class="dv">1</span>, n_features, name<span class="op">=</span><span class="st">&#39;max_features&#39;</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>          Integer(<span class="dv">2</span>, <span class="dv">100</span>, name<span class="op">=</span><span class="st">&#39;min_samples_split&#39;</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>          Integer(<span class="dv">1</span>, <span class="dv">100</span>, name<span class="op">=</span><span class="st">&#39;min_samples_leaf&#39;</span>)]</span></code></pre></div>
+</div>
+<p>Now, the last thing we need is an estimator <span class="math inline">\(\hat R\)</span> for the model’s performance. This is our <code>Rhat()</code> function (i.e. <span class="math inline">\(\hat R\)</span>) which we’ll try to maximize. Here we use a cross-validated mean absolute error score.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Rhat(<span class="op">**</span>params):</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  model.set_params(<span class="op">**</span>params)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="op">-</span>np.mean(cross_val_score(model, X, y, cv<span class="op">=</span><span class="dv">5</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                                  scoring<span class="op">=</span><span class="st">&quot;neg_mean_absolute_error&quot;</span>))</span></code></pre></div>
+</div>
+<p>With this, we can fit the model to the data (using default hyperparameter values to begin with), and evaluate the model’s performance.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model.fit(X, y)</span></code></pre></div>
+<pre><code>GradientBoostingRegressor(n_estimators=50, random_state=0)</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Rhat()</span></code></pre></div>
+<pre><code>0.49980629627607226</code></pre>
+</div>
+<p>Here the unit for median house price was in hundreds of thousands of dollars and we can interpret the model performance at this scale. The value <span class="math inline">\(\hat R \approx 0.5\)</span> means that, on average, the absolute error of the model is $50,000. We’ll see if we can do better using hyperparameter optimization.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>space</span></code></pre></div>
+<pre><code>[Integer(low=1, high=5, prior=&#39;uniform&#39;, transform=&#39;identity&#39;), Real(low=1e-05, high=1, prior=&#39;log-uniform&#39;, transform=&#39;identity&#39;), Integer(low=1, high=8, prior=&#39;uniform&#39;, transform=&#39;identity&#39;), Integer(low=2, high=100, prior=&#39;uniform&#39;, transform=&#39;identity&#39;), Integer(low=1, high=100, prior=&#39;uniform&#39;, transform=&#39;identity&#39;)]</code></pre>
+</div>
+<h2 id="black-box-methods">2 Black-Box Methods</h2>
+<p>Black-box hyperparameter optimization algorithms consider the underlying machine algorithm as unknown. We only assume that, given a set of hyperparameters <span class="math inline">\(\lambda\)</span>, we can compute the estimated model performance <span class="math inline">\(\hat R(\lambda)\)</span>. There is usually variance in <span class="math inline">\(\hat R(\lambda)\)</span>, but this is not something that I will talk about in this post. We can therefore see <span class="math inline">\(\hat R\)</span> as a deterministic function to be optimized.</p>
+<p>We can use almost any technique to try to optimize <span class="math inline">\(\hat R\)</span>, but there are a number of challenges with hyperparameter optimization:</p>
+<ol type="1">
+<li><span class="math inline">\(\hat R\)</span> is usually rather costly to evaluate.</li>
+<li>We usually do not have gradient information regarding <span class="math inline">\(\hat R\)</span> (otherwise, hyperparameters for which we have gradient information could easily be incorporated as parameters of the underlying ML algorithms).</li>
+<li>The hyperparameter space is usually complex. It can contain discrete variables and can even be tree-structured, where some hyperparameters are only defined conditionally on other hyperparameters.</li>
+<li>The hyperparameter space is usually somewhat high-dimensional, with more than just 2-3 dimensions.</li>
+</ol>
+<h3 id="grid-search">2.1 Grid Search</h3>
+<h3 id="random-search">2.2 Random Search</h3>
+<h3 id="sequential-model-based-optimization">2.3 Sequential Model-Based Optimization</h3>
+<h2 id="integrated-methods">3 Integrated Methods</h2>
+<h3 id="hyperband">3.1 Hyperband</h3>
+<h3 id="bayesian-model-selection">3.2 Bayesian Model Selection</h3>
+<h2 id="discussion">4 Discussion</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -1498,6 +1669,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

@@ -21,4 +21,7 @@ navbar:
       href: software.html
     - text: "Blog"
       href: blog.html
-output: distill::distill_article
+output: 
+  distill::distill_article:
+    includes:
+      in_header: .giscus.html
