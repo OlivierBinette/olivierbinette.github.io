@@ -1,7 +1,7 @@
 ---
-title: "A Brief Introduction to Hyperparameter Optimization"
+title: "A Brief Introduction to Black-Box Hyperparameter Optimization"
 description: |
-  I review a few hyperparameter optimization techniques at a high conceptual level: grid search, randomized search, sequential model-based optimization (TPE, Bayesian optimization), and Hyperband.
+  I review a few black-box hyperparameter optimization techniques at a high conceptual level: grid search, randomized search and sequential model-based optimization.
 preview: https://pyro.ai/examples/_images/gp_19_0.png
 author:
   - name: Olivier Binette
@@ -23,6 +23,11 @@ citation_url: https://olivierbinette.github.io/posts/2022-01-29-a-brief-introduc
 creative-commons: CC BY-SA
 ---
 
+```{r}
+knitr::opts_chunk$set(eval = TRUE, cache=TRUE)
+```
+
+
 ## 1 Introduction
 
 Machine learning is easy, right? You pick a model, fit it to your data, and out come predictions.
@@ -39,8 +44,7 @@ Moral of the story: there is a lot work involved. We need all hands on deck. And
 
 This blog post is about a single set of tools -- **hyperparameter optimization techniques** -- used to help with the model specification, evaluation, and refinement loop. I will focus on the standard machine learning framework of supervised learning. In this context, machine learning algorithms can be seen as black boxes which take in some data, a bunch of tuning *hyperparameters* specified by the user of the algorithm, and which output predictions. The quality of the predictions can be evaluated through data splitting or cross-validation. That is, we're always able to compare predictions to ground truth for the data we have at hand.
 
-My goal is to describe key approaches to hyperparameter optimization (see Table 1) in order to provide **conceptual understanding that can be helpful practice.** First, I describe *black-box* methods which treat the machine learning algorithm as, well, a black blox. This includes **grid search**, **randomized search**, and sequential model-based optimization, such as the **Tree-Structured Parzen Estimator (TPE)** and **Bayesian optimization.** Second, I discuss a few methods which integrate with the learning algorithms themselves, namely **Hyperband** and **Bayesian model selection**.
-
+My goal is to describe key approaches to hyperparameter optimization (see Table 1) in order to provide **conceptual understanding that can be helpful practice.** I describe *black-box* methods which treat the machine learning algorithm as, well, a black blox. This includes **grid search**, **randomized search**, and sequential model-based optimization, such as **Bayesian optimization.** There are additional methods to be considered, such as **Hyperband** and **Bayesian model selection**, which integrate with the learning algorithms themselves. These will be for another blog post.
 
 | Black-box methods | Integrated methods |
 | :----- | :-----  |
@@ -119,13 +123,13 @@ from sklearn.ensemble import GradientBoostingRegressor
 from skopt.space import Real, Integer
 
 
-model = GradientBoostingRegressor(n_estimators=50, random_state=0)
+model = GradientBoostingRegressor(n_estimators=25, random_state=0)
 
-space  = [Integer(1, 5, name='max_depth'),
-          Real(10**-5, 10**0, "log-uniform", name='learning_rate'),
+space  = [Integer(1, 8, name='max_depth'),
+          Real(0.01, 1, "log-uniform", name='learning_rate'),
           Integer(1, n_features, name='max_features'),
-          Integer(2, 100, name='min_samples_split'),
-          Integer(1, 100, name='min_samples_leaf')]
+          Integer(1, 50, name='min_samples_leaf')
+]
 ```
 
 Now, the last thing we need is an estimator $\hat R$ for the model's performance. This is our `Rhat()` function (i.e. $\hat R$) which we'll try to maximize. Here we use a cross-validated mean absolute error score.
@@ -136,7 +140,7 @@ from sklearn.model_selection import cross_val_score
 def Rhat(**params):
   model.set_params(**params)
   
-  return -np.mean(cross_val_score(model, X, y, cv=5, n_jobs=-1,
+  return -np.mean(cross_val_score(model, X, y, cv=3, n_jobs=-1,
                                   scoring="neg_mean_absolute_error"))
 ```
 
@@ -149,12 +153,14 @@ model.fit(X, y)
 Rhat()
 ```
 
-Here the unit for median house price was in hundreds of thousands of dollars and we can interpret the model performance at this scale. The value $\hat R \approx 0.5$ means that, on average, the absolute error of the model is $50,000. We'll see if we can do better using hyperparameter optimization.
+Here the unit for median house price was in hundreds of thousands of dollars and we can interpret the model performance at this scale. The value $\hat R \approx 0.55$ means that, on average, the absolute error of the model is $55,000. We'll see if we can do better using hyperparameter optimization.
 
 
-## 2 Black-Box Methods
+## 2 Black-Box Optimization Methods
 
-Black-box hyperparameter optimization algorithms consider the underlying machine algorithm as unknown. We only assume that, given a set of hyperparameters $\lambda$, we can compute the estimated model performance $\hat R(\lambda)$. There is usually variance in $\hat R(\lambda)$, but this is not something that I will talk about in this post. We can therefore see $\hat R$ as a deterministic function to be optimized.
+Black-box hyperparameter optimization algorithms consider the underlying machine algorithm as unknown. We only assume that, given a set of hyperparameters $\lambda$, we can compute the estimated model performance $\hat R(\lambda)$. There is usually variance in $\hat R(\lambda)$, but this is not something that I will talk about in this post. We will therefore consider $\hat R$ as a deterministic function to be optimized.
+
+Note: in practice, **you need to account for the variance in $\hat R$**, as otherwise you could get bad surprises. It's just not something I'm covering in this post, since I want to focus on a conceptual understanding of the optimization algorithms.
 
 We can use almost any technique to try to optimize $\hat R$, but there are a number of challenges with hyperparameter optimization:
 
@@ -163,47 +169,166 @@ We can use almost any technique to try to optimize $\hat R$, but there are a num
 3. The hyperparameter space is usually complex. It can contain discrete variables and can even be tree-structured, where some hyperparameters are only defined conditionally on other hyperparameters.
 4. The hyperparameter space is usually somewhat high-dimensional, with more than just 2-3 dimensions.
 
+These particularities of the hyperparameter optimization problem has led the machine learning community to favor some of the optimization techniques which I discuss below.
+
+
 ### 2.1 Grid Search
+
+The first technique to consider is **grid search**, which is a brute force approach to hyperparameter optimization. It is the simplest of all -- you simply specify values to consider for each hyperparameter, and then evaluate your model performance for each combination of hyperparameter. At the end, you keep the hyperparameter configuration which performed best.
+
+There are a few advantages to this approach:
+
+- It gives you precise control over what hyperparameter configurations are evaluated.
+- It is simple to implement and easily parallelizable.
+
+However, there are also a number of serious drawbacks:
+
+1. The runtime scales exponentially in the number of hyperparameter dimensions.
+2. The runtime is tied to the hyperparameter search space which you specify. To reduce runtime, you need to manually redefine this space.
+
+Let's see an example of how this works in practice. First, we define a grid of hyperparameter values to evaluate. Given the scoring function $\hat R$, we can then use scikit-learn's `GridSearchCV()` function to evaluate the model performance at each hyperparameter combination. This is done below:
 
 
 ```{python}
 from sklearn.model_selection import GridSearchCV
 
-# Budget of 81 evaluations
+# Budget of 54 evaluations
 grid = {
   'max_depth': [1, 3, 5],
-  #'learning_rate': [0.02, 0.1, 0.5],
-  #'max_features': [2, 4, 8],
-  #'min_samples_leaf': [1, 10, 20]
+  'learning_rate': [0.01, 0.1, 1],
+  'max_features': [2, 4, 8],
+  'min_samples_leaf': [1, 10]
 }
 
 def scoring(estimator, X_test, y_test):
   y_pred = estimator.predict(X_test)
   return -np.mean(np.abs(y_test - y_pred))
 
-results = GridSearchCV(model, grid, cv=5, njobs=-1, scoring=scoring).fit(X, y)
+results = GridSearchCV(model, grid, cv=3, n_jobs=-1, scoring=scoring).fit(X, y)
 ```
 
-
+We can then recover the best score and best hyperparameters. The best model is slightly better than the default model we looked at earlier, with a $4,000 decrease in average absolute error.
 
 ```{python}
-results
+-results.best_score_ # Lowest cross-validated mean absolute error
+
+{key:results.best_params_[key] for key in grid.keys()} # Best parameters
+```
+
+It is also informative to plot an histogram for the distribution of model scores. We can see that most model configurations performed much worst than the default.
+
+```{python}
+import matplotlib.pyplot as plt
+
+plt.clf()
+p = plt.hist(-results.cv_results_["mean_test_score"], bins=20)
+p = plt.title("Score distribution for evaluated hyperparameters", loc="left")
+p = plt.xlabel("Cross-validated average absolute error")
+plt.show()
 ```
 
 
 ### 2.2 Random Search
 
+The second method we'll look at is **random search.** Here, the idea is to sample a number $k$ of hyperparameter configurations at random from a given space, and to evaluate those random configurations.
+
+This might seem like a silly idea. Why pick hyperparameter values at random?
+
+The answer is that doing so **removes all computational penalties** from the consideration of useless hyperparameter dimensions. That is, imagine that a number $s$ of your hyperparameters have actually no impact on model performance. This is something you might not know in advance. With grid search, the consideration of these hyperparameters would incur you a computational penalty which is exponential in $s$. With random search, however, there is **no penalty at all** for adding these $s$ additional hyperparameter dimensions. The results from random search with or without these additional dimensions are **exactly the same** in both cases.
+
+This is the huge advantage of random search over grid search: you do not get penalized for useless dimensions. Furthermore, in practice, being able to tune the search effort through the number of samples $k$ can be quite convenient.
+
+Let's see how this can be implemented in practice. We'll define a hyperparameter space which is similar to the grid space we specified earlier, but which is filled in with additional possible values. We can then run scikit-learn's `RandomizedSearchCV()` function to do the randomized search:
+
+```{python}
+from sklearn.model_selection import RandomizedSearchCV
+from scipy.stats import loguniform
+
+# Around roughly the same values as for the grid search
+param_distribution = {
+  'max_depth': range(1, 8),
+  'learning_rate': loguniform(0.01, 1),
+  'max_features': range(1, 9),
+  'min_samples_leaf': range(1, 50)
+}
+
+# Budget of 54 evaluations
+results = RandomizedSearchCV(model, param_distribution, n_iter=54, cv=3, n_jobs=-1, scoring=scoring, random_state=0).fit(X, y)
+```
+
+The results are below. By considering a richer hyperparameter space, and without being penalized by this in the same way we would with a grid search, randomized search allows us to find a better model with the same amount of effort.
+
+```{python}
+-results.best_score_ # Lowest cross-validated mean absolute error
+
+{key:results.best_params_[key] for key in grid.keys()} # Best parameters
+```
+
+Again, we can look at the distribution of model performance for sampled hyperparameter configurations. It's quite similar to grid search, with only a few better-performing models being identified.
+
+```{python}
+import matplotlib.pyplot as plt
+
+plt.clf()
+p = plt.hist(-results.cv_results_["mean_test_score"], bins=20)
+p = plt.title("Score distribution for evaluated hyperparameters", loc="left")
+p = plt.xlabel("Cross-validated average absolute error")
+plt.show()
+```
+
+
 ### 2.3 Sequential Model-Based Optimization
 
-## 3 Integrated Methods
+All of the techniques considered so far made no assumption at all about the function $\hat R$ to optimize.
 
-### 3.1 Hyperband
+This is a problem, because we do have prior information about $\hat R$. We can expect $\hat R$ to have some level of regularity, meaning that similar hyperparameter configurations should have similar performance. This knowledge allows us to make inference about $\hat R(\lambda)$ given the evaluation of $\hat R$ at other points $\tilde \lambda \not = \lambda$.
 
-### 3.2 Bayesian Model Selection
+More formally, suppose we have evaluated $\hat R$ at a sequence of hyperparameter configurations $\lambda_1, \lambda_2, \dots, \lambda_n$, thus observing $\hat R(\lambda_1), \hat R(\lambda_2), \dots, \hat R(\lambda_n)$. This allows us to make inference about $\hat R$. In particular, we can try guessing what next $\lambda_{n+1}$ will maximize $\hat R$ or improve our knowledge of $\hat R$. Once we've observed $\hat R(\lambda_{n+1})$, we repeat the process, trying to guess which $\lambda_{n+2}$ to pick to improve the procedure. That is the entire idea behind **sequential model-based optimization**.
 
-## 4 Discussion
+To make this work in practice, we need the following ingredients:
+
+1. An inferential model for $\hat R$. That could be a Bayesian nonparametric model, like a Gaussian Process, or something else, like a Tree-structure Parzen Estimator.
+2. A method to guess the next best hyperparameter value to pick. Typically, $\lambda_{n+1}$ is chosen to maximize the **expected improvement criterion**. This chooses $\lambda$ to maximize the expected value of $\max\{R^* - \hat R(\lambda), 0\}$, where $R^*$ is the current observed performance maximum. In other words, we want to maximize the potential for improving the current optimum, without penalizing for the possibility of observing a lower performance. This allows us to optimize $\hat R$ while still exploring the hyperparameter space. I refer the reader to [here](https://www.cse.wustl.edu/~garnett/cse515t/spring_2015/files/lecture_notes/12.pdf) for a review of a few other acquisition criterions.
 
 
+When a Bayesian inferential framework is chosen, then sequential model-based optimization is called **Bayesian optimization** or **Bayesian search**. It is beyond of the scope of this blog post to go into the details of gaussian processes, but below I show howthe scikit-optimize library can be used to perform Bayesian optimization based on Gaussian Processes and the expected improvement criterion:
+
+```{python}
+from skopt import gp_minimize
+from skopt.utils import use_named_args
+
+@use_named_args(space)
+def objective(**params):
+  model.set_params(**params)
+  
+  return -np.mean(cross_val_score(model, X, y, cv=3, n_jobs=-1,
+                                  scoring="neg_mean_absolute_error"))
+
+res_gp = gp_minimize(objective, space, n_calls=54, random_state=1)
+```
+
+With Bayesian optimization, we see that much more time is spent sampling performant models.
+
+```{python}
+plt.clf()
+p = plt.hist(res_gp.func_vals, bins=20)
+p = plt.title("Score distribution for evaluated hyperparameters", loc="left")
+p = plt.xlabel("Cross-validated average absolute error")
+plt.show()
+```
+
+Furthermore, we can see that the algorithm quickly converges towards performant models.
+
+```{python}
+from skopt.plots import plot_convergence
+
+plot_convergence(res_gp)
+```
+
+
+## 3 Discussion
+
+Hopefully, this blog post ...
 
 
 
