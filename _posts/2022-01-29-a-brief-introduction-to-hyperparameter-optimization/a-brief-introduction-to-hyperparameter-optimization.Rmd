@@ -122,7 +122,6 @@ For the regression, we'll use scikit-learn's gradient boosted trees estimator. T
 from sklearn.ensemble import GradientBoostingRegressor
 from skopt.space import Real, Integer
 
-
 model = GradientBoostingRegressor(n_estimators=25, random_state=0)
 
 space  = [Integer(1, 8, name='max_depth'),
@@ -305,6 +304,8 @@ def objective(**params):
                                   scoring="neg_mean_absolute_error"))
 
 res_gp = gp_minimize(objective, space, n_calls=54, random_state=1)
+
+## 0.46
 ```
 
 With Bayesian optimization, we see that much more time is spent sampling performant models.
