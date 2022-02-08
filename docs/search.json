@@ -5,42 +5,42 @@
       "title": "Olivier's blog",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2022-02-01T10:44:20-05:00"
+      "last_modified": "2022-02-07T22:25:35-05:00"
     },
     {
       "path": "consulting.html",
       "title": "Consulting",
       "author": [],
       "contents": "\nI consult in data science, mainly around R and Python package development, record linkage, and entity resolution. Use the form below to contact me and learn more about my services:\n\n  \n\n\n\n\n",
-      "last_modified": "2022-02-01T10:44:20-05:00"
+      "last_modified": "2022-02-07T22:25:36-05:00"
     },
     {
       "path": "index.html",
       "title": "👋 Welcome!",
       "author": [],
       "contents": "\n\n\n\n\n\n Github LinkedIn Email\n\n\n👋 Welcome!\nThis website lists some of what I do. Check out my research, teaching, and software.\nAbout me\nI am a PhD Candidate in the Statistical Science Department at Duke University. I have a Mathematics B.Sc. and a Statistics M.Sc. from Université du Québec à Montréal. My research is currently supported by Professor Rebecca C. Steorts at Duke, by an Alexander-Graham-Bell Canada Graduate Scholarship, and by a doctoral award from the Fonds de Recherche du Québec - Nature et Technologies. I was awarded the Canada Governor General’s Academic Medal in 2020 for outstanding academic achievements during my M.Sc.\nI have broad ranging interests in statistics. My M.Sc. research focused on theoretical properties of Bayesian nonparametric procedures. Recently, I have been working on more applied problems. I am particularly interested in issues surrounding inference with “big” administrative data, as well as using such data to better represent hidden populations in official statistics. This research involves privacy considerations, entity resolution for data integration and multiple systems estimation to account for missing data.\nThroughout Spring 2022, I am working as a Data Scientist intern at the Intact Financial Corporation. I am part of the Rating Revolution team which develops machine learning models to improve the pricing of insurance products. \nIn my free time, I like to get involved with other students at Duke. I am Research Coordinator for the Duke GPSG Community Pantry, helping improve our knowledge of food insecurity on campus. I have also worked with the Duke Applied Machine Learning Group and with the Data+ program as a project manager, and I have been a mentor for the Twoples directed reading program. I am very grateful for our international academic community and I try to give back as I can.\nSponsor me\nSponsor my open source work and community involvement through Github (USD):\n\n\n\n\nor through Open Collective (CAD):\n\n\n\n\nHire me\nI consult with small and medium-sized businesses on the topics of record linkage and deduplication, survey methods, data analysis, R/Python package development, and statistical learning. Learn more on my consulting page.\n\n\n\n",
-      "last_modified": "2022-02-01T10:44:21-05:00"
+      "last_modified": "2022-02-07T22:25:37-05:00"
     },
     {
       "path": "research.html",
       "title": "Research",
       "author": [],
       "contents": "\n\nContents\nMultiple systems estimation\nEntity resolution\nBayesian nonparametrics\n\nMultiple systems estimation\nBinette, O. and Steorts, R. C. (2021) On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery. Journal of the Royal Statistical Society, Series A (to appear)\nBinette, O. and Steorts, R. C. (2020) Discussion of read paper “Multiple-systems analysis for the quantification of modern slavery: classical and Bayesian approaches” by Bernard Silverman. Journal of the Royal Statistical Society Series A 183 (3). pp. 35 [link]\nEntity resolution\nBinette, O. and Steorts, R. C. (2021) Modern Bayesian Entity Resolution. Wiley StatsRef (to appear)\nBinette, O. and Steorts, R. C. (2021) (Almost) All of Entity Resolution. Science Advances (to appear)\nBayesian nonparametrics\nBinette, O. and Pati, D. and Dunson, D. B. (2020) Bayesian Closed Surface Fitting Through Tensor Products. Journal of Machine Learning Research 21 (119) pp. 1-26 [pdf]\nBinette, O. (2019). A Note on Reverse Pinsker Inequalities. IEEE Transactions on Information Theory 65 (7). pp.4094-4096. [pdf]\nBinette, O. and Guillotte, S. (2019). Bayesian Nonparametrics for Directional Statistics. arXiv e-prints. arxiv:1807.00305. [pdf]\n\n\n\n",
-      "last_modified": "2022-02-01T10:44:21-05:00"
+      "last_modified": "2022-02-07T22:25:37-05:00"
     },
     {
       "path": "software.html",
       "title": "Software",
       "author": [],
       "contents": "\nPython packages\nStringCompare\nStringCompare is a Python package (implemented in C++ through pybind11) for efficient string similarity computation and approximate string matching.\n\npip install git+https://github.com/OlivierBinette/stringcompare.git\n\nGroupByRule\nDeduplicate data using fuzzy and deterministic matching rules.\n\npip install git+https://github.com/OlivierBinette/groupbyrule.git\n\nR packages\nFingermatchR\nFingerprint matching tools based on NIST’s Biometric Image Software, on FingerJet minutiae extraction tool, and on the libfmr library.\n\n\ndevtools::install_github(\"forensic-science/fingermatchR\")\n\n\n\nMSETools\nCode and analyses for the paper titled “On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery” (Binette and Steorts, 2021).\n\n\ndevtools::install_github(\"OlivierBinette/MSETools\")\n\n\n\ncache\n\nSimple interface to caching which works across interactive R sessions, R scripts and Rmarkdown documents.\n\n\ninstall.packages(\"assert\")\n\n\n\nassert\n\nLightweight validation tool for checking function arguments and data analysis scripts.\n\n\ninstall.packages(\"assert\")\n\n\n\ndgaFast\nMultiple Systems Estimation Using Decomposable Graphical Models. This is an efficient re-implementation and extension of the dga R package (it is now part of dga).\n\n\ndevtools::install_github(\"OlivierBinette/dgaFast\")\n\n\n\nTessTools\nTools for the use of Tesseract OCR in R and for the analysis of historical newspaper archives.\n\n\ndevtools::install_github(\"OlivierBinette/TessTools\")\n\n\n\nsplinit\nPeriodic spline regression and closed curve reconstruction.\n\n\ndevtools::install_github(\"OlivierBinette/splinit\")\n\n\n\npretty\nBetter baser plots in R.\n\n\ndevtools::install_github(\"OlivierBinette/pretty\")\n\n\n\nJavascript apps\nFractals\nHigh resolution visualization for the Mandelbrot set. A Java version with more features is also available.\nEarthquakes\nVisualize earthquakes on the globe.\nOther software\nlipsample: Sampling from arbitrary Lipschitz continuous densities on the interval in matlab.\n\n\n\n",
-      "last_modified": "2022-02-01T10:44:22-05:00"
+      "last_modified": "2022-02-07T22:25:38-05:00"
     },
     {
       "path": "teaching.html",
       "title": "Teaching",
       "author": [],
       "contents": "\nTA at Duke University\nInstructional TA (weekly labs and office hours) for the following classes:\nSTA 199 - Introduction to Data Science (Fall 2021)\nSTA 490/690 - Entity Resolution (Spring 2021)\nSTA 360 - Bayesian and Modern Statistics (Fall 2020) [teaching evaluation]\nTA at Université du Québec à Montréal\nInstructional TA (weekly labs and office hours) for the following classes:\nSTT 1000 - Statistics I (Winter 2019)\nMAT 1130 - Analysis I (Winter 2019)\nMAT 2710 - Probability II (Fall 2018)\nMAT 2160 - Complex Analysis (Winter 2018)\nMAT 1190 - Analysis and algebra for the actuarial sciences (Winter 2018)\nMAT 2150 - Analysis II (Fall 2017 & Fall 2018)\nOther teaching activities\nCo-produced an activity for children at the Eureka! Science Festival (Montreal Science Center, June 2018)\n\n\n\n",
-      "last_modified": "2022-02-01T10:44:22-05:00"
+      "last_modified": "2022-02-07T22:25:38-05:00"
     }
   ],
   "collections": ["posts/posts.json"]
