@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2022-03-10-web-app-for-welcome-to-the-moon/",
+    "title": "Web App for \"Welcome to the Moon\"",
+    "description": "Play \"Welcome to the Moon\" on the couch or remotely.",
+    "author": [
+      {
+        "name": "Olivier Binette",
+        "url": "https://olivierbinette.github.io"
+      }
+    ],
+    "date": "2022-03-10",
+    "categories": [],
+    "contents": "\nIf you know me, you know that I love playing board games. I like the puzzle, the challenge, and – most of all – the stories that unfold as a game goes on.\nI recently discovered Welcome to the Moon. It’s a “flip and write” board game which is quite easy to learn and play. It’s also a lot of fun with only two players, which is a good fit for me and my partner.\n\n\n\nI’m a bit lazy about the card flipping aspect of this game though, which is the only thing keep us from playing the game on the couch (or remotely via screen sharing). So I wrote a simple web app to do the flipping for us: olivierbinette.github.io/welcome-to-the-moon-card-flipper/\n\nI hope you enjoy if you’re a fan of the game!\nRemote Play\nThe rulebook for the game and its 8 adventure sheets are available on the publisher’s website. You can play the game remotely using the adventure sheets and my website.\n\n\n\n",
+    "preview": "posts/2022-03-10-web-app-for-welcome-to-the-moon/screenshot.png",
+    "last_modified": "2022-03-10T09:27:27-05:00",
+    "input_file": "web-app-for-welcome-to-the-moon.knit.md"
+  },
+  {
     "path": "posts/2022-01-01-record-linkage-at-the-gpsg-community-pantry/",
     "title": "Record Linkage at the Duke GPSG Community Pantry",
     "description": "The Duke Graduate and Professional Student Government (GPSG) Community Pantry is a student-operated food pantry serving the student community at Duke University. In this post, I describe the record linkage system used at the Pantry to identify individual customers and obtain their order history. This is done using a Python module for deterministic record linkage and model evaluation techniques which I describe in detail.",

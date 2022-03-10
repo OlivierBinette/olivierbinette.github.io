@@ -24,7 +24,7 @@ creative-commons: CC BY-SA
 ---
 
 ```{r}
-knitr::opts_chunk$set(eval = TRUE, cache=TRUE)
+knitr::opts_chunk$set(eval = TRUE, cache=FALSE)
 ```
 
 
@@ -287,7 +287,7 @@ More formally, suppose we have evaluated $\hat R$ at a sequence of hyperparamete
 To make this work in practice, we need the following ingredients:
 
 1. An inferential model for $\hat R$. That could be a Bayesian nonparametric model, like a Gaussian Process, or something else, like a Tree-structure Parzen Estimator.
-2. A method to guess the next best hyperparameter value to pick. Typically, $\lambda_{n+1}$ is chosen to maximize the **expected improvement criterion**. This chooses $\lambda$ to maximize the expected value of $\max\{R^* - \hat R(\lambda), 0\}$, where $R^*$ is the current observed performance maximum. In other words, we want to maximize the potential for improving the current optimum, without penalizing for the possibility of observing a lower performance. This allows us to optimize $\hat R$ while still exploring the hyperparameter space. I refer the reader to [here](https://www.cse.wustl.edu/~garnett/cse515t/spring_2015/files/lecture_notes/12.pdf) for a review of a few other acquisition criterions.
+2. A method to guess the next best hyperparameter value to pick. Typically, $\lambda_{n+1}$ is chosen to maximize the **expected improvement criterion**. This chooses $\lambda$ to maximize the expected value of $\max\{\hat R(\lambda) - R^*, 0\}$, where $R^*$ is the current observed performance maximum. In other words, we want to maximize the potential for improving the current optimum, without penalizing for the possibility of observing a lower performance. This allows us to optimize $\hat R$ while still exploring the hyperparameter space. I refer the reader to [here](https://www.cse.wustl.edu/~garnett/cse515t/spring_2015/files/lecture_notes/12.pdf) for a review of a few other acquisition criterions.
 
 
 When a Bayesian inferential framework is chosen, then sequential model-based optimization is called **Bayesian optimization** or **Bayesian search**. It is beyond of the scope of this blog post to go into the details of gaussian processes, but below I show howthe scikit-optimize library can be used to perform Bayesian optimization based on Gaussian Processes and the expected improvement criterion:
