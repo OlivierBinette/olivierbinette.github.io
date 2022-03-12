@@ -1,0 +1,35 @@
+---
+title: "Record Linkage at the Duke GPSG Community Pantry"
+description: |
+  The Duke Graduate and Professional Student Government (GPSG) Community Pantry is a student-operated food pantry serving the student community at Duke University. In this post, I describe the record linkage system used at the Pantry to identify individual customers and obtain their order history. This is done using a Python module for deterministic record linkage and model evaluation techniques which I describe in detail.
+#preview: 
+author:
+  - name: Olivier Binette
+    url: https://olivierbinette.github.io
+    affiliation: Duke University
+    orcid_id: 0000-0001-6009-5206
+date: 2022-03
+categories:
+  - Reproducibility
+  - Data Science
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+draft: false
+repository_url: https://github.com/recordlinkageig/recordlinkageig.github.io
+#citation_url: https://recordlinkageig.github.io/
+creative-commons: CC BY-SA
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+

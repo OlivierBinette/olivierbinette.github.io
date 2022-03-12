@@ -2,7 +2,7 @@
 title: "A Brief Introduction to Hyperparameter Optimization in Machine Learning"
 description: |
   I review a few black-box hyperparameter optimization techniques at a high conceptual level: grid search, randomized search and sequential model-based optimization.
-preview: https://pyro.ai/examples/_images/gp_19_0.png
+preview: a-brief-introduction-to-hyperparameter-optimization-files/figure-html5/unnamed-chunk-15-9.png
 author:
   - name: Olivier Binette
     url: https://olivierbinette.github.io
