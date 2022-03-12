@@ -1,5 +1,5 @@
 ---
-title: "A Brief Introduction to Black-Box Hyperparameter Optimization"
+title: "A Brief Introduction to Hyperparameter Optimization in Machine Learning"
 description: |
   I review a few black-box hyperparameter optimization techniques at a high conceptual level: grid search, randomized search and sequential model-based optimization.
 preview: https://pyro.ai/examples/_images/gp_19_0.png
@@ -17,13 +17,13 @@ output:
     self_contained: false
     toc: true
     toc_depth: 3
-draft: true
+draft: false
 repository_url: https://github.com/olivierbinette/olivierbinette.github.io
 citation_url: https://olivierbinette.github.io/posts/2022-01-29-a-brief-introduction-to-hyperparameter-optimization
 creative-commons: CC BY-SA
 ---
 
-```{r}
+```{r, echo=FALSE}
 knitr::opts_chunk$set(eval = TRUE, cache=FALSE)
 ```
 
@@ -44,7 +44,7 @@ Moral of the story: there is a lot work involved. We need all hands on deck. And
 
 This blog post is about a single set of tools -- **hyperparameter optimization techniques** -- used to help with the model specification, evaluation, and refinement loop. I will focus on the standard machine learning framework of supervised learning. In this context, machine learning algorithms can be seen as black boxes which take in some data, a bunch of tuning *hyperparameters* specified by the user of the algorithm, and which output predictions. The quality of the predictions can be evaluated through data splitting or cross-validation. That is, we're always able to compare predictions to ground truth for the data we have at hand.
 
-My goal is to describe key approaches to hyperparameter optimization (see Table 1) in order to provide **conceptual understanding that can be helpful practice.** I describe *black-box* methods which treat the machine learning algorithm as, well, a black blox. This includes **grid search**, **randomized search**, and sequential model-based optimization, such as **Bayesian optimization.** There are additional methods to be considered, such as **Hyperband** and **Bayesian model selection**, which integrate with the learning algorithms themselves. These will be for another blog post.
+My goal is to describe key approaches to hyperparameter optimization (see Table 1) in order to provide **conceptual understanding that can be helpful practice.** I describe *black-box* methods which treat the machine learning algorithm as, well, a black blox. This includes **grid search**, **randomized search**, and sequential model-based optimization such as **Bayesian optimization.** There are additional methods to be considered, such as **Hyperband** and **Bayesian model selection**, which integrate with the learning algorithms themselves. These will be for another blog post.
 
 | Black-box methods | Integrated methods |
 | :----- | :-----  |
@@ -61,7 +61,7 @@ Before getting into the detail of these methods though, let's go over some basic
 
 ## 1.1 Background and Terminology
 
-First, let's talk about models, parameters and performance evaluation. It's pretty basic stuff, but it will allow me to introduce some terminology.
+First, let's talk about models, parameters and performance evaluation. This is going to be the occasion for me to introduce some terminology and notations.
 
 ### Models, Parameters and Performance Evaluation
 
@@ -73,7 +73,7 @@ You can compare the performance of any model by comparing the predictions to wha
 
 Formally, let $R$ be the (average) future performance of your model. You don't know this quantity, but you can estimate it as $\hat R$ using techniques such as cross-validation and its variants. There might be a bias and a variance to $\hat R$, but the best we can do in practice is to try to find the model with the best estimated performance (modulo certain adjustments).
 
-This brings us to the question: **how should you choose a model?** The standard in machine learning is to choose a model which maximizes $\hat R$. It's not the only solution, and it's not always the best solution (it's better to do model averaging if $\hat R$ has some variance), but it's what we'll focus on through this blog post.
+This brings us to the question: **how should you choose a model?** The standard in machine learning is to choose a model which maximizes $\hat R$. It's not the only solution, and it's not always the best solution (it can be better to do model averaging if $\hat R$ has some variance), but it's what we'll focus on through this blog post.
 
 Furthermore, we'll approach this problem through the lens of hyperparameter selection.
 
@@ -88,7 +88,7 @@ Hyperparameters are things that have you have to specify before you can run a mo
   - the learning rate for the gradient descent algorithm,
   - the maximum depth for decision trees, etc.
 
-There is only a practical distinction between parameters and hyperparameters. They are things that are usually set separately from the other model parameters, or that do not nicely fit within a model's learning algorithm. Depending on the framework you're using, parameters can become hyperparameters and vice versa. For example, by using ensemble methods, you could easily transform the "model type choice" hyperparameter to a simple parameter of your ensemble that is learned from data.
+There is only a practical distinction between parameters and hyperparameters. Hyperparameters are things that are usually set separately from the other model parameters, or that do not nicely fit within a model's learning algorithm. Depending on the framework you're using, parameters can become hyperparameters and vice versa. For example, by using ensemble methods, you could easily transform the "model type choice" hyperparameter to a simple parameter of your ensemble that is learned from data.
 
 The key thing is that, in practice, there will typically be some distinction between parameters of your model and a set of hyperparameters that you have to specify.
 
@@ -233,7 +233,7 @@ The second method we'll look at is **random search.** Here, the idea is to sampl
 
 This might seem like a silly idea. Why pick hyperparameter values at random?
 
-The answer is that doing so **removes all computational penalties** from the consideration of useless hyperparameter dimensions. That is, imagine that a number $s$ of your hyperparameters have actually no impact on model performance. This is something you might not know in advance. With grid search, the consideration of these hyperparameters would incur you a computational penalty which is exponential in $s$. With random search, however, there is **no penalty at all** for adding these $s$ additional hyperparameter dimensions. The results from random search with or without these additional dimensions are **exactly the same** in both cases.
+The answer is that doing so **removes all computational penalties** from the consideration of useless hyperparameter dimensions. That is, imagine that a number $s$ of your hyperparameters have actually no impact on model performance. With grid search, the consideration of these hyperparameters would incur you a computational penalty which is exponential in $s$. With random search, however, there is **no penalty at all** for adding these $s$ additional hyperparameter dimensions. The results from random search with or without these additional dimensions are **exactly the same** in both cases.
 
 This is the huge advantage of random search over grid search: you do not get penalized for useless dimensions. Furthermore, in practice, being able to tune the search effort through the number of samples $k$ can be quite convenient.
 
@@ -287,7 +287,7 @@ More formally, suppose we have evaluated $\hat R$ at a sequence of hyperparamete
 To make this work in practice, we need the following ingredients:
 
 1. An inferential model for $\hat R$. That could be a Bayesian nonparametric model, like a Gaussian Process, or something else, like a Tree-structure Parzen Estimator.
-2. A method to guess the next best hyperparameter value to pick. Typically, $\lambda_{n+1}$ is chosen to maximize the **expected improvement criterion**. This chooses $\lambda$ to maximize the expected value of $\max\{\hat R(\lambda) - R^*, 0\}$, where $R^*$ is the current observed performance maximum. In other words, we want to maximize the potential for improving the current optimum, without penalizing for the possibility of observing a lower performance. This allows us to optimize $\hat R$ while still exploring the hyperparameter space. I refer the reader to [here](https://www.cse.wustl.edu/~garnett/cse515t/spring_2015/files/lecture_notes/12.pdf) for a review of a few other acquisition criterions.
+2. A method to guess the next best hyperparameter value to pick. Typically, $\lambda_{n+1}$ is chosen to maximize the **expected improvement criterion**. This chooses $\lambda$ to maximize the expected value of $\max\{\hat R(\lambda) - R^*, 0\}$, where $R^*$ is the current observed performance maximum. In other words, we want to maximize the potential for improving the current optimum, without penalizing for the possibility of observing a lower performance. This allows us to optimize $\hat R$ while still exploring the hyperparameter space. I refer the reader to [here](https://www.cse.wustl.edu/~garnett/cse515t/spring_2015/files/lecture_notes/12.pdf) for a review of a few other selection criterions.
 
 
 When a Bayesian inferential framework is chosen, then sequential model-based optimization is called **Bayesian optimization** or **Bayesian search**. It is beyond of the scope of this blog post to go into the details of gaussian processes, but below I show howthe scikit-optimize library can be used to perform Bayesian optimization based on Gaussian Processes and the expected improvement criterion:
@@ -329,7 +329,7 @@ plot_convergence(res_gp)
 
 ## 3 Discussion
 
-Hopefully, this blog post ...
+Hopefully, this blog post provided a basic overview of hyperparameter optimization and of what can be gained from these techniques. We reviewed grid search, the simplest brute force approach. We reviewed random search, which improves upon grid search when some hyperparameter dimensions are not influencial. Finally, we reviewed sequential model-based optimization, which much more effectively samples models with good performance.
 
 
 
