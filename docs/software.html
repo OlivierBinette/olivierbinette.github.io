@@ -2544,7 +2544,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2634,68 +2634,95 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-article">
 <h1 id="python-packages">Python packages</h1>
-<h3 id="stringcompare"><a href="https://github.com/olivierbinette/StringCompare">StringCompare</a></h3>
-<p><strong>StringCompare</strong> is a Python package (implemented in C++ through pybind11) for efficient string similarity computation and approximate string matching.</p>
+<h3 id="stringcompare"><a
+href="https://github.com/olivierbinette/StringCompare">StringCompare</a></h3>
+<p><strong>StringCompare</strong> is a Python package (implemented in
+C++ through pybind11) for efficient string similarity computation and
+approximate string matching.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/OlivierBinette/stringcompare.git</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/OlivierBinette/stringcompare.git</span></code></pre></div>
 </div>
-<h3 id="groupbyrule"><a href="https://github.com/olivierbinette/groupbyrule">GroupByRule</a></h3>
+<h3 id="groupbyrule"><a
+href="https://github.com/olivierbinette/groupbyrule">GroupByRule</a></h3>
 <p>Deduplicate data using fuzzy and deterministic matching rules.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/OlivierBinette/groupbyrule.git</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/OlivierBinette/groupbyrule.git</span></code></pre></div>
 </div>
 <h1 id="r-packages">R packages</h1>
-<h3 id="fingermatchr"><a href="https://github.com/forensic-science/fingermatchR">FingermatchR</a></h3>
-<p>Fingerprint matching tools based on NIST’s Biometric Image Software, on FingerJet minutiae extraction tool, and on the libfmr library.</p>
+<h3 id="fingermatchr"><a
+href="https://github.com/forensic-science/fingermatchR">FingermatchR</a></h3>
+<p>Fingerprint matching tools based on NIST’s Biometric Image Software,
+on FingerJet minutiae extraction tool, and on the libfmr library.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://devtools.r-lib.org/reference/remote-reexports.html'>install_github</a></span><span class='op'>(</span><span class='st'>"forensic-science/fingermatchR"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-<h3 id="msetools"><a href="https://github.com/OlivierBinette/MSETools">MSETools</a></h3>
-<p>Code and analyses for the paper titled “On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery” (Binette and Steorts, 2021).</p>
+<h3 id="msetools"><a
+href="https://github.com/OlivierBinette/MSETools">MSETools</a></h3>
+<p>Code and analyses for the paper titled “On the Reliability of
+Multiple Systems Estimation for the Quantification of Modern Slavery”
+(Binette and Steorts, 2021).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://devtools.r-lib.org/reference/remote-reexports.html'>install_github</a></span><span class='op'>(</span><span class='st'>"OlivierBinette/MSETools"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-<h3 id="cache"><a href="https://github.com/OlivierBinette/cache">cache</a></h3>
-<p><a href="https://cran.r-project.org/package=cache"><img src="https://www.r-pkg.org/badges/version/assert" alt="CRAN_Status_Badge" /></a></p>
-<p>Simple interface to caching which works across interactive R sessions, R scripts and Rmarkdown documents.</p>
+<h3 id="cache"><a
+href="https://github.com/OlivierBinette/cache">cache</a></h3>
+<p><a href="https://cran.r-project.org/package=cache"><img
+src="https://www.r-pkg.org/badges/version/assert"
+alt="CRAN_Status_Badge" /></a></p>
+<p>Simple interface to caching which works across interactive R
+sessions, R scripts and Rmarkdown documents.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"assert"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-<h3 id="assert"><a href="https://github.com/OlivierBinette/assert">assert</a></h3>
-<p><a href="https://cran.r-project.org/package=assert"><img src="https://www.r-pkg.org/badges/version/assert" alt="CRAN_Status_Badge" /></a></p>
-<p>Lightweight validation tool for checking function arguments and data analysis scripts.</p>
+<h3 id="assert"><a
+href="https://github.com/OlivierBinette/assert">assert</a></h3>
+<p><a href="https://cran.r-project.org/package=assert"><img
+src="https://www.r-pkg.org/badges/version/assert"
+alt="CRAN_Status_Badge" /></a></p>
+<p>Lightweight validation tool for checking function arguments and data
+analysis scripts.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"assert"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-<h3 id="dgafast"><a href="https://github.com/OlivierBinette/dgaFast">dgaFast</a></h3>
-<p>Multiple Systems Estimation Using Decomposable Graphical Models. This is an efficient re-implementation and extension of the <a href="https://github.com/hrdag/dga"><strong>dga</strong></a> R package (it is now part of <a href="https://github.com/hrdag/dga"><strong>dga</strong></a>).</p>
+<h3 id="dgafast"><a
+href="https://github.com/OlivierBinette/dgaFast">dgaFast</a></h3>
+<p>Multiple Systems Estimation Using Decomposable Graphical Models. This
+is an efficient re-implementation and extension of the <a
+href="https://github.com/hrdag/dga"><strong>dga</strong></a> R package
+(it is now part of <a
+href="https://github.com/hrdag/dga"><strong>dga</strong></a>).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://devtools.r-lib.org/reference/remote-reexports.html'>install_github</a></span><span class='op'>(</span><span class='st'>"OlivierBinette/dgaFast"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-<h3 id="tesstools"><a href="https://github.com/OlivierBinette/TessTools">TessTools</a></h3>
-<p>Tools for the use of Tesseract OCR in R and for the analysis of historical newspaper archives.</p>
+<h3 id="tesstools"><a
+href="https://github.com/OlivierBinette/TessTools">TessTools</a></h3>
+<p>Tools for the use of Tesseract OCR in R and for the analysis of
+historical newspaper archives.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://devtools.r-lib.org/reference/remote-reexports.html'>install_github</a></span><span class='op'>(</span><span class='st'>"OlivierBinette/TessTools"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-<h3 id="splinit"><a href="https://github.com/OlivierBinette/splinit">splinit</a></h3>
+<h3 id="splinit"><a
+href="https://github.com/OlivierBinette/splinit">splinit</a></h3>
 <p>Periodic spline regression and closed curve reconstruction.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2703,7 +2730,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </code></pre>
 </div>
 </div>
-<h3 id="pretty"><a href="https://github.com/OlivierBinette/pretty">pretty</a></h3>
+<h3 id="pretty"><a
+href="https://github.com/OlivierBinette/pretty">pretty</a></h3>
 <p>Better baser plots in R.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2712,15 +2740,23 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 </div>
 <h1 id="javascript-apps">Javascript apps</h1>
-<h3 id="fractals"><a href="https://olivierbinette.github.io/Fractals/">Fractals</a></h3>
-<p>High resolution visualization for the Mandelbrot set. A <a href="https://github.com/olivierBinette/Fractals">Java version</a> with more features is also available.</p>
-<h3 id="earthquakes"><a href="https://olivierbinette.github.io/earthquakes/">Earthquakes</a></h3>
+<h3 id="fractals"><a
+href="https://olivierbinette.github.io/Fractals/">Fractals</a></h3>
+<p>High resolution visualization for the Mandelbrot set. A <a
+href="https://github.com/olivierBinette/Fractals">Java version</a> with
+more features is also available.</p>
+<h3 id="earthquakes"><a
+href="https://olivierbinette.github.io/earthquakes/">Earthquakes</a></h3>
 <p>Visualize earthquakes on the globe.</p>
 <h1 id="other-software">Other software</h1>
 <ul>
-<li><strong><a href="https://github.com/OlivierBinette/lipsample">lipsample</a></strong>: Sampling from arbitrary Lipschitz continuous densities on the interval in matlab.</li>
+<li><strong><a
+href="https://github.com/OlivierBinette/lipsample">lipsample</a></strong>:
+Sampling from arbitrary Lipschitz continuous densities on the interval
+in matlab.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2737,7 +2773,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_navigation_after_body-->
 <div class="distill-site-nav distill-site-footer">
 <p>Copyright 2021 Olivier Binette</p>
-<p>Made using <a href="https://rstudio.github.io/distill/" style="text-decoration:underline;">Distill for Rmarkdown</a></p>
+<p>Made using
+<a href="https://rstudio.github.io/distill/" style="text-decoration:underline;">Distill
+for Rmarkdown</a></p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 
