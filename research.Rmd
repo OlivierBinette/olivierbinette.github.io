@@ -12,13 +12,13 @@ knitr::opts_chunk$set(echo = FALSE)
  
 ### Multiple systems estimation
 
-- Binette, O. and Steorts, R. C. (2021) On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery. *Journal of the Royal Statistical Society, Series A* (to appear)
+- Binette, O. and Steorts, R. C. (2021) On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery. *Journal of the Royal Statistical Society, Series A*  [[link]](https://rss.onlinelibrary.wiley.com/doi/10.1111/rssa.12803) [[pdf]](https://arxiv.org/abs/2112.01594)
 - Binette, O. and Steorts, R. C. (2020) Discussion of read paper "Multiple-systems analysis for the quantification of modern slavery: classical and Bayesian approaches" by Bernard Silverman. *Journal of the Royal Statistical Society Series A 183* (3). pp. 35 [[link](https://rss.onlinelibrary.wiley.com/doi/10.1111/rssa.12505)]
 
 ### Entity resolution
 
 - Binette, O. and Steorts, R. C. (2021) Modern Bayesian Entity Resolution. *Wiley StatsRef* (to appear)
-- Binette, O. and Steorts, R. C. (2021) (Almost) All of Entity Resolution. *Science Advances* (to appear)
+- Binette, O. and Steorts, R. C. (2021) (Almost) All of Entity Resolution. *Science Advances 8* (12) [[link]](https://www.science.org/doi/full/10.1126/sciadv.abi8021)
 
 
 ### Bayesian nonparametrics
