@@ -10,12 +10,12 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-I consult in data science, mainly around R and Python package development, record linkage, and entity resolution. Use the form below to contact me and learn more about my services: 
+I consult in data science, mainly around R and Python package development, record linkage, and entity resolution. Use the form below to contact me:
 
 <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/meqnoddy" method="post">
   <fieldset id="fs-frm-inputs">
     <label for="full-name"></label>
-    <input type="text" name="name" id="full-name" placeholder="Full Name" required="">
+    <input type="text" name="name" id="full-name" placeholder="Name" required="">
     <label for="email-address"></label>
     <input type="email" name="_replyto" id="email-address" placeholder="Email" required="">
     <label for="message"></label>
@@ -25,4 +25,3 @@ I consult in data science, mainly around R and Python package development, recor
   
   <input id="form_button" type="submit" value="Submit">
 </form>
-
