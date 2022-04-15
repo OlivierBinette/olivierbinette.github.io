@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
 pip install git+https://github.com/OlivierBinette/stringcompare.git
 ```
 
-
+<!--
 ### [GroupByRule](https://github.com/olivierbinette/groupbyrule)
 
 Deduplicate data using fuzzy and deterministic matching rules.
@@ -24,8 +24,7 @@ Deduplicate data using fuzzy and deterministic matching rules.
 ```{bash, eval=FALSE}
 pip install git+https://github.com/OlivierBinette/groupbyrule.git
 ```
-
-
+-->
 
 # R packages
 
