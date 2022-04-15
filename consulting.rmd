@@ -10,7 +10,17 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-I consult with small and medium-sized businesses on the topics of record linkage and deduplication, survey methods, data analysis, R/Python package development, and statistical learning. Learn more on my [**consulting**](consulting.html) page. Use the form below to contact me:
+I consult with small and medium-sized businesses on the topics of record linkage and deduplication, survey methods, data analysis, R/Python package development, and statistical learning. 
+
+Specifically, I can help you and your team:
+
+- Validate your approaches and statistical methodology.
+- Improve your data science software development practices and ensure the reproducibility of your data analyses.
+- Quantify uncertainty surrounding your predictions and inferences using conformal prediction, resampling, and Bayesian methods.
+- Evaluate the effectiveness of your programs and activites through data and experiments.
+- Integrate data from multiple sources using record linkage and entity resolution algorithms.
+
+Use the form below to contact me and learn more about my services:
 
 <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/meqnoddy" method="post">
   <fieldset id="fs-frm-inputs">
