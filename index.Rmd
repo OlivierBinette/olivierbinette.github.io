@@ -28,7 +28,7 @@ icon_link(icon="fa fa-envelope", text="Email", url="mailto:olivier.binette@duke.
  
 # 👋 Welcome!
 
-This website lists some of what I do. Check out my [ research](./research.html), [teaching](./teaching.html), and [software](./software.html).
+This website lists some of what I do. See my [ research](./research.html), [teaching](./teaching.html), [software](./software.html), and [blog](./blog.html).
 
 ### About me
 

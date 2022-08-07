@@ -17,7 +17,7 @@ Specifically, I can help you and your team:
 - Validate your approaches and statistical methodology.
 - Improve your data science software development practices and ensure the reproducibility of your data analyses.
 - Quantify uncertainty surrounding your predictions and inferences using conformal prediction, resampling, and Bayesian methods.
-- Evaluate the effectiveness of your programs and activites through data and experiments.
+- Evaluate the effectiveness of your programs and activities through data and experiments.
 - Integrate data from multiple sources using record linkage and entity resolution algorithms.
 - Train your staff to effectively work with R, Python, git, and bash as part of a data science workflow.
 

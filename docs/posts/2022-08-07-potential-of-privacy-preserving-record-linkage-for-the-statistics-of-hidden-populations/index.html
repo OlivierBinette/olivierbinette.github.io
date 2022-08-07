@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -87,35 +88,51 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-<title>Olivier Binette: ISM at the Eureka! Science Festival!</title>
+<title>Olivier Binette: Potential of Privacy-Preserving Record Linkage for the Statistics of Hidden Population</title>
 
+<meta property="description" itemprop="description" content="Many populations are &quot;hidden&quot; from the point of view of traditional probabilistic surveys. They are populations for which we have no meaningful sampling frame and whose members may be difficult to identify. Examples include victims of human trafficking and civilian casualties in armed conflicts. Understanding these populations is central to policymaking and to prosecuting human rights violations, yet statistical inference remains extremely difficult in practice. [...]"/>
 
+<link rel="canonical" href="https://olivierbinette.github.io/posts/2022-08-07-potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2018-06-07"/>
-<meta property="article:created" itemprop="dateCreated" content="2018-06-07"/>
+<meta property="article:published" itemprop="datePublished" content="2022-01-29"/>
+<meta property="article:created" itemprop="dateCreated" content="2022-01-29"/>
+<meta name="article:author" content="Andrew Demma"/>
 <meta name="article:author" content="Olivier Binette"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Olivier Binette: ISM at the Eureka! Science Festival!"/>
+<meta property="og:title" content="Olivier Binette: Potential of Privacy-Preserving Record Linkage for the Statistics of Hidden Population"/>
 <meta property="og:type" content="article"/>
+<meta property="og:description" content="Many populations are &quot;hidden&quot; from the point of view of traditional probabilistic surveys. They are populations for which we have no meaningful sampling frame and whose members may be difficult to identify. Examples include victims of human trafficking and civilian casualties in armed conflicts. Understanding these populations is central to policymaking and to prosecuting human rights violations, yet statistical inference remains extremely difficult in practice. [...]"/>
+<meta property="og:url" content="https://olivierbinette.github.io/posts/2022-08-07-potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations/"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Olivier Binette"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Olivier Binette: ISM at the Eureka! Science Festival!"/>
+<meta property="twitter:title" content="Olivier Binette: Potential of Privacy-Preserving Record Linkage for the Statistics of Hidden Population"/>
+<meta property="twitter:description" content="Many populations are &quot;hidden&quot; from the point of view of traditional probabilistic surveys. They are populations for which we have no meaningful sampling frame and whose members may be difficult to identify. Examples include victims of human trafficking and civilian casualties in armed conflicts. Understanding these populations is central to policymaking and to prosecuting human rights violations, yet statistical inference remains extremely difficult in practice. [...]"/>
+<meta property="twitter:url" content="https://olivierbinette.github.io/posts/2022-08-07-potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations/"/>
 
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Olivier Binette: Potential of Privacy-Preserving Record Linkage for the Statistics of Hidden Population"/>
+<meta name="citation_fulltext_html_url" content="https://olivierbinette.github.io/posts/2022-08-07-potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations"/>
+<meta name="citation_online_date" content="2022/01/29"/>
+<meta name="citation_publication_date" content="2022/01/29"/>
+<meta name="citation_author" content="Andrew Demma"/>
+<meta name="citation_author_institution" content="Duke University"/>
+<meta name="citation_author" content="Olivier Binette"/>
+<meta name="citation_author_institution" content="Duke University"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["ISM at the Eureka! Science Festival!"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Olivier Binette"]}]}]},{"type":"character","attributes":{},"value":["06-07-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview","author","date","categories","output","draft","repository_url","citation_url","creative-commons","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Potential of Privacy-Preserving Record Linkage for the Statistics of Hidden Population"]},{"type":"character","attributes":{},"value":["Many populations are \"hidden\" from the point of view of traditional probabilistic surveys. They are populations for which we have no meaningful sampling frame and whose members may be difficult to identify. Examples include victims of human trafficking and civilian casualties in armed conflicts. Understanding these populations is central to policymaking and to prosecuting human rights violations, yet statistical inference remains extremely difficult in practice. [...]"]},{"type":"character","attributes":{},"value":["thumbnail.png"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Demma"]},{"type":"character","attributes":{},"value":["Duke University"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","orcid_id"]}},"value":[{"type":"character","attributes":{},"value":["Olivier Binette"]},{"type":"character","attributes":{},"value":["https://olivierbinette.github.io"]},{"type":"character","attributes":{},"value":["Duke University"]},{"type":"character","attributes":{},"value":["0000-0001-6009-5206"]}]}]},{"type":"character","attributes":{},"value":["2022-01-29"]},{"type":"character","attributes":{},"value":["Entity Resolution","Privacy"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["https://github.com/olivierbinette/olivierbinette.github.io"]},{"type":"character","attributes":{},"value":["https://olivierbinette.github.io/posts/2022-08-07-potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations"]},{"type":"character","attributes":{},"value":["CC BY-SA"]},{"type":"character","attributes":{},"value":["https://olivierbinette.github.io/posts/2022-08-07-potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["img1.png","img2.png","ism-at-the-eureka-science-festival_files/anchor-4.2.2/anchor.min.js","ism-at-the-eureka-science-festival_files/bowser-1.9.3/bowser.min.js","ism-at-the-eureka-science-festival_files/distill-2.2.21/template.v2.js","ism-at-the-eureka-science-festival_files/header-attrs-2.11/header-attrs.js","ism-at-the-eureka-science-festival_files/header-attrs-2.4/header-attrs.js","ism-at-the-eureka-science-festival_files/jquery-1.11.3/jquery.min.js","ism-at-the-eureka-science-festival_files/jquery-3.6.0/jquery-3.6.0.js","ism-at-the-eureka-science-festival_files/jquery-3.6.0/jquery-3.6.0.min.js","ism-at-the-eureka-science-festival_files/jquery-3.6.0/jquery-3.6.0.min.map","ism-at-the-eureka-science-festival_files/popper-2.6.0/popper.min.js","ism-at-the-eureka-science-festival_files/tippy-6.2.7/tippy-bundle.umd.min.js","ism-at-the-eureka-science-festival_files/tippy-6.2.7/tippy-light-border.css","ism-at-the-eureka-science-festival_files/tippy-6.2.7/tippy.css","ism-at-the-eureka-science-festival_files/tippy-6.2.7/tippy.umd.min.js","ism-at-the-eureka-science-festival_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations_files/anchor-4.2.2/anchor.min.js","potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations_files/bowser-1.9.3/bowser.min.js","potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations_files/distill-2.2.21/template.v2.js","potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations_files/header-attrs-2.14/header-attrs.js","potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations_files/jquery-3.6.0/jquery-3.6.0.js","potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations_files/jquery-3.6.0/jquery-3.6.0.min.js","potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations_files/jquery-3.6.0/jquery-3.6.0.min.map","potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations_files/popper-2.6.0/popper.min.js","potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations_files/tippy-6.2.7/tippy-bundle.umd.min.js","potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations_files/tippy-6.2.7/tippy-light-border.css","potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations_files/tippy-6.2.7/tippy.css","potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations_files/tippy-6.2.7/tippy.umd.min.js","potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations_files/webcomponents-2.0.0/webcomponents.js","PPRL.pdf","thumbnail.jpg"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2582,7 +2599,7 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2636,7 +2653,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"ISM at the Eureka! Science Festival!","authors":[{"author":"Olivier Binette","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2018-06-07T00:00:00.000-04:00","citationText":"Binette, 2018"}
+{"title":"Potential of Privacy-Preserving Record Linkage for the Statistics of Hidden Population","description":"Many populations are \"hidden\" from the point of view of traditional probabilistic surveys. They are populations for which we have no meaningful sampling frame and whose members may be difficult to identify. Examples include victims of human trafficking and civilian casualties in armed conflicts. Understanding these populations is central to policymaking and to prosecuting human rights violations, yet statistical inference remains extremely difficult in practice. [...]","authors":[{"author":"Andrew Demma","authorURL":"#","affiliation":"Duke University","affiliationURL":"#","orcidID":""},{"author":"Olivier Binette","authorURL":"https://olivierbinette.github.io","affiliation":"Duke University","affiliationURL":"#","orcidID":"0000-0001-6009-5206"}],"publishedDate":"2022-01-29T00:00:00.000-05:00","citationText":"Demma & Binette, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2664,24 +2681,36 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>ISM at the Eureka! Science Festival!</h1>
+<h1>Potential of Privacy-Preserving Record Linkage for the Statistics of Hidden Population</h1>
 <!--radix_placeholder_categories-->
+<div class="dt-tags">
+  <a href="../../blog.html#category:Entity_Resolution" class="dt-tag">Entity Resolution</a>
+  <a href="../../blog.html#category:Privacy" class="dt-tag">Privacy</a>
+</div>
 <!--/radix_placeholder_categories-->
-
+<p><p>Many populations are “hidden” from the point of view of
+traditional probabilistic surveys. They are populations for which we
+have no meaningful sampling frame and whose members may be difficult to
+identify. Examples include victims of human trafficking and civilian
+casualties in armed conflicts. Understanding these populations is
+central to policymaking and to prosecuting human rights violations, yet
+statistical inference remains extremely difficult in practice.
+[…]</p></p>
 </div>
 
 <div class="d-byline">
-  Olivier Binette  
+  Andrew Demma  (Duke University)
   
-<br/>06-07-2018
+,   Olivier Binette <a href="https://olivierbinette.github.io"
+class="uri">https://olivierbinette.github.io</a> (Duke University)
+  
+<br/>2022-01-29
 </div>
 
 <div class="d-article">
-<p>We’ve been hard at work getting ready for the Eureka! science festival held this weekend at the Montreal Science Centre. Come check it out!</p>
-<p><img src="img1.png" /></p>
-<p>At the festival:</p>
-<p><img src="img2.png" /></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<embed src="PPRL.pdf" type="application/pdf" width="100%" height="800px" />
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2693,7 +2722,20 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom"></div>
+<div class="appendix-bottom">
+  <h3 id="updates-and-corrections">Corrections</h3>
+  <p>If you see mistakes or want to suggest changes, please <a href="https://github.com/olivierbinette/olivierbinette.github.io/issues/new">create an issue</a> on the source repository.</p>
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Demma &amp; Binette (2022, Jan. 29). Olivier Binette: Potential of Privacy-Preserving Record Linkage for the Statistics of Hidden Population. Retrieved from https://olivierbinette.github.io/posts/2022-08-07-potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{demma2022potential,
+  author = {Demma, Andrew and Binette, Olivier},
+  title = {Olivier Binette: Potential of Privacy-Preserving Record Linkage for the Statistics of Hidden Population},
+  url = {https://olivierbinette.github.io/posts/2022-08-07-potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations},
+  year = {2022}
+}</pre>
+</div>
 <!--/radix_placeholder_appendices-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <!--radix_placeholder_navigation_after_body--><html><body>

@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -1027,10 +1028,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-top: 1.5em;
   }
 
-  .figure img {
-    width: 100%;
-  }
-
   .figure .caption {
     color: rgba(0, 0, 0, 0.6);
     font-size: 12px;
@@ -1860,6 +1857,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
           return "<p>" + $('#ref-' + ref).html() + "</p>";
@@ -1874,6 +1877,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1973,6 +2001,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1995,7 +2025,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2635,29 +2665,36 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-article">
 <h1 id="python-packages">Python packages</h1>
+<h3 id="patentsview-evaluation"><a
+href="https://github.com/PatentsView/PatentsView-Evaluation/">PatentsView-Evaluation</a></h3>
+<p><strong>pv_evaluation</strong> is a Python package for the evaluation
+and benchmarking of <a href="https://patentsview.org/">PatentsView</a>
+disambiguation algorithms. It provides summary statistics, performance
+evaluation metrics, and representative performance estimators. See the
+<a
+href="https://patentsview.github.io/PatentsView-Evaluation/build/html/index.html">project
+website</a> for the full documentation.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/PatentsView/PatentsView-Evaluation.git@release</span></code></pre></div>
+</div>
 <h3 id="stringcompare"><a
 href="https://github.com/olivierbinette/StringCompare">StringCompare</a></h3>
 <p><strong>StringCompare</strong> is a Python package (implemented in
 C++ through pybind11) for efficient string similarity computation and
 approximate string matching.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/OlivierBinette/stringcompare.git</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/OlivierBinette/stringcompare.git</span></code></pre></div>
 </div>
-<!--
-### [GroupByRule](https://github.com/olivierbinette/groupbyrule)
-
-Deduplicate data using fuzzy and deterministic matching rules.
-
+<h3 id="groupbyrule">🚧 <a
+href="https://github.com/olivierbinette/groupbyrule">GroupByRule</a></h3>
+<p>Deduplicate data using fuzzy and deterministic matching rules. This
+is under construction.</p>
 <div class="layout-chunk" data-layout="l-body">
-
-```bash
-pip install git+https://github.com/OlivierBinette/groupbyrule.git
-```
-
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/OlivierBinette/groupbyrule.git</span></code></pre></div>
 </div>
-
--->
 <h1 id="r-packages">R packages</h1>
 <h3 id="fingermatchr"><a
 href="https://github.com/forensic-science/fingermatchR">FingermatchR</a></h3>
@@ -2665,8 +2702,7 @@ href="https://github.com/forensic-science/fingermatchR">FingermatchR</a></h3>
 on FingerJet minutiae extraction tool, and on the libfmr library.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'>install_github</span><span class='op'>(</span><span class='st'>"forensic-science/fingermatchR"</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://remotes.r-lib.org/reference/install_github.html'>install_github</a></span><span class='op'>(</span><span class='st'>"forensic-science/fingermatchR"</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <h3 id="msetools"><a
@@ -2676,8 +2712,7 @@ Multiple Systems Estimation for the Quantification of Modern Slavery”
 (Binette and Steorts, 2021).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'>install_github</span><span class='op'>(</span><span class='st'>"OlivierBinette/MSETools"</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://remotes.r-lib.org/reference/install_github.html'>install_github</a></span><span class='op'>(</span><span class='st'>"OlivierBinette/MSETools"</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <h3 id="cache"><a
@@ -2689,8 +2724,7 @@ alt="CRAN_Status_Badge" /></a></p>
 sessions, R scripts and Rmarkdown documents.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"assert"</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"assert"</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <h3 id="assert"><a
@@ -2702,8 +2736,7 @@ alt="CRAN_Status_Badge" /></a></p>
 analysis scripts.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"assert"</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"assert"</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <h3 id="dgafast"><a
@@ -2715,8 +2748,7 @@ href="https://github.com/hrdag/dga"><strong>dga</strong></a> R package
 href="https://github.com/hrdag/dga"><strong>dga</strong></a>).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'>install_github</span><span class='op'>(</span><span class='st'>"OlivierBinette/dgaFast"</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://remotes.r-lib.org/reference/install_github.html'>install_github</a></span><span class='op'>(</span><span class='st'>"OlivierBinette/dgaFast"</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <h3 id="tesstools"><a
@@ -2725,8 +2757,7 @@ href="https://github.com/OlivierBinette/TessTools">TessTools</a></h3>
 historical newspaper archives.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'>install_github</span><span class='op'>(</span><span class='st'>"OlivierBinette/TessTools"</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://remotes.r-lib.org/reference/install_github.html'>install_github</a></span><span class='op'>(</span><span class='st'>"OlivierBinette/TessTools"</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <h3 id="splinit"><a
@@ -2734,8 +2765,7 @@ href="https://github.com/OlivierBinette/splinit">splinit</a></h3>
 <p>Periodic spline regression and closed curve reconstruction.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'>install_github</span><span class='op'>(</span><span class='st'>"OlivierBinette/splinit"</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://remotes.r-lib.org/reference/install_github.html'>install_github</a></span><span class='op'>(</span><span class='st'>"OlivierBinette/splinit"</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <h3 id="pretty"><a
@@ -2743,8 +2773,7 @@ href="https://github.com/OlivierBinette/pretty">pretty</a></h3>
 <p>Better baser plots in R.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'>install_github</span><span class='op'>(</span><span class='st'>"OlivierBinette/pretty"</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>devtools</span><span class='fu'>::</span><span class='fu'><a href='https://remotes.r-lib.org/reference/install_github.html'>install_github</a></span><span class='op'>(</span><span class='st'>"OlivierBinette/pretty"</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <h1 id="javascript-apps">Javascript apps</h1>
@@ -2763,7 +2792,7 @@ href="https://github.com/OlivierBinette/lipsample">lipsample</a></strong>:
 Sampling from arbitrary Lipschitz continuous densities on the interval
 in matlab.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre
+<div class="sourceCode" id="cb4"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

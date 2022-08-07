@@ -8,6 +8,14 @@ knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
 
 # Python packages
 
+### [PatentsView-Evaluation](https://github.com/PatentsView/PatentsView-Evaluation/)
+
+**pv_evaluation** is a Python package for the evaluation and benchmarking of [PatentsView](https://patentsview.org/) disambiguation algorithms. It provides summary statistics, performance evaluation metrics, and representative performance estimators. See the [project website](https://patentsview.github.io/PatentsView-Evaluation/build/html/index.html) for the full documentation.
+
+```{bash, eval=FALSE}
+pip install git+https://github.com/PatentsView/PatentsView-Evaluation.git@release
+```
+
 ### [StringCompare](https://github.com/olivierbinette/StringCompare)
 
 **StringCompare** is a Python package (implemented in C++ through pybind11) for efficient string similarity computation and approximate string matching.
@@ -16,15 +24,15 @@ knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
 pip install git+https://github.com/OlivierBinette/stringcompare.git
 ```
 
-<!--
-### [GroupByRule](https://github.com/olivierbinette/groupbyrule)
 
-Deduplicate data using fuzzy and deterministic matching rules.
+### 🚧 [GroupByRule](https://github.com/olivierbinette/groupbyrule)
+
+Deduplicate data using fuzzy and deterministic matching rules. This is under construction.
 
 ```{bash, eval=FALSE}
 pip install git+https://github.com/OlivierBinette/groupbyrule.git
 ```
--->
+
 
 # R packages
 
