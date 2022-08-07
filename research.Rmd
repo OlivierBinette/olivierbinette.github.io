@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Entity resolution
 
-- Binette, O. and Steorts, R. C. (2021) Modern Bayesian Entity Resolution. *Wiley StatsRef* (to appear)
+- Binette, O. and Steorts, R. C. (2021) Modern Bayesian Entity Resolution. *Wiley StatsRef* [[link]](https://doi.org/10.1002/9781118445112.stat08367)
 - Binette, O. and Steorts, R. C. (2021) (Almost) All of Entity Resolution. *Science Advances 8* (12) [[link]](https://www.science.org/doi/full/10.1126/sciadv.abi8021)
 
 
