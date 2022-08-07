@@ -24,6 +24,23 @@
     "input_file": {}
   },
   {
+    "path": "posts/2022-08-07-talk-wednesday-at-the-joint-statistical-meeting/",
+    "title": "Talk Wednesday at the Joint Statistical Meeting!",
+    "description": "I'll be giving a talk Wednesday 2pm at JSM in D.C. Come see it! It'll be an interesting session with winners of the best student paper award of the Survey Methods, Government Statistics, and Social Statistics sections.",
+    "author": [
+      {
+        "name": "Olivier Binette",
+        "url": "https://olivierbinette.ca"
+      }
+    ],
+    "date": "2022-08-07",
+    "categories": [],
+    "contents": "\n2022\nGSS/SRMS/SSS Student Paper Competition Award Winners — Topic Contributed\nPapers\nActivity Number: 469\nDate: Wednesday, 8/10/2022 beginning at 2:00 PM\nLocation: Room 209 at the Walter E. Washington\nConvention Center\n\n\n\n",
+    "preview": "posts/2022-08-07-talk-wednesday-at-the-joint-statistical-meeting/JSM2022.png",
+    "last_modified": "2022-08-07T12:07:48-04:00",
+    "input_file": "talk-wednesday-at-the-joint-statistical-meeting.knit.md"
+  },
+  {
     "path": "posts/2022-04-20-how-can-you-keep-your-computer-systems-secure/",
     "title": "How can you keep your computer systems secure?",
     "description": "As a professional working with sensitive data, I am responsible for keeping my computers and accounts secure. Here's how I do it and how you can too.",
