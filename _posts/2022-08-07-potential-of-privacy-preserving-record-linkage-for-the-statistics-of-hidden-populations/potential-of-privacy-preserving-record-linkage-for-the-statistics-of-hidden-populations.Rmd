@@ -2,7 +2,7 @@
 title: "Potential of Privacy-Preserving Record Linkage for the Statistics of Hidden Population"
 description: |
   Many populations are "hidden" from the point of view of traditional probabilistic surveys. They are populations for which we have no meaningful sampling frame and whose members may be difficult to identify. Examples include victims of human trafficking and civilian casualties in armed conflicts. Understanding these populations is central to policymaking and to prosecuting human rights violations, yet statistical inference remains extremely difficult in practice. [...]
-preview: thumbnail.png
+preview: thumbnail.jpg
 author:
   - name: Andrew Demma
     affiliation: Duke University
