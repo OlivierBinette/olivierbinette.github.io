@@ -26,3 +26,5 @@ knitr::opts_chunk$set(echo = FALSE)
 **Location:** Room CC-143A
 
 <embed src="JSM 2022.html" type="text/html" width="100%" height="450"/>
+
+[slides link](JSM2022.pdf)
