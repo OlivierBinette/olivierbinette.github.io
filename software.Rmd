@@ -59,7 +59,7 @@ devtools::install_github("OlivierBinette/MSETools")
 Simple interface to caching which works across interactive R sessions, R scripts and Rmarkdown documents.
 
 ```{r}
-install.packages("assert")
+install.packages("cache")
 ```
 
 ### [assert](https://github.com/OlivierBinette/assert)
