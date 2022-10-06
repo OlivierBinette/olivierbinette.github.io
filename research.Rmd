@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Evaluation
 
-- Binette, O., S. A. York, E. Hickerson, Y. Baek, S. Madhavan and C. Jones. (2022) Practical Performance Evaluation of Entity Resolution Algorithms: Lessons Learned at PatentsView.org. [[pdf](media/PatentsView_Evaluation.pdf)]
+- Binette, O., S. A. York, E. Hickerson, Y. Baek, S. Madhavan and C. Jones. (2022) Estimating the Performance of Entity Resolution Algorithms: Lessons Learned Through PatentsView.org. *arXiv e-prints.* arxiv:2210.01230 [[link](https://arxiv.org/pdf/2210.01230.pdf)]
 
 ### Multiple systems estimation
 
