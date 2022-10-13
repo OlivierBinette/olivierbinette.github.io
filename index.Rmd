@@ -56,4 +56,3 @@ Sponsor my open source work and community involvement through Github:
 ### Hire me
 
 I consult with small and medium-sized businesses on the topics of record linkage and deduplication, survey methods, data analysis, R/Python package development, and statistical learning. Learn more on my [**consulting**](consulting.html) page.
-

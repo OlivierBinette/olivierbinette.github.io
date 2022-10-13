@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2022-10-13-just-arxivd-estimating-the-performance-of-entity-resolution-algorithms-lessons-learned-through-patentsvieworg/",
+    "title": "Just arXiv'd: Estimating the Performance of Entity Resolution Algorithms: Lessons Learned Through PatentsView.org",
+    "description": "This paper introduces a novel evaluation methodology for entity resolution algorithms. It is motivated by PatentsView.org, a U.S. Patents and Trademarks Office patent data exploration tool that disambiguates patent inventors using an entity resolution algorithm.",
+    "author": [
+      {
+        "name": "Olivier Binette",
+        "url": "https://olivierbinette.ca"
+      }
+    ],
+    "date": "2022-10-13",
+    "categories": [],
+    "contents": "\n\n\nNo online PDF viewer installed. See https://arxiv.org/pdf/2210.01230.pdf\n\n\n\n\n\n",
+    "preview": "posts/2022-10-13-just-arxivd-estimating-the-performance-of-entity-resolution-algorithms-lessons-learned-through-patentsvieworg/plot.png",
+    "last_modified": "2022-10-13T10:31:13-04:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2022-08-07-potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations/",
     "title": "Potential of Privacy-Preserving Record Linkage for the Statistics of Hidden Population",
     "description": "Many populations are \"hidden\" from the point of view of traditional probabilistic surveys. They are populations for which we have no meaningful sampling frame and whose members may be difficult to identify. Examples include victims of human trafficking and civilian casualties in armed conflicts. Understanding these populations is central to policymaking and to prosecuting human rights violations, yet statistical inference remains extremely difficult in practice. [...]",

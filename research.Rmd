@@ -45,3 +45,6 @@ knitr::opts_chunk$set(echo = FALSE)
 - Binette, O. Classification and Topology, or Consequences of Sobolev Consistency. *Canadian Statistics Student Conference* (poster presentation). Montréal (Canada). June 2, 2018. (Best poster award) [[pdf](media/poster topology and machine learning.pdf)]
 
 -->
+
+<!--<div id="arxivfeed"></div>-->
+
