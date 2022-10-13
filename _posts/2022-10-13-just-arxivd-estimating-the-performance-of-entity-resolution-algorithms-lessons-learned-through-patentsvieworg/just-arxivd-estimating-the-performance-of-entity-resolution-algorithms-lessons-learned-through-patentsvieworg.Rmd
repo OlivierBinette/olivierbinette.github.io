@@ -14,7 +14,7 @@ output:
 preview: plot.png
 ---
 
-<object data="https://arxiv.org/pdf/2210.01230.pdf" type="application/pdf">
+<object data="https://arxiv.org/pdf/2210.01230.pdf" type="application/pdf" height="800px">
         <div>No online PDF viewer installed. See https://arxiv.org/pdf/2210.01230.pdf</div>
     </object>
 

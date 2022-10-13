@@ -2,7 +2,7 @@
   {
     "path": "posts/2022-10-13-just-arxivd-estimating-the-performance-of-entity-resolution-algorithms-lessons-learned-through-patentsvieworg/",
     "title": "Just arXiv'd: Estimating the Performance of Entity Resolution Algorithms: Lessons Learned Through PatentsView.org",
-    "description": "This paper introduces a novel evaluation methodology for entity resolution algorithms. It is motivated by PatentsView.org, a U.S. Patents and Trademarks Office patent data exploration tool that disambiguates patent inventors using an entity resolution algorithm.",
+    "description": "This paper introduces a novel evaluation methodology for entity resolution algorithms. It is motivated by PatentsView.org, a U.S. Patents and Trademarks Office patent data exploration tool that disambiguates patent inventors using an entity resolution algorithm...",
     "author": [
       {
         "name": "Olivier Binette",
@@ -13,7 +13,7 @@
     "categories": [],
     "contents": "\n\n\nNo online PDF viewer installed. See https://arxiv.org/pdf/2210.01230.pdf\n\n\n\n\n\n",
     "preview": "posts/2022-10-13-just-arxivd-estimating-the-performance-of-entity-resolution-algorithms-lessons-learned-through-patentsvieworg/plot.png",
-    "last_modified": "2022-10-13T10:31:13-04:00",
+    "last_modified": "2022-10-13T10:33:45-04:00",
     "input_file": {}
   },
   {
