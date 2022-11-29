@@ -58,6 +58,23 @@
     "input_file": {}
   },
   {
+    "path": "posts/2022-11-29-talk-thursday-at-uqms-statistics-seminar/",
+    "title": "Talk Thursday at UQÀM's Statistics Seminar",
+    "description": "I will be talking about my recent paper \"Estimating the Performance of Entity Resolution Algorithms: Lessons Learned Through PatentsView.org\"",
+    "author": [
+      {
+        "name": "Olivier Binette",
+        "url": "https://olivierbinette.ca"
+      }
+    ],
+    "date": "2022-08-07",
+    "categories": [],
+    "contents": "\nThe talk will be at 15:30 EST via Zoom: https://uqam.zoom.us/j/83398998172\n\n\nslides\nlink\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-11-29T14:16:43-05:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2022-04-20-how-can-you-keep-your-computer-systems-secure/",
     "title": "How can you keep your computer systems secure?",
     "description": "As a professional working with sensitive data, I am responsible for keeping my computers and accounts secure. Here's how I do it and how you can too.",
