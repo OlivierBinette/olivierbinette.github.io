@@ -44,9 +44,7 @@ During Summer 2022, I was working as a Data Scientist/Researcher Intern at the [
 
 In my free time, I enjoy contributing to the academic community at Duke. I have been a research coordinator for the [Duke GPSG Community Pantry](https://gpsg.duke.edu/resources-for-students/community-pantry/), webmaster for the [Record Linkage Interest Group](https://sites.google.com/view/rlig), and a mentor for the Twoples directed reading program. I have also worked with the Duke Applied Machine Learning Group and the Data+ program as a project manager. Additionally, I regularly mentor undergraduate students working on research projects with me.
 
-In my free time, I enjoy contributing to the academic community at Duke. I have been a research coordinator for the Duke GPSG Community Pantry, webmaster for the Record Linkage Interest Group, and a mentor for the Twoples directed reading program. I have also worked with the Duke Applied Machine Learning Group and the Data+ program as a project manager. Additionally, I regularly mentor undergraduate students working on research projects with me.
-
-I also spend some time on open source projects related to my research. I maintain three R packages on CRAN and Python packages for scalable fuzzy string matching and entity resolution evaluation. My work is supported by individual contributors through [Github Sponsors](https://github.com/sponsors/olivierbinette) and by [G-Research](https://www.gresearch.co.uk/article/g-research-february-grant-winners/).
+I work on open source projects related to my research. I maintain three R packages on CRAN and Python packages for scalable fuzzy string matching and entity resolution evaluation. My work is supported by individual contributors through [Github Sponsors](https://github.com/sponsors/olivierbinette) and by [G-Research](https://www.gresearch.co.uk/article/g-research-february-grant-winners/).
 
 
 ### Sponsor me
