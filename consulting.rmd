@@ -11,19 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-I am available for consulting on a variety of topics, including record linkage and deduplication, survey methods, data analysis, R/Python package development, and statistical learning. My advanced skills in data science, machine learning, and applied research, as well as my programming skills in Python and R, make me well-equipped to tackle a wide range of data-driven projects.
-
-I have gained practical experience through internships and academic research, and have developed and published multiple software packages. I have experience in project management and leadership, having led teams of interns on data science projects, managed a large research collaboration, and supervised data-labeling staff. I am also skilled in teaching and mentoring, and have led weekly labs on topics such as entity resolution, spatio-temporal models, Bayesian and modern statistics, and introduction to data science.
-
-Some of my notable accomplishments include:
-
-- Developing and implementing a model evaluation and improvement strategy for machine learning-based entity resolution systems at the American Institutes for Research
-- Developing and implementing uncertainty quantification and Bayesian optimization methods for pricing optimization at the Intact Financial Corporation
-- Developing survey methodology for food insecurity monitoring adopted by Duke University
-- Training and leading undergraduate students on internship projects involving data analysis and web development for the Information Initiative at Duke
-- Publishing research papers on Bayesian nonparametric inference in top journals such as the Journal of Machine Learning Research, IEEE Transactions on Information Theory, and Journal of Statistical Planning and Inference
-
-Please don't hesitate to reach out to me if you have any questions or would like to discuss potential consulting projects. I look forward to the opportunity to work with you!
+I am available for consulting on a variety of topics, including record linkage and deduplication, survey methods, data analysis, R/Python package development, and statistical learning.
 
 Use the form below to book a time to chat:
 
