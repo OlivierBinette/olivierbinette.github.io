@@ -8,7 +8,9 @@ knitr::opts_chunk$set(echo = TRUE)
  
 
 ### TA at Duke University
-Instructional TA (weekly labs and office hours) for the following classes:
+Instructional TA for the following classes:
+
+- STA 723 - Case Studies in Statistical Science (Spring 2023)
 
 - STA 344 - Spatio-Temporal Models (Fall 2022)
 
