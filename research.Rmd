@@ -12,7 +12,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Evaluation
 
-- Binette, O., S. A. York, E. Hickerson, Y. Baek, S. Madhavan and C. Jones. (2022) Estimating the Performance of Entity Resolution Algorithms: Lessons Learned Through PatentsView.org. *arXiv e-prints.* arxiv:2210.01230 [[link](https://arxiv.org/pdf/2210.01230.pdf)]
+- Binette, O., S. A. York, E. Hickerson, Y. Baek, S. Madhavan and C. Jones. (2023) Estimating the Performance of Entity Resolution Algorithms: Lessons Learned Through PatentsView.org. The American Statistician (to appear) [[link](https://arxiv.org/pdf/2210.01230.pdf)]
+
+- Binette, O., S. Madhavan, J. Butler, B.A. Card, E. Melluso and C. Jones. (2023) PatentsView-Evaluation: Evaluation Datasets and Tools to Advance Research on Inventor Name Disambiguation. arXiv e-prints, arxiv:2301.03591 [[link]](https://arxiv.org/abs/2301.03591)
 
 ### Multiple systems estimation
 

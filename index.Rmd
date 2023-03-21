@@ -46,17 +46,3 @@ In my free time, I enjoy contributing to the academic community at Duke. I have 
 
 I work on open source projects related to my research. I maintain three R packages on CRAN and Python packages for scalable fuzzy string matching and entity resolution evaluation. My work is supported by individual contributors through [Github Sponsors](https://github.com/sponsors/olivierbinette) and by [G-Research](https://www.gresearch.co.uk/article/g-research-february-grant-winners/).
 
-
-### Sponsor me
-
-You can support my open source work and community involvement through Github Sponsors:
-
-<center>
-    <iframe src="https://github.com/sponsors/OlivierBinette/button" title="Sponsor OlivierBinette" height="35" width="116" style="border: 0; max-width:200px; background:white;"></iframe>
-</center>
-
-### Hire me
-
-I offer consulting services to small and medium-sized businesses on topics such as record linkage and deduplication, survey methods, data analysis, R/Python package development, and statistical learning. Learn more on my [**consulting**](consulting.html) page
-
-Thank you for considering me for your project or opportunity. I look forward to connecting with you!

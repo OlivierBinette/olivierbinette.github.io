@@ -9,10 +9,8 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "Consulting"
-      href: consulting.html
-    - text: "Resume"
-      href: media/resume.pdf
+    - text: "Valires"
+      href: https://www.valires.com/
     - text: "Research"
       href: research.html
     - text: "Teaching"
