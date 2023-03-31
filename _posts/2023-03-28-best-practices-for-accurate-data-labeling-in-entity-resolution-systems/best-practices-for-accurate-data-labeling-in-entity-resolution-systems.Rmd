@@ -16,9 +16,9 @@ preview: "https://images.unsplash.com/photo-1569396116180-210c182bedb8?ixlib=rb-
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-In today's data-driven world, entity resolution (ER) systems are increasingly important. They allow organizations to clean and link data from different sources, providing a unified view of their data. However, ER systems can be complex and challenging to evaluate, making it difficult to choose the right system for your needs.
+Entity resolution (ER) systems are becoming increasingly important. They allow organizations to clean and link data from different sources, providing a unified view of their data. However, ER systems can be complex and challenging to evaluate, making it difficult to choose the right system, to improve upon an existing one, and to validate their proper functioning.
 
-One crucial aspect of entity resolution is accurate data labeling. In this blog post, I'll explain why accurate data labeling is so important and share some best practices for data labeling in entity resolution systems.
+On crucial aspect of ER evaluation is accurate data labeling. In this blog post, I'll explain why accurate data labeling is so important and share some best practices for data labeling in entity resolution systems.
 
 ## The Importance of Accurate Data Labeling in Entity Resolution Systems
 
@@ -38,11 +38,11 @@ Before starting the data labeling process, it's important to define clear guidel
 
 ### Use Multiple Annotators
 
-To improve accuracy in data labeling, using multiple annotators can help reduce individual bias and increase consistency. Optimizing efficiency and maintaining quality requires considering how best to utilize them. For example, annotators can label the same data independently or different subsets of the data. Collaborating and communicating can also improve accuracy, such as by sharing insights and discussing ambiguous cases. Spreading the workload can prevent fatigue and maintain quality over time.
+To improve accuracy in data labeling, using multiple annotators can help reduce individual bias and increase consistency. Optimizing efficiency and maintaining quality requires considering how best to utilize them. For example, annotators can label the same data independently or different subsets of the data. Collaboration and communication among annotators can also improve accuracy, such as by sharing insights and discussing ambiguous cases. Spreading the workload can prevent fatigue and maintain quality over time.
 
 ### Use Validation Data and Quality Control
 
-Validation data is a subset of the dataset that has already been labeled. Using validation data can help identify errors and inconsistencies in the labeling process. It can also help identify cases where there is disagreement among annotators, and improve the overall accuracy of the labeling process. You can also validate the quality of the labeled data through quality control measures, such as reviewing labeled data for obvious errors.
+Validation data is a subset of the dataset that has already been labeled and is considered to be highly reliable. Using validation data can help identify errors and inconsistencies in the labeling process. It can also help identify cases where there is disagreement among annotators, and improve the overall accuracy of the labeling process. You can also validate the quality of the labeled data through quality control measures, such as reviewing labeled data for obvious errors.
 
 ### Monitor Inter-Annotator Agreement
 
@@ -55,5 +55,5 @@ While manual data labeling is necessary in many cases, there may be opportunitie
 
 ## Conclusion
 
-Accurate data labeling is critical for effective entity resolution. It enables machine learning algorithms to learn and function correctly, helps in evaluating performance, and improves data quality. To achieve accurate data labeling, it's important to define clear guidelines, use multiple annotators, and use validation data while monitoring inter-annotator agreement. Automation can also be used where possible to speed up the process and reduce errors. By following these best practices, organizations can ensure the accuracy of their entity resolution systems, leading to a more complete and accurate dataset.
+Accurate data labeling is critical for effective entity resolution. It enables machine learning algorithms to learn and function correctly, helps in evaluating performance, and improves data quality. To achieve accurate data labeling, it's important to define clear guidelines, use multiple annotators, and use validation data while monitoring inter-annotator agreement. Automation can also be used where possible to speed up the process and reduce errors. By following these best practices, organizations can ensure the accuracy of their entity resolution systems, leading to a more better data and outcomes down the line.
 
