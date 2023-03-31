@@ -5,6 +5,7 @@ description: |
 author:
   - name: Olivier Binette
     url: https://olivierbinette.ca
+    affiliation: Valires
 date: 2023-03-28
 output:
   distill::distill_article:
@@ -56,4 +57,10 @@ While manual data labeling is necessary in many cases, there may be opportunitie
 ## Conclusion
 
 Accurate data labeling is critical for effective entity resolution. It enables machine learning algorithms to learn and function correctly, helps in evaluating performance, and improves data quality. To achieve accurate data labeling, it's important to define clear guidelines, use multiple annotators, and use validation data while monitoring inter-annotator agreement. Automation can also be used where possible to speed up the process and reduce errors. By following these best practices, organizations can ensure the accuracy of their entity resolution systems, leading to a more better data and outcomes down the line.
+
+## What About Valires?
+
+Evaluating ER systems is the bread and butter of [Valires](https://valires.com). Learn more on [our website](https://valires.com)!
+
+
 
