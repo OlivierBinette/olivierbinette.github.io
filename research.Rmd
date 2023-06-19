@@ -1,5 +1,5 @@
 ---
-title: "Research"
+title: "Publications"
 output:
   distill::distill_article:
     toc: true
@@ -10,25 +10,20 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-### Evaluation
+### ML Evaluation
 
 - Binette, O., S. A. York, E. Hickerson, Y. Baek, S. Madhavan and C. Jones. (2023) Estimating the Performance of Entity Resolution Algorithms: Lessons Learned Through PatentsView.org. The American Statistician (to appear) [[link](https://arxiv.org/pdf/2210.01230.pdf)]
 
 - Binette, O., S. Madhavan, J. Butler, B.A. Card, E. Melluso and C. Jones. (2023) PatentsView-Evaluation: Evaluation Datasets and Tools to Advance Research on Inventor Name Disambiguation. arXiv e-prints, arxiv:2301.03591 [[link]](https://arxiv.org/abs/2301.03591)
 
-### Multiple systems estimation
-
 - Binette, O. and Steorts, R. C. (2021) On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery. *Journal of the Royal Statistical Society, Series A*  [[link]](https://rss.onlinelibrary.wiley.com/doi/10.1111/rssa.12803) [[pdf]](https://arxiv.org/abs/2112.01594)
-- Binette, O. and Steorts, R. C. (2020) Discussion of read paper "Multiple-systems analysis for the quantification of modern slavery: classical and Bayesian approaches" by Bernard Silverman. *Journal of the Royal Statistical Society Series A 183* (3). pp. 35 [[link](https://rss.onlinelibrary.wiley.com/doi/10.1111/rssa.12505)]
 
-### Entity resolution
+### Entity Resolution
 
-- Binette, O. and Steorts, R. C. (2021) Modern Bayesian Entity Resolution. *Wiley StatsRef* [[link]](https://doi.org/10.1002/9781118445112.stat08367)
 - Binette, O. and Steorts, R. C. (2021) (Almost) All of Entity Resolution. *Science Advances 8* (12) [[link]](https://www.science.org/doi/full/10.1126/sciadv.abi8021)
 
 
-### Bayesian nonparametrics
-
+### Bayesian Nonparametrics
 
 - Binette, O. and Pati, D. and Dunson, D. B. (2020) Bayesian Closed Surface Fitting Through Tensor Products. *Journal of Machine Learning Research 21* (119) pp. 1-26 [[pdf](https://jmlr.org/papers/volume21/13-233/13-233.pdf)]
 

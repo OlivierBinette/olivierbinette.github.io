@@ -8,7 +8,15 @@ knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
 
 # Python packages
 
-### [ER-Evaluation](https://github.com/OlivierBinette/ER-Evaluation)
+### [Streamlit-Survey](https://github.com/Valires/streamlit-survey)
+
+Survey components for Streamlit apps/
+
+```{bash, eval=FALSE}
+pip install streamlit-survey
+```
+
+### [ER-Evaluation](https://github.com/Valires/er-evaluation)
 
 An End-to-End Evaluation Framework for Entity Resolution Systems.
 
@@ -16,10 +24,9 @@ An End-to-End Evaluation Framework for Entity Resolution Systems.
 pip install er-evaluation
 ```
 
-
 ### [PatentsView-Evaluation](https://github.com/PatentsView/PatentsView-Evaluation/)
 
-**pv_evaluation** is a Python package for the evaluation and benchmarking of [PatentsView](https://patentsview.org/) disambiguation algorithms. It provides summary statistics, performance evaluation metrics, and representative performance estimators. See the [project website](https://patentsview.github.io/PatentsView-Evaluation/build/html/index.html) for the full documentation.
+Python package for the evaluation and benchmarking of [PatentsView](https://patentsview.org/) disambiguation algorithms.
 
 ```{bash, eval=FALSE}
 pip install pv-evaluation

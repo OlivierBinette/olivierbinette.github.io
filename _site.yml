@@ -11,14 +11,12 @@ navbar:
       href: index.html
     - text: "Valires"
       href: https://www.valires.com/
-    - text: "Research"
+    - text: "Publications"
       href: research.html
     - text: "Teaching"
       href: teaching.html
     - text: "Software"
       href: software.html
-    - text: "Blog"
-      href: blog.html
 output: 
   distill::distill_article:
     includes:

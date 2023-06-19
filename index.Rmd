@@ -28,13 +28,11 @@ icon_link(icon="fa fa-github", text="Github", url="https://github.com/olivierbin
  
 # 👋 Welcome!
 
-This website lists some of what I do. See my [ research](./research.html), [teaching](./teaching.html), [software](./software.html), and [blog](./blog.html).
+This website lists some of what I do. See my [publications](./research.html), [teaching](./teaching.html), and [software](./software.html).
 
 ### About me
 
-I am a PhD candidate in the Statistical Science Department at Duke University, where I am supported by Professor Jerry Reiter and funded by an Alexander-Graham-Bell Canada Graduate Scholarship and a doctoral award from the Fonds de Recherche du Québec - Nature et Technologies. I hold a B.Sc. in Mathematics and an M.Sc. in Statistics from Université du Québec à Montréal, where I received the Canada Governor General's Academic Medal in 2020.
-
-My research focuses on statistical evaluation of machine learning systems and entity resolution for big data integration. My work combines machine learning and statistics to address applied problems in these areas. I have interned at the Intact Financial Corporation and the American Institutes for Research, where I worked on projects involving machine learning and entity resolution, respectively.
+I am a Data Science consultant and PhD candidate in the Statistical Science Department at Duke University. I specialize in the statistical evaluation of machine learning systems and in entity resolution for data management and integration. My work combines machine learning and statistics to address applied problems in these areas.
 
 <!--During Spring 2022, I was working as a Data Scientist intern at the [Intact Financial Corporation](https://en.wikipedia.org/wiki/Intact_Financial). I was part of the Rating Revolution team which develops machine learning models to improve the pricing of insurance products. 
 <!--During Summer 2022, I will be working as a Data Scientist intern at the [American Institutes for Research](https://en.wikipedia.org/wiki/American_Institutes_for_Research) for a contract with the U.S. Patents and Trademarks Office.
@@ -44,5 +42,5 @@ During Summer 2022, I was working as a Data Scientist/Researcher Intern at the [
 
 In my free time, I enjoy contributing to the academic community at Duke. I have been a research coordinator for the [Duke GPSG Community Pantry](https://gpsg.duke.edu/resources-for-students/community-pantry/), webmaster for the [Record Linkage Interest Group](https://sites.google.com/view/rlig), and a mentor for the Twoples directed reading program. I have also worked with the Duke Applied Machine Learning Group and the Data+ program as a project manager. Additionally, I regularly mentor undergraduate students working on research projects with me.
 
-I work on open source projects related to my research. I maintain three R packages on CRAN and Python packages for scalable fuzzy string matching and entity resolution evaluation. My work is supported by individual contributors through [Github Sponsors](https://github.com/sponsors/olivierbinette) and by [G-Research](https://www.gresearch.co.uk/article/g-research-february-grant-winners/).
+I work on open source projects related to my research and I maintain various R and Python packages. My open-source work has been supported by individual contributors through [Github Sponsors](https://github.com/sponsors/olivierbinette) and by [G-Research](https://www.gresearch.co.uk/article/g-research-february-grant-winners/).
 
