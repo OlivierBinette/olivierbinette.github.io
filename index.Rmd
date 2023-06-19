@@ -18,10 +18,10 @@ output: distill::distill_article
 if (!require(pacman)) install.packages("pacman")
 pacman::p_load_gh("EllaKaye/distilltools")
 icon_link(icon="fa fa-github", text="Github", url="https://github.com/olivierbinette")
-#htmltools::span(style="padding:10px")
-#icon_link(icon="fa fa-linkedin", text="LinkedIn", url="https://www.linkedin.com/in/olivier-binette/")
-#htmltools::span(style="padding:10px")
-#icon_link(icon="fa fa-envelope", text="Email", url="mailto:olivier.binette@duke.edu")
+htmltools::span(style="padding-right:20px")
+icon_link(icon="fa fa-linkedin", text="LinkedIn", url="https://www.linkedin.com/in/olivier-binette/")
+htmltools::span(style="padding-right:20px")
+icon_link(icon="fa fa-envelope", text="Email", url="mailto:olivier.binette@duke.edu")
 ```
 
 </center>
