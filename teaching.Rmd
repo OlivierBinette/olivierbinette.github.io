@@ -10,6 +10,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ### TA at Duke University
 Instructional TA for the following classes:
 
+- STA 323 - Statistical Computing (Spring 2024)
+
+- STA 440 - Case Studies in Statistical Science (Fall 2023)
+
 - STA 723 - Case Studies in Statistical Science (Spring 2023)
 
 - STA 344 - Spatio-Temporal Models (Fall 2022)

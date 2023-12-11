@@ -12,24 +12,30 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### ML Evaluation
 
-- Binette, O., S. A. York, E. Hickerson, Y. Baek, S. Madhavan and C. Jones. (2023) Estimating the Performance of Entity Resolution Algorithms: Lessons Learned Through PatentsView.org. The American Statistician (to appear) [[link](https://arxiv.org/pdf/2210.01230.pdf)]
+- Binette, O. (2024) Performance Rank-Reversals: An Overlooked Challenge in the Evaluation of Machine Learning Systems. Upcoming.
+
+- Binette, O. and J. P. Reiter (2023) ER-Evaluation: End-to-End Evaluation of Entity Resolution Systems. *Journal of Open Source Software, 8(91), 5619.* [[link]](https://joss.theoj.org/papers/10.21105/joss.05619.pdf)
+
+- Binette, O., S. A. York, E. Hickerson, Y. Baek, S. Madhavan and C. Jones. (2023) Estimating the Performance of Entity Resolution Algorithms: Lessons Learned Through PatentsView.org. *The American Statistician* [[link](https://arxiv.org/pdf/2210.01230.pdf)]
 
 - Binette, O., S. Madhavan, J. Butler, B.A. Card, E. Melluso and C. Jones. (2023) PatentsView-Evaluation: Evaluation Datasets and Tools to Advance Research on Inventor Name Disambiguation. arXiv e-prints, arxiv:2301.03591 [[link]](https://arxiv.org/abs/2301.03591)
 
-- Binette, O. and Steorts, R. C. (2021) On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery. *Journal of the Royal Statistical Society, Series A*  [[link]](https://rss.onlinelibrary.wiley.com/doi/10.1111/rssa.12803) [[pdf]](https://arxiv.org/abs/2112.01594)
+- Binette, O. and R.C. Steorts (2021) On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery. *Journal of the Royal Statistical Society, Series A* [[link]](https://arxiv.org/abs/2112.01594)
 
 ### Entity Resolution
 
-- Binette, O. and Steorts, R. C. (2021) (Almost) All of Entity Resolution. *Science Advances 8* (12) [[link]](https://www.science.org/doi/full/10.1126/sciadv.abi8021)
+- Bai, E., O. Binette and J. P. Reiter (2023) Optimal F-score Clustering for Bipartite Record Linkage. *arxiv-eprints*. arxiv:2311.13923 [[link]](https://arxiv.org/pdf/2311.13923.pdf)
+
+- Binette, O. and R. C. Steorts (2021) (Almost) All of Entity Resolution. *Science Advances 8* (12) [[link]](https://www.science.org/doi/full/10.1126/sciadv.abi8021)
 
 
 ### Bayesian Nonparametrics
 
-- Binette, O. and Pati, D. and Dunson, D. B. (2020) Bayesian Closed Surface Fitting Through Tensor Products. *Journal of Machine Learning Research 21* (119) pp. 1-26 [[pdf](https://jmlr.org/papers/volume21/13-233/13-233.pdf)]
+- Binette, O., D. Pati, and D. B. Dunson (2020) Bayesian Closed Surface Fitting Through Tensor Products. *Journal of Machine Learning Research 21* (119) pp. 1-26 [[link]](https://jmlr.org/papers/volume21/13-233/13-233.pdf)
 
-- Binette, O. (2019). A Note on Reverse Pinsker Inequalities. *IEEE Transactions on Information Theory 65* (7). pp.4094-4096. [[pdf]](https://arxiv.org/pdf/1805.05135.pdf)
+- Binette, O. (2019). A Note on Reverse Pinsker Inequalities. *IEEE Transactions on Information Theory 65* (7). pp.4094-4096. [[link]](https://arxiv.org/pdf/1805.05135.pdf)
 
-- Binette, O. and Guillotte, S. (2019). Bayesian Nonparametrics for Directional Statistics. *arXiv e-prints.* arxiv:1807.00305. [[pdf](https://arxiv.org/pdf/1807.00305.pdf)]
+- Binette, O. and S. Guillotte (2019). Bayesian Nonparametrics for Directional Statistics. *arXiv e-prints.* arxiv:1807.00305. [[link]](https://arxiv.org/pdf/1807.00305.pdf)
 
 <!--### Side projects (posters)
 

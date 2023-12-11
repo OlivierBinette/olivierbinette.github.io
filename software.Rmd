@@ -8,9 +8,17 @@ knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
 
 # Python packages
 
+### [CSVMeta](https://github.com/OlivierBinette/CSVMeta)
+
+Lightweight csv read/write, keeping track of csv dialect and other metadata. 
+
+```{bash, eval=FALSE}
+pip install csvmeta
+```
+
 ### [Streamlit-Survey](https://github.com/Valires/streamlit-survey)
 
-Survey components for Streamlit apps/
+Survey components for Streamlit apps.
 
 ```{bash, eval=FALSE}
 pip install streamlit-survey

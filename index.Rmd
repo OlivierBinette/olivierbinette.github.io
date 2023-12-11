@@ -16,7 +16,7 @@ output: distill::distill_article
 <center>
 ```{r, echo=FALSE}
 if (!require(pacman)) install.packages("pacman")
-pacman::p_load_gh("EllaKaye/distilltools")
+pacman::p_load_gh("EllaKaye/distilltools", "fontawesome")
 icon_link(icon="fa fa-github", text="Github", url="https://github.com/olivierbinette")
 htmltools::span(style="padding-right:20px")
 icon_link(icon="fa fa-linkedin", text="LinkedIn", url="https://www.linkedin.com/in/olivier-binette/")
@@ -32,7 +32,7 @@ This website lists some of what I do. See my [publications](./research.html), [t
 
 ### About me
 
-I am a Data Science consultant and PhD candidate in the Statistical Science Department at Duke University. I specialize in the statistical evaluation of machine learning systems and in entity resolution for data management and integration. My work combines machine learning and statistics to address applied problems in these areas.
+I am a Data Science Consultant, Founder, and PhD Candidate in the Statistical Science Department at Duke University. I specialize in the statistical evaluation of machine learning systems and in entity resolution for data integration, cleaning, and enrichment. My work combines engineering, machine learning, and statistics to address applied problems in these areas.
 
 <!--During Spring 2022, I was working as a Data Scientist intern at the [Intact Financial Corporation](https://en.wikipedia.org/wiki/Intact_Financial). I was part of the Rating Revolution team which develops machine learning models to improve the pricing of insurance products. 
 <!--During Summer 2022, I will be working as a Data Scientist intern at the [American Institutes for Research](https://en.wikipedia.org/wiki/American_Institutes_for_Research) for a contract with the U.S. Patents and Trademarks Office.
