@@ -9,8 +9,6 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "Valires"
-      href: https://www.valires.com/
     - text: "Publications"
       href: research.html
     - text: "Teaching"
