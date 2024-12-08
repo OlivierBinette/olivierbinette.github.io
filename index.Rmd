@@ -34,6 +34,9 @@ This website lists some of what I do. See my [publications](./research.html), [t
 
 I am a data scientist at American Institutes for Research. Previously, I was a data science consultant and PhD Candidate in The Statistical Science department at Duke university. I specialize in applied data science R&D, in the statistical evaluation of AI/machine learning systems, and in entity resolution for data integration, cleaning, and enrichment. My work combines engineering, machine learning, and statistics to address applied problems in these areas.
 
+I contribute to open source projects related to my research and I maintain various R and Python packages. My open-source work has previously been supported by individual contributors through Github Sponsors and by G-Research.
+
+
 <!--During Spring 2022, I was working as a Data Scientist intern at the [Intact Financial Corporation](https://en.wikipedia.org/wiki/Intact_Financial). I was part of the Rating Revolution team which develops machine learning models to improve the pricing of insurance products. 
 <!--During Summer 2022, I will be working as a Data Scientist intern at the [American Institutes for Research](https://en.wikipedia.org/wiki/American_Institutes_for_Research) for a contract with the U.S. Patents and Trademarks Office.
 
@@ -50,6 +53,5 @@ I work on open source projects related to my research and I maintain various R a
 Book a time to talk.
 
 <iframe width='100%' height='600px' src='https://olivierbinette.zohobookings.com/portal-embed#/customer/1' frameborder='0' allowfullscreen='' > </iframe>
+
 -->
-
-
