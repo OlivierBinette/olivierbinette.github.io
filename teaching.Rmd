@@ -7,8 +7,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
  
 
-### TA at Duke University
-Instructional TA for the following classes:
+### Instructional TA at Duke University
 
 - STA 323 - Statistical Computing (Spring 2024)
 
@@ -24,9 +23,7 @@ Instructional TA for the following classes:
 
 - STA 360 - [Bayesian and Modern Statistics](https://github.com/resteorts/modern-bayes) (Fall 2020) [[teaching evaluation](media/teaching-evaluations/Binette_Olivier_STA360_FA20_Steorts.pdf)]
 
-### TA at Université du Québec à Montréal
-
-Instructional TA (weekly labs and office hours) for the following classes:
+### Instructional TA at Université du Québec à Montréal
 
 - STT 1000 - [Statistics I](https://etudier.uqam.ca/cours?sigle=STT1000) (Winter 2019)
 
@@ -43,8 +40,3 @@ Instructional TA (weekly labs and office hours) for the following classes:
 ### Other teaching activities
 
 - [Co-produced an activity for children at the Eureka! Science Festival (Montreal Science Center, June 2018)](https://olivierbinette.github.io/posts/2020-11-15-ism-at-the-eureka-science-festival/)
-
-
-
-
-

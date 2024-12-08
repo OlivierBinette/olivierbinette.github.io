@@ -124,7 +124,7 @@ devtools::install_github("OlivierBinette/splinit")
 
 ### [pretty](https://github.com/OlivierBinette/pretty)
 
-Better baser plots in R.
+Better base plots in R.
 
 ```{r}
 devtools::install_github("OlivierBinette/pretty")
