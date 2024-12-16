@@ -1,6 +1,6 @@
 ---
 title: "Olivier's blog"
-listing: posts
+#listing: posts
 ---
 
 

@@ -21,7 +21,7 @@
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -32,7 +32,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -107,7 +107,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":["Olivier's blog"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Olivier's blog"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -455,8 +455,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
 
   <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-  <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet"/>
+  <link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"/>
+  <link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
   <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
   <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
@@ -2611,7 +2611,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2659,7 +2659,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
@@ -2677,7 +2677,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <div class="nav-right">
 <a href="index.html">Home</a>
-<a href="https://www.valires.com/">Valires</a>
 <a href="research.html">Publications</a>
 <a href="teaching.html">Teaching</a>
 <a href="software.html">Software</a>
@@ -2688,533 +2687,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).on("load", function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      page_category = decodeURIComponent(page_category)
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Olivier&#39;s blog">Olivier's blog</h1>
-<a href="posts/2023-03-28-best-practices-for-accurate-data-labeling-in-entity-resolution-systems/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">March 28, 2023</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="https://images.unsplash.com/photo-1569396116180-210c182bedb8?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1469&amp;q=80"/>
-</div>
-<div class="description">
-<h2>Best Practices for Accurate Data Labeling in Entity Resolution Systems</h2>
-<div class="dt-tags"></div>
-<p>In this blog post, we explore the importance of accurate data labeling in entity resolution systems and share some best practices for data labeling.</p>
-</div>
-</a>
-<a href="posts/2022-10-13-just-arxivd-estimating-the-performance-of-entity-resolution-algorithms-lessons-learned-through-patentsvieworg/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Oct. 13, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2022-10-13-just-arxivd-estimating-the-performance-of-entity-resolution-algorithms-lessons-learned-through-patentsvieworg/plot.png"/>
-</div>
-<div class="description">
-<h2>Just arXiv'd: Estimating the Performance of Entity Resolution Algorithms: Lessons Learned Through PatentsView.org</h2>
-<div class="dt-tags"></div>
-<p>This paper introduces a novel evaluation methodology for entity resolution algorithms. It is motivated by PatentsView.org, a U.S. Patents and Trademarks Office patent data exploration tool that disambiguates patent inventors using an entity resolution algorithm...</p>
-</div>
-</a>
-<a href="posts/2022-08-07-potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Entity Resolution","Privacy"]}</script>
-<div class="metadata">
-<div class="publishedDate">Aug. 7, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Andrew Demma</div>
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2022-08-07-potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations/thumbnail.jpg"/>
-</div>
-<div class="description">
-<h2>Potential of Privacy-Preserving Record Linkage for the Statistics of Hidden Population</h2>
-<div class="dt-tags">
-<div class="dt-tag">Entity Resolution</div>
-<div class="dt-tag">Privacy</div>
-</div>
-<p>Many populations are "hidden" from the point of view of traditional probabilistic surveys. They are populations for which we have no meaningful sampling frame and whose members may be difficult to identify. Examples include victims of human trafficking and civilian casualties in armed conflicts. Understanding these populations is central to policymaking and to prosecuting human rights violations, yet statistical inference remains extremely difficult in practice. [...]</p>
-</div>
-</a>
-<a href="posts/2022-08-07-talk-wednesday-at-the-joint-statistical-meeting/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Aug. 7, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2022-08-07-talk-wednesday-at-the-joint-statistical-meeting/JSM2022.png"/>
-</div>
-<div class="description">
-<h2>Talk Wednesday at the Joint Statistical Meeting!</h2>
-<div class="dt-tags"></div>
-<p>I'll be giving a talk Wednesday 2pm at JSM in D.C. Come see it! It'll be an interesting session with winners of the best student paper award of the Survey Methods, Government Statistics, and Social Statistics sections.</p>
-</div>
-</a>
-<a href="posts/2022-11-29-talk-thursday-at-uqms-statistics-seminar/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Aug. 7, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Talk Thursday at UQÀM's Statistics Seminar</h2>
-<div class="dt-tags"></div>
-<p>I will be talking about my recent paper "Estimating the Performance of Entity Resolution Algorithms: Lessons Learned Through PatentsView.org"</p>
-</div>
-</a>
-<a href="posts/2022-04-20-how-can-you-keep-your-computer-systems-secure/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">April 20, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2022-04-20-how-can-you-keep-your-computer-systems-secure/banner.jpeg"/>
-</div>
-<div class="description">
-<h2>How can you keep your computer systems secure?</h2>
-<div class="dt-tags"></div>
-<p>As a professional working with sensitive data, I am responsible for keeping my computers and accounts secure. Here's how I do it and how you can too.</p>
-</div>
-</a>
-<a href="posts/2022-03-27-whats-the-difference-between-science-and-storytelling/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">March 27, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2022-03-27-whats-the-difference-between-science-and-storytelling/banner-cropped.jpg"/>
-</div>
-<div class="description">
-<h2>What's the Difference Between Science and Storytelling in Data Science?</h2>
-<div class="dt-tags"></div>
-<p>It's easy to come up with stories and plausible explanations. What's hard is to be *right*.</p>
-</div>
-</a>
-<a href="posts/2022-03-10-web-app-for-welcome-to-the-moon/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">March 10, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2022-03-10-web-app-for-welcome-to-the-moon/screenshot.png"/>
-</div>
-<div class="description">
-<h2>Web App for "Welcome to the Moon"</h2>
-<div class="dt-tags"></div>
-<p>Play "Welcome to the Moon" on the couch or remotely.</p>
-</div>
-</a>
-<a href="posts/2022-01-29-a-brief-introduction-to-hyperparameter-optimization/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Machine Learning","Hyperparameter Optimzation"]}</script>
-<div class="metadata">
-<div class="publishedDate">Jan. 29, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2022-01-29-a-brief-introduction-to-hyperparameter-optimization/a-brief-introduction-to-hyperparameter-optimization_files/figure-html5/unnamed-chunk-8-1.png"/>
-</div>
-<div class="description">
-<h2>A Brief Introduction to Hyperparameter Optimization in Machine Learning</h2>
-<div class="dt-tags">
-<div class="dt-tag">Machine Learning</div>
-<div class="dt-tag">Hyperparameter Optimzation</div>
-</div>
-<p>I review a few black-box hyperparameter optimization techniques at a high conceptual level: grid search, randomized search and sequential model-based optimization.</p>
-</div>
-</a>
-<a href="posts/2022-01-01-record-linkage-at-the-gpsg-community-pantry/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Python","Record Linkage"]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 23, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="http://dukegpsc.org/wp-content/uploads/2019/07/pantry.jpg"/>
-</div>
-<div class="description">
-<h2>Record Linkage at the Duke GPSG Community Pantry</h2>
-<div class="dt-tags">
-<div class="dt-tag">Python</div>
-<div class="dt-tag">Record Linkage</div>
-</div>
-<p>The Duke Graduate and Professional Student Government (GPSG) Community Pantry is a student-operated food pantry serving the student community at Duke University. In this post, I describe the record linkage system used at the Pantry to identify individual customers and obtain their order history. This is done using a Python module for deterministic record linkage and model evaluation techniques which I describe in detail.</p>
-</div>
-</a>
-<a href="posts/2020-11-15-theory-of-gibbs-posterior-concentration/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Oct. 11, 2019</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Theory of Gibbs posterior concentration</h2>
-<div class="dt-tags"></div>
-<p>Notes on some research in progress.</p>
-</div>
-</a>
-<a href="posts/2020-11-15-the-credibility-of-confidence-intervals/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Sept. 11, 2019</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>The Credibility of confidence intervals</h2>
-<div class="dt-tags"></div>
-<p>When p &lt; 0.05 provides evidence in favor of the null...</p>
-</div>
-</a>
-<a href="posts/2020-11-15-bayesian-optimalities/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">May 24, 2019</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Bayesian Optimalities</h2>
-<div class="dt-tags"></div>
-<p>Some notes regarding various 'optimalities' of posterior distributions.</p>
-</div>
-</a>
-<a href="posts/2020-11-15-global-bounds-for-the-jensen-functional/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">May 19, 2019</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Global bounds for the Jensen functional</h2>
-<div class="dt-tags"></div>
-<p>Some techniques to bound the Jensen functional.</p>
-</div>
-</a>
-<a href="posts/2020-11-15-two-sampling-algorithms-for-trigonometric-densities/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">April 15, 2019</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Two sampling algorithms for trigonometric densities</h2>
-<div class="dt-tags"></div>
-<p>A short description of the post.</p>
-</div>
-</a>
-<a href="posts/2020-11-15-the-significance-of-the-adjusted-r-squared-coefficient/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">April 10, 2019</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>The Significance of the adjusted R squared coefficient</h2>
-<div class="dt-tags"></div>
-<p>A sound re-interpretation of the adjusted $R^2$ value for model comparison.</p>
-</div>
-</a>
-<a href="posts/2020-11-15-3d-data-visualization-with-webglthreejs/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Jan. 6, 2019</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>3D data visualization with WebGL/Three.js</h2>
-<div class="dt-tags"></div>
-<p></p>
-</div>
-</a>
-<a href="posts/2020-11-15-ism-at-the-eureka-science-festival/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">June 7, 2018</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>ISM at the Eureka! Science Festival!</h2>
-<div class="dt-tags"></div>
-<p></p>
-</div>
-</a>
-<a href="posts/2020-11-15-short-proof-critical-points-in-invariant-domains/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">April 29, 2017</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Short proof: critical points in invariant domains</h2>
-<div class="dt-tags"></div>
-<p></p>
-</div>
-</a>
-<a href="posts/2020-11-15-tubular-neighborhoods/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 2, 2016</div>
-<div class="dt-authors">
-<div class="dt-author">Olivier Binette</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Tubular neighborhoods</h2>
-<div class="dt-tags"></div>
-<p>Complete proof of the tubular neighborhood theorem for submanifolds of euclidean space. I was unable to find an elementary version in the litterature.</p>
-</div>
-</a>
-</div>
-<div class="posts-sidebar">
-<div class="sidebar-section categories">
-<h3>Categories</h3>
-<ul>
-<li>
-<a href="#category:Articles">Articles</a>
-<span class="category-count">(20)</span>
-</li>
-<li>
-<a href="#category:Entity_Resolution">Entity Resolution</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Hyperparameter_Optimzation">Hyperparameter Optimzation</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Machine_Learning">Machine Learning</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Privacy">Privacy</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Python">Python</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Record_Linkage">Record Linkage</a>
-<span class="category-count">(1)</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
 <h1>Olivier’s blog</h1>
