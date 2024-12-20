@@ -1,13 +1,6 @@
 {
   "articles": [
     {
-      "path": "blog.html",
-      "title": "Olivier's blog",
-      "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2024-12-16T11:18:23-05:00"
-    },
-    {
       "path": "consulting.html",
       "title": "Consulting",
       "author": [],
@@ -18,8 +11,8 @@
       "path": "index.html",
       "title": "👋 Welcome!",
       "author": [],
-      "contents": "\n\n\n\n\n\n Github\n\n LinkedIn\n\n Email\n\n\n👋 Welcome!\nThis website lists some of what I do. See my publications, teaching, and software.\nAbout me\nI am a data scientist at American Institutes for Research. Previously, I was a data science consultant and PhD Candidate in The Statistical Science department at Duke university. I specialize in applied data science R&D, in the statistical evaluation of AI/machine learning systems, and in entity resolution for data integration, cleaning, and enrichment. My work combines engineering, machine learning, and statistics to address applied problems in these areas.\nI contribute to open source projects related to my research and I maintain various R and Python packages. My open-source work has previously been supported by individual contributors through Github Sponsors and by G-Research.\n\n\n\n\n",
-      "last_modified": "2024-12-16T11:18:34-05:00"
+      "contents": "\n\n\n\n\n\n Github\n\n LinkedIn\n\n Email\n\n\n👋 Welcome!\nThis website lists some of what I do. See my publications, teaching, and software.\nAbout me\nI am a data scientist at American Institutes for Research. Previously, I was a data science consultant while doing my PhD in the Statistical Science Department at Duke university. I specialize in applied data science R&D, in the statistical evaluation of AI/machine learning systems, and in entity resolution for data linkage, cleaning, and enrichment. My work combines engineering, machine learning, and statistics to address applied problems in these areas.\nI contribute to open source projects related to my work and I maintain various R and Python packages. My open-source work has previously been supported by G-Research and by individual contributors through Github Sponsors.\n\n\n\n\n",
+      "last_modified": "2024-12-20T10:34:40-05:00"
     },
     {
       "path": "research.html",
