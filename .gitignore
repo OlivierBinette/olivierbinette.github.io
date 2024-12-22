@@ -6,3 +6,6 @@
 
 *.Rproj
 /.quarto/
+
+node_modules
+.env
