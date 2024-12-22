@@ -1,0 +1,37 @@
+---
+title: "Buy or Build?"
+description: Should you build, buy, or outsource? There's a rule of thumb.
+date: 2024-11-15
+categories:
+  - general
+  - management
+---
+
+Choosing where to get what you need - whether that’s software, hardware, or people - is called **strategic sourcing.** It’s about minimizing the **total cost of ownership**, including the costs associated with using, not using, or maintaining the thing you need.
+
+The problem is particularly tricky for software developers. They’re paid to build, after all, and they know or want to know how to build. So why should they buy a solution when they can make it themselves?
+
+> Before you build, make sure you understand the real costs to succeed over the long term, and only embark on those code-writing efforts you’re sure your business is capable of. - [Robert Sher, HBR](https://hbr.org/2021/12/when-should-your-company-develop-its-own-software)
+
+Answering this question requires having clear requirements, understanding the extent to which suppliers can meet these requirements, and understanding the total costs associated with each alternative.
+
+But there’s a **rule of thumb** that covers many situations. If:
+
+- you can buy what you need,
+- from a reasonably mature competitive market,
+- that benefits from economies of scale,
+
+then you should buy and not build. 
+
+Why? You’re unlikely to beat a competitive market with economies of scale, so buy if you can.
+
+There are exceptions to this, such as if this is an area of core capability where you're trying to compete. But it's a good rule of thumb for the rest.
+
+---
+
+Other tips from PipDecks' Strategy Tactics:
+
+![](pip-1.png){width="50%" fig-align="center"}
+
+![](pip-2.png){width="50%" fig-align="center"}
+

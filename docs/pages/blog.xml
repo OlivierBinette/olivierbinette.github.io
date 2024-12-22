@@ -10,7 +10,52 @@
 <atom:link href="https://olivierbinette.ca/pages/blog.xml" rel="self" type="application/rss+xml"/>
 <description>A collection of reflections, projects, and thoughts, big and small.</description>
 <generator>quarto-1.6.39</generator>
-<lastBuildDate>Wed, 04 Sep 2024 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 15 Nov 2024 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>Buy or Build?</title>
+  <link>https://olivierbinette.ca/pages/posts/2024-11-15-build-or-buy/2024-11-15-build-or-buy.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Choosing where to get what you need - whether that’s software, hardware, or people - is called <strong>strategic sourcing.</strong> It’s about minimizing the <strong>total cost of ownership</strong>, including the costs associated with using, not using, or maintaining the thing you need.</p>
+<p>The problem is particularly tricky for software developers. They’re paid to build, after all, and they know or want to know how to build. So why should they buy a solution when they can make it themselves?</p>
+<blockquote class="blockquote">
+<p>Before you build, make sure you understand the real costs to succeed over the long term, and only embark on those code-writing efforts you’re sure your business is capable of. - <a href="https://hbr.org/2021/12/when-should-your-company-develop-its-own-software">Robert Sher, HBR</a></p>
+</blockquote>
+<p>Answering this question requires having clear requirements, understanding the extent to which suppliers can meet these requirements, and understanding the total costs associated with each alternative.</p>
+<p>But there’s a <strong>rule of thumb</strong> that covers many situations. If:</p>
+<ul>
+<li>you can buy what you need,</li>
+<li>from a reasonably mature competitive market,</li>
+<li>that benefits from economies of scale,</li>
+</ul>
+<p>then you should buy and not build.</p>
+<p>Why? You’re unlikely to beat a competitive market with economies of scale, so buy if you can.</p>
+<p>There are exceptions to this, such as if this is an area of core capability where you’re trying to compete. But it’s a good rule of thumb for the rest.</p>
+<hr>
+<p>Other tips from PipDecks’ Strategy Tactics:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="pip-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://olivierbinette.ca/pages/posts/2024-11-15-build-or-buy/pip-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="pip-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://olivierbinette.ca/pages/posts/2024-11-15-build-or-buy/pip-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></a></p>
+</figure>
+</div>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>general</category>
+  <category>management</category>
+  <guid>https://olivierbinette.ca/pages/posts/2024-11-15-build-or-buy/2024-11-15-build-or-buy.html</guid>
+  <pubDate>Fri, 15 Nov 2024 05:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Product Development Is Hard</title>
   <link>https://olivierbinette.ca/pages/posts/2024-09-04-product-development-is-hard/2024-09-04-product-development-is-hard.html</link>
@@ -44,6 +89,573 @@
   <category>product-development</category>
   <guid>https://olivierbinette.ca/pages/posts/2024-09-04-product-development-is-hard/2024-09-04-product-development-is-hard.html</guid>
   <pubDate>Wed, 04 Sep 2024 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Strategic Project Management Made Simple</title>
+  <link>https://olivierbinette.ca/pages/posts/2024-09-04-strategic-project-management-made-simple/2024-09-04-strategic-project-management-made-simple.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Everything that follows is a quote from Terry’s book, with minimal adaptations for flow in some places.</p>
+</div>
+</div>
+</div>
+<p>The most potent opportunities seldom show up labeled as “projects,” but arrive disguised as problems, issues, or murky messes. Tackling so called Big, Hairy, Audacious Goals, as Jim Collins describes them in Built to Last, involves juggling a full spectrum of slippery Objectives that can be difficult to define, let alone manage.</p>
+<p>In the pages ahead, I’ll walk you through a flexible thinking process, and show you how to sort through the fog of fuzzy ideas and develop sound strategies and executable plans. You’ll see how these tools scale up and down to handle issues of any size and flex to fit multiple situations you may face. But first, let’s review why most project plans are inadequate. See how many of these resonate with your personal experience:</p>
+<div class="callout callout-style-simple callout-tip callout-titled" title="Beware these six dangerous planning mistakes">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beware these six dangerous planning mistakes
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><strong>Planning Mistake</strong> | <strong>Solution Elements</strong> |</td>
+</tr>
+<tr class="even">
+<td><p><strong>Tolerating Vague Objectives</strong></p>
+<p><em>In the rush to implement, not enough serious, upfront thinking goes into clarifying Objectives, Measures, and their interconnections.</em></p></td>
+<td><ul>
+<li><p>Make Objectives clear and measurable</p></li>
+<li><p>Identify logical levels and If-Then links</p></li>
+<li><p>Define your strategic hypotheses</p></li>
+<li><p>Define why before what and how</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><p><strong>Ignoring Environmental Context</strong></p>
+<p><em>Projects unfold in unpredictable ways, but people sometimes think myopically and ignore how risk factors outside their project boundaries might affect them.</em></p></td>
+<td><ul>
+<li><p>Scan the environment for circumstances</p></li>
+<li><p>Understand internal and external context</p></li>
+<li><p>Identify risk elements</p></li>
+<li><p>Make, test, manage, and monitor Assumptions</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><p><strong>Poor Planning Tools and Processes</strong></p>
+<p><em>When the only tool is a hammer, the whole world looks like a nail. Before firing up your PC, fire up your brain and flesh out your project strategy.</em></p></td>
+<td><ul>
+<li><p>Choose common planning model and language</p></li>
+<li><p>Plan top-down, test bottom-up</p></li>
+<li><p>Plan for the plan</p></li>
+<li><p>Use the Logical Framework as a central planning tool</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><p><strong>Neglecting Stakeholder Interests</strong></p>
+<p><em>Projects are real-life dramas played out by multiple actors who bring their own agenda and varying degrees of interest and support.</em></p></td>
+<td><ul>
+<li><p>Remember - people support what they help create</p></li>
+<li><p>Involve people who matter</p></li>
+<li><p>Understand the perspectives of others</p></li>
+<li><p>Build consensus and commitment</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><p><strong>One-shot Planning</strong></p>
+<p><em>Like home-baked bread that grows moldy with time, project plans have a limited shelf-life. They must be updated to reflect new learning and progress.</em></p></td>
+<td><ul>
+<li><p>Build consensus and commitment</p></li>
+<li><p>Treat project documents as living plans, organic in nature</p></li>
+<li><p>Be “cycle logical” - think, plan, act, and assess</p></li>
+<li><p>Iterate and update in predetermined learning cycles</p></li>
+<li><p>Constantly refine the strategic hypothesis</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><p><strong>Mismanaging People Dynamics</strong></p>
+<p><em>Project success requires the committed, coordinated action of many people.</em></p></td>
+<td><ul>
+<li><p>Build in payoffs (fun, learning, rewards)</p></li>
+<li><p>Grow the team while growing the plan</p></li>
+<li><p>Sharpen the who-when-what-how</p></li>
+<li><p>Manage with emotional intelligence</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="the-four-critical-questions" class="level2">
+<h2 class="anchored" data-anchor-id="the-four-critical-questions">The Four Critical Questions</h2>
+<p>All great solutions begin by asking the right questions. They seem like simple questions - that’s exactly the point. They are indeed simple, but not simplistic. The four following carefully crafted questions work wonders in virtually any situation. The first three are usually glossed over in the rush to answer the fourth.</p>
+<ol type="1">
+<li><p><strong>What are we trying to accomplish and why?</strong></p>
+<p>The question of what the project should accomplish - and more importantly - why it needs to be done, deserves fine-tuned attention because those answers drive everything else. In the rush to decide on the how, who, and when of a project, people often gloss over the why.</p></li>
+<li><p><strong>How will we measure success?</strong></p>
+<p>This question is significant because Measures flesh out and anchor what the Objectives really mean. Until you define how success will be measured, even the most sincere visions are no more than highfalutin’ fluff.</p></li>
+<li><p><strong>What other conditions must exist?</strong></p>
+<p>This third question puts your project, issue, or initiative into a larger strategic context. Asking this expands the analysis to include some of the outside factors which may disrupt your carefully crafted plans.</p></li>
+<li><p><strong>How do we get there?</strong></p>
+<p>The majority of project teams I have worked with tend to delve deep into the details much too soon, or get sidelined by premature technical arguments. They gloss over the first three questions in a rush to get moving. The value of the fourth question comes from consciously placing it in its only, truly functional place in the planning sequence: Last.</p></li>
+</ol>
+</section>
+<section id="logframes" class="level2">
+<h2 class="anchored" data-anchor-id="logframes">LogFrames</h2>
+<p>While the LogFrame matrix may initially seem intimidating, the ideas it captures are basic. The four strategic questions offer a user friendly way to learn and apply this tool. These questions are inherently embedded in the matrix and answering them helps you design your project in a way that connect all the dots.</p>
+<p><a href="logframe1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://olivierbinette.ca/pages/posts/2024-09-04-strategic-project-management-made-simple/logframe1.png" class="img-fluid" style="width:66.0%"></a></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Alternative LogFrame Diagram">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Alternative LogFrame Diagram
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="logframe2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://olivierbinette.ca/pages/posts/2024-09-04-strategic-project-management-made-simple/logframe2.png" class="img-fluid" style="width:66.0%"></a></p>
+</div>
+</div>
+</div>
+<ol type="1">
+<li><p><strong><em>What Are We Trying To Accomplish And Why?</em></strong> <strong>(Objectives)</strong><br>
+The <strong>first column</strong> describes Objectives and the If-Then logic linking them together. The LogFrame makes important distinctions among various “levels” of Objectives: Strategic intention (<strong>Goal</strong>), project impact (<strong>Purpose</strong>), project deliverables (<strong>Outcomes</strong>), and the key action steps (<strong>Inputs</strong>).</p></li>
+<li><p><strong><em>How Will We Measure Success?</em></strong> <strong>(Measures and Verifications)</strong></p>
+<ul>
+<li><p>The <strong>second column</strong> identifies the Measures of sucess for Objectives at each level. here wew select appropriate Measures and choose quantity, quality, and time indicators to clarify what each Objective means.</p></li>
+<li><p>The <strong>third column</strong> summarizes how we will verify the status of the Measures at eaech level. Think of the Verification column as the project’s management information and feedback system.</p></li>
+</ul></li>
+<li><p><strong><em>What Other Conditions Must Exist?</em></strong> <strong>(Assumptions)</strong><br>
+The <strong>fourth column</strong> captures Assumptions; those ever-present, but often neglected risk factors outside of the project, on which project success depends. Defining and testing Assumptions lets you spot potential problems and deal with them in advance.</p></li>
+<li><p><strong><em>How do we get There?</em></strong> <strong>(Inputs)</strong><br>
+The <strong>bottom row</strong> captures the project action plan: Who does what, when, and with what resources. Conventional project management like Work Breakdown Structures (WBS) and Gantt chart schedules fit here.</p></li>
+</ol>
+<div class="callout callout-style-simple callout-tip callout-titled" title="LogFrame Tips">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+LogFrame Tips
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<section id="logframe-tips" class="level3 callout-body-container callout-body">
+<h3 class="anchored" data-anchor-id="logframe-tips">LogFrame Tips</h3>
+<ul>
+<li><p><em><strong>Treat the matrix as a summary</strong>.</em> Keep it clear and concise; supplement with other documents.</p></li>
+<li><p><strong><em>Make sure everyone on the team has working understanding</em></strong> of the LogFrame (at a minimum, knowing the four critical questions).</p></li>
+<li><p><strong><em>Make sure the right peopole are involved</em></strong>. Invite key stakeholders to participate in project planning.</p></li>
+<li><p><strong><em>Stress the importance of the process of planning</em></strong> as much as the plan that comes out of the planning process. Supplement liberally with other supporting tools.</p></li>
+<li><p><strong><em>Iterate to make it great</em></strong>. Consider the first Logframe to be a rough draft that will require revision and reworking, perhaps through many cycles.</p></li>
+<li><p><strong><em>Build in specific milestones on the calendar</em></strong> at which you refine and revise the matrix in the light of new information.</p></li>
+<li><p><strong><em>Monitor and manage changing Assumptions</em></strong> over time.</p></li>
+</ul>
+</section>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled" title="Turning a Problem Into a Set of Objectives">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Turning a Problem Into a Set of Objectives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<section id="turning-a-problem-into-a-set-of-objectives" class="level3 callout-body-container callout-body">
+<h3 class="anchored" data-anchor-id="turning-a-problem-into-a-set-of-objectives">Turning a Problem Into a Set of Objectives</h3>
+<p>A problem is simply a project in disguise. Projects masquerading as problems must first be converted into Objectives before advancing to solutions. Spend some time carefully diagnosing the problem because the way you define it shapes the range of solution options. Don’t get sucked in by an over-simplified definition, catch phrase, or symptom. Get at the root causes. Find the right problem to solve.</p>
+<p>Stakeholder collaboration during problem analysis builds shared understanding, generates better solution approaches, and greases the skids for smoother execution.</p>
+<section id="ask-your-stakeholders" class="level4">
+<h4 class="anchored" data-anchor-id="ask-your-stakeholders">Ask Your Stakeholders</h4>
+<ul>
+<li><p>What do you see as the problem?</p></li>
+<li><p>Why is this a problem and for whom?</p></li>
+<li><p>What causes the problem?</p></li>
+<li><p>What are the consequences if we ignore the problem?</p></li>
+<li><p>How will you know when the problem is gone?</p></li>
+<li><p>What benefits will a solution bring?</p></li>
+<li><p>What might an ideal solution look like?</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled" title="Exploring Distinctions Among LogFrame Levels">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exploring Distinctions Among LogFrame Levels
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<section id="exploring-distinctions-among-logframe-levels" class="level2 callout-body-container callout-body">
+<h2 class="anchored" data-anchor-id="exploring-distinctions-among-logframe-levels">Exploring Distinctions Among LogFrame Levels</h2>
+<section id="goal-the-big-picture-impact" class="level3">
+<h3 class="anchored" data-anchor-id="goal-the-big-picture-impact">Goal: The Big Picture Impact</h3>
+<p>The Goal is the big picture context — the overarching corporate or strategic Objective to which your project, and usually other projects, contribute.</p>
+<p>Some typical Goal examples:</p>
+<ul>
+<li><p>Delight our customers</p></li>
+<li><p>Become the top provider in the market</p></li>
+<li><p>Increase corporate profits</p></li>
+<li><p>Ensure reliability of the nuclear stockpile</p></li>
+<li><p>Foster a climate of innovation</p></li>
+<li><p>Be the global leader in safety education</p></li>
+</ul>
+<p>These secondary trigger questions can help you get to the priamary Goal of a project:</p>
+<ul>
+<li><p>What is the higher corporate or strategic Objective to which this project contributes?</p></li>
+<li><p>Why is the project’s impact important?</p></li>
+<li><p>What should happen after we achieve the Purpose?</p></li>
+<li><p>What is the big picture reason for doing this project?</p></li>
+</ul>
+</section>
+<section id="purpose-the-project-sweet-spot" class="level3">
+<h3 class="anchored" data-anchor-id="purpose-the-project-sweet-spot">Purpose: The Project Sweet Spot</h3>
+<p>Purpose is the vital, often missing focus that expresses the desired result or the impact we expect the project deliverables to produce. It describes expected change in system behavior, whether the system of interest is a core process, a new organization unit, or target customers. Purpose floats a level above that which we can directly control — the Outcomes. It’s a subtle concept, often hard to grasp because we are so conditioned to thinking of activities and Outcomes.</p>
+<p>Consider these examples:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Outcomes Statement</strong></th>
+<th><strong>Corresponding Purposes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>System built or delivered</td>
+<td>Customers use our system</td>
+</tr>
+<tr class="even">
+<td>Process improved</td>
+<td>Improved process used</td>
+</tr>
+<tr class="odd">
+<td>System developed</td>
+<td>System successfully implemented</td>
+</tr>
+<tr class="even">
+<td>Staff trained in safe procedures</td>
+<td>Staff operates machinery safely</td>
+</tr>
+</tbody>
+</table>
+<p>Here are some trigger questions you can ask to articulate the Purpose:</p>
+<ul>
+<li><p>Why are we really doing this project?</p></li>
+<li><p>What would the clients or users like to see happen because of this project?</p></li>
+<li><p>If this project were a success, how would we know?</p></li>
+<li><p>What impact are we trying to achieve?</p></li>
+</ul>
+</section>
+<section id="outcomes-what-the-project-will-deliver" class="level3">
+<h3 class="anchored" data-anchor-id="outcomes-what-the-project-will-deliver">Outcomes: What the Project Will Deliver</h3>
+<p>Project Outcomes describe what the team can, must, and commits to make happen to achieve Purpose. They can be functioning systems or processes (i.e., recruiting process operating) as well as completed end products (i.e., prototype built) and delivered services (i.e., people trained). They describe the specifi c end-results (or deliverables) expected from implementing a series of activities or tasks.</p>
+<p>Use these questions to help solidify required Outcomes:</p>
+<ul>
+<li><p>What are our main project deliverables?</p></li>
+<li><p>What do we need to make happen in order to achieve the project Purpose?</p></li>
+<li><p>What are the end results for which the project team can be held accountable?</p></li>
+<li><p>What processes do we need to put in place to achieve Purpose?</p></li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Inputs (Activities)</strong></th>
+<th><strong>Outcomes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Train users</td>
+<td>Users trained</td>
+</tr>
+<tr class="even">
+<td>Improve skills</td>
+<td>Skills improvevd</td>
+</tr>
+<tr class="odd">
+<td>Determine best methods</td>
+<td>Best methods determined</td>
+</tr>
+<tr class="even">
+<td>Build new office</td>
+<td>New office built</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled" title="Four Tips for Meaningful Measures">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Four Tips for Meaningful Measures
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<section id="four-tips-for-meaningful-measures" class="level2 callout-body-container callout-body">
+<h2 class="anchored" data-anchor-id="four-tips-for-meaningful-measures">Four Tips for Meaningful Measures</h2>
+<p>Don’t fall into the trap of measuring only that which is easy to measure. Measuring Inputs and Outcomes is most straightforward, but progress towards Purpose and Goal is what really counts. The best Measures meet these criteria:</p>
+<ol type="1">
+<li><p><strong><em>Valid</em></strong> — They accurately measure the Objective. Changes in the status of Measures accurately reflect changes in the status of the Objective.</p></li>
+<li><p><strong><em>Verifiable</em></strong> — Clear, non-subjective evidence exists or can be obtained. This third LogFrame column<br>
+identifies processes and mechanisms for determining the status of Measures in column two.</p></li>
+<li><p><strong><em>Targeted</em></strong> — Quality, quantity, and time targets are pinned down. Choose targets that are sufficient to achieve impact at the next higher level. Sometimes, rather than locking in a single number, it’s appropriate to state a rough range.</p></li>
+<li><p><strong><em>Independent</em></strong> — Each level in the hierarchy has separate Measures.</p>
+<ol type="1">
+<li><p><em>Goal Measures</em> tend to be broad macro-Measures that include the long-term impact of one project or multiple projects aimed at the same Goal.</p></li>
+<li><p><em>Purpose Measures</em> describe those conditions we expect will exist when we are willing to call the project a success.</p></li>
+<li><p><em>Outcome Measures</em> describe specific tangible results that the project team can make happen and commits to doing so. Describe them as completed results (using the past tense verb form, such as “System developed”or “Training completed”).</p></li>
+<li><p><em>Input Measures</em> deal with activity, budget, and schedule.</p></li>
+</ol></li>
+</ol>
+<p>Purpose Measures are the most important in the hierarchy. Why? Because that’s your primary aiming point, the what-should-occur result you expect after you deliver what you can.</p>
+</section>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled" title="Three Steps for Managing Assumptions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Three Steps for Managing Assumptions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<section id="three-steps-for-managing-assumptions" class="level2 callout-body-container callout-body">
+<h2 class="anchored" data-anchor-id="three-steps-for-managing-assumptions">Three Steps for Managing Assumptions</h2>
+<section id="step-1.-identify-key-assumptions" class="level3">
+<h3 class="anchored" data-anchor-id="step-1.-identify-key-assumptions">Step 1. Identify Key Assumptions</h3>
+<p>Brainstorm all the conditions you believe are necessary to go from one LogFrame level to the next.</p>
+<p><a href="logframe-assumptions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="https://olivierbinette.ca/pages/posts/2024-09-04-strategic-project-management-made-simple/logframe-assumptions.png" class="img-fluid" style="width:66.0%"></a></p>
+</section>
+<section id="step-2.-analyze-and-test-them" class="level3">
+<h3 class="anchored" data-anchor-id="step-2.-analyze-and-test-them">Step 2. Analyze and Test Them</h3>
+<p>Try to assess the degree of risk you can expect from these critical Assumptions by using a simple rating system or probability percentages. Decide which Assumptions to highlight in the LogFrame matrix.</p>
+<ul>
+<li><p>How important is this Assumption to project success or failure?</p></li>
+<li><p>How valid or probable is this Assumption? What are the odds that it is valid (or not)? Can we express it as a percentage? How do we know?</p></li>
+<li><p>If the Assumptions fail, what is the effect on the project? Does a failed Assumption diminish accomplishment? Delay it? Destroy it?</p></li>
+<li><p>What could cause this Assumption not to be valid? ”(Note: This one raises specific risk factors.)</p></li>
+</ul>
+</section>
+<section id="step-3.-act-on-them" class="level3">
+<h3 class="anchored" data-anchor-id="step-3.-act-on-them">Step 3. Act on Them</h3>
+<p>Put each key Assumption under your mental microscope and consider the following:</p>
+<ul>
+<li><p>Is this a reasonable risk to take?</p></li>
+<li><p>To what extent is it amenable to control? Can we manage it? Influence and nudge it? Or only monitor it</p></li>
+<li><p>What are some ways we can influence the Assumption?</p></li>
+<li><p>What contingency plans might we put in place just in case the Assumption proves wrong?</p></li>
+<li><p>How can we design the project to minimize the impact of, or work around, the Assumption?</p></li>
+<li><p>Is this Assumption under someone else’s control?</p></li>
+<li><p>How could we design the project to make this Assumption moot or irrelevant?</p></li>
+</ul>
+</section>
+</section>
+</div>
+</div>
+</section>
+<section id="aligning-projects-with-strategic-intent" class="level2">
+<h2 class="anchored" data-anchor-id="aligning-projects-with-strategic-intent">Aligning Projects With Strategic Intent</h2>
+<p>The LogFrame can be the cornerstone of any unit-level management system. However, this presumes that there is a sound, overarching strategy to begin with.</p>
+<p>Strategy is the particular means chosen to get from where you are to where you want to go, selected from multiple possibilities and reflecting your vision, mission, and values. An overall Strategy (big “S”) usually consists of multiple strategic initiatives (small “s”), which are executed through programs, projects, and tasks.</p>
+<p>Strategic planning steps:</p>
+<ol type="1">
+<li><p><strong><em>Clarify the Planning Context and Issues</em></strong> - Be clear about your expected planning Outcomes and identify issues to include.</p></li>
+<li><p><strong><em>Involve Key Players</em></strong> - Decide who to involve in your process to build buy-in and stay-ini.</p></li>
+<li><p><strong><em>Scan Your Environment</em></strong> - Identify what’s changing in your environment; and analyze divvision and department plans to extract Goals your group shares or owns.</p></li>
+<li><p><strong><em>Revisit Your Vision/Mission/Values</em></strong> - Turn these “fluff“ statements into high-performance tools that energize staff and build shared commitment.</p></li>
+<li><p><strong><em>Sharpen Your Goals and Measures</em></strong> - Develop a meaningful performance scorecard that identifies how you deliver customer value.</p></li>
+<li><p><strong><em>Develop Core Strategies</em></strong> - Turn Goals into strategies, and test those strategies for impact against Measures to ensure smart choices.</p></li>
+<li><p><strong><em>Turn Strategies into Executable Plans</em></strong> - Using the <strong>Logical Framework</strong>. Let the responsible players flesh out implementation plans.</p></li>
+<li><p><strong><em>Follow Up and Continue the Process</em></strong> - Build momentum by revieweing and updating the plans while strenghtening the planning process itself.</p></li>
+</ol>
+</section>
+<section id="the-strategic-action-cycle" class="level2">
+<h2 class="anchored" data-anchor-id="the-strategic-action-cycle">The Strategic Action Cycle</h2>
+<p><a href="strategic-cycle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="https://olivierbinette.ca/pages/posts/2024-09-04-strategic-project-management-made-simple/strategic-cycle.png" class="img-fluid" style="width:66.0%"></a></p>
+<ol type="1">
+<li><p>The cycle begins with “<strong><em>Think</em></strong>,” the big picture strategic/program focus which follows the process from Chapter 4, or an equivalent strategic planning process.</p></li>
+<li><p>Results of strategic thinking identify projects to be managed with the Plan-Act-Assess cycle.</p></li>
+<li><p><strong><em>Project plans</em></strong> created with LogFrames provide a solid foundation for action (execution/implementation) and Assessment.</p></li>
+<li><p>The <strong><em>Assess</em></strong> block can complete the loop in three ways. If assessment shows that success has been achieved - as defined by project Purpose - the project can be considered complete.</p>
+<ol type="1">
+<li><p><strong>Project Monitoring</strong> is an ongoing process of tracking budget and schedule against deliverables and making tactical adjustments. It presumes the Logical Framework is the best design and focuses team attention on translating Inputs into Outcomes.</p></li>
+<li><p><strong>Project Review</strong> is an occasional process that asks managers to step back from the day-to-day work and reassess their approach. It challenges the project design and invites changes in the LogFrame, with emphasis on the Outcome to Purpose link.</p></li>
+<li><p><strong>Project Evaluation</strong> examines impact and cost effectiveness. Project evaluations are often timed as the end of one phase nears and another is about to begin, or after the project is over. Evaluation examines Purpose to Goal linkages.</p></li>
+</ol></li>
+</ol>
+</section>
+<section id="other" class="level2">
+<h2 class="anchored" data-anchor-id="other">Other</h2>
+<div class="callout callout-style-simple callout-tip callout-titled" title="Tips">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tips
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>The process of planning is more crucial than the planning documents that emerge at the other end. The collaborative use of the LogFrame helps you simultaneously build and shape a strong team while they work together to create an actionable plan.</p></li>
+<li><p>Make sure that <strong>everyone speaks the same language</strong> by agreeing on what your key terms mean and using them in a consistent way.</p></li>
+<li><p>The LogFrame matrix usually shows four levels, but <strong>Objectives above the Goal can be included</strong> to illustrate a higher level of impact. The higher up the hierarchy we climb, the more long-term, general, and “vision-sounding” these Objectives become.</p></li>
+<li><p><strong>Don’t ask “Hows it going on this task?“</strong> Instead, ask:</p>
+<ul>
+<li><p>Are you having difficulties that would keep you from meeting targets?</p></li>
+<li><p>Are you getting the support you need from others?</p></li>
+<li><p>Is there anything else I should know about this?</p></li>
+<li><p>What do you need from me?</p></li>
+</ul></li>
+<li><p><strong>Project monitoring</strong> asks “Are we <em>on</em> track?“; <strong>project reviews</strong> ask “Are we on the <em>right</em> track?“ Use the LogFrame to challenge your strategy by posing questions such as:</p>
+<ul>
+<li><p>Is our Purpose still valid? What’s our progress toward Purpose?</p></li>
+<li><p>Is our Purpose likely to be achieved with this plan? Will this Purpose get us to the Goal?</p></li>
+<li><p>What is the status of Assumptions?</p></li>
+<li><p>Are these the right Outcomes? Are we producing them effectively?</p></li>
+<li><p>Should new Outcomes or Assumptions be added? Existing ones dropped?</p></li>
+<li><p>How should we rervise our key strategic hypotheses (Outcome to Purpose to Goal) to produce better results?</p></li>
+</ul></li>
+<li><p>Because the LogFrame’s systems thinking underpinnings are generic and flexible, so is the grid format itself. Be innovative and <strong>customize the LogFrame to your needs</strong> and add your own categories.</p></li>
+<li><p>At times you’ll need to <strong>zoom in on a project component</strong> for more visibility. Some tasks are large enough to justify their own LogFrame.</p></li>
+<li><p>Make responsibilities clear to all</p></li>
+<li><p>Clarify Resource Requirements</p></li>
+<li><p>Analyze stakeholder interests</p></li>
+<li><p>Manage with emotional intelligence</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <guid>https://olivierbinette.ca/pages/posts/2024-09-04-strategic-project-management-made-simple/2024-09-04-strategic-project-management-made-simple.html</guid>
+  <pubDate>Wed, 04 Sep 2024 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>The Pareto Principle and Project Failures</title>
+  <link>https://olivierbinette.ca/pages/posts/2024-09-01-pareto-principle-and-project-failures/2024-09-01-pareto-principle-and-project-failures.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>The Pareto principle, or the 80/20 rule, states that 80% of consequences come from 20% of the causes.</p>
+<p>Surprisingly enough, this principle has general statistical underpinnings and does actually occur in a broad range of situations. The numbers 80/20 could be something else, but there is often an imbalance of this sort. It’s related to selection bias and size bias. Let me explain in the context of software development.</p>
+<p>Say you’re building a piece of software for some use case. There’s a lot that goes into building and deploying the software: the UI, the logic, the backend, the deployment infrastructure, the iterative changes, etc. Each part contributes more or less to the functionality a user can see.</p>
+<p><a href="plot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://olivierbinette.ca/pages/posts/2024-09-01-pareto-principle-and-project-failures/plot.png" class="img-fluid"></a></p>
+<p>In this plot, UI+logic+backend is <strong>80% of the functionality</strong>* the user can see, but only <strong>40% of the required effort</strong> to complete the project.</p>
+<p>If functionality and effort are uncorrelated or negatively correlated, then building the most functionality first will lead to decreasing return of efforts on functionality over the project’s life. The smallest set of components that contribute to 80% functionality is a <strong>biased selection</strong> that isn’t representative of the overall effort distribution.</p>
+<p>This doesn’t mean that the 80% seen functionality is more important than the other 20%. In fact, your software is going to be useless if you can’t build the infrastructure it needs for deployment. All components are equally important in this example. This mismatch between true value and apparent functionality can be dangerously misleading.</p>
+<section id="why-software-projects-fail" class="level2">
+<h2 class="anchored" data-anchor-id="why-software-projects-fail">Why Software Projects Fail</h2>
+<p>The Pareto principle plays into the common failure (or cost overrun, scope creep, technical debt) of software projects.</p>
+<p>Often, development teams prioritize building a minimal viable product (MVP), or delivering the most apparent functionality for a given effort level. The fast achievement of 80% functionality can lead to poor expectations of what’s needed to reach a product that has actual value, i.e.&nbsp;something maintainable and deployable. Clients, project managers, and developers can misunderstand the scope of project if they rank tasks in functionality-first order, without considering the full value chain.</p>
+<section id="a-better-approach---managing-risks-and-the-full-value-chain" class="level3">
+<h3 class="anchored" data-anchor-id="a-better-approach---managing-risks-and-the-full-value-chain">A Better Approach - Managing Risks And the Full Value Chain</h3>
+<p>As part of good project management, you want to:</p>
+<ol type="1">
+<li><strong>Map risks and uncertainties</strong>, and address the most important ones first.</li>
+<li><strong>Deliver self-contained value</strong> to the client throughout the project, if possible.</li>
+</ol>
+<p>E.g. for (1), if you don’t know what a client wants, that’s a big risk. Getting an MVP in front of them might help reduce uncertainties and mitigate that risk. A cost overrun is also a big risk. If you don’t know how long it will take to build the infrastructure to deploy your system, then you might want to address that first.</p>
+<p>For (2), note that value is not always the same as functionality. Undeployed functionality has no value to a client. An MVP, unless it is truly viable on its own, typically has little value to a client. A product that doesn’t meet quality requirements does not have any value. If clients hire you for software development, value is something they can use without any further software development.</p>
+</section>
+</section>
+<section id="in-short" class="level2">
+<h2 class="anchored" data-anchor-id="in-short">In Short</h2>
+<p>The Pareto principle is both about the <strong>big impact you can have from a few actions</strong> (e.g., achieve 80% in 20% of the time), and <strong>how easily misled you can be about scope and impact</strong> (e.g., forgetting about a necessary 20% that takes 80% of the time).</p>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="sheraz.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Infographic from Sheraz Ishak"><img src="https://olivierbinette.ca/pages/posts/2024-09-01-pareto-principle-and-project-failures/sheraz.png" class="img-fluid figure-img" alt="Infographic from Sheraz Ishak"></a></p>
+<figcaption>Infographic from Sheraz Ishak</figcaption>
+</figure>
+</div>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <guid>https://olivierbinette.ca/pages/posts/2024-09-01-pareto-principle-and-project-failures/2024-09-01-pareto-principle-and-project-failures.html</guid>
+  <pubDate>Sun, 01 Sep 2024 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>The NABCs of Innovation</title>
+  <link>https://olivierbinette.ca/pages/posts/2024-08-29-NABCs-of-innovation/2024-08-29-NABCs-of-innovation.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><strong>Innovation</strong> is creating and delivering new value to customers.</p>
+<p>It happens at different levels. <strong>R&amp;D projects</strong> are often expected to fail, but have potential for breakthroughs. Bringing existing technology to <strong>new markets</strong> is also a form of innovation, possibly with a higher success rate. <strong>Incremental optimizations</strong> and <strong>process improvements</strong> also involve innovation and are essential to an efficient business.</p>
+<p>Innovation begins with someone having an idea they think could be valuable. Developing that idea and bringing it to customers requires time an energy.</p>
+<p>A <strong>value proposition</strong> is what explains why this time and energy should be expended.</p>
+<p><strong>Curtis R. Carlson</strong>, ex-President of SRI International, <a href="https://hbr.org/2020/11/innovation-for-impact">developed a framework for value propositions</a>. It has four main components (the “<strong>NABCs</strong>”) that aim to answer essential business questions:</p>
+<ul>
+<li><strong>Need</strong>: Who’s the customer? What’s their need or job to be done? What’s the gap in the market?</li>
+<li><strong>Approach</strong>: How are we solving that need? Is it unique, compelling, and defensible?</li>
+<li><strong>Benefit</strong>: What superior value is the customer getting through our approach?</li>
+<li><strong>Competition</strong>: What’s the competition? Why is our approach more appealing?</li>
+</ul>
+<p>Additionally, there should be a driving force behind the proposition, i.e.&nbsp;motivated people willing and able to push this forward. The value proposition should also be aligned with the organization, both to support its development and enable capturing resulting value.</p>
+<p>Building a good value proposition is an <strong>iterative process</strong>. The customer need is what matters and the approach might change - don’t fall in love with an idea. Focus on customer needs and the reasons underlying what they say they want. Try to quantify the value proposition, even if some of it may be guesswork. Address the most major risks and uncertainties first, before trying to build everything. Maintain and adjust the value proposition throughout the project.</p>
+<section id="exceptional-innovations" class="level2">
+<h2 class="anchored" data-anchor-id="exceptional-innovations">Exceptional Innovations</h2>
+<p>The best innovations don’t just provide new value.</p>
+<p>They fit within or enable <strong>compounding processes</strong>, where past innovations keep on providing more and more value as they are built upon. Relatedly, they create more than one opportunity to capture value, i.e.&nbsp;they help expose the business to new opportunities, such as by entering new markets.</p>
+<p>They align with the business’ <strong>strategic vision</strong> (its plan for growth) and reinforces its <strong>strategic positioning</strong> (how it distinguishes itself from competitors and provides compelling value, despite constraints.)</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>general</category>
+  <category>management</category>
+  <guid>https://olivierbinette.ca/pages/posts/2024-08-29-NABCs-of-innovation/2024-08-29-NABCs-of-innovation.html</guid>
+  <pubDate>Thu, 29 Aug 2024 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Test-Driven Development is Free</title>

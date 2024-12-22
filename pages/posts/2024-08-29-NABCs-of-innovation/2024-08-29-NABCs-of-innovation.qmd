@@ -1,0 +1,35 @@
+---
+title: "The NABCs of Innovation"
+description: Innovation is creating and delivering new value. A value proposition demonstrates why to pursue or keep pursuing an idea for new value.
+date: 2024-08-29
+categories:
+  - general
+  - management
+---
+
+**Innovation** is creating and delivering new value to customers.
+
+It happens at different levels. **R&D projects** are often expected to fail, but have potential for breakthroughs. Bringing existing technology to **new markets** is also a form of innovation, possibly with a higher success rate. **Incremental optimizations** and **process improvements** also involve innovation and are essential to an efficient business.
+
+Innovation begins with someone having an idea they think could be valuable. Developing that idea and bringing it to customers requires time an energy.
+
+A **value proposition** is what explains why this time and energy should be expended.
+
+**Curtis R. Carlson**, ex-President of SRI International, [developed a framework for value propositions](https://hbr.org/2020/11/innovation-for-impact). It has four main components (the “**NABCs**”) that aim to answer essential business questions:
+
+-   **Need**: Who’s the customer? What’s their need or job to be done? What's the gap in the market?
+-   **Approach**: How are we solving that need? Is it unique, compelling, and defensible?
+-   **Benefit**: What superior value is the customer getting through our approach?
+-   **Competition**: What’s the competition? Why is our approach more appealing?
+
+Additionally, there should be a driving force behind the proposition, i.e. motivated people willing and able to push this forward. The value proposition should also be aligned with the organization, both to support its development and enable capturing resulting value.
+
+Building a good value proposition is an **iterative process**. The customer need is what matters and the approach might change - don’t fall in love with an idea. Focus on customer needs and the reasons underlying what they say they want. Try to quantify the value proposition, even if some of it may be guesswork. Address the most major risks and uncertainties first, before trying to build everything. Maintain and adjust the value proposition throughout the project.
+
+## Exceptional Innovations
+
+The best innovations don’t just provide new value.
+
+They fit within or enable **compounding processes**, where past innovations keep on providing more and more value as they are built upon. Relatedly, they create more than one opportunity to capture value, i.e. they help expose the business to new opportunities, such as by entering new markets.
+
+They align with the business' **strategic vision** (its plan for growth) and reinforces its **strategic positioning** (how it distinguishes itself from competitors and provides compelling value, despite constraints.)

@@ -2,7 +2,11 @@
   {
     "listing": "/pages/blog.html",
     "items": [
+      "/pages/posts/2024-11-15-build-or-buy/2024-11-15-build-or-buy.html",
       "/pages/posts/2024-09-04-product-development-is-hard/2024-09-04-product-development-is-hard.html",
+      "/pages/posts/2024-09-04-strategic-project-management-made-simple/2024-09-04-strategic-project-management-made-simple.html",
+      "/pages/posts/2024-09-01-pareto-principle-and-project-failures/2024-09-01-pareto-principle-and-project-failures.html",
+      "/pages/posts/2024-08-29-NABCs-of-innovation/2024-08-29-NABCs-of-innovation.html",
       "/pages/posts/2024-08-24-test-driven-development-is-free/2024-08-24-test-driven-development-is-free.html",
       "/pages/posts/2024-08-15-personal-knowledge-management/2024-08-15-personal-knowledge-management.html",
       "/pages/posts/2024-08-15-measurement-and-management/2024-08-15-measurement-and-management.html",
