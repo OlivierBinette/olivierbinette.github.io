@@ -1,0 +1,37 @@
+---
+title: "Teaching"
+---
+
+### Instructional TA at Duke University
+
+- STA 323 - Statistical Computing (Spring 2024)
+
+- STA 440 - Case Studies in Statistical Science (Fall 2023)
+
+- STA 723 - Case Studies in Statistical Science (Spring 2023)
+
+- STA 344 - Spatio-Temporal Models (Fall 2022)
+
+- STA 199 - Introduction to Data Science (Fall 2021)
+
+- STA 490/690 - Entity Resolution (Spring 2021)
+
+- STA 360 - [Bayesian and Modern Statistics](https://github.com/resteorts/modern-bayes) (Fall 2020) [[teaching evaluation](media/teaching-evaluations/Binette_Olivier_STA360_FA20_Steorts.pdf)]
+
+### Instructional TA at Université du Québec à Montréal
+
+- STT 1000 - [Statistics I](https://etudier.uqam.ca/cours?sigle=STT1000) (Winter 2019)
+
+- MAT 1130 - [Analysis I](https://etudier.uqam.ca/cours?sigle=MAT1130) (Winter 2019)
+
+- MAT 2710 - [Probability II](https://etudier.uqam.ca/cours?sigle=MAT2710) (Fall 2018)
+
+- MAT 2160 - [Complex Analysis](https://etudier.uqam.ca/cours?sigle=MAT2160) (Winter 2018)
+
+- MAT 1190 - [Analysis and algebra for the actuarial sciences](https://etudier.uqam.ca/cours?sigle=MAT1190) (Winter 2018)
+
+- MAT 2150 - [Analysis II](https://etudier.uqam.ca/cours?sigle=MAT2150) (Fall 2017 & Fall 2018)
+
+### Other teaching activities
+
+- [Co-produced an activity for children at the Eureka! Science Festival (Montreal Science Center, June 2018)](https://olivierbinette.github.io/posts/2020-11-15-ism-at-the-eureka-science-festival/)
