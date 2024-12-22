@@ -2,7 +2,9 @@
 title: "The Pareto Principle and Project Failures"
 description: The Pareto principle, or the 80/20 rule, is a statistical principle. It’s an important reminder that big impact can come from small things, but that apparently small things can be deceptively important.
 date: 2024-09-01
-format: html
+categories:
+  - general
+  - management
 ---
 
 
