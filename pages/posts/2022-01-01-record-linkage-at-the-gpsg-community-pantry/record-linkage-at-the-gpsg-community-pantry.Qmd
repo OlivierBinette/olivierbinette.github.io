@@ -4,6 +4,7 @@ description: |
   The Duke Graduate and Professional Student Government (GPSG) Community Pantry is a student-operated food pantry serving the student community at Duke University. In this post, I describe the record linkage system used at the Pantry to identify individual customers and obtain their order history. This is done using a Python module for deterministic record linkage and model evaluation techniques which I describe in detail.
 date: 2021-12-23
 categories: 
+  - Technical
   - Python
   - Record Linkage
 draft: false
