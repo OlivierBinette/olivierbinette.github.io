@@ -1,0 +1,1718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Olivier Binette</title>
+<link>https://olivierbinette.ca/pages/blog.html</link>
+<atom:link href="https://olivierbinette.ca/pages/blog.xml" rel="self" type="application/rss+xml"/>
+<description>A collection of reflections, projects, and thoughts, big and small.</description>
+<generator>quarto-1.6.39</generator>
+<lastBuildDate>Wed, 04 Sep 2024 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Product Development Is Hard</title>
+  <link>https://olivierbinette.ca/pages/posts/2024-09-04-product-development-is-hard/2024-09-04-product-development-is-hard.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>I am mostly a “technical” person. This means I tend to work on technology problems that have technology solutions. I’m interested in non-technological things as well, but it’s not my expertise.</p>
+<p>In my field, <strong>learning about a new technology can feel like gaining a superpower.</strong> Think about being able to build a custom ChatGPT - it’s exciting!</p>
+<p>With this comes the thought: “Wouldn’t it be nice if I solved problem Y using technology X?”</p>
+<p>Unfortunately, the answer to this question is typically a resounding “no.”</p>
+<p>It’s not that problem Y is not important. Or that technology X can’t help with problem Y. The problem is that product development is hard.</p>
+<p>If I went about building a solution fueled only by my technological enthusiasm, then I would likely fail. It has happened to me before.</p>
+<p>Most people don’t care about technology. They care about a job to be done. <strong>They want to gain a superpower of their own.</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://olivierbinette.ca/pages/posts/2024-09-04-product-development-is-hard/job-to-be-done.webp" class="preview-image img-fluid figure-img"></p>
+<figcaption>https://jtbd.info/2-what-is-jobs-to-be-done-jtbd-796b82081cca</figcaption>
+</figure>
+</div>
+<p>Building a good product requires understanding what your customer/client wants to get done. To understand where, when, and why they might want to use your product.</p>
+<p>This is a science of its own. It’s not a technological problem, it’s a human problem. And it’s not my expertise.</p>
+<p>As technologists, we need to embrace our backline role. We need to call on non-technologists to guide the creation of great products that empower others, or learn the skills we need to get this done through training from experts or experience working with experts.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>general</category>
+  <category>product-development</category>
+  <guid>https://olivierbinette.ca/pages/posts/2024-09-04-product-development-is-hard/2024-09-04-product-development-is-hard.html</guid>
+  <pubDate>Wed, 04 Sep 2024 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Test-Driven Development is Free</title>
+  <link>https://olivierbinette.ca/pages/posts/2024-08-24-test-driven-development-is-free/2024-08-24-test-driven-development-is-free.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Test-driven development (TDD) is the practice of writing tests before starting to write functional code.</p>
+<p>It’s sounds a bit formal, but it’s very close to what we do when developing interactively in a Python notebook: starting with a working example before refactoring code in a general-purpose function, and iterating on the process of creating examples, testing, and developing. The practice started in the early days of programming, which is why some of the guides on the topic can seem complicated. But, in short:</p>
+<p><strong>TDD was interactive development, before interactive development was a thing!</strong></p>
+<p>Now there are advantages to formalizing TDD, without needing to move away from interactive development. I won’t list all of them here, but I will point out the ones that support my argument that TDD is free.</p>
+<section id="why-tdd-is-free" class="level2">
+<h2 class="anchored" data-anchor-id="why-tdd-is-free">Why TDD Is Free</h2>
+<p>Here’s a key assumption I’m making: <strong>doing things right the first time is free.</strong> If you’re not doing it right the first time, you’ll have to come back to it later anyway. And not doing it right the first time is likely to create many unnecessary costs along the way.</p>
+<p>So, how do you do something right the first time? There are 2 parts to this:</p>
+<ol type="1">
+<li><p>You need to <strong>know what’s the “right” thing</strong> you want to do.</p></li>
+<li><p>You need to <strong>check that you actually did it right.</strong></p></li>
+</ol>
+<p>Point (2) is testing. You’ll have to test, whether it is at the beginning, throughout, or at the end.</p>
+<p>Point (1) is having clear requirements. Sure, you can write down requirements specification in detail and work off of that. But you know what else is a clear requirement? A test case.</p>
+<p>You can save time by combining points (1) and (2) together in test cases. Just keep in mind that you’ll have to <strong>write tests first</strong> in order to satisfy point (1).</p>
+<p><strong>So, TDD is free</strong>: it’s not doing anything that you wouldn’t have to do anyway, and it’s saving you from extra work now and in the future.</p>
+<p>Note that there is a learning curve to TDD. You need to find a TDD workflow that works for you. That takes a bit of time. But afterwards, you are saving time.</p>
+</section>
+<section id="this-isnt-a-new-idea" class="level2">
+<h2 class="anchored" data-anchor-id="this-isnt-a-new-idea">This Isn’t a New Idea</h2>
+<p><strong>You’re already doing TDD:</strong></p>
+<ul>
+<li><p>In agile development, we use “User Stories” to describe specifications. These are high-level test case descriptions: “given starting point X, I want to do Y to achieve Z.” User stories don’t tell you how to code things - that’s the functional implementation. It’s something you figure out afterwards, once you know what the input looks like, what the function is meant to do, and what the result should look like.</p></li>
+<li><p>As mentioned earlier, interactive development is informal TDD. How can you formalize TDD in interactive development, without losing the benefits of interactive development? Simply bring the tests to your interactive development workflow. It can be done by staying organized, or you can use tools like the “ipytest” library for unit testing in Python notebooks.</p></li>
+</ul>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>You’re already doing TDD, but maybe you’re not doing it in the most effective way. If you answer yes to some of the questions below, then it might be worth it to improve your TDD practices:</p>
+<ul>
+<li>Could you save time by catching bugs earlier?</li>
+<li>Could you save time by writing examples/tests, instead of long-form documentation?</li>
+<li>Could you save time by keeping track of the experiments, tests, and examples you use in a notebook as you develop?</li>
+<li>Could you save time by clicking a single button to run all tests in your notebook, instead of backtracking to execute notebook cells one by one?</li>
+<li>Do you often have to go back to fix bugs in your code or other people’s code?</li>
+</ul>
+<p>There are lots of guides online about TDD. But remember: you need to create a workflow that works for you. TDD is not about formality, complicated testing, or full-coverage testing. TDD is about speeding up your development and building things right the first time.</p>
+</section>
+<section id="tdd-myths" class="level2">
+<h2 class="anchored" data-anchor-id="tdd-myths">TDD Myths</h2>
+<p>Be careful not to fall into the following traps:</p>
+<ul>
+<li>“All tests need to be written upfront.” No.&nbsp;Your TDD tests only need to cover what you want to code up in the next 5-30 minutes. They’re meant to help you develop, not give you analysis paralysis.</li>
+<li>“Tests can’t change.” No.&nbsp;TDD tests are there to help you develop. Change them as much as you like.</li>
+<li>“I can’t add more test after I’m done implementing.” No.&nbsp;TDD is an iterative process. Create a test, make sure it runs (and generally fails), develop, create more tests, check what fails, develop, and keep going until you are satisfied.</li>
+<li>“I don’t need QA if I do TDD.” No.&nbsp;TDD is all about development. It helps develop faster and better. It’s about you, as a developer, building what you want to build right the first time. But, as often happens, it’s not because something is built right that it is the right thing for your customer!</li>
+</ul>
+</section>
+<section id="practical-example" class="level2">
+<h2 class="anchored" data-anchor-id="practical-example">Practical Example</h2>
+<p>Here’s what TDD looks like in practice.</p>
+<p>Say I want to code a function “fibonacci” that computes the first n numbers of the standard Fibonacci sequence.</p>
+<section id="step-1-a-first-simple-example-and-test" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-a-first-simple-example-and-test">Step 1: A first simple example and test</h3>
+<p>First, I’ll write an example or what I want to do. This defines requirements for my function and lets me check it. The first tests should be simple and useful for development. If I don’t know in advance what the output should be, that’s OK: I can do a smoke test instead (just check that the function runs without error and show its output).</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Input</span></span>
+<span id="cb1-2">input_n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span></span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Output</span></span>
+<span id="cb1-5">expected_output <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>]</span></code></pre></div>
+<p>Then I keep track of this as a test case, so it’s easy to execute.</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> test_fibonacci():</span>
+<span id="cb2-2">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">assert</span> fibonnaci(input_n) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> expected_output</span></code></pre></div>
+<p>Notice that this first step is very simple and directly related to my current development task: develop a function that gets the logic right. I don’t want to worry about edge cases and every detail right now, so I don’t write tests/examples for that.</p>
+</section>
+<section id="step-2-implement-and-check" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-implement-and-check">Step 2: Implement and check</h3>
+<p>Now I code the function and test it.</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> fibonacci(n):</span>
+<span id="cb3-2">  result <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]</span>
+<span id="cb3-3">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">while</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(result) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> n:</span>
+<span id="cb3-4">    result.append(result[<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], result[<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>])</span>
+<span id="cb3-5">  </span>
+<span id="cb3-6">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> result</span>
+<span id="cb3-7"></span>
+<span id="cb3-8">test_fibonacci()</span></code></pre></div>
+<p>If it doesn’t pass, make changes until it does. When it passes, great! We have the right logic. Now we can think about edge cases and iterate.</p>
+</section>
+<section id="step-3-iterate" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-iterate">Step 3: Iterate</h3>
+<p>First, create examples/test cases. Again, this specifies what we want to achieve, and makes it easy for us to check it.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> test_fibonacci_edge_cases():</span>
+<span id="cb4-2">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">assert</span> fibonacci(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []</span>
+<span id="cb4-3">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">assert</span> fibonacci(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]</span>
+<span id="cb4-4">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># etc </span></span></code></pre></div>
+<p>Then, make changes to your function and run the tests:</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> fibonacci(n):</span>
+<span id="cb5-2">  ...</span>
+<span id="cb5-3"></span>
+<span id="cb5-4">test_fibonacci() <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Make sure I didn't break anything</span></span>
+<span id="cb5-5">test_fibonacci_edge_cases() <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># New tests</span></span></code></pre></div>
+<p>A large number of tests can quickly become unwieldy. This is where testing frameworks like pytest become handy. They keep track of test suites and let you run all tests in a single click.</p>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>technical</category>
+  <category>python</category>
+  <guid>https://olivierbinette.ca/pages/posts/2024-08-24-test-driven-development-is-free/2024-08-24-test-driven-development-is-free.html</guid>
+  <pubDate>Sat, 24 Aug 2024 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Personal Knowledge Management</title>
+  <link>https://olivierbinette.ca/pages/posts/2024-08-15-personal-knowledge-management/2024-08-15-personal-knowledge-management.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Essentially all of my work involves reading and writing. I write papers and proposals, code, documentation, emails, and I jot down thoughts in problem-solving sessions. And all of that is in relation to the writings and ideas of an incredibly large number of people.</p>
+<p>Keeping up with all this information requires knowledge management systems. They are often integrated into our online experiences - we have bookmarks, searchable email inboxes, online code repositories, etc.</p>
+<p>But some effort is needed to use these systems effectively, without being overwhelmed by all of these disparate systems. That’s where personal knowledge management comes in.</p>
+<p>It’s not a new idea. For millennia, beginning at least with Aristotle, writers have been using “commonplace“ books to organize their notes, quotes, and ideas. Stephen Johnson, in the book <a href="https://www.ted.com/talks/steven_johnson_where_good_ideas_come_from?subtitle=en"><em>Where Good Ideas Come From</em></a>, relates Darwin’s notebooks to this tradition:</p>
+<blockquote class="blockquote">
+<p>Darwin’s notebooks lie at the tail end of a long and fruitful tradition that peaked in Enlightenment-era Europe, particularly in England: the practice of maintaining a ‘commonplace’ book. Scholars, amateur scientists, aspiring men of letters - just about anyone with intellectual ambition in the seventeenth and eighteenth centuries was likely to keep a commonplace book. The great minds of the period - Milton, Bacon, Locke - were zealous believers in the memory-enhancing powers of the commonplace book.</p>
+</blockquote>
+<p>Something as simple as the “notes” app on your phone, or sending yourself emails, can work well enough for note-taking. But we can get much more out of our notes by using technology to help index notes, create connections between them, and help summarize and extract relevant information when needed.</p>
+<p>Technology can also help us overcome the challenges of determining how to organize notes. Personally, I cannot keep any file tree well organized. There is an alternative: instead of a hierarchical tree, we can organize notes in a graph using tags and links. This is how Wikipedia is structured. You don’t find a wiki page by going down a file tree. Rather, you do keyword searches and follow links between pages.</p>
+<p>My favorite tool for this is <a href="https://obsidian.md">Obsidian</a> (at work I use Confluence). Previously I used <a href="https://www.notion.com">Notion</a>, and before that I only used paper. Obsidian is free, easy-to-use, private (it’s a desktop app!), and responsive. I use it to keep track of everything that isn’t my paper notepad, emails, or LaTeX/Word documents.</p>
+<p><img src="https://olivierbinette.ca/pages/posts/2024-08-15-personal-knowledge-management/obsidian.png" class="preview-image img-fluid"></p>
+<p>There are lots of other tools available:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><a href="http://hypothes.is/">hypothes.is</a> for web annotation</li>
+<li><a href="https://roamresearch.com/">Roam</a></li>
+<li><a href="https://www.notion.so/">Notion</a></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><a href="https://logseq.com/">Logseq</a></li>
+<li><a href="https://www.dendron.so/">Dendron</a></li>
+<li><a href="https://databyss.org/">Databyss</a></li>
+</ul>
+</div>
+</div>
+<p>In short, it’s easy to take modern digital features like hypertext or search for granted. But it’s really amazing how far we’ve come to get here, and I think we can do even more amazing things if we can use these features to their full extent or push them even further.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>general</category>
+  <category>knowledge-management</category>
+  <guid>https://olivierbinette.ca/pages/posts/2024-08-15-personal-knowledge-management/2024-08-15-personal-knowledge-management.html</guid>
+  <pubDate>Thu, 15 Aug 2024 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Measurement and Management</title>
+  <link>https://olivierbinette.ca/pages/posts/2024-08-15-measurement-and-management/2024-08-15-measurement-and-management.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="columns">
+<div class="column" style="width:80%;">
+<p>W. Edwards Deming pioneered the use of measurement and statistics in manufacturing industries, using data to improve processes. Some even credit part of the success of the post-WWII Japanese auto industry (e.g.&nbsp;Toyota) to Deming’s japanese career, where he taught and popularized the use of Statistical Process Control (SPC) [1].</p>
+<p>Unfortunately, Deming’s work and ideas are widely misunderstood. And Deming was aware of this. Much of his later writings emphasize how a <strong>naive understanding of quality management is counterproductive</strong>. <sup>1</sup></p>
+</div><div class="column" style="width:20%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://olivierbinette.ca/pages/posts/2024-08-15-measurement-and-management/deming.jpeg" class="preview-image img-fluid figure-img"></p>
+<figcaption>W. Edwards Deming</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="dont-manage-by-numbers." class="level2">
+<h2 class="anchored" data-anchor-id="dont-manage-by-numbers.">Don’t manage by numbers.</h2>
+<p>It’s a bit confusing: Deming encouraged the use of measurement, metrics, data, and statistics, as a key tool for process improvement and quality control. And yet he also painstakingly tried to drive in points like this:</p>
+<ul>
+<li><strong>“It is wrong to suppose that if you can’t measure it, you can’t manage it – a costly myth.”</strong></li>
+<li><strong>“Eliminate management by numbers and numerical goals.”</strong></li>
+</ul>
+<p>How can this be? How can he simultaneously be pro-measurement, pro-data, and against data-driven management?</p>
+</section>
+<section id="how-can-we-resolve-this-false-paradox" class="level2">
+<h2 class="anchored" data-anchor-id="how-can-we-resolve-this-false-paradox">How can we resolve this false paradox?</h2>
+<p>As a statistician, Deming was aware how important what you can’t measure is to making valid inferences. Statistics is not about data. It’s about combining data and context to make valid inferences. Data on its own has no meaning. Missing data - including both the data you wish you had and the data you don’t even know you’re missing - is more important than the data you have. A statistician’s work is to help learn about such unknowns. It’s a fallacy to make decisions based only on available data - the <a href="https://en.wikipedia.org/wiki/McNamara_fallacy">McNamara fallacy</a>.</p>
+<blockquote class="blockquote">
+<p>“But when the McNamara discipline is applied too literally, the first step is to measure whatever can be easily measured. The second step is to disregard that which can’t easily be measured or given a quantitative value. The third step is to presume that what can’t be measured easily really isn’t important. The fourth step is to say that what can’t be easily measured really doesn’t exist. This is suicide.” — <a href="https://en.wikipedia.org/wiki/Daniel_Yankelovich">Daniel Yankelovich</a>, “<a href="https://archive.org/details/sim_sales-management_1971-11-15_107_11/page/26/mode/2up?view=theater">Interpreting the New Life Styles</a>”, Sales Management (1971)</p>
+</blockquote>
+<p>The problem isn’t data or measurement. In fact, you should aim to measure as much as you can, as often as you can. You should build measurement and observability as core components of your systems and infrastructures. You should work to continually improve your approach to measurement of what matters. And you should have statisticians or data scientists make sense of these numbers through their context, given specific goals.</p>
+<p>But here’s the thing: <strong>measurement is not management.</strong></p>
+<p>As a manager, your job is to create and maintain structures that drive customer value and continuous improvement. To achieve this, you need to think about knowns (i.e., data, metrics) and unknowns. Statisticians or data scientists can help you contextualize data and shed light on unknowns, athough it’s not always an easy process.</p>
+</section>
+<section id="in-short" class="level2">
+<h2 class="anchored" data-anchor-id="in-short">In Short</h2>
+<p>There are many misconceptions surrounding data and its use in management. It is important for all to understand both the importance of data and its limitations. We can do so by learning from resources such as the Deming Institute’s website:</p>
+<script src="https://cdn.jsdelivr.net/npm/@mariusbongarts/previewbox/dist/index.min.js"></script>
+<p><previewbox-link url="https://deming.org/explore/fourteen-points" title="Deming's Fourteen points" description="Dr. W. Edwards Deming offered 14 key principles for management to follow to improve the effectiveness of a business or organization significantly. The principles (points) were first presented in his book Out of the Crisis. Below is the condensation of the 14 Points for Management, but these alone will not improve your business." imageurl="https://upload.wikimedia.org/wikipedia/commons/7/73/W._Edwards_Deming.jpg"></previewbox-link></p>
+<p>Deming advocated for structures that removed fear in workers, fostered continuous improvement, and enabled taking pride in one’s work.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Deming started working in Japan in 1947, bringing knowledge of the theory of Statistical Process Control (SPC) that was pioneered by Walter A. Shewhart at Bell Laboratories a few decades earlier. During post-war reconstruction, the Union of Japanese Scientists and Engineers (JUSE) invited Deming to teach SPC to engineers and managers. He went on to work with private enterprises and received multiple awards for his contributions.↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>general</category>
+  <category>management</category>
+  <guid>https://olivierbinette.ca/pages/posts/2024-08-15-measurement-and-management/2024-08-15-measurement-and-management.html</guid>
+  <pubDate>Thu, 15 Aug 2024 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Comment on The Sample Size Required in Importance Sampling</title>
+  <link>https://olivierbinette.ca/pages/posts/2017-03-18-comment-on-sample-size-for-importance-sampling/2017-03-18-comment-on-sample-size-for-importance-sampling.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>The problem is to evaluate</p>
+<p style="text-align:center;">
+<img src="https://latex.codecogs.com/png.latex?I%20=%20I(f)%20=%20%5Cint%20f%20d%5Cmu,">
+</p>
+<p>where $$ is a probability measure on a space <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BM%7D"> and where <img src="https://latex.codecogs.com/png.latex?f:%20%5Cmathbb%7BM%7D%20%5Crightarrow%20%5Cmathbb%7BR%7D"> is measurable. The Monte-Carlo estimate of <img src="https://latex.codecogs.com/png.latex?I"> is</p>
+<p style="text-align:center;">
+<img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bi=1%7D%5En%20f(x_i),%20%5Cqquad%20x_i%20%5Csim%20%5Cmu.">
+</p>
+<p>When it is too difficult to sample <img src="https://latex.codecogs.com/png.latex?%5Cmu">, for instance, other estimates can be obtained. Suppose that <img src="https://latex.codecogs.com/png.latex?%5Cmu"> is absolutely continuous with respect to another probability measure <img src="https://latex.codecogs.com/png.latex?%5Clambda">, and that the density of <img src="https://latex.codecogs.com/png.latex?%5Cmu"> with respect to <img src="https://latex.codecogs.com/png.latex?%5Clambda"> is given by <img src="https://latex.codecogs.com/png.latex?%5Crho">. Another unbiaised estimate of <img src="https://latex.codecogs.com/png.latex?I"> is then</p>
+<p style="text-align:center;">
+<img src="https://latex.codecogs.com/png.latex?I_n(f)%20=%20%5Cfrac%7B1%7D%7Bn%7D%5Csum_%7Bi=1%7D%5En%20f(y_i)%5Crho(y_i),%5Cqquad%20y_i%20%5Csim%20%5Clambda.">
+</p>
+<p>This is the general framework of importance sampling, with the Monte-Carlo estimate recovered by taking <img src="https://latex.codecogs.com/png.latex?%5Clambda%20=%20%5Cmu">. An important question is the following.</p>
+<p style="text-align:center;">
+<em>How large should <img src="https://latex.codecogs.com/png.latex?n"> be for <img src="https://latex.codecogs.com/png.latex?I_n(f)"> to be close to <img src="https://latex.codecogs.com/png.latex?I(f)">?</em>
+</p>
+<p>An answer is given, under certain conditions, by Chatterjee and Diaconis (2015). Their main result can be interpreted as follows. If <img src="https://latex.codecogs.com/png.latex?X%20%5Csim%20%5Cmu"> and if <img src="https://latex.codecogs.com/png.latex?%5Clog%20%5Crho(X)"> is concentrated around its expected value <img src="https://latex.codecogs.com/png.latex?L=%5Ctext%7BE%7D%5B%5Clog%20%5Crho(X)%5D">, then a sample size of approximately <img src="https://latex.codecogs.com/png.latex?n%20=%20e%5E%7BL%7D"> is both necessary and sufficient for <img src="https://latex.codecogs.com/png.latex?I_n"> to be close to <img src="https://latex.codecogs.com/png.latex?I">. The exact sample size needed depends on <img src="https://latex.codecogs.com/png.latex?%5C%7Cf%5C%7C_%7BL%5E2(%5Cmu)%7D"> and on the tail behavior of <img src="https://latex.codecogs.com/png.latex?%5Clog%5Crho(X)">. I state below their theorem with a small modification.</p>
+<p><strong>Theorem 1.</strong> (Chatterjee and Diaconis, 2015) <em>As above, let <img src="https://latex.codecogs.com/png.latex?X%20%5Csim%20%5Cmu">. For any <img src="https://latex.codecogs.com/png.latex?a%20%5Cgt;%200"> and <img src="https://latex.codecogs.com/png.latex?n%20%5Cin%20%5Cmathbb%7BN%7D">,</em></p>
+<p style="text-align:center;">
+<em><img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BE%7D%20%7CI_n(f)%20-%20I(f)%7C%20%5Cle%20%5C%7Cf%5C%7C_%7BL%5E2(%5Cmu)%7D%5Cleft(%20%5Csqrt%7Ba/n%7D%20+%202%5Csqrt%7B%5Cmathbb%7BP%7D%20(%5Crho(X)%20%5Cgt;%20a)%7D%20%5Cright)."></em>
+</p>
+<p><em>Conversely, for any <img src="https://latex.codecogs.com/png.latex?%5Cdelta%20%5Cin%20(0,1)"> and <img src="https://latex.codecogs.com/png.latex?b%20%5Cgt;%200">,</em></p>
+<p style="text-align:center;">
+<em><img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BP%7D(1%20-%20I_n(1)%20%5Cle%20%5Cdelta)%20%5Cle%20%5Cfrac%7Bn%7D%7Bb%7D%20+%20%5Cfrac%7B%5Cmathbb%7BP%7D(%5Crho(X)%20%5Cle%20b)%7D%7B1-%5Cdelta%7D."></em>
+</p>
+<p><strong>Remark 1.</strong> Suppose <img src="https://latex.codecogs.com/png.latex?%5C%7Cf%5C%7C_%7BL%5E2(%5Cmu)%7D%20%5Cle%201"> and that <img src="https://latex.codecogs.com/png.latex?%5Clog%5Crho(X)"> is concentrated around <img src="https://latex.codecogs.com/png.latex?L%20=%20%5Cmathbb%7BE%7D%20%5Clog%5Crho(X)">, meaning that for some <img src="https://latex.codecogs.com/png.latex?t%20%5Cgt;%200"> we have that <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BP%7D(%5Clog%20%5Crho(X)%20%5Cgt;%20L+t/2)"> and <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BP%7D(%5Clog%5Crho(X)%20%5Clt;%20L-t/2)"> are both less than an arbitrary <img src="https://latex.codecogs.com/png.latex?%5Cvarepsilon%20%5Cgt;%200">. Then, taking <img src="https://latex.codecogs.com/png.latex?n%20%5Cgeq%20e%5E%7BL+t%7D"> we find</p>
+<p style="text-align:center;">
+$ |I_n(f) - I| e^{-t/4} + 2.$
+</p>
+<p>However, if $n e^{L-t} $, we obtain</p>
+<p style="text-align:center;">
+$ (1 - I_n(1) ) e^{-t/2} + 2 .$
+</p>
+<p>meaning that there can be a high probability that <img src="https://latex.codecogs.com/png.latex?I(1)"> and <img src="https://latex.codecogs.com/png.latex?I_n(1)"> are not close.</p>
+<p><strong>Remark 2.</strong> Let <img src="https://latex.codecogs.com/png.latex?%5Clambda%20=%20%5Cmu">, so that <img src="https://latex.codecogs.com/png.latex?%5Crho%20=%201">. In that case, <img src="https://latex.codecogs.com/png.latex?%5Clog%5Crho(X)"> only takes its expected value <img src="https://latex.codecogs.com/png.latex?0">. The theorem yields</p>
+<p style="text-align:center;">
+<img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BE%7D%20%7CI_n(f)%20-%20I(f)%7C%20%5Cle%20%5Cfrac%7B%5C%7Cf%5C%7C_%7BL%5E2(%5Cmu)%7D%7D%7B%5Csqrt%7Bn%7D%7D">
+</p>
+<p>and no useful bound on <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BP%7D(1-I_n(1)%20%5Cle%20%5Cdelta)">.</p>
+<p><strong>Comment.</strong> For the theorem to yield a sharp cutoff, it is necessary that <img src="https://latex.codecogs.com/png.latex?L%20=%20%5Cmathbb%7BE%7D%20%5Clog%5Crho(X)"> be relatively large and that <img src="https://latex.codecogs.com/png.latex?%5Clog%5Crho(X)"> be highly concentrated around <img src="https://latex.codecogs.com/png.latex?L">. The first condition is not aimed at in the practice of importance sampling. This difficulty contrasts with the broad claim that “a sample of size approximately <img src="https://latex.codecogs.com/png.latex?e%5E%7BL%7D"> is necessary and sufficient for accurate estimation by importance sampling”. The result in conceptually interesting, but I’m not convinced that a sharp cutoff is common.</p>
+<h1>
+Example
+</h1>
+<p>I consider their example 1.4. Here <img src="https://latex.codecogs.com/png.latex?%5Clambda"> is the exponential distribution of mean <img src="https://latex.codecogs.com/png.latex?1">, <img src="https://latex.codecogs.com/png.latex?%5Cmu"> is the exponential distribution of mean 2, <img src="https://latex.codecogs.com/png.latex?%5Crho(x)%20=%20e%5E%7Bx/2%7D/2"> and <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20x">. Thus <img src="https://latex.codecogs.com/png.latex?I(f)%20=%202">. We have <img src="https://latex.codecogs.com/png.latex?L%20=%20%5Cmathbb%7BE%7D%5Clog%5Crho(X)%20=%201-%5Clog(2)%20%5Capproxeq%200.3">, meaning that the theorem yields no useful cutoff. Furthermore, <img src="https://latex.codecogs.com/png.latex?%7B%7D%5Cmathbb%7BP%7D(%5Crho(X)%20%5Cgt;%20a)%20=%20%5Ctfrac%7B1%7D%7B2a%7D"> and <img src="https://latex.codecogs.com/png.latex?%5C%7Cf%5C%7C_%7BL%5E2(%5Cmu)%7D%20=%202">. Optimizing the bound given by the theorem yields</p>
+<p style="text-align:center;">
+<img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BE%7D%7CI_n(f)-2%7C%20%5Cle%20%5Cfrac%7B4%5Csqrt%7B2%7D%7D%7B(2n)%5E%7B1/4%7D%7D.">
+</p>
+<p>The figure below shows <img src="https://latex.codecogs.com/png.latex?100"> trajectories of <img src="https://latex.codecogs.com/png.latex?I_k(f)">. The shaded area bounds the expected error.</p>
+<p><img src="https://olivierbinette.ca/pages/posts/2017-03-18-comment-on-sample-size-for-importance-sampling/fig13.png" class="preview-image img-fluid"></p>
+<p>This next figure shows <img src="https://latex.codecogs.com/png.latex?100"> trajectories for the Monte-Carlo estimate of <img src="https://latex.codecogs.com/png.latex?2%20=%20%5Cint%20x%20d%5Cmu">, taking <img src="https://latex.codecogs.com/png.latex?%5Clambda%20=%20%5Cmu"> and <img src="https://latex.codecogs.com/png.latex?%5Crho%20=%201">. Here the theorem yields</p>
+<p style="text-align:center;">
+<img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BE%7D%7CI_n(f)-2%7C%20%5Cle%20%5Cfrac%7B2%7D%7B%5Csqrt%7Bn%7D%7D.">
+</p>
+<p><img src="https://olivierbinette.ca/pages/posts/2017-03-18-comment-on-sample-size-for-importance-sampling/fig23.png" class="img-fluid"></p>
+<p><strong>References.</strong></p>
+<p>Chatterjee, S. and Diaconis, P. The Sample Size Required in Importance Sampling. https://arxiv.org/abs/1511.01437v2</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>technical</category>
+  <category>math</category>
+  <category>statistics</category>
+  <guid>https://olivierbinette.ca/pages/posts/2017-03-18-comment-on-sample-size-for-importance-sampling/2017-03-18-comment-on-sample-size-for-importance-sampling.html</guid>
+  <pubDate>Mon, 18 Mar 2024 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Record Linkage at the Duke GPSG Community Pantry</title>
+  <link>https://olivierbinette.ca/pages/posts/2022-01-01-record-linkage-at-the-gpsg-community-pantry/record-linkage-at-the-gpsg-community-pantry.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://olivierbinette.ca/pages/posts/2022-01-01-record-linkage-at-the-gpsg-community-pantry/pantry.jpg" class="external img-fluid figure-img"></p>
+<figcaption>Figure from <a href="https://gpsg.duke.edu/resources-for-students/community-pantry/" class="uri">https://gpsg.duke.edu/resources-for-students/community-pantry/</a></figcaption>
+</figure>
+</div>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Duke’s Graduate and Professional Student Government (GPSG) has been operating a community food pantry for about five years. The pantry provides nonperishable food and basic need items to graduate and professional students on campus. There is a weekly bag program, where students order customized bags of food to be picked up on Saturdays, as well as an in-person shopping program open on Thursdays and Saturdays.</p>
+<figcaption align="center">
+<p>Figure 1: Weekly number of customers at the Pantry. The black line is a moving average of weekly visits.</p>
+</figcaption>
+<p><img src="https://olivierbinette.ca/pages/posts/2022-01-01-record-linkage-at-the-gpsg-community-pantry/customers.png" class="preview-image img-fluid"></p>
+<p>The weekly bag program, which began in May 2018 and is still the most popular pantry offering, provides quite a bit of data regarding pantry customers and their habits. Some customers have ordered more than 80 times in the past 2 years, while others only ordered once or twice. For every bag order, we have the customer’s first name and last initial, an email address (which became mandatory around mid 2018), a phone number in a few cases, an address in some cases (for delivery), we have demographic information some cases, and we have the food order information. Available quasi-identifying information is shown in Table 1 below.</p>
+<table class="caption-top table">
+<caption>Table 1: Quasi-identifying information provided on Qualtrics bag order forms. Note that phone number and address were only required while delivery was offered. Furthermore, most customers stop answering demographic questions after a few orders.</caption>
+<colgroup>
+<col style="width: 31%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question no.</th>
+<th>Question</th>
+<th>Answer form</th>
+<th>Mandatory?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-</td>
+<td>IP address</td>
+<td>-</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>First name and last initial</td>
+<td>Free form</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Duke email</td>
+<td>Free form</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Phone number</td>
+<td>Free form</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>Address</td>
+<td>Free form</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Food allergies</td>
+<td>Free form</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Number of members in household</td>
+<td>1-2 or 3+</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Want baby bag?</td>
+<td>Yes or no</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>Degree</td>
+<td>Multiple choices or Other</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>31</td>
+<td>School</td>
+<td>Multiple choices or Other</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>32</td>
+<td>Year in graduate school</td>
+<td>Multiple choices</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>33</td>
+<td>Number of adults in household</td>
+<td>Multiple choices</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>34</td>
+<td>Number of children in household</td>
+<td>Multiple choices</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Gaining the most insight from this data requires linking order records from the same customer. Identifying individual customers and associating them with an order history allows us to investigate shopping recurrence patterns and identify potential issues with the pantry’s offering. For instance, we can know who stopped ordering from the pantry after the home delivery program ended. These are people who, most likely, do not have a car to get to the pantry but might benefit from new programs, such as a ride-share program or a gift card program.</p>
+<p>This blog post describes the way in which records are linked at the Community Pantry. As we will see, the record linkage problem is not particularly difficult. It is not trivial either, however, and it does require care to ensure that it runs reliably and efficiently, and that it is intelligible and properly validated. This post goes in detail into these two aspects of the problem.</p>
+<p>Regarding efficiency and reliability of the software system, I describe the development of a Python module, called <a href="https://github.com/olivierbinette/groupbyrule"><strong>GroupByRule</strong></a>, for record linkage at the pantry. This Python module is maintainable, documented and tested, ensuring reliability of the system and the potential for its continued use throughout the years, even as technical volunteers change at the pantry. Regarding validation of the record linkage system, I describe simple steps that can be taken to evaluate model performance.</p>
+<p>Before jumping into the technical part, let’s take a step back to discuss the issue of food insecurity on campus.</p>
+<section id="food-insecurity-on-campus" class="level3">
+<h3 class="anchored" data-anchor-id="food-insecurity-on-campus">Food Insecurity on Campus</h3>
+<p>It is often surprising to people that some Duke students might struggle having access to food. After all, Duke is one of the richest campuses in the US with its <a href="https://www.dukechronicle.com/article/2021/10/duke-university-endowment-gain-56-percent-dumac-how-used-financial-aid-faculty-pay-who-manages">12 billion endowment</a>, high tuition and substantial research grants. Prior to the covid-19 pandemic, this wealth could be seen on campus and benefit many. Every weekday, there were several conferences and events with free food. Me and many other graduate students would participate in these events, earning 3-4 free lunches every week. Free food on campus is now a thing of the past, for the most part.</p>
+<p>However, free lunch or not, it’s important to realize the many financial challenges which students can face. International students on F-1 and J-1 visas have limited employment opportunities in the US. Many graduate students are married, have children or have other dependents which may not be eligible to work in the US either. Even if they are lucky enough to be paid a 9 or 12-month stipend, this stipend doesn’t go very far. For other students, going to Duke means living on a mixture of loans, financial aid, financial support from parents, and side jobs. Any imbalance in this rigid system can leave students having to compromise between their education and their health.</p>
+<p>A 2019 study from the World Food Policy Center reported that about 19% of graduate and professional students at Duke experienced food insecurity in the past year. This means they were unable to afford a balanced and sufficient diet, they were afraid of not having enough money for food, or they skipped meals and went hungry due to lack of money. The GPSG Community Pantry has been leading efforts to expand food insecurity monitoring on campus – we are hoping to have more data in 2022 and in following years.</p>
+</section>
+</section>
+<section id="the-record-linkage-approach" class="level2">
+<h2 class="anchored" data-anchor-id="the-record-linkage-approach">The Record Linkage Approach</h2>
+<p>The bag order form contains email addresses which are highly reliable for linkage. If two records have the same email, we know for certain that they are from the same customer. However, customers do not always enter the same email address when submitting orders. Despite the request to use a Duke email address, some customers use personal emails. Furthermore, Duke email addresses have two forms. For instance, my duke email is both <code>ob37@duke.edu</code> and <code>olivier.binette@duke.edu</code>. Emails are therefore not sufficient for linkage. Phone numbers can be used as well, but these are only available for the period when home delivery was available.</p>
+<p>First name and last initial can be used to supplement emails and phone numbers. Again, agreement on first name and last initial provides strong evidence for match. On the other hand, people do not always enter their names in the same way.</p>
+<p>Combining the use of emails, phone numbers, and names, we may therefore link records which agree on any one of these attributes. This is a simple deterministic record linkage approach which should be reliable enough for the data analysis use of the pantry.</p>
+<section id="deterministic-record-linkage-rule" class="level3">
+<h3 class="anchored" data-anchor-id="deterministic-record-linkage-rule">Deterministic Record Linkage Rule</h3>
+<p>To be more precise, record linkage proceeds as follows:</p>
+<ol type="1">
+<li><p>Records are processed to clean and standardize the email, phone and name attributes. That is, leading and trailing whitespace are removed, capitalization is standardized, phone numbers are validated and standardized, and punctuation is removed from names.</p></li>
+<li><p>Records which agree on any of their email, phone or name attributes are linked together.</p></li>
+<li><p>Connected components of the resulting graph are computed in order to obtain record clusters.</p></li>
+</ol>
+<p>This record linkage procedure is extremely simple. It relies the fact that all three attributes are reliable indicators of a match and that, for two matching records, it is likely that at least one of these three attributes will be in agreement.</p>
+<p>Also, the simplicity of the approach allows the use of available additional information (such as IP address and additional questions) for model validation. If the use of this additional information does not highlight any flaws with the simple deterministic approach, then this means that the deterministic approach is already good enough. We will come back to this when discussing model validation techniques.</p>
+</section>
+<section id="implementation" class="level3">
+<h3 class="anchored" data-anchor-id="implementation">Implementation</h3>
+<p>Our deterministic record linkage system is implemented in Python with some generality. The goal is for the system to be able to adapt to changes in data or processes.</p>
+<p>The fundamental component of the system is a <code>LinkageRule</code> class. LinkageRule objects can be fitted to data, providing either a clustering or a linkage graph. For instance, a LinkageRule might be a rule to link all records which agree on the email attribute. Another LinkageRule might summarize a set of other rules, such as taking the union or intersection of their links.</p>
+<p>The interface is as follows:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> abc <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> ABC, abstractmethod</span>
+<span id="cb1-2"></span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">class</span> LinkageRule(ABC):</span>
+<span id="cb1-5">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb1-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Interface for a linkage rule which can be fitted to data.</span></span>
+<span id="cb1-7"></span>
+<span id="cb1-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    This abstract class specifies three methods. The `fit()` method fits the </span></span>
+<span id="cb1-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    linkage rule to a pandas DataFrame. The `graph` property can be used after </span></span>
+<span id="cb1-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    `fit()` to obtain a graph representing the linkage fitted to data.  The </span></span>
+<span id="cb1-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    `groups` property can be used after `fit()` to obtain a membership vector </span></span>
+<span id="cb1-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    representing the clustering fitted to data.</span></span>
+<span id="cb1-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    """</span></span>
+<span id="cb1-14">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@abstractmethod</span></span>
+<span id="cb1-15">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> fit(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, df):</span>
+<span id="cb1-16">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">pass</span></span>
+<span id="cb1-17"></span>
+<span id="cb1-18">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@property</span></span>
+<span id="cb1-19">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@abstractmethod</span></span>
+<span id="cb1-20">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> graph(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>):</span>
+<span id="cb1-21">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">pass</span></span>
+<span id="cb1-22"></span>
+<span id="cb1-23">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@property</span></span>
+<span id="cb1-24">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@abstractmethod</span></span>
+<span id="cb1-25">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> groups(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>):</span>
+<span id="cb1-26">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">pass</span></span></code></pre></div>
+<p>Note that group membership vectors, our representation for cluster groups, are meant to be a numpy integer array with entries indicating what group (cluster) a given record belongs to. Such a “groups” vector should not contain NA values; rather it should contain distinct integers for records that are not in the same cluster.</p>
+<p>We will now define two other classes, <code>Match</code> and <code>Any</code>, which allow us to implement deterministic record linkage. The <code>Match</code> class implements an exact matching rule, while <code>Any</code> is the logical disjunction of a given set of rules. Our deterministic record linkage rule for the pantry will therefore be defined as follows:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1">rule <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Any(Match(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"name"</span>), Match(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"email"</span>), Match(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"phone"</span>))</span></code></pre></div>
+<p>Following the <code>LinkageRule</code> interface, this rule will then be fitted to the data and used as follows:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1">rule.fit(data)</span>
+<span id="cb3-2">data.groupby(rule.groups).last() <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Get last visit data for all customers.</span></span></code></pre></div>
+<p>The benefit of this general interface is that it is extendable. By default, the <code>Any</code> class will return connected components when requesting group clusters. However, other clustering approaches could be used. Exact matching rules could also be relaxed to fuzzy matching rules based on string distance metrics or probabilistic record linkage. All of this can be implemented as additional <code>LinkageRule</code> subclasses in a way which is compatible with the above.</p>
+<p>Let’s now work on the <code>Match</code> class. For efficiency, we’ll want <code>Match</code> to operate at the groups level. That is, if <code>Match</code> is called on a set of rules, then we’ll first compute groups for these rules, before computing the intersection of these groups. This core functionality is implemented in the function <code>_groups_from_rules()</code> below. The function <code>_groups()</code> is a simple wrapper to interpret strings as a matching rule on the corresponding column.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb4-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb4-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> itertools</span>
+<span id="cb4-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> igraph <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Graph</span>
+<span id="cb4-5"></span>
+<span id="cb4-6"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> _groups(rule, df):</span>
+<span id="cb4-7">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb4-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Fit linkage rule to dataframe and return membership vector.</span></span>
+<span id="cb4-9"></span>
+<span id="cb4-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Parameters</span></span>
+<span id="cb4-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    ----------</span></span>
+<span id="cb4-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    rule: string or LinkageRule</span></span>
+<span id="cb4-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Linkage rule to be fitted to the data. If `rule` is a string, then this </span></span>
+<span id="cb4-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        is interpreted as an exact matching rule for the corresponding column.</span></span>
+<span id="cb4-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    df: DataFrame</span></span>
+<span id="cb4-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        pandas Dataframe to which the rule is fitted.</span></span>
+<span id="cb4-17"></span>
+<span id="cb4-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Returns</span></span>
+<span id="cb4-19"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    -------</span></span>
+<span id="cb4-20"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Membership vector (i.e. integer vector) u such that u[i] indicates the </span></span>
+<span id="cb4-21"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    cluster to which dataframe row i belongs. </span></span>
+<span id="cb4-22"></span>
+<span id="cb4-23"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Notes</span></span>
+<span id="cb4-24"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    -----</span></span>
+<span id="cb4-25"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    NA values are considered to be non-matching.</span></span>
+<span id="cb4-26"></span>
+<span id="cb4-27"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Examples</span></span>
+<span id="cb4-28"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    --------</span></span>
+<span id="cb4-29"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; import pandas as pd</span></span>
+<span id="cb4-30"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; df = pd.DataFrame({"fname":["Olivier", "Jean-Francois", "Alex"], </span></span>
+<span id="cb4-31"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">      "lname":["Binette", "Binette", pd.NA]})</span></span>
+<span id="cb4-32"></span>
+<span id="cb4-33"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Groups specified by distinct first names:</span></span>
+<span id="cb4-34"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; _groups("fname", df)</span></span>
+<span id="cb4-35"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    array([2, 1, 0], dtype=int8)</span></span>
+<span id="cb4-36"></span>
+<span id="cb4-37"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Groups specified by same last names:</span></span>
+<span id="cb4-38"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; _groups("lname", df)</span></span>
+<span id="cb4-39"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    array([0, 0, 3], dtype=int8)</span></span>
+<span id="cb4-40"></span>
+<span id="cb4-41"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Groups specified by a given linkage rule:</span></span>
+<span id="cb4-42"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; rule = Match("fname")</span></span>
+<span id="cb4-43"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; _groups(rule, df)</span></span>
+<span id="cb4-44"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    array([2, 1, 0])</span></span>
+<span id="cb4-45"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    """</span></span>
+<span id="cb4-46">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">isinstance</span>(rule, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>)):</span>
+<span id="cb4-47">        arr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.array(pd.Categorical(df[rule]).codes, dtype<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>np.int32) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Specifying dtype avoids overflow issues</span></span>
+<span id="cb4-48">        I <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (arr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># NA value indicators</span></span>
+<span id="cb4-49">        arr[I] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.arange(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(arr), <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(arr)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>(I))</span>
+<span id="cb4-50">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> arr</span>
+<span id="cb4-51">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">elif</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">isinstance</span>(rule, LinkageRule):</span>
+<span id="cb4-52">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> rule.fit(df).groups</span>
+<span id="cb4-53">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span>:</span>
+<span id="cb4-54">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">raise</span> <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">NotImplementedError</span>()</span>
+<span id="cb4-55"></span>
+<span id="cb4-56"></span>
+<span id="cb4-57"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> _groups_from_rules(rules, df):</span>
+<span id="cb4-58">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb4-59"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Fit linkage rules to data and return groups corresponding to their logical </span></span>
+<span id="cb4-60"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    conjunction.</span></span>
+<span id="cb4-61"></span>
+<span id="cb4-62"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    This function computes the logical conjunction of a set of rules, operating </span></span>
+<span id="cb4-63"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    at the groups level. That is, rules are fitted to the data, membership </span></span>
+<span id="cb4-64"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    vector are obtained, and then the groups specified by these membership </span></span>
+<span id="cb4-65"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    vectors are intersected.</span></span>
+<span id="cb4-66"></span>
+<span id="cb4-67"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Parameters</span></span>
+<span id="cb4-68"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    ----------</span></span>
+<span id="cb4-69"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    rules: list[LinkageRule]</span></span>
+<span id="cb4-70"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        List of strings or Linkage rule objects to be fitted to the data. </span></span>
+<span id="cb4-71"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Strings are interpreted as exact matching rules on the corresponding </span></span>
+<span id="cb4-72"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        columns.</span></span>
+<span id="cb4-73"></span>
+<span id="cb4-74"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    df: DataFrame</span></span>
+<span id="cb4-75"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        pandas DataFrame to which the rules are fitted.</span></span>
+<span id="cb4-76"></span>
+<span id="cb4-77"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Returns</span></span>
+<span id="cb4-78"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    -------</span></span>
+<span id="cb4-79"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Membership vector representing the cluster to which each dataframe row </span></span>
+<span id="cb4-80"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    belongs.</span></span>
+<span id="cb4-81"></span>
+<span id="cb4-82"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Notes</span></span>
+<span id="cb4-83"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    -----</span></span>
+<span id="cb4-84"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    NA values are considered to be non-matching.</span></span>
+<span id="cb4-85"></span>
+<span id="cb4-86"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Examples</span></span>
+<span id="cb4-87"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    --------</span></span>
+<span id="cb4-88"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; import pandas as pd</span></span>
+<span id="cb4-89"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; df = pd.DataFrame({"fname":["Olivier", "Jean-Francois", "Alex"], </span></span>
+<span id="cb4-90"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">      "lname":["Binette", "Binette", pd.NA]})</span></span>
+<span id="cb4-91"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; _groups_from_rules(["fname", "lname"], df)</span></span>
+<span id="cb4-92"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    array([2, 1, 0])</span></span>
+<span id="cb4-93"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    """</span></span>
+<span id="cb4-94"></span>
+<span id="cb4-95">    arr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.array([_groups(rule, df) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> rule <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> rules]).T</span>
+<span id="cb4-96">    groups <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.unique(arr, axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, return_inverse<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>)[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]</span>
+<span id="cb4-97">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> groups</span></code></pre></div>
+<p>We can now implement <code>Match</code> as follows. Note that the <code>Graph</code> representation of the clustering is only computed if and when needed.</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">class</span> Match(LinkageRule):</span>
+<span id="cb5-2">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb5-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Class representing an exact matching rule over a given set of columns.</span></span>
+<span id="cb5-4"></span>
+<span id="cb5-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Attributes</span></span>
+<span id="cb5-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    ----------</span></span>
+<span id="cb5-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    graph: igraph.Graph</span></span>
+<span id="cb5-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Graph representing linkage fitted to the data. Defaults to None and is </span></span>
+<span id="cb5-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        instantiated after the `fit()` function is called.</span></span>
+<span id="cb5-10"></span>
+<span id="cb5-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    groups: integer array</span></span>
+<span id="cb5-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Membership vector for the linkage clusters fitted to the data. Defaults </span></span>
+<span id="cb5-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        to None and is instantiated after the `fit()` function is called.</span></span>
+<span id="cb5-14"></span>
+<span id="cb5-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Methods</span></span>
+<span id="cb5-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    -------</span></span>
+<span id="cb5-17"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    fit(df)</span></span>
+<span id="cb5-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Fits linkage rule to the given dataframe.</span></span>
+<span id="cb5-19"></span>
+<span id="cb5-20"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Examples</span></span>
+<span id="cb5-21"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    --------</span></span>
+<span id="cb5-22"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; import pandas as pd</span></span>
+<span id="cb5-23"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; df = pd.DataFrame({"fname":["Olivier", "Jean-Francois", "Alex"], </span></span>
+<span id="cb5-24"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    "lname":["Binette", "Binette", pd.NA]})</span></span>
+<span id="cb5-25"></span>
+<span id="cb5-26"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Link records which agree on both the "fname" and "lname" fields.</span></span>
+<span id="cb5-27"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; rule = Match("fname", "lname")</span></span>
+<span id="cb5-28"></span>
+<span id="cb5-29"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Fit linkage rule to the data.</span></span>
+<span id="cb5-30"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; _ = rule.fit(df)</span></span>
+<span id="cb5-31"></span>
+<span id="cb5-32"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Construct deduplicated dataframe, retaining only the first record in each cluster.</span></span>
+<span id="cb5-33"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    &gt;&gt;&gt; _ = df.groupby(rule.groups).first()</span></span>
+<span id="cb5-34"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    """</span></span>
+<span id="cb5-35"></span>
+<span id="cb5-36">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">__init__</span>(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>args):</span>
+<span id="cb5-37">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb5-38"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Parameters</span></span>
+<span id="cb5-39"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        ----------</span></span>
+<span id="cb5-40"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        args: list containing strings and/or LinkageRule objects.</span></span>
+<span id="cb5-41"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">            The `Match` object represents the logical conjunction of the set of </span></span>
+<span id="cb5-42"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">            rules given in the `args` parameter. </span></span>
+<span id="cb5-43"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        """</span></span>
+<span id="cb5-44">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.rules <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> args</span>
+<span id="cb5-45">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._update_graph <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span>
+<span id="cb5-46">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span></span>
+<span id="cb5-47"></span>
+<span id="cb5-48">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> fit(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, df):</span>
+<span id="cb5-49">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._groups <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> _groups_from_rules(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.rules, df)</span>
+<span id="cb5-50">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._update_graph <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span></span>
+<span id="cb5-51">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df.shape[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>]</span>
+<span id="cb5-52"></span>
+<span id="cb5-53">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span></span>
+<span id="cb5-54"></span>
+<span id="cb5-55">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@property</span></span>
+<span id="cb5-56">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> groups(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>):</span>
+<span id="cb5-57">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._groups</span></code></pre></div>
+<p>One more method is needed to complete the implementation of a <code>LinkageRule</code>, namely the <code>graph</code> property. This property returns a Graph object corresponding to the matching rule. The graph is built as follows. First, we construct an inverted index for the clustering. That is, we construct a dictionary associating to each cluster the nodes which it contains. Then, an edge list is obtained by linking all pairs of nodes which belong to the same cluster. Note that the pure Python implementation below if not efficient for large clusters. This is not a problem for now since we will generally avoid computing this graph.</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Part of the definition of the `Match` class:</span></span>
+<span id="cb6-2">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@property</span></span>
+<span id="cb6-3">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> graph(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> Graph:</span>
+<span id="cb6-4">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._update_graph:</span>
+<span id="cb6-5">            <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Inverted index</span></span>
+<span id="cb6-6">            clust <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.DataFrame({<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"groups"</span>: <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.groups}</span>
+<span id="cb6-7">                                 ).groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"groups"</span>).indices</span>
+<span id="cb6-8">            <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._graph <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Graph(n<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.n)</span>
+<span id="cb6-9">            <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._graph.add_edges(itertools.chain.from_iterable(</span>
+<span id="cb6-10">                itertools.combinations(c, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> c <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> clust.values()))</span>
+<span id="cb6-11">            <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._update_graph <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span>
+<span id="cb6-12">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._graph</span></code></pre></div>
+<p>Finally, let’s implement the <code>Any</code> class. It’s purpose is to take the union (i.e.&nbsp;logical disjunction) of a set of rules. Just like for <code>Match</code>, we can choose to operate at the groups or graph level. Here we’ll work at the groups level for efficiency. That is, given a set of rules, <code>Any</code> will first compute their corresponding clusters before merging overlapping clusters.</p>
+<p>There are quite a few different ways to efficiently merge clusters. Here we’ll merge clusters by computing a “path graph” representation, taking the union of these graphs, and then computing connected components. For a given clustering, say containing records a, b, and c, the “path graph” links records as a path a–b–c.</p>
+<p>First, we define the functions needed to compute path graphs:</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> pairwise(iterable):</span>
+<span id="cb7-2">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb7-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Iterate over consecutive pairs:</span></span>
+<span id="cb7-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        s -&gt; (s[0], s[1]), (s[1], s[2]), (s[2], s[3]), ...</span></span>
+<span id="cb7-5"></span>
+<span id="cb7-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Note</span></span>
+<span id="cb7-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    ----</span></span>
+<span id="cb7-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Current implementation is from itertools' recipes list available at </span></span>
+<span id="cb7-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    https://docs.python.org/3/library/itertools.html</span></span>
+<span id="cb7-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    """</span></span>
+<span id="cb7-11">    a, b <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> itertools.tee(iterable)</span>
+<span id="cb7-12">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">next</span>(b, <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>)</span>
+<span id="cb7-13">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">zip</span>(a, b)</span>
+<span id="cb7-14"></span>
+<span id="cb7-15"></span>
+<span id="cb7-16"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> _path_graph(rule, df):</span>
+<span id="cb7-17">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb7-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Compute path graph corresponding to the rule's clustering: cluster elements </span></span>
+<span id="cb7-19"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    are connected as a path.</span></span>
+<span id="cb7-20"></span>
+<span id="cb7-21"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Parameters</span></span>
+<span id="cb7-22"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    ----------</span></span>
+<span id="cb7-23"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    rule: string or LinkageRule</span></span>
+<span id="cb7-24"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Linkage rule for which to compute the corresponding path graph </span></span>
+<span id="cb7-25"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        (strings are interpreted as exact matching rules for the corresponding column).</span></span>
+<span id="cb7-26"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    df: DataFrame</span></span>
+<span id="cb7-27"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Data to which the linkage rule is fitted.</span></span>
+<span id="cb7-28"></span>
+<span id="cb7-29"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Returns</span></span>
+<span id="cb7-30"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    -------</span></span>
+<span id="cb7-31"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Graph object such that nodes in the same cluster (according to the fitted </span></span>
+<span id="cb7-32"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    linkage rule) are connected as graph paths.</span></span>
+<span id="cb7-33"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    """</span></span>
+<span id="cb7-34">    gr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> _groups(rule, df)</span>
+<span id="cb7-35">    </span>
+<span id="cb7-36">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Inverted index</span></span>
+<span id="cb7-37">    clust <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.DataFrame({<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"groups"</span>: gr}</span>
+<span id="cb7-38">                         ).groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"groups"</span>).indices</span>
+<span id="cb7-39">    graph <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Graph(n<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>df.shape[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>])</span>
+<span id="cb7-40">    graph.add_edges(itertools.chain.from_iterable(</span>
+<span id="cb7-41">        pairwise(c) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> c <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> clust.values()))</span>
+<span id="cb7-42"></span>
+<span id="cb7-43">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> graph</span></code></pre></div>
+<p>We can now implement the <code>Any</code> class:</p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">class</span> Any(LinkageRule):</span>
+<span id="cb8-2">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb8-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Class representing the logical disjunction of linkage rules.</span></span>
+<span id="cb8-4"></span>
+<span id="cb8-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Attributes</span></span>
+<span id="cb8-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    ----------</span></span>
+<span id="cb8-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    graph: igraph.Graph</span></span>
+<span id="cb8-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Graph representing linkage fitted to the data. Defaults to None and is </span></span>
+<span id="cb8-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        instantiated after the `fit()` function is called.</span></span>
+<span id="cb8-10"></span>
+<span id="cb8-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    groups: integer array</span></span>
+<span id="cb8-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Membership vector for the linkage clusters fitted to the data. Defaults </span></span>
+<span id="cb8-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        to None and is instantiated after the `fit()` function is called.</span></span>
+<span id="cb8-14"></span>
+<span id="cb8-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Methods</span></span>
+<span id="cb8-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    -------</span></span>
+<span id="cb8-17"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    fit(df)</span></span>
+<span id="cb8-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Fits linkage rule to the given dataframe.</span></span>
+<span id="cb8-19"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    """</span></span>
+<span id="cb8-20"></span>
+<span id="cb8-21">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">__init__</span>(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>args):</span>
+<span id="cb8-22">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb8-23"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        Parameters</span></span>
+<span id="cb8-24"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        ----------</span></span>
+<span id="cb8-25"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        args: list containing strings and/or LinkageRule objects.</span></span>
+<span id="cb8-26"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">            The `Any` object represents the logical disjunction of the set of </span></span>
+<span id="cb8-27"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">            rules given by `args`. </span></span>
+<span id="cb8-28"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">        """</span></span>
+<span id="cb8-29">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.rules <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> args</span>
+<span id="cb8-30">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._graph <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span></span>
+<span id="cb8-31">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._groups <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span></span>
+<span id="cb8-32">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._update_groups <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span>
+<span id="cb8-33"></span>
+<span id="cb8-34">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> fit(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, df):</span>
+<span id="cb8-35">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._update_groups <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span></span>
+<span id="cb8-36">        graphs_vect <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [_path_graph(rule, df) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> rule <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.rules]</span>
+<span id="cb8-37">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._graph <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> igraph.union(graphs_vect)</span>
+<span id="cb8-38">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span></span>
+<span id="cb8-39"></span>
+<span id="cb8-40">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@property</span></span>
+<span id="cb8-41">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> groups(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>):</span>
+<span id="cb8-42">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._update_groups:</span>
+<span id="cb8-43">            <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._update_groups <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span>
+<span id="cb8-44">            <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._groups <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.array(</span>
+<span id="cb8-45">                <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._graph.clusters().membership)</span>
+<span id="cb8-46">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._groups</span>
+<span id="cb8-47"></span>
+<span id="cb8-48">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">@property</span></span>
+<span id="cb8-49">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> graph(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> Graph:</span>
+<span id="cb8-50">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>._graph</span></code></pre></div>
+<p>The complete Python module (still under development) implementing this approach can be found on Github at <a href="https://github.com/olivierbinette/groupbyrule">OlivierBinette/GroupByRule</a>.</p>
+</section>
+<section id="limitations" class="level3">
+<h3 class="anchored" data-anchor-id="limitations">Limitations</h3>
+<p>There are quite a few limitations with this simple deterministic approach. We’ll see in the model evaluation section that these do not affect performance to a large degree. However, for a system used with more data or over a longer timeframe, these should be carefully considered.</p>
+<p>First, the deterministic linkage does not allow the consideration of contradictory evidence. For instance, if long-form Duke email addresses are provided on two records and do not agree (e.g.&nbsp;“olivier.binette@duke.edu” and “olivier.bonhomme@duke.edu” are provided), then we know <em>for sure</em> that the records do not correspond to the same individual, even if the same name was provided (here Olivier B.). The consideration of such evidence could rely on probabilistic record linkage, where each record pair is associated a match probability.</p>
+<p>Second, the use of connected components to resolve transitivity can be problematic, as a single spurious link could connect two large clusters by mistake. More sophisticated graph clustering techniques, in combination with probabilistic record linkage, would be required to mitigate the issue.</p>
+</section>
+</section>
+<section id="model-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="model-evaluation">Model Evaluation</h2>
+<p>I cannot share any of the data which we have at the Pantry. However, I can describe general steps to be taken to evaluate model performance in practice.</p>
+<section id="pairwise-precision-and-recall" class="level3">
+<h3 class="anchored" data-anchor-id="pairwise-precision-and-recall">Pairwise Precision and Recall</h3>
+<p>Here we will evaluate linkage performance using pairwise precision <img src="https://latex.codecogs.com/png.latex?P"> and recall <img src="https://latex.codecogs.com/png.latex?R">. The precision <img src="https://latex.codecogs.com/png.latex?P"> is defined as the proportion of predicted links which are true matches, whereas <img src="https://latex.codecogs.com/png.latex?R"> is the proportion of true matches which are correctly predicted. That is, if <img src="https://latex.codecogs.com/png.latex?TP"> is the number of true positive links, <img src="https://latex.codecogs.com/png.latex?P"> the number of predicted links, and <img src="https://latex.codecogs.com/png.latex?T"> the number of true matches, then we have <img src="https://latex.codecogs.com/png.latex?%0AP%20=%20TP/P,%20%5Cquad%20R%20=%20TP/T.%0A"></p>
+<section id="estimating-precision" class="level4">
+<h4 class="anchored" data-anchor-id="estimating-precision">Estimating Precision</h4>
+<p>It is helpful to express precision and recall in cluster form, where cluster elements are all interlinked. Let <img src="https://latex.codecogs.com/png.latex?C"> be the set of true clusters and let <img src="https://latex.codecogs.com/png.latex?%5Chat%20C"> be the set of predicted clusters. For a given cluster <img src="https://latex.codecogs.com/png.latex?%5Chat%20c%20%5Cin%20%5Chat%20C">, let <img src="https://latex.codecogs.com/png.latex?C%20%5Ccap%20%5Chat%20c"> be the restriction of the clustering <img src="https://latex.codecogs.com/png.latex?C"> to <img src="https://latex.codecogs.com/png.latex?%5Chat%20c">. Then we have <img src="https://latex.codecogs.com/png.latex?%0A%20%20P%20=%20%5Cfrac%7B%5Csum_%7B%5Chat%20c%20%5Cin%20%5Chat%20C%7D%20%5Csum_%7Be%20%5Cin%20C%20%5Ccap%20%5Chat%20c%7D%20%7B%5Clvert%20e%5Crvert%20%5Cchoose%202%7D%20%7D%7B%20%5Csum_%7B%5Chat%20c%20%5Cin%20%5Chat%20C%7D%20%7B%5Clvert%20%5Chat%20c%20%5Crvert%20%5Cchoose%202%7D%7D.%0A"></p>
+<p>The denominator can be computed exactly, while the numerator can be estimated by randomly sampling clusters <img src="https://latex.codecogs.com/png.latex?%5Chat%20c%20%5Cin%20%5Chat%20C">, breaking them up into true clusters <img src="https://latex.codecogs.com/png.latex?e%20%5Cin%20C%20%5Ccap%20%5Chat%20c">, and then computing the sum of the combinations <img src="https://latex.codecogs.com/png.latex?%7B%5Clvert%20e%5Crvert%20%5Cchoose%202%7D">. Importance sampling could be used to reduce the variance of the estimator, but it does not seem necessary for the scale of the data which we have at the pantry, where each predicted cluster can be examined quite quickly.</p>
+<p>In practice, the precision estimation process can be carried out as follows:</p>
+<ol type="1">
+<li>Sample predicted clusters at random (in the case of the pantry, we can take all predicted clusters).</li>
+<li>Make a spreadsheet with all the records corresponding to the sampled clusters.</li>
+<li>Sort the spreadsheet by predicted cluster ID.</li>
+<li>Add a new empty column to the spreadsheet, called “trueSubClusters”.</li>
+<li>Separately look at each predicted cluster. If the cluster should be broken up in multiple parts, use the “trueSubClusters” column to provide identifiers for true cluster membership. Note that these identifiers do not need to match across predicted clusters.</li>
+</ol>
+<p>The spreadsheet can then be read-in and processed in a straightforward way to obtain an estimated precision value.</p>
+</section>
+<section id="estimating-recall" class="level4">
+<h4 class="anchored" data-anchor-id="estimating-recall">Estimating Recall</h4>
+<p>Estimating recall is a bit trickier than estimating precision, but we can make one assumption to simplify the process. Assume that precision is exactly 1, or very close to 1, so that all predicted clusters can roughly be taken at face value. Estimating recall then boils to the problem of identifying which predicted clusters should be merged together.</p>
+<p>Indeed, using the same notations as above, we can write <img src="https://latex.codecogs.com/png.latex?%0AR%20=%20%5Cfrac%7B%5Csum_%7B%20c%20%5Cin%20%20C%7D%20%5Csum_%7Be%20%5Cin%20%5Chat%20C%20%5Ccap%20%20c%7D%20%7B%5Clvert%20e%5Crvert%20%5Cchoose%202%7D%20%7D%7B%20%5Csum_%7B%20c%20%5Cin%20%20C%7D%20%7B%5Clvert%20%20c%20%5Crvert%20%5Cchoose%202%7D%7D.%0A"> If precision is 1, then the denominator can be computed from the sizes of predicted clusters which are identified to be merged. On the other hand, the nominator simplifies to <img src="https://latex.codecogs.com/png.latex?%5Csum_%7Be%20%5Cin%20%5Chat%20C%7D%7B%5Clvert%20e%20%5Crvert%20%5Cchoose%202%7D"> which can be computed exactly from the sizes of predicted clusters. In the case of the Pantry, wrongly separated clusters are likely to be due to small differences in names and emails. Our procedure to identify clusters which should have been merged together is as follows:</p>
+<ol type="1">
+<li>Make a spreadsheet containing canonical customer records (one representative record for each predicted individual customer).</li>
+<li>Create a new empty column named “trueClustersA”.</li>
+<li>Sort the spreadsheet by name.</li>
+<li>Go through the spreadsheet from top to bottom, looking at whether or not consecutive predicted clusters should be merged together. If so, write a corresponding cluster membership ID in the “trueClustersA” column.</li>
+<li>Create a new empty column named “trueClustersB”.</li>
+<li>Sort the spreadsheet by email</li>
+<li>Go through the spreadsheet from top to bottom, looking at whether or not consecutive predicted clusters should be merged together. If so, write a corresponding cluster membership ID in the “trueClustersB” column.</li>
+</ol>
+<p>This process might not catch all wrongly separated clusters, but it is likely to find many of the errors due to different ways of writing names and different email addresses. The resulting spreadsheet can then easily be processed to obtain an estimated recall. If we were working with a larger dataset, we’d have to use further blocking to restrict our consideration to a more manageable subset of the data.</p>
+</section>
+</section>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
+<p>I used the above procedures to estimate precision and recall of our simple deterministic approach to deduplicate the Pantry’s data. There was a total of 3281 bag order records for 689 estimated customers. The results are below.</p>
+<p><strong>Estimated Precision: 92%</strong></p>
+<p>Precision is somewhat low due to about 3 relatively large clusters (around 30-50 records each) which should have been broken up in a few parts. 2% precision was lost due to a couple that shared a phone number, where each had about 20 order records. The vast majority of spurious links were tied to bag orders for which only the first name was provided (e.g.&nbsp;“Sam”). The use of negative evidence to distinguish between individuals would help resolve these cases.</p>
+<p><strong>Estimated Recall: 99.6%</strong></p>
+<p>This is certainly an overestimate, but it does show that missing links are not obviously showing up. Given the structure of the Pantry data, it is likely that recall is indeed quite high.</p>
+</section>
+</section>
+<section id="final-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="final-thoughts">Final thoughts</h2>
+<p>There are many ways in which the record linkage approach could be improved. As previously discussed, probabilistic record linkage would allow the consideration of negative evidence and the use of additional quasi-identifying information (such as IP addresses and other responses on the bag order forms). I’m looking forward to building on the <code>GroupByRule</code> Python module to provide a user-friendly and unified interface to more flexible methodology.</p>
+<p>However, it is important to ensure that any record linkage approach is intelligible and rooted in a good understanding of the underlying data. In this context, the use of a well-thought deterministic approach can provide good performance, at least as a first step or baseline for comparison. Furthermore, it is important to spend sufficient time investigating the results of the linkage to evaluate performance. I have highlighted simple steps which can be taken to estimate precision and make a good effort at identifying missing links. This is highly informative for model validation, improvement, and for the interpretation of any following results.</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-Campbell2008" class="csl-entry">
+Campbell, Kevin M., Dennis Deck, and Antoinette Krupski. 2008. <span>“Record Linkage Software in the Public Domain: A Comparison of <span>L</span>ink Plus, the <span>L</span>ink <span>K</span>ing, and a ’Basic’ Deterministic Algorithm.”</span> <em>Health Informatics Journal</em> 14 (1): 5–15.
+</div>
+<div id="ref-Gomatam2002" class="csl-entry">
+Gomatam, Shanti, Randy Carter, Mario Ariet, and Glenn Mitchell. 2002. <span>“An Empirical Comparison of Record Linkage Procedures.”</span> <em>Statistics in Medicine</em> 21 (10): 1485–96. <a href="https://doi.org/10.1002/sim.1147">https://doi.org/10.1002/sim.1147</a>.
+</div>
+<div id="ref-Monge1997" class="csl-entry">
+Monge, Alvaro E., and Charles P. Elkan. 1997. <span>“An Efficient Domain-Independent Algorithm for Detecting Approximately Duplicate Database Records.”</span> <em>Proceedings of the SIGMOD 1997 Workshop on Research Issues on Sata Mining and Knowledge Discovery</em>, 23–29. <a href="https://doi.org/10.1.1.28.8405">https://doi.org/10.1.1.28.8405</a>.
+</div>
+<div id="ref-Potosky1993" class="csl-entry">
+Potosky, Arnold L., Gerald F. Riley, James D. Lubitz, Renee M. Mentnech, and Larry G. Kessler. 1993. <span>“Potential for Cancer Related Health Services Research Using a Linked Medicare-Tumor Registry Database.”</span> <em>Medical Care</em> 31 (8): 732–48. <a href="https://doi.org/10.1097/00005650-199308000-00006">https://doi.org/10.1097/00005650-199308000-00006</a>.
+</div>
+<div id="ref-Tromp2011" class="csl-entry">
+Tromp, Miranda, Anita C. Ravelli, Gouke J. Bonsel, Arie Hasman, and Johannes B. Reitsma. 2011. <span>“Results from Simulated Data Sets: Probabilistic Record Linkage Outperforms Deterministic Record Linkage.”</span> <em>Journal of Clinical Epidemiology</em> 64 (5): 565–72. <a href="https://doi.org/10.1016/j.jclinepi.2010.05.008">https://doi.org/10.1016/j.jclinepi.2010.05.008</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>technical</category>
+  <category>python</category>
+  <category>statistics</category>
+  <guid>https://olivierbinette.ca/pages/posts/2022-01-01-record-linkage-at-the-gpsg-community-pantry/record-linkage-at-the-gpsg-community-pantry.html</guid>
+  <pubDate>Thu, 23 Dec 2021 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Short Proof: Critical Points in Invariant Domains</title>
+  <link>https://olivierbinette.ca/pages/posts/2017-04-29-critical-points-in-invariant-domains/2017-04-29-critical-points-in-invariant-domains.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>
+Let <img src="https://latex.codecogs.com/png.latex?f%20:%20%5Cmathbb%7BR%7D%5Ek%20%5Crightarrow%20%5Cmathbb%7BR%7D%5Ek"> be a <img src="https://latex.codecogs.com/png.latex?%7B%7D%5Cmathcal%7BC%7D%5E1"> vector field and denote by <img src="https://latex.codecogs.com/png.latex?%5Cphi(x):%20t%20%5Cmapsto%20%5Cphi_t(x)"> its stream. That is, <img src="https://latex.codecogs.com/png.latex?%5Cphi_0(x)%20=%20x"> and <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bd%7D%7Bdt%7D%5Cphi_t(x)%20=%20f(%5Cphi_t(x))">. A domain <img src="https://latex.codecogs.com/png.latex?D%20%5Csubset%20%5Cmathbb%7BR%7D%5Ek"> is said to be invariant (under the stream of <img src="https://latex.codecogs.com/png.latex?f">) if <img src="https://latex.codecogs.com/png.latex?%5Cphi_t(x)%20%5Cin%20D"> for all <img src="https://latex.codecogs.com/png.latex?x%20%5Cin%20D"> and <img src="https://latex.codecogs.com/png.latex?t%20%5Cgeq%200">. The curve <img src="https://latex.codecogs.com/png.latex?%5C%7B%C2%A0%20%5Cphi_t(x)%20%5C,%7C%5C,%20t%20%5Cin%20%5Cmathbb%7BR%7D%20%5C%7D"> is said to be a closed orbit of <img src="https://latex.codecogs.com/png.latex?f"> if there exists <img src="https://latex.codecogs.com/png.latex?T%20%5Cgt;%200"> such that <img src="https://latex.codecogs.com/png.latex?%5Cphi_0(x)%20=%20%5Cphi_T(x)">.
+</p>
+<p>
+<strong>Theorem.</strong><br><em>If <img src="https://latex.codecogs.com/png.latex?D%20%5Csubset%20%5Cmathbb%7BR%7D%5Ek"> is invariant and diffeomorphic to a closed ball of <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BR%7D%5Ek">, then <img src="https://latex.codecogs.com/png.latex?f"> has a zero in <img src="https://latex.codecogs.com/png.latex?D">.</em>
+</p>
+<p>
+<strong>Corollary.</strong><br><em>If <img src="https://latex.codecogs.com/png.latex?k=2">, then any closed orbit of <img src="https://latex.codecogs.com/png.latex?f"> encloses a zero of <img src="https://latex.codecogs.com/png.latex?f">.</em>
+</p>
+<p>
+<em>Proof of the theorem.</em><br>Suppose that <img src="https://latex.codecogs.com/png.latex?%5C%7Cf(x)%5C%7C%20%5Cgt;%20%5Calpha%20%5Cgt;%200"> for all <img src="https://latex.codecogs.com/png.latex?x%20%5Cin%20D"> and let <img src="https://latex.codecogs.com/png.latex?M%20=%20%5Csup_%7Bx%20%5Cin%20D%7D%20%5C%7Cf(x)%5C%7C">. Since <img src="https://latex.codecogs.com/png.latex?f"> is uniformly continuous on <img src="https://latex.codecogs.com/png.latex?D">, there exists <img src="https://latex.codecogs.com/png.latex?%5Cdelta%20%5Cgt;%200"> such that <img src="https://latex.codecogs.com/png.latex?%5C%7Cx-y%5C%7C%20%5Clt;%20%5Cdelta"> implies <img src="https://latex.codecogs.com/png.latex?%5C%7Cf(x)%20-%20f(y)%5C%7C%20%5Clt;%20%5Calpha">. Also, by Brouwer’s fixed point theorem, there exists <img src="https://latex.codecogs.com/png.latex?x_0%20%5Cin%20D"> such that <img src="https://latex.codecogs.com/png.latex?%5Cphi_%7B%5Cdelta%20/%20M%7D(x_0)%20=%20x_0">. This yields a closed orbit <img src="https://latex.codecogs.com/png.latex?%5CGamma%20=%20%5C%7B%5Cphi_t(x_0)%20%5C,%7C%5C,%20t%20%5Cgeq%200%5C%7D"> such that any two points on <img src="https://latex.codecogs.com/png.latex?%5CGamma"> are at distance at most <img src="https://latex.codecogs.com/png.latex?%5Cdelta"> from each other. Since <img src="https://latex.codecogs.com/png.latex?%5CGamma"> is closed, there must exist <img src="https://latex.codecogs.com/png.latex?a,b%20%5Cin%20%5CGamma"> such that <img src="https://latex.codecogs.com/png.latex?%5Clangle%20f(a),%20f(b)%20%5Crangle%20%5Cleq%200">. Hence we find that <img src="https://latex.codecogs.com/png.latex?%5C%7Cf(a)%20-%20f(b)%5C%7C%20%5Cgt;%20%5C%7Cf(a)%5C%7C%20%5Cgt;%20%5Calpha">, even though <img src="https://latex.codecogs.com/png.latex?%5C%7Ca-b%5C%7C%20%5Clt;%20%5Cdelta">. This is impossible. Thus <img src="https://latex.codecogs.com/png.latex?%5C%7Cf%5C%7C"> is not bounded away from zero and <img src="https://latex.codecogs.com/png.latex?f"> must have a zero in the compact <img src="https://latex.codecogs.com/png.latex?D">. <img src="https://latex.codecogs.com/png.latex?%5CBox">
+</p>
+<p>
+<em>Proof of the corollary.</em><br>When <img src="https://latex.codecogs.com/png.latex?k=2">, the Jordan-Brouwer theorem implies that closed orbits separate the plane in two connected components, one of which is bounded. Schoenflies’ theorem, strengthening the above, ensures that the union of bounded component with the closed orbit is diffeomorphic to the closed disk. Invariance follows from the unicity of the solution to initial value problems when <img src="https://latex.codecogs.com/png.latex?f"> is <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BC%7D%5E1">. <img src="https://latex.codecogs.com/png.latex?%5CBox">
+</p>
+<p>
+This can be generalized as follows. For the sake of mixing things up, we state the result in topological terms.
+</p>
+<p>
+<strong>Theorem&nbsp;</strong>(Particular case of the Poincaré-Hopf theorem).<br><em>Let <img src="https://latex.codecogs.com/png.latex?M"> be a compact submanifold of <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BR%7D%5Ek"> with non-zero Euler characteristic <img src="https://latex.codecogs.com/png.latex?%5Cchi(M)">, and let <img src="https://latex.codecogs.com/png.latex?%5Cphi%20:%20%5B0,1%5D%20%5Ctimes%20M%20%5Crightarrow%20M%20:%20(t,x)%20%5Cmapsto%20%5Cphi_t(x)"> be a smooth&nbsp; isotopy. Then for all <img src="https://latex.codecogs.com/png.latex?t%20%5Cin%20%5B0,1%5D">, there exists distinct points <img src="https://latex.codecogs.com/png.latex?x_1,%20x_2,%20%5Cdots%20x_%7B%7C%5Cchi(M)%7C%7D"> such that</em> <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bd%7D%7Bdt%7D%5Cphi_t(x_i)%20=%200.">
+</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>technical</category>
+  <category>math</category>
+  <guid>https://olivierbinette.ca/pages/posts/2017-04-29-critical-points-in-invariant-domains/2017-04-29-critical-points-in-invariant-domains.html</guid>
+  <pubDate>Sat, 29 Apr 2017 04:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
