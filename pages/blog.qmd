@@ -1,0 +1,17 @@
+---
+title: "What's New"
+description: ""
+listing:
+  contents: posts
+  type: table
+  table-striped: false
+  table-hover: true
+  fields:
+    - date
+    - title
+    - categories
+  categories: true
+  filter-ui: true
+  sort-ui: true
+  feed: true
+---

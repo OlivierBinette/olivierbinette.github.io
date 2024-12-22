@@ -8,7 +8,7 @@
 
 <meta name="author" content="Olivier Binette">
 
-<title>👋 Welcome! – Olivier Binette</title>
+<title>Software – Olivier Binette</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,24 +21,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-41d0922e3213cd14dddcd51cd5a0b369.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-274a1db5aa11b0359da31139a47070f1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-41d0922e3213cd14dddcd51cd5a0b369.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-274a1db5aa11b0359da31139a47070f1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -65,18 +100,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: #c00000;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: #c00000;
+background: #f8f8f8;
+      }
+</style>
 
 
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Olivier Binette</span>
     </a>
   </div>
@@ -87,19 +139,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./pages/blog.html"> 
+    <a class="nav-link" href="../pages/blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./pages/research.html"> 
+    <a class="nav-link" href="../pages/research.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./pages/software.html"> 
+    <a class="nav-link active" href="../pages/software.html" aria-current="page"> 
 <span class="menu-text">Software</span></a>
   </li>  
 </ul>
@@ -110,66 +162,141 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Software</h1>
+                      </div>
+  </div>
     
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#python-packages" id="toc-python-packages" class="nav-link active" data-scroll-target="#python-packages">Python packages</a></li>
+  <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages">R packages</a></li>
+  <li><a href="#javascript-apps" id="toc-javascript-apps" class="nav-link" data-scroll-target="#javascript-apps">Javascript apps</a></li>
+  <li><a href="#other-software" id="toc-other-software" class="nav-link" data-scroll-target="#other-software">Other software</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<style> h1.title { display: none; }</style>
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="media/portrait-square.jpg" class="about-image
-  rounded " style="width: 20em;">
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">👋 Welcome!</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header>
-    <div class="about-links">
-  <a href="https://github.com/OlivierBinette" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="http://linkedin.com/in/olivier-binette" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><div id="olivier-heading">
-<section id="welcome" class="level1">
-<h1>👋 Welcome!</h1>
-<p>I’m Olivier, a data scientist at American Institutes for Research. I have a Ph.D.&nbsp;in Statistics from Duke University.</p>
-<p>I specialize in applied data science R&amp;D, in the statistical evaluation of AI/machine learning systems, and in entity resolution for data integration, cleaning, and enrichment. My work combines engineering, machine learning, and statistics to address applied problems in these areas.</p>
+
+<section id="python-packages" class="level2">
+<h2 class="anchored" data-anchor-id="python-packages">Python packages</h2>
+<section id="csvmeta" class="level6">
+<h6 class="anchored" data-anchor-id="csvmeta"><a href="https://github.com/OlivierBinette/CSVMeta">CSVMeta</a></h6>
+<p>Lightweight csv read/write, keeping track of csv dialect and other metadata.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">pip</span> install csvmeta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-</div></div>
-</div>
-
+<section id="streamlit-survey" class="level5">
+<h5 class="anchored" data-anchor-id="streamlit-survey"><a href="https://github.com/Valires/streamlit-survey">Streamlit-Survey</a></h5>
+<p>Survey components for Streamlit apps.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">pip</span> install streamlit-survey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="er-evaluation" class="level5">
+<h5 class="anchored" data-anchor-id="er-evaluation"><a href="https://github.com/Valires/er-evaluation">ER-Evaluation</a></h5>
+<p>An End-to-End Evaluation Framework for Entity Resolution Systems.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">pip</span> install er-evaluation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="stringcompare" class="level5">
+<h5 class="anchored" data-anchor-id="stringcompare"><a href="https://github.com/olivierbinette/StringCompare">StringCompare</a></h5>
+<p><strong>StringCompare</strong> is a Python package (implemented in C++ through pybind11) for efficient string similarity computation and approximate string matching.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">pip</span> install git+https://github.com/OlivierBinette/stringcompare.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="r-packages">R packages</h2>
+<section id="fingermatchr" class="level5">
+<h5 class="anchored" data-anchor-id="fingermatchr"><a href="https://github.com/forensic-science/fingermatchR">FingermatchR</a></h5>
+<p>Fingerprint matching tools based on NIST’s Biometric Image Software, on FingerJet minutiae extraction tool, and on the libfmr library.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"forensic-science/fingermatchR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="msetools" class="level5">
+<h5 class="anchored" data-anchor-id="msetools"><a href="https://github.com/OlivierBinette/MSETools">MSETools</a></h5>
+<p>Code and analyses for the paper titled “On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery” (Binette and Steorts, 2021).</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"OlivierBinette/MSETools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="cache" class="level5">
+<h5 class="anchored" data-anchor-id="cache"><a href="https://github.com/OlivierBinette/cache">cache</a></h5>
+<p><a href="https://cran.r-project.org/package=cache"><img src="https://www.r-pkg.org/badges/version/assert.png" class="img-fluid"></a></p>
+<p>Simple interface to caching which works across interactive R sessions, R scripts and Rmarkdown documents.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">install.packages</span>(<span class="st">"cache"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="assert" class="level5">
+<h5 class="anchored" data-anchor-id="assert"><a href="https://github.com/OlivierBinette/assert">assert</a></h5>
+<p><a href="https://cran.r-project.org/package=assert"><img src="https://www.r-pkg.org/badges/version/assert.png" class="img-fluid"></a></p>
+<p>Lightweight validation tool for checking function arguments and data analysis scripts.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">install.packages</span>(<span class="st">"assert"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="dgafast" class="level5">
+<h5 class="anchored" data-anchor-id="dgafast"><a href="https://github.com/OlivierBinette/dgaFast">dgaFast</a></h5>
+<p>Multiple Systems Estimation Using Decomposable Graphical Models. This is an efficient re-implementation and extension of the <a href="https://github.com/hrdag/dga"><strong>dga</strong></a> R package (it is now part of <a href="https://github.com/hrdag/dga"><strong>dga</strong></a>).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"OlivierBinette/dgaFast"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tesstools" class="level5">
+<h5 class="anchored" data-anchor-id="tesstools"><a href="https://github.com/OlivierBinette/TessTools">TessTools</a></h5>
+<p>Tools for the use of Tesseract OCR in R and for the analysis of historical newspaper archives.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"OlivierBinette/TessTools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!--
-I contribute to open source projects related to my research and I maintain various R and Python packages. My open-source work has previously been supported by individual contributors through Github Sponsors and by G-Research.
+##### [splinit](https://github.com/OlivierBinette/splinit)
 
+Periodic spline regression and closed curve reconstruction.
 
-During Spring 2022, I was working as a Data Scientist intern at the [Intact Financial Corporation](https://en.wikipedia.org/wiki/Intact_Financial). I was part of the Rating Revolution team which develops machine learning models to improve the pricing of insurance products. 
-<!--During Summer 2022, I will be working as a Data Scientist intern at the [American Institutes for Research](https://en.wikipedia.org/wiki/American_Institutes_for_Research) for a contract with the U.S. Patents and Trademarks Office.
+```r
+devtools::install_github("OlivierBinette/splinit")
+```
 
-During Summer 2022, I was working as a Data Scientist/Researcher Intern at the [American Institutes for Research](https://www.air.org/). I worked on the entity resolution algorithms used for [PatentsView.org](https://patentsview.org/), a patents knowledge discovery platform led by the Office of the Chief Economist at the U.S. Patent & Trademark Office. I developed novel evaluation methodology for entity resolution systems (see [our paper](media/PatentsView_Evaluation.pdf)).
+##### [pretty](https://github.com/OlivierBinette/pretty)
 
+Better base plots in R.
 
-In my free time, I enjoy contributing to the academic community at Duke. I have been a research coordinator for the [Duke GPSG Community Pantry](https://gpsg.duke.edu/resources-for-students/community-pantry/), webmaster for the [Record Linkage Interest Group](https://sites.google.com/view/rlig), and a mentor for the Twoples directed reading program. I have also worked with the Duke Applied Machine Learning Group and the Data+ program as a project manager. Additionally, I regularly mentor undergraduate students working on research projects with me.
-
-I work on open source projects related to my research and I maintain various R and Python packages. My open-source work has been supported by individual contributors through [Github Sponsors](https://github.com/sponsors/olivierbinette) and by [G-Research](https://www.gresearch.co.uk/article/g-research-february-grant-winners/).
-
+```r
+devtools::install_github("OlivierBinette/pretty")
+```
 -->
+</section>
+</section>
+<section id="javascript-apps" class="level2">
+<h2 class="anchored" data-anchor-id="javascript-apps">Javascript apps</h2>
+<section id="fractals" class="level5">
+<h5 class="anchored" data-anchor-id="fractals"><a href="https://olivierbinette.github.io/Fractals/">Fractals</a></h5>
+<p>High resolution visualization for the Mandelbrot set. A <a href="https://github.com/olivierBinette/Fractals">Java version</a> with more features is also available.</p>
+</section>
+<section id="earthquakes" class="level5">
+<h5 class="anchored" data-anchor-id="earthquakes"><a href="https://olivierbinette.github.io/earthquakes/">Earthquakes</a></h5>
+<p>Visualize earthquakes on the globe.</p>
+</section>
+</section>
+<section id="other-software" class="level2">
+<h2 class="anchored" data-anchor-id="other-software">Other software</h2>
+<ul>
+<li><a href="https://github.com/OlivierBinette/lipsample"><strong>lipsample</strong></a>: Sampling from arbitrary Lipschitz continuous densities on the interval in matlab.</li>
+</ul>
 
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -192,6 +319,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

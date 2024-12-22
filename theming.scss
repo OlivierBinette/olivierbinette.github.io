@@ -1,0 +1,36 @@
+/*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+// Definitions
+$my-accent-color: #c00000;
+$my-accent-bg: #fffbfb;
+$my-text-color: #404040;
+$my-secondary-text-color: rgba(0, 0, 0, 0.6);
+$my-title-font: "Noto Serif", serif;
+$my-body-font: "Noto Sans", sans-serif;
+
+// General
+$link-color: $my-accent-color;
+
+// Headings
+$headings-font-family: $my-title-font;
+$headings-font-weight: 500 !important;
+$headings-color: $my-accent-color;
+
+// Body
+$font-family-sans-serif: $my-body-font;
+.description {
+  color: $my-text-color;
+}
+
+// Code
+$font-family-monospace: "Noto Sans mono", monospace;
+$code-block-bg: #fafafa;
+
+// Navbar
+$navbar-bg: white;
+$navbar-fg: black;
+.navbar {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}

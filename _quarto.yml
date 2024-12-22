@@ -1,0 +1,48 @@
+project:
+  type: website
+  output-dir: docs
+
+language: 
+  search-text-placeholder: Search
+  
+website:
+  title: "Olivier Binette"
+  search: 
+    location: navbar
+    type: overlay
+  navbar:
+    right:
+      - href: index.qmd
+        text: "Home"
+      - href: pages/blog.qmd
+        text: "Blog"
+      - href: pages/research.qmd
+        text: "Publications"
+      - href: pages/software.qmd
+        text: "Software"
+
+format:
+  html:
+    author-meta: Olivier Binette
+    theme: 
+      - cosmo
+      - theming.scss
+    toc: true
+    toc-location: left
+    code-fold: true
+    code-summary: "Show the code"
+    code-line-numbers: true
+    code-copy: true
+    code-annotations: hover
+    highlight-style: github
+    email-obfuscation: references
+    title-block-banner: "#f8f8f8"
+    title-block-banner-color: "#c00000"
+    cookie-consent:
+      type: implied
+      style: simple
+      palette: light
+    google-analytics:
+      tracking-id: "G-059GDHV0GP"
+      anonymize-ip: true
+      html:

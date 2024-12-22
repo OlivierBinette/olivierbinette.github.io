@@ -1,0 +1,47 @@
+---
+title: "👋 Welcome!"
+toc: false
+about:
+  id: olivier-heading
+  template: trestles
+  image: media/portrait-square.jpg
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/OlivierBinette
+    - icon: linkedin
+      text: LinkedIn
+      href: http://linkedin.com/in/olivier-binette
+    #- icon: send-fill
+    #  text: Email
+    #  href: mailto:obinette@air.org
+title-block-banner: false
+---
+
+```{=html}
+<style> h1.title { display: none; }</style>
+```
+
+::: {#olivier-heading}
+# 👋 Welcome!
+
+I'm Olivier, a data scientist at American Institutes for Research. I have a Ph.D. in Statistics from Duke University.
+
+I specialize in applied data science R&D, in the statistical evaluation of AI/machine learning systems, and in entity resolution for data integration, cleaning, and enrichment. My work combines engineering, machine learning, and statistics to address applied problems in these areas.
+:::
+
+<!--
+I contribute to open source projects related to my research and I maintain various R and Python packages. My open-source work has previously been supported by individual contributors through Github Sponsors and by G-Research.
+
+
+During Spring 2022, I was working as a Data Scientist intern at the [Intact Financial Corporation](https://en.wikipedia.org/wiki/Intact_Financial). I was part of the Rating Revolution team which develops machine learning models to improve the pricing of insurance products. 
+<!--During Summer 2022, I will be working as a Data Scientist intern at the [American Institutes for Research](https://en.wikipedia.org/wiki/American_Institutes_for_Research) for a contract with the U.S. Patents and Trademarks Office.
+
+During Summer 2022, I was working as a Data Scientist/Researcher Intern at the [American Institutes for Research](https://www.air.org/). I worked on the entity resolution algorithms used for [PatentsView.org](https://patentsview.org/), a patents knowledge discovery platform led by the Office of the Chief Economist at the U.S. Patent & Trademark Office. I developed novel evaluation methodology for entity resolution systems (see [our paper](media/PatentsView_Evaluation.pdf)).
+
+
+In my free time, I enjoy contributing to the academic community at Duke. I have been a research coordinator for the [Duke GPSG Community Pantry](https://gpsg.duke.edu/resources-for-students/community-pantry/), webmaster for the [Record Linkage Interest Group](https://sites.google.com/view/rlig), and a mentor for the Twoples directed reading program. I have also worked with the Duke Applied Machine Learning Group and the Data+ program as a project manager. Additionally, I regularly mentor undergraduate students working on research projects with me.
+
+I work on open source projects related to my research and I maintain various R and Python packages. My open-source work has been supported by individual contributors through [Github Sponsors](https://github.com/sponsors/olivierbinette) and by [G-Research](https://www.gresearch.co.uk/article/g-research-february-grant-winners/).
+
+-->
