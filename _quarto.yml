@@ -7,7 +7,7 @@ language:
   
 website:
   title: "Olivier Binette"
-  search: 
+  search:
     location: navbar
     type: overlay
   navbar:
@@ -24,13 +24,12 @@ website:
 format:
   html:
     author-meta: Olivier Binette
-    theme: 
+    theme:
       - cosmo
       - theming.scss
     toc: true
     toc-location: left
-    code-fold: true
-    code-summary: "Show the code"
+    code-fold: show
     code-line-numbers: true
     code-copy: true
     code-annotations: hover
@@ -45,4 +44,3 @@ format:
     google-analytics:
       tracking-id: "G-059GDHV0GP"
       anonymize-ip: true
-      html:
