@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Bayesian Optimalities</title>
+
+  <meta property="description" itemprop="description" content="Some notes regarding various &#39;optimalities&#39; of posterior distributions."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2019-05-24"/>
+  <meta property="article:created" itemprop="dateCreated" content="2019-05-24"/>
+  <meta name="article:author" content="Olivier Binette"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Bayesian Optimalities"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Some notes regarding various &#39;optimalities&#39; of posterior distributions."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Bayesian Optimalities"/>
+  <meta property="twitter:description" content="Some notes regarding various &#39;optimalities&#39; of posterior distributions."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["author","title","description","date","output"]}},"value":[{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Olivier Binette"]}]}]},{"type":"character","attributes":{},"value":["Bayesian Optimalities"]},{"type":"character","attributes":{},"value":["Some notes regarding various 'optimalities' of posterior distributions."]},{"type":"character","attributes":{},"value":["05-24-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["bayesian-optimalities_files/anchor-4.2.2/anchor.min.js","bayesian-optimalities_files/bowser-1.9.3/bowser.min.js","bayesian-optimalities_files/distill-2.2.21/template.v2.js","bayesian-optimalities_files/header-attrs-2.11/header-attrs.js","bayesian-optimalities_files/header-attrs-2.4/header-attrs.js","bayesian-optimalities_files/jquery-1.11.3/jquery.min.js","bayesian-optimalities_files/jquery-3.6.0/jquery-3.6.0.js","bayesian-optimalities_files/jquery-3.6.0/jquery-3.6.0.min.js","bayesian-optimalities_files/jquery-3.6.0/jquery-3.6.0.min.map","bayesian-optimalities_files/popper-2.6.0/popper.min.js","bayesian-optimalities_files/tippy-6.2.7/tippy-bundle.umd.min.js","bayesian-optimalities_files/tippy-6.2.7/tippy-light-border.css","bayesian-optimalities_files/tippy-6.2.7/tippy.css","bayesian-optimalities_files/tippy-6.2.7/tippy.umd.min.js","bayesian-optimalities_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="bayesian-optimalities_files/header-attrs-2.11/header-attrs.js"></script>
+  <script src="bayesian-optimalities_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="bayesian-optimalities_files/popper-2.6.0/popper.min.js"></script>
+  <link href="bayesian-optimalities_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="bayesian-optimalities_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="bayesian-optimalities_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="bayesian-optimalities_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="bayesian-optimalities_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="bayesian-optimalities_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="bayesian-optimalities_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Bayesian Optimalities","description":"Some notes regarding various 'optimalities' of posterior distributions.","authors":[{"author":"Olivier Binette","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2019-05-24T00:00:00.000-04:00","citationText":"Binette, 2019"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Bayesian Optimalities</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p>Some notes regarding various ‘optimalities’ of posterior distributions.</p>
+</div>
+
+<div class="d-byline">
+  Olivier Binette  
+  
+<br/>05-24-2019
+</div>
+
+<div class="d-article">
+<h2 id="point-estimation-and-minimal-expected-risk">1. Point estimation and minimal expected risk</h2>
+<p>This first section is not directly about properties of the posterior distribution, but it is rather concerned with some summaries of the posterior which have nice statistical properties in different contexts.</p>
+<h3 id="squared-error-loss">Squared error loss</h3>
+<p>Suppose <span class="math inline">\(\pi\)</span> is a prior on an <strong>euclidean</strong> parameter space <span class="math inline">\(\Theta \subset \mathbb{R}^d\)</span> with norm <span class="math inline">\(\|\theta\|^2 = \theta^T \theta\)</span> defined through the dot product. Given a likelihood <span class="math inline">\(p _ \theta(X)\)</span> for data <span class="math inline">\(X\)</span>, the posterior distribution is defined as</p>
+<p><span class="math display">\[
+\pi(A \mid X) \propto \int _ A p _ \theta(X) \pi(d\theta)
+\]</span></p>
+<p>and the mean of the posterior distribution is</p>
+<p><span class="math display">\[
+\hat \theta _ {\pi} = \int \theta \,\pi(d\theta \mid X) = \mathbb{E} _ {\theta \sim \pi}[\theta \mid X].
+\]</span></p>
+<p>If we define the <em>risk</em> of an estimator <span class="math inline">\(\hat \theta\)</span> for the estimation of a parameter <span class="math inline">\(\theta _ 0\)</span> as</p>
+<p><span class="math display">\[
+R(\hat \theta; \theta _ 0) = \mathbb{E} _ {X \sim p _ \theta}[\|\theta _ 0 - \hat \theta(X)\|^2],
+\]</span></p>
+<p>and if</p>
+<p><span class="math display">\[
+B _ \pi(\hat \theta) = \mathbb{E} _ {\theta _ 0 \sim \pi}[R(\hat \theta; \theta _ 0)]
+\]</span></p>
+<p>is the expected risk of <span class="math inline">\(\hat \theta\)</span> with respect to the prior <span class="math inline">\(\pi\)</span> (also called the <strong>Bayes risk</strong>), then we have that the posterior mean estimate <span class="math inline">\(\hat \theta _ {\pi}\)</span> satisfies</p>
+<p><span class="math display">\[
+B _ \pi(\hat \theta) \geq B _ \pi(\hat \theta _ \pi)
+\]</span></p>
+<p>for any estimator <span class="math inline">\(\hat \theta\)</span>. That is, the posterior mean estimate minimizes the expected risk.</p>
+<p>The proof follows from the fact that</p>
+<p><span class="math display">\[
+\| \theta _ 0 - \hat \theta(X) \|^2 \geq \|\theta _ 0 - \hat \theta _ \pi(X) \|^2 + \langle \theta _ 0 - \hat \theta _ \pi(X), \hat \theta _ \pi(X) - \hat \theta(X)\rangle.
+\]</span></p>
+<p>Writing the expected risk as an expected posterior loss, i.e. using the fact that</p>
+<p><span class="math display">\[
+\mathbb{E} _ {\theta _ 0 \sim \pi}\left[\mathbb{E} _ {X \sim p _ {\theta _ 0}}[\,\cdot\,]\right] = \mathbb{E} _ {X \sim m}\left[\mathbb{E} _ {\theta _ 0 \sim \pi(\cdot \mid X)}[\,\cdot\,]\right]
+\]</span></p>
+<p>where <span class="math inline">\(m\)</span> has density <span class="math inline">\(m(x) = \int p _ \theta(x) \pi(\theta)\,d\theta\)</span>, and since</p>
+<p><span class="math display">\[
+\mathbb{E} _ {\theta _ 0 \sim \pi(\cdot \mid X)}\left[\langle \theta _ 0 - \hat \theta _ \pi(X), \hat \theta _ \pi(X) - \hat \theta(X)\rangle\right] = 0,
+\]</span></p>
+<p>we obtain the result.</p>
+<p>A few remarks:</p>
+<ol type="1">
+<li>The expected risk has stability properties. If <span class="math inline">\(\tilde \pi\)</span> and <span class="math inline">\(\pi\)</span> are two priors that are absolutely continuous with respect to each other, and if <span class="math inline">\(\|\log \frac{d\tilde \pi}{d\pi}\| _ \infty \leq C\)</span>, then</li>
+</ol>
+<p><span class="math display">\[
+   e^{-C}B _ \pi(\hat\theta) \leq B _ {\tilde \pi}(\hat \theta) \leq e^C B _ {\pi}(\hat \theta).
+\]</span></p>
+<p>If the risk <span class="math inline">\(R(\hat \theta; \theta _ 0)\)</span> is uniformly bounded by some constant <span class="math inline">\(M\)</span> over <span class="math inline">\(\theta _ 0\in \Theta\)</span>, then</p>
+<p><span class="math display">\[
+   B _ {\tilde \pi}(\hat \theta) \leq \sqrt{M B _ {\pi}(\hat \theta)} \left\|d\tilde\pi/d\pi\right\| _ {L^2(\pi)}.
+\]</span></p>
+<p>This shows how small chances in the prior does not result in a dramatic change in the expected loss of an estimator, as long as the priors have “compatible tails” (i.e. a manageable likelihood ratio).</p>
+<ol start="2" type="1">
+<li><p>It is sometimes advocated to choose the prior <span class="math inline">\(\pi\)</span> so that the risk <span class="math inline">\(R(\hat \theta _ \pi; \theta _ 0)\)</span> is constant over <span class="math inline">\(\theta _ 0\)</span>: the resulting estimator <span class="math inline">\(\hat \theta _ \pi\)</span> is then agnostic, from a risk point of view, to <span class="math inline">\(\theta _ 0\)</span>. This may result in a sample-size dependent prior (which is arguably not in the Bayesian spirit), but the fun thing is that it makes the expected risk <em>maximal</em> and the Bayes estimator <span class="math inline">\(\hat \theta _ \pi\)</span> minimax: <span class="math inline">\(\hat \theta _ \pi \in \arg\min _ {\hat\theta} \sup _ {\theta _ 0}R(\hat \theta;\theta _ 0)\)</span>. Indeed, in that case we have for any estimator <span class="math inline">\(\hat \theta\)</span> that <span class="math inline">\(\sup _ {\theta _ 0} R(\hat \theta; \theta _ 0) \geq B _ \pi(\hat \theta) \geq B _ \pi(\theta _ \pi) = \sup _ {\theta _ 0}R(\hat \theta _ \pi;\theta _ 0)\)</span>, from which it follows that <span class="math inline">\(\hat \theta _ \pi\)</span> is minimax.</p></li>
+<li><p>The idea of minimizing expected risk is not quite Bayesian, since it required us to first average over all data possibilities when computing the risk. One of the main advantage of the Bayesian framework is that it allows us to <em>condition</em> over the observed data, rather than pre-emptively considering all possibilities, and we can try to make use of that. Define the <strong>posterior expected loss</strong> (or <strong>posterior risk</strong>) or an estimator <span class="math inline">\(\hat \theta\)</span>, conditionally on <span class="math inline">\(X\)</span>, as</p></li>
+</ol>
+<p><span class="math display">\[
+   R _ \pi(\hat \theta\mid X) = \mathbb{E} _ {\theta _ 0 \sim \pi(\cdot \mid X)}\left[(\hat \theta(X) - \theta _ 0)^2\right].
+\]</span></p>
+<ul>
+<li style="list-style-type: none;">
+It is clear from the previous computations that the posterior mean estimate minimizes the posterior risk, and hence the two approaches are equivalent. It turns out that, whatever the loss function we consider (under some regularity condition ensuring that stuff is finite and minimizers exist), minimizing the posterior risk is equivalent to minimizing the Bayes risk. In other words, we have that for any loss function (again under some regularity conditions ensuring finiteness and existence of stuff), we have
+</li>
+</ul>
+<p><span class="math display">\[
+   \arg\min _ {\hat \theta}\mathbb{E} _ {X \sim m}\left[\mathbb{E} _ {\theta _ 0 \sim \pi(\cdot \mid X)}[\ell(\hat \theta(X), \theta _ 0)]\right] = \arg\min _ {\hat\theta}\mathbb{E} _ {\theta _ 0 \sim \pi(\cdot \mid X)}[\ell(\hat \theta(X), \theta _ 0)].
+\]</span></p>
+<ul>
+<li style="list-style-type: none;">
+This is roughly self-evident if we think about it. An interesting consequence is that any estimator minimizing a Bayes risk is a function of the posterior distribution.
+</li>
+</ul>
+<h2 id="randomized-estimation-and-information-risk-minimization">2. Randomized estimation and information risk minimization</h2>
+<p>Let <span class="math inline">\(\Theta\)</span> be a model, let <span class="math inline">\(X \sim Q\)</span> be some data and let <span class="math inline">\(\ell _ \theta(X)\)</span> be a loss associated with using <span class="math inline">\(\theta\)</span> to fitting the data <span class="math inline">\(X\)</span>. For instance, we could have <span class="math inline">\(\Theta = \{f:\mathcal{X} \rightarrow \mathbb{R}\}\)</span> a set of functions, <span class="math inline">\(X =\{(U _ i, Y _ i)\} _ {i=1}^n \subset \mathcal{X}\times \mathbb{R}\)</span> a set of features with associated responses, and <span class="math inline">\(\ell _ \theta(X) = \sum _ {i}(Y _ i -\theta(U _ i))^2\)</span> the sum of squared loss.</p>
+<p>There may be a parameter <span class="math inline">\(\theta _ 0\in\Theta\)</span> minimizing the risk <span class="math inline">\(R(\theta) = \mathbb{E} _ {X\sim Q}[\ell _ \theta(X)]\)</span>, which will then be our learning target. Now we consider <em>randomized</em> estimators taking the form <span class="math inline">\(\theta\sim \hat \pi _ X\)</span>, where <span class="math inline">\(\hat\pi _ X\)</span> is a data-dependent distribution, and the performance of this estimation method can then be evaluated by the empirical risk <span class="math inline">\(R _ X (\hat\pi _ X) = \mathbb{E} _ {\theta \sim \hat \pi _ X}[\ell _ \theta(X)]\)</span>.</p>
+<p>Here we should be raising an eyebrow. There is typically no point in having the estimator <span class="math inline">\(\theta\)</span> being random, i.e. we typically will prefer to take <span class="math inline">\(\hat \pi _ X\)</span> a point mass rather than anything else. But bear with me for a sec. The cool thing is that if we choose</p>
+<p><span class="math display">\[
+\hat \pi _ X = \arg\min _ {\hat \pi _ X} \left\{R(\hat \pi _ X) + D(\hat \pi _ X \| \pi)\right\}, \tag{$*$}
+\]</span></p>
+<p>where <span class="math inline">\(D(\hat \pi _ X\| \pi) = \int \log \frac{d\hat \pi _ X}{d\pi} \,d\hat \pi _ X\)</span> is the Kullback-Leibler divergence, then this distribution will satisfy</p>
+<p><span class="math display">\[
+d\hat \pi _ X(\theta) \propto e^{-\ell _ \theta(X)}d\pi(\theta).
+\]</span></p>
+<p>That is, Bayesian-type posteriors arise by minimizing the empirical risk of a randomized estimation scheme penalized by the Kullback-Leibler divergence form prior to posterior <a href="https://ieeexplore.ieee.org/document/1614067/">(Zhang, 2006)</a>.</p>
+<p>For the proof, write</p>
+<p><span class="math display">\[
+R _ X(\hat \pi _ X) + D(\hat \pi _ X \| \pi) = \int \left(\ell _ \theta(X) + \log\frac{d\hat \pi _ X(\theta)}{d\pi(\theta)}\right) d\hat \pi _ X (\theta)=\int\left(\log\frac{d\hat\pi _ X(\theta)}{e^{-\ell _ \theta(X)}d\pi(\theta)}\right)d\hat \pi _ X(\theta)
+\]</span></p>
+<p>which is also equal to <span class="math inline">\(D(d\hat \pi _ X \| e^{-\ell _ \theta(X)} d\pi)\)</span> and, by properties of the Kullback-Leibler divergence, obviously minimized at <span class="math inline">\(d\hat \pi _ X \propto e^{\ell _ \theta(X)}d\pi(\theta)\)</span>.</p>
+<p>Is this practically useful and insightful? Possibly. But at least this approach is suited to a general theory, as shown in Zhang (2006) and as I reproduce below.</p>
+<p>Let us introduce a Rényi-type generalization error defined, for <span class="math inline">\(\alpha \in (0,1)\)</span>, by</p>
+<p><span class="math display">\[
+d _ \alpha(\theta; Q) = -\alpha^{-1}\log\mathbb{E} _ {X&#39; \sim Q}[e^{-\alpha \ell _ \theta(X&#39;)}].
+\]</span></p>
+<p>This is a measure of loss associated with the use of a parameter <span class="math inline">\(\theta\)</span> to fit new data <span class="math inline">\(X&#39; \sim Q\)</span>. We also write</p>
+<p><span class="math display">\[
+d _ \alpha(\hat \pi _ X; Q) = -\mathbb{E} _ {\theta \sim \hat \pi _ X}\left[ \alpha^{-1}\log\mathbb{E} _ {X&#39; \sim Q}[e^{-\alpha \ell _ \theta(X&#39;)}] \right]
+\]</span></p>
+<p>for the expected Rényi generalization error when using the randomization scheme <span class="math inline">\(\theta \sim \hat \pi _ X\)</span>.</p>
+<p>In order to get interesting bounds on this generalization error, we can follow the approach of Zhang (2006).</p>
+<h4 id="change-of-measure-inequality">Change of measure inequality</h4>
+<p>We’ll need the change of measure inequality, which states that for any function <span class="math inline">\(f\)</span> and distributions <span class="math inline">\(\pi\)</span>, <span class="math inline">\(\hat \pi\)</span> on <span class="math inline">\(\Theta,\)</span></p>
+<p><span class="math display">\[
+\mathbb{E} _ {\theta \sim \hat\pi}[f(\theta)] \leq D(\hat \pi \| \pi) + \log \mathbb{E} _ {\theta \sim \pi}\left[e^{f(\theta)}\right].
+\]</span></p>
+<p>Indeed, with some sloppyness and Jensen’s inequality we can compute</p>
+<p><span class="math display">\[
+\log \int e^{f(\theta)}\pi(d\theta)\geq \int f(\theta)\log(d\pi/d\hat\pi(\theta))d\hat \pi = \mathbb{E} _ {\theta \sim \hat \pi}[f(\theta)] - D(\hat \pi\|\pi).
+\]</span></p>
+<h4 id="generalization-error-bound">Generalization error bound</h4>
+<p>We can now attempt bounding <span class="math inline">\(d _ \alpha(\hat \pi _ X;Q)\)</span>. Consider the difference <span class="math inline">\(\Delta _ X (\theta) = d _ \alpha(\theta;Q) - \ell _ \theta(X)\)</span> between the generalization error and the empirical loss corresponding to the use of a fixed parameter <span class="math inline">\(\theta\)</span>. Then by the change of measure inequality,</p>
+<p><span class="math display">\[
+\exp\{\mathbb{E} _ {\theta \sim \hat \pi _ X}[\Delta _ X(\theta)] - D(\hat \pi _ X\|\pi)\} \leq \mathbb{E} _ {\theta \sim \pi}\left[e^{\Delta _ X(\theta)}\right]
+\]</span></p>
+<p>and hence for any <span class="math inline">\(\pi\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{E} _ {X \sim Q}\left[\exp\left\{\mathbb{E} _ {\theta \sim \hat \pi _ X}[\Delta _ X(\theta)] - D(\hat \pi _ X\|\pi)\right\}\right] \leq \mathbb{E} _ {X \sim Q}\left[\mathbb{E} _ {\theta \sim \pi}\left[e^{\Delta _ X(\theta)}\right]\right] = 1
+\]</span></p>
+<p>By Markov’s inequality, this implies that <span class="math inline">\(\forall t &gt; 0\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{P}\left(\mathbb{E} _ {\theta \sim \hat \pi _ X}[\Delta _ X(\theta)] - D(\hat \pi _ X\|\pi) \geq t\right) \leq e^{-t}.
+\]</span></p>
+<p>Rewriting yields</p>
+<p><span class="math display">\[
+d _ \alpha(\hat \pi _ X;Q) \leq R _ X(\hat \pi _ X) + D(\hat \pi _ X\|\pi) + t
+\]</span></p>
+<p>with probability at least <span class="math inline">\(1-e^{-t}\)</span>. To recap: the term <span class="math inline">\(d _ \alpha(\hat \pi _ X;Q)\)</span> is understood as a generalization error, on the right hand side <span class="math inline">\(R _ X(\hat \pi _ X) = \mathbb{E} _ {\theta \sim \hat \pi _ X}[\ell _ \theta(X)]\)</span> is the empirical risk, the Kullback-Leibler divergence <span class="math inline">\(D(\hat \pi _ X\|\pi)\)</span> penalizes the complexity of <span class="math inline">\(\hat\pi _ X\)</span> seen as a divergence from a “prior” <span class="math inline">\(\pi\)</span>, and <span class="math inline">\(t\)</span> is a tuning parameter.</p>
+<h2 id="online-learning-regret-and-kullback-leibler-divergence">3. Online learning, regret and Kullback-Leibler divergence</h2>
+<p>Following <a href="http://www.stat.yale.edu/~arb4/publications_files/information%20theoric%20characterization%20of%20bayes%20performance.pdf">Barron (1998)</a>, suppose we sequentially observe data points <span class="math inline">\(X _ 1, X _ 2, X _ 3, \dots\)</span> which are say i.i.d. with common distribution <span class="math inline">\(Q\)</span> with density <span class="math inline">\(q\)</span>. At each time step <span class="math inline">\(n\)</span>, the goal is to predict <span class="math inline">\(X _ {n+1}\)</span> using the data <span class="math inline">\(X^n = (X _ 1, \dots, X _ n)\)</span>. Our prediction is not a point estimate of <span class="math inline">\(X _ {n+1}\)</span>, but somewhat similarly as in the randomized estimation scenario we output a density estimate <span class="math inline">\(\hat p _ n = p(\cdot \mid X^n)\)</span>, the goal being that <span class="math inline">\(p(X _ {n+1}\mid X^n)\)</span> be as large as possible. A bit more precisely, we individually score a density estimate <span class="math inline">\(\hat p _ n\)</span> through the risk <span class="math inline">\(\ell _ q(\hat p _ n) = \mathbb{E} _ {X _ {n+1}\sim q}[\log(q(X _ {n+1})/\hat p _ n(X _ {n+1} ))] = D(q\| \hat p _ n)\)</span> which is the Kullback-Leibler divergence between <span class="math inline">\(\hat p _ n\)</span> and <span class="math inline">\(q\)</span>. The <em>regret</em> over times <span class="math inline">\(n=1, 2,\dots, N\)</span> is the sum of the risk over the whole process, i.e.</p>
+<p><span class="math display">\[
+\text{regret} = \sum _ {n=1}^N D(q\| \hat p _ n).
+\]</span></p>
+<p>Formally, this process is equivalent to estimating the distribution of <span class="math inline">\(X^N\)</span> all at once: our density estimate <span class="math inline">\(\hat p^N\)</span> of <span class="math inline">\(X^N\)</span> would simply be</p>
+<p><span class="math display">\[
+\hat p^N(X^N) = \prod _ {n=1}^N \hat p _ n(X _ n)
+\]</span></p>
+<p>and the regret is, by the chain rule, simply <span class="math inline">\(D(q^N \| \hat p^N)\)</span>, where <span class="math inline">\(q^N\)</span> is the <span class="math inline">\(N\)</span>th independent product of <span class="math inline">\(q\)</span>.</p>
+<p>Given a prior <span class="math inline">\(\pi\)</span> over a space of distributions for <span class="math inline">\(q\)</span>, our problem then to minimize the Bayes risk</p>
+<p><span class="math display">\[
+B _ \pi(\hat p^N) = \mathbb{E} _ {q\sim \pi} D(q^N\|\hat p^N).
+\]</span></p>
+<p>This is achieved by choosing <span class="math inline">\(\hat p^N(x) = \hat p _ \pi^N(x) = \int q^N(x) \pi(dq)\)</span> the <em>prior predictive</em> density. This is equivalent to using, at each time step <span class="math inline">\(n\)</span>, the poterior predictive density <span class="math inline">\(\hat p _ {n, \pi}(x) = \int q(x) \,\pi(dq\mid \{X _ i\} _ {i=1}^n)\)</span>.</p>
+<p>To see this minimizing property of the Bayes average, it suffices to write</p>
+<p><span class="math display">\[
+B _ \pi(\hat p^N) = \mathbb{E} _ {q \sim \pi} \left[D(q^N\| \hat p _ \pi^N)\right] + D(\hat p _ \pi^N \| \hat p^N).
+\]</span></p>
+<p>Note that an consequence of this analysis is also that the posterior predictive distribution <span class="math inline">\(\hat p _ {n, \pi}\)</span> will minimize the expected posterior risk:</p>
+<p><span class="math display">\[
+\hat p _ {n, \pi} \in \arg\min _ {\hat p _ {n}} \mathbb{E} _ {q \sim \pi(\cdot\mid X^n)}\left[D(q\|\hat p _ n)\right].
+\]</span></p>
+<p>Following section 1, this furthermore means that the posterior predictive distribution minimizes the Bayes risk associated with the Kullback-Leibler loss.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

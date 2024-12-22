@@ -1,0 +1,12 @@
+---
+title: "Constructive approximation of compact hypersurfaces"
+author:
+  - name: Olivier Binette
+date: 04-29-2017
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+Use this [link to the pdf text.](text.pdf)

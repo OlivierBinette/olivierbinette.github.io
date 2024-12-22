@@ -1,0 +1,88 @@
+---
+title: "Global bounds for the Jensen functional"
+description: |
+  Some techniques to bound the Jensen functional.
+author:
+  - name: Olivier Binette
+date: 05-19-2019
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+Given a convex  function $\varphi : \mathbb{R} \rightarrow \mathbb{R}$ and $X$ a random variable on $\mathbb{R}$, the Jensen functional of $\varphi$ and $X$ is defined as
+
+$$
+\mathcal{J}(\varphi, X) = \mathbb{E}[\varphi(X)] -\varphi(\mathbb{E}[X]).\tag{1}
+$$
+
+The well-known Jensen inequality states that $\mathcal{J}(\varphi, X) \geq 0$. For instance, if $\varphi(x) = x^2$, then $\mathcal{J}(\varphi, X) = \text{Var}(X) \geq 0$. If $\mu$ and $\nu$ are two probability measures, $X \sim \nu$ and $\varphi$ is convex with $\varphi(1) = 0$, then $\mathcal{J}(\varphi, \tfrac{d\mu}{d\nu}(X)) =: D_\varphi(\mu, \nu)$ is a so-called [$f$-divergence between probability measures](https://en.wikipedia.org/wiki/F-divergence) such as the total variation distance, the Kullback-Leibler divergence, the $\chi^2$ divergence, etc.
+
+If $X$ is bounded, then a converse to the Jensen inequality can be easily obtained as follows: let $m$ and $M$ be the infimum and maximum of $X$, and write $X = \alpha m + (1-\alpha)M$ for some random variable $\alpha$ taking values in $[0,1]$. Then $\mathbb{E}[\alpha] = (M - \mu)/(M-m)$ and consequently with $\mu:= \mathbb{E}[X]$,
+
+$$
+\mathcal{J}(\varphi, X) \leq \mathbb{E}[\alpha\phi(m) + (1-\alpha)\phi(M)] - \varphi(\mu)\\
+\qquad= \frac{(M-\mu)\varphi(m) + (\mu-m)\varphi(M)}{M-m}- \varphi(\mu).\tag{2}
+$$
+
+<!--more-->
+
+When $\mu$ is unknown in practice, then maximizing the above over all possibilities is the bound
+$$
+\mathcal{J}(\varphi, X) \leq \max_{p \in [0,1]} \left\{p\varphi(m) + (1-p)\varphi(M) - \varphi(pm + (1-p) M)\right\}\tag{3}
+$$
+
+which is Theorem C in [Simic (2011)](https://www.sciencedirect.com/science/article/abs/pii/S0096300309007346).
+
+## Some examples
+
+**Variance bound.** Consider for example the case where $\varphi(x) = x^2$, so that $\mathcal{J}(\varphi, X) = \text{Var}(X)$. Then for $X$ taking values in say $[0,1]$, the above bounds read as
+
+$$
+\text{Var}(X) \leq \mu(1-\mu) \leq 1/4
+$$
+
+which is a well-known elementary result. 
+
+**$f$-divergence bounds.** In [(Binette, 2019)](https://arxiv.org/abs/1805.05135), I show how we can use similar ideas to get best-possible *reverse Pinsker inequalities*: upper bounds on $f$-divergences in terms of the total variation distance and likelihood ratio extremums. In particular, with $D(\mu\|\nu) = \int \log\left(\frac{d\mu}{d\nu}\right) d\mu$ the Kullback-Leibler divergence between the probability measures $\mu$ and $\nu$, we find that if $a = \inf \frac{d\nu}{d\mu}$ and $b = \sup \frac{d\nu}{d\mu}$, then 
+$$
+D(\mu|\nu) \leq \sup_A|\mu(A) - \nu(A)| \left(\frac{\log(a)}{a-1} +\frac{\log(b)}{1-b}\right).
+$$
+
+Applying again the Jensen functional bound to $\sup_A \lvert \mu(A)-\nu(A) \rvert = \frac{1}{2}\int\left \lvert \frac{d\mu}{d\nu} - 1\right \rvert  d\nu$, we obtain 
+
+$$
+\sup_A|\mu(A) - \nu(A)| \leq \frac{(M-1)(1-m)}{M-m}
+$$
+
+and this implies the *range of values theorem*
+
+$$
+D(\mu|\nu) \leq \frac{(a-1)\log(b) + (1-b)\log(a)}{b-a}.
+$$
+
+## Variations
+
+In cases where $\mu$ is unknown and optimizing over all possibilities is not quite feasible, we can use the following trick.
+
+Let $f(x) = x\varphi(m) + (1-x)\varphi(M) - \varphi(x m +(1-x)M)$ be the term involved in the maximization step of $(3)$. Then $f$ is concave with $f(0) = f(1) = 0$, and hence for any $p \in (0,1)$ we have that
+
+$$
+\max_{x \in [0,1]} f(x) \leq (\min\{p, 1-p\})^{-1}f\left(pm +(1-p)M\right).
+$$
+
+In particular, taking $p = 1/ 2$, we obtain the result of [Simic (2008)](https://www.sciencedirect.com/science/article/pii/S0022247X08000814) stating that
+
+$$
+\mathcal{J}(\varphi, X) \leq \varphi(m) + \varphi(M) - 2\varphi\left(\frac{m+M}{2}\right).
+$$
+
+When $\varphi$ is differentiable (this assumption is not strictly necessary but it facilitate the statements), then we can use the concavity of $f$ (using the fact that $f(0) = f(1) = 0$) to very easily obtain
+
+$$
+\mathcal{J}(\varphi, X) \leq \frac{f'(1)f'(0)}{f'(1)-f'(0)} \leq \frac{1}{4}(f'(0)-f'(1)) = \frac{1}{4}(M-m)(\varphi'(M) - \varphi'(m))
+$$
+
+which is an inequality attributed to S.S. Dragomir (1999), although I haven't managed to find the original paper yet.
+
+

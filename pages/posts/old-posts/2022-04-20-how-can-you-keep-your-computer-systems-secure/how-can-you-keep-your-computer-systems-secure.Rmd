@@ -1,0 +1,41 @@
+---
+title: "How can you keep your computer systems secure?"
+description: |
+  As a professional working with sensitive data, I am responsible for keeping my computers and accounts secure. Here's how I do it and how you can too.
+preview: banner.jpeg
+author:
+  - name: Olivier Binette
+    url: https://olivierbinette.github.io
+    affiliation: Duke University
+    orcid_id: 0000-0001-6009-5206
+date: 2022-04-20
+repository_url: https://github.com/recordlinkageig/recordlinkageig.github.io
+creative-commons: CC BY-SA
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+*Note: this is a cross-post [from LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:6922694677406068736/).*
+
+As a professional working with sensitive data, I am responsible for keeping my computers and accounts secure. Here's how I do it and how you can too. ⬇️
+
+First, we need to understand the risks which we face as individuals. There are three main categories:
+
+1. Liability risks -- if you have sensitive information on a hard drive and that drive gets stolen, you most likely will have to disclose the theft to your customers. Wether or the theft had anything to do with that data, you're in trouble.
+
+2. Active threats -- hackers are always trying to get at you through automated attacks. There are two main targets here: poorly configured systems which are connected to the internet, and poorly educated users which can be reached via email, ads, and websites. If you get compromised, you could become liable for whatever the hacker does with your system and data.
+
+3. "I f'd up" risks -- we all mess up. You will eventually lose data or lose access to important accounts. You need contingency plans.
+
+💡 Now here's how you can deal with these risks:
+
+➡️ To mitigate liability risks, keep all of your drives encrypted. Make sure to properly handle sensitive data by following a clear set of agreed-upon guidelines.
+
+➡️ For active threats, don't be a low-hanging fruit for hackers. Change the default password to your router (most routers on the planet have "admin" as their default username and password). Use a VPN (I recommend Mozilla VPN). Use at least one adblocker on each of your web browser and enable stricter security settings (I recommend firefox with uBlock Origin). Enable your ablocker in private browsing. Don't install software from untrusted sources. Keep all of your software up to date. Use a password manager. Use two-factor authentication for all of your important accounts. Print out recovery codes. Learn about malware and phishing.
+
+➡️ To mitigate "I f'd up" risks, make sure you backup your data and that you have recovery plans. Make sure you have backup accounts and that you can keep your business running if something goes down.
+
+Does it sound like a lot? It is. Properly handling security requires an investment of time and money.
+
+You don't need to figure everything at once, though. One step at a time, you can work towards securing your systems.
