@@ -2,7 +2,9 @@
 title: "Strategic Project Management Made Simple"
 description: Summary of Terry Schmidt’s “Strategic Project Management Made Simple.“ Everything is taken **verbatim** from the book.
 date: 2024-09-04
-format: html
+categories:
+  - general
+  - management
 ---
 
 ::: {.callout-note appearance="simple"}
