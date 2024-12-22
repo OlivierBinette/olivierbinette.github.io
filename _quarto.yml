@@ -7,6 +7,8 @@ language:
   
 website:
   title: "Olivier Binette"
+  google-analytics:
+      tracking-id: "G-059GDHV0GP"
   search:
     location: navbar
     type: overlay
@@ -41,6 +43,3 @@ format:
       type: implied
       style: simple
       palette: light
-    google-analytics:
-      tracking-id: "G-059GDHV0GP"
-      anonymize-ip: true
