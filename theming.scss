@@ -30,7 +30,52 @@ $code-block-bg: #fafafa;
 // Navbar
 $navbar-bg: white;
 $navbar-fg: black;
+$dropdown-border-color: $my-accent-bg !important;
 .navbar {
   letter-spacing: 2px;
   text-transform: uppercase;
+}
+.nav-link.dropdown-toggle.show:focus-visible {
+  outline: 5px solid #f0f0f0 !important;
+}
+.dropdown-item {
+  color: black !important;
+}
+.dropdown-item:active {
+  background-color: white !important;
+  color: $my-accent-color !important;
+}
+.dropdown-menu.dropdown-menu-end.show {
+  border-color: #f0f0f0 !important;
+  border-width: 2px;
+}
+
+// Blog listing
+.listing-category {
+  padding: .05em .5em;
+  margin-right: 2px;
+  font-size: .65em;
+  text-transform: uppercase;
+  border: solid 1px;
+  border-radius: .25rem;
+  opacity: .6;
+  box-sizing: border-box;
+  color: $my-accent-color;
+  display: inline-block;
+}
+.listing-date {
+  font-size: .8em;
+}
+/* Adjust the width of the first column (Date) */
+.quarto-listing-table td:first-child {
+  white-space: nowrap;
+  width: 1%;
+}
+
+// Blog category cloud
+.category-cloud .category {
+  margin-right: 5px;
+}
+.category-cloud .category.active {
+  color: $my-accent-color;
 }

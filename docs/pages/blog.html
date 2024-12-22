@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Olivier Binette">
+<meta name="description" content="A collection of reflections, projects, and thoughts, big and small.">
 
-<title>What’s New – Olivier Binette</title>
+<title>Skywriting – Olivier Binette</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-41d0922e3213cd14dddcd51cd5a0b369.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-274a1db5aa11b0359da31139a47070f1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-997f2e1e445b8bd128d69734730053d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-date','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-date","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -104,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-059GDHV0GP', { 'anonymize_ip': true});
+gtag('config', 'G-059GDHV0GP', { 'anonymize_ip': false});
 </script>
 <style>
 
@@ -154,6 +155,12 @@ window.Quarto = {
 };
 </script>
 
+<link rel="alternate" type="application/rss+xml" title="Olivier Binette" href="blog.xml" data-external="1"><meta property="og:title" content="Skywriting – Olivier Binette">
+<meta property="og:description" content="A collection of reflections, projects, and thoughts, big and small.">
+<meta property="og:site_name" content="Olivier Binette">
+<meta name="twitter:title" content="Skywriting – Olivier Binette">
+<meta name="twitter:description" content="A collection of reflections, projects, and thoughts, big and small.">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="floating nav-fixed">
@@ -181,13 +188,30 @@ window.Quarto = {
     <a class="nav-link active" href="../pages/blog.html" aria-current="page"> 
 <span class="menu-text">Blog</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../pages/research.html"> 
-<span class="menu-text">Publications</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-creations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Creations</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-creations">    
+        <li>
+    <a class="dropdown-item" href="../pages/research.html">
+ <span class="dropdown-text">Publications</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../pages/software.html"> 
-<span class="menu-text">Software</span></a>
+        <li>
+    <a class="dropdown-item" href="../pages/software.html">
+ <span class="dropdown-text">Software</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.github.com/OlivierBinette"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../pages/blog.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -200,8 +224,13 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">What’s New</h1>
-                      </div>
+      <h1 class="title">Skywriting</h1>
+                  <div>
+        <div class="description">
+          A collection of reflections, projects, and thoughts, big and small.
+        </div>
+      </div>
+                </div>
   </div>
     
   
@@ -221,7 +250,7 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVjb3JkJTIwTGlua2FnZQ==">Record Linkage <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-cloud"><div class="category" data-category="Z2VuZXJhbA=="><span class="quarto-category-count category-cloud-5">general</span></div><div class="category" data-category="a25vd2xlZGdlLW1hbmFnZW1lbnQ="><span class="quarto-category-count category-cloud-2">knowledge-management</span></div><div class="category" data-category="bWFuYWdlbWVudA=="><span class="quarto-category-count category-cloud-2">management</span></div><div class="category" data-category="bWF0aA=="><span class="quarto-category-count category-cloud-3">math</span></div><div class="category" data-category="cHJvZHVjdC1kZXZlbG9wbWVudA=="><span class="quarto-category-count category-cloud-2">product-development</span></div><div class="category" data-category="cHl0aG9u"><span class="quarto-category-count category-cloud-3">python</span></div><div class="category" data-category="c3RhdGlzdGljcw=="><span class="quarto-category-count category-cloud-3">statistics</span></div><div class="category" data-category="dGVjaG5pY2Fs"><span class="quarto-category-count category-cloud-6">technical</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -271,7 +300,67 @@ Categories
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="UHl0aG9uJTJDUmVjb3JkJTIwTGlua2FnZQ==" data-listing-date-sort="1640235600000" data-listing-file-modified-sort="1734834913445" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="27" data-listing-word-count-sort="5254" data-listing-title-sort="Record Linkage at the Duke GPSG Community Pantry" data-listing-filename-sort="record-linkage-at-the-gpsg-community-pantry.Qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="0" data-categories="Z2VuZXJhbCUyQ3Byb2R1Y3QtZGV2ZWxvcG1lbnQ=" data-listing-date-sort="1725422400000" data-listing-file-modified-sort="1734895482118" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="239" data-listing-title-sort="Product Development Is Hard" data-listing-filename-sort="2024-09-04-product-development-is-hard.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Sep 4, 2024</span>
+</td>
+<td>
+<a href="../pages/posts/2024-09-04-product-development-is-hard/2024-09-04-product-development-is-hard.html" class="title listing-title">Product Development Is Hard</a>
+</td>
+<td>
+<span class="listing-categories">general, product-development</span>
+</td>
+</tr>
+<tr data-index="1" data-categories="dGVjaG5pY2FsJTJDcHl0aG9u" data-listing-date-sort="1724472000000" data-listing-file-modified-sort="1734895455275" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1157" data-listing-title-sort="Test-Driven Development is Free" data-listing-filename-sort="2024-08-24-test-driven-development-is-free.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Aug 24, 2024</span>
+</td>
+<td>
+<a href="../pages/posts/2024-08-24-test-driven-development-is-free/2024-08-24-test-driven-development-is-free.html" class="title listing-title">Test-Driven Development is Free</a>
+</td>
+<td>
+<span class="listing-categories">technical, python</span>
+</td>
+</tr>
+<tr data-index="2" data-categories="Z2VuZXJhbCUyQ2tub3dsZWRnZS1tYW5hZ2VtZW50" data-listing-date-sort="1723694400000" data-listing-file-modified-sort="1734895857384" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="465" data-listing-title-sort="Personal Knowledge Management" data-listing-filename-sort="2024-08-15-personal-knowledge-management.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Aug 15, 2024</span>
+</td>
+<td>
+<a href="../pages/posts/2024-08-15-personal-knowledge-management/2024-08-15-personal-knowledge-management.html" class="title listing-title">Personal Knowledge Management</a>
+</td>
+<td>
+<span class="listing-categories">general, knowledge-management</span>
+</td>
+</tr>
+<tr data-index="3" data-categories="Z2VuZXJhbCUyQ21hbmFnZW1lbnQ=" data-listing-date-sort="1723694400000" data-listing-file-modified-sort="1734895863894" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="666" data-listing-title-sort="Measurement and Management" data-listing-filename-sort="2024-08-15-measurement-and-management.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Aug 15, 2024</span>
+</td>
+<td>
+<a href="../pages/posts/2024-08-15-measurement-and-management/2024-08-15-measurement-and-management.html" class="title listing-title">Measurement and Management</a>
+</td>
+<td>
+<span class="listing-categories">general, management</span>
+</td>
+</tr>
+<tr data-index="4" data-categories="dGVjaG5pY2FsJTJDbWF0aCUyQ3N0YXRpc3RpY3M=" data-listing-date-sort="1710734400000" data-listing-file-modified-sort="1734889771770" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="593" data-listing-title-sort="Comment on The Sample Size Required in Importance Sampling" data-listing-filename-sort="2017-03-18-comment-on-sample-size-for-importance-sampling.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Mar 18, 2024</span>
+</td>
+<td>
+<a href="../pages/posts/2017-03-18-comment-on-sample-size-for-importance-sampling/2017-03-18-comment-on-sample-size-for-importance-sampling.html" class="title listing-title">Comment on The Sample Size Required in Importance Sampling</a>
+</td>
+<td>
+<span class="listing-categories">technical, math, statistics</span>
+</td>
+</tr>
+<tr data-index="5" data-categories="dGVjaG5pY2FsJTJDcHl0aG9uJTJDc3RhdGlzdGljcw==" data-listing-date-sort="1640235600000" data-listing-file-modified-sort="1734889784277" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="27" data-listing-word-count-sort="5254" data-listing-title-sort="Record Linkage at the Duke GPSG Community Pantry" data-listing-filename-sort="record-linkage-at-the-gpsg-community-pantry.Qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">Dec 23, 2021</span>
@@ -280,7 +369,19 @@ Categories
 <a href="../pages/posts/2022-01-01-record-linkage-at-the-gpsg-community-pantry/record-linkage-at-the-gpsg-community-pantry.html" class="title listing-title">Record Linkage at the Duke GPSG Community Pantry</a>
 </td>
 <td>
-<span class="listing-categories">Python, Record Linkage</span>
+<span class="listing-categories">technical, python, statistics</span>
+</td>
+</tr>
+<tr data-index="6" data-categories="dGVjaG5pY2FsJTJDbWF0aA==" data-listing-date-sort="1493438400000" data-listing-file-modified-sort="1734883237943" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="405" data-listing-title-sort="Short Proof: Critical Points in Invariant Domains" data-listing-filename-sort="2017-04-29-critical-points-in-invariant-domains.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Apr 29, 2017</span>
+</td>
+<td>
+<a href="../pages/posts/2017-04-29-critical-points-in-invariant-domains/2017-04-29-critical-points-in-invariant-domains.html" class="title listing-title">Short Proof: Critical Points in Invariant Domains</a>
+</td>
+<td>
+<span class="listing-categories">technical, math</span>
 </td>
 </tr>
 </tbody>
@@ -379,7 +480,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/olivierbinette\.ca");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -746,6 +847,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright © 2024 Olivier Binette
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script type="text/javascript">
+// Split up listing-categories into individual listing-category elements that I can style.
+const parseListingTableRows = function () {
+    document.querySelectorAll('.listing-categories').forEach((span) => {
+      const categories = span.textContent.split(',').map(cat => cat.trim());
+
+      categories.forEach(category => {
+          const categoryDiv = document.createElement('div');
+          categoryDiv.className = 'listing-category';  // This automatically applies the styles from your CSS
+
+          const link = document.createElement('a');
+          link.href = `/pages/blog.html#category=${encodeURIComponent(category)}`;
+          link.textContent = category;
+
+          categoryDiv.appendChild(link);
+          span.insertAdjacentElement('beforebegin', categoryDiv);
+      });
+
+      // Remove the original span
+      span.remove();
+
+      // Remove the onclick handlers from each row in the table
+      document.querySelectorAll('tr[onclick]').forEach((row) => {
+          row.removeAttribute('onclick');
+      });
+  });
+};
+
+// To re-parse category tags when selecting categories from word cloud.
+const parseWordCloud = function() {
+    document.querySelectorAll('.quarto-listing-category-title').forEach((title) => {
+      title.addEventListener('click', parseListingTableRows);
+    })
+    document.querySelectorAll('.category').forEach((category) => {
+        category.addEventListener('click', parseListingTableRows);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", parseListingTableRows);
+document.addEventListener("DOMContentLoaded", parseWordCloud);
+</script>
 
 
 

@@ -7,8 +7,12 @@ language:
   
 website:
   title: "Olivier Binette"
+  site-url: "https://olivierbinette.ca"
+  twitter-card: true
+  open-graph: true
   google-analytics:
       tracking-id: "G-059GDHV0GP"
+      anonymize-ip: false
   search:
     location: navbar
     type: overlay
@@ -18,10 +22,20 @@ website:
         text: "Home"
       - href: pages/blog.qmd
         text: "Blog"
-      - href: pages/research.qmd
-        text: "Publications"
-      - href: pages/software.qmd
-        text: "Software"
+      - text: Creations
+        menu:
+        - href: pages/research.qmd
+          text: "Publications"
+        - href: pages/software.qmd
+          text: "Software"
+      - icon: github
+        href: https://www.github.com/OlivierBinette
+      - icon: rss
+        href: pages/blog.xml
+  page-footer:
+    center: 
+      - text: "Copyright &#169 2024 Olivier Binette"
+    background: "#fafafa"
 
 format:
   html:
@@ -39,7 +53,4 @@ format:
     email-obfuscation: references
     title-block-banner: "#f8f8f8"
     title-block-banner-color: "#c00000"
-    cookie-consent:
-      type: implied
-      style: simple
-      palette: light
+

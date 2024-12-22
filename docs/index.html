@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-41d0922e3213cd14dddcd51cd5a0b369.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-274a1db5aa11b0359da31139a47070f1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-997f2e1e445b8bd128d69734730053d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,10 +72,16 @@ ul.task-list li input[type="checkbox"] {
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-059GDHV0GP', { 'anonymize_ip': true});
+gtag('config', 'G-059GDHV0GP', { 'anonymize_ip': false});
 </script>
 
 
+<meta property="og:title" content="👋 Welcome! – Olivier Binette">
+<meta property="og:image" content="https://olivierbinette.ca/media/portrait-square.jpg">
+<meta property="og:site_name" content="Olivier Binette">
+<meta name="twitter:title" content="👋 Welcome! – Olivier Binette">
+<meta name="twitter:image" content="https://olivierbinette.ca/media/portrait-square.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -103,13 +109,30 @@ gtag('config', 'G-059GDHV0GP', { 'anonymize_ip': true});
     <a class="nav-link" href="./pages/blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./pages/research.html"> 
-<span class="menu-text">Publications</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-creations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Creations</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-creations">    
+        <li>
+    <a class="dropdown-item" href="./pages/research.html">
+ <span class="dropdown-text">Publications</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./pages/software.html"> 
-<span class="menu-text">Software</span></a>
+        <li>
+    <a class="dropdown-item" href="./pages/software.html">
+ <span class="dropdown-text">Software</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.github.com/OlivierBinette"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="./pages/blog.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -264,7 +287,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/olivierbinette\.ca");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -631,6 +654,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright © 2024 Olivier Binette
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

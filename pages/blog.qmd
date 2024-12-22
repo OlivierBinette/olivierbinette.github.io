@@ -1,6 +1,6 @@
 ---
-title: "What's New"
-description: ""
+title: "Skywriting"
+description: "A collection of reflections, projects, and thoughts, big and small."
 listing:
   contents: posts
   type: table
@@ -10,8 +10,52 @@ listing:
     - date
     - title
     - categories
-  categories: true
-  filter-ui: true
+  categories: cloud
+  filter-ui: [title, date, categories]
   sort-ui: true
+  sort: "date desc"
   feed: true
+include-after-body:
+  text: |
+    <script type="text/javascript">
+    // Split up listing-categories into individual listing-category elements that I can style.
+    const parseListingTableRows = function () {
+        document.querySelectorAll('.listing-categories').forEach((span) => {
+          const categories = span.textContent.split(',').map(cat => cat.trim());
+      
+          categories.forEach(category => {
+              const categoryDiv = document.createElement('div');
+              categoryDiv.className = 'listing-category';  // This automatically applies the styles from your CSS
+  
+              const link = document.createElement('a');
+              link.href = `/pages/blog.html#category=${encodeURIComponent(category)}`;
+              link.textContent = category;
+      
+              categoryDiv.appendChild(link);
+              span.insertAdjacentElement('beforebegin', categoryDiv);
+          });
+      
+          // Remove the original span
+          span.remove();
+          
+          // Remove the onclick handlers from each row in the table
+          document.querySelectorAll('tr[onclick]').forEach((row) => {
+              row.removeAttribute('onclick');
+          });
+      });
+    };
+    
+    // To re-parse category tags when selecting categories from word cloud.
+    const parseWordCloud = function() {
+        document.querySelectorAll('.quarto-listing-category-title').forEach((title) => {
+          title.addEventListener('click', parseListingTableRows);
+        })
+        document.querySelectorAll('.category').forEach((category) => {
+            category.addEventListener('click', parseListingTableRows);
+        });
+    }
+    
+    document.addEventListener("DOMContentLoaded", parseListingTableRows);
+    document.addEventListener("DOMContentLoaded", parseWordCloud);
+    </script>
 ---

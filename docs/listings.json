@@ -2,7 +2,13 @@
   {
     "listing": "/pages/blog.html",
     "items": [
-      "/pages/posts/2022-01-01-record-linkage-at-the-gpsg-community-pantry/record-linkage-at-the-gpsg-community-pantry.html"
+      "/pages/posts/2024-09-04-product-development-is-hard/2024-09-04-product-development-is-hard.html",
+      "/pages/posts/2024-08-24-test-driven-development-is-free/2024-08-24-test-driven-development-is-free.html",
+      "/pages/posts/2024-08-15-personal-knowledge-management/2024-08-15-personal-knowledge-management.html",
+      "/pages/posts/2024-08-15-measurement-and-management/2024-08-15-measurement-and-management.html",
+      "/pages/posts/2017-03-18-comment-on-sample-size-for-importance-sampling/2017-03-18-comment-on-sample-size-for-importance-sampling.html",
+      "/pages/posts/2022-01-01-record-linkage-at-the-gpsg-community-pantry/record-linkage-at-the-gpsg-community-pantry.html",
+      "/pages/posts/2017-04-29-critical-points-in-invariant-domains/2017-04-29-critical-points-in-invariant-domains.html"
     ]
   }
 ]

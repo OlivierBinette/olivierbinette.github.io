@@ -1,0 +1,30 @@
+---
+title: "Product Development Is Hard"
+description: We need non-technologists to guide the development of great products that empower others.
+date: 2024-09-04
+categories: 
+  - general
+  - product-development
+---
+
+I am mostly a "technical" person. This means I tend to work on technology problems that have technology solutions. I’m interested in non-technological things as well, but it's not my expertise.
+
+In my field, **learning about a new technology can feel like gaining a superpower.** Think about being able to build a custom ChatGPT - it’s exciting!
+
+With this comes the thought: “Wouldn’t it be nice if I solved problem Y using technology X?”
+
+Unfortunately, the answer to this question is typically a resounding “no.”
+
+It’s not that problem Y is not important. Or that technology X can’t help with problem Y. The problem is that product development is hard.
+
+If I went about building a solution fueled only by my technological enthusiasm, then I would likely fail. It has happened to me before.
+
+Most people don’t care about technology. They care about a job to be done. **They want to gain a superpower of their own.**
+
+![https://jtbd.info/2-what-is-jobs-to-be-done-jtbd-796b82081cca](job-to-be-done.webp){.preview-image}
+
+Building a good product requires understanding what your customer/client wants to get done. To understand where, when, and why they might want to use your product.
+
+This is a science of its own. It’s not a technological problem, it’s a human problem. And it’s not my expertise.
+
+As technologists, we need to embrace our backline role. We need to call on non-technologists to guide the creation of great products that empower others, or learn the skills we need to get this done through training from experts or experience working with experts.

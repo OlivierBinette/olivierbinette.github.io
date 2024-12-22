@@ -1,0 +1,62 @@
+---
+title: "Measurement and Management"
+description: '"It is wrong to suppose that if you can’t measure it, you can’t manage it – a costly myth." - Edwards Deming'
+date: 2024-08-15
+categories:
+  - general
+  - management
+format: html
+---
+
+::::: columns
+::: {.column width="80%"}
+W. Edwards Deming pioneered the use of measurement and statistics in manufacturing industries, using data to improve processes. Some even credit part of the success of the post-WWII Japanese auto industry (e.g. Toyota) to Deming’s japanese career, where he taught and popularized the use of Statistical Process Control (SPC) \[1\].
+
+Unfortunately, Deming’s work and ideas are widely misunderstood. And Deming was aware of this. Much of his later writings emphasize how a **naive understanding of quality management is counterproductive**. [^1]
+:::
+
+::: {.column width="20%"}
+![W. Edwards Deming](deming.jpeg){.preview-image}
+:::
+:::::
+
+[^1]: Deming started working in Japan in 1947, bringing knowledge of the theory of Statistical Process Control (SPC) that was pioneered by Walter A. Shewhart at Bell Laboratories a few decades earlier. During post-war reconstruction, the Union of Japanese Scientists and Engineers (JUSE) invited Deming to teach SPC to engineers and managers. He went on to work with private enterprises and received multiple awards for his contributions.
+
+## Don’t manage by numbers.
+
+It's a bit confusing: Deming encouraged the use of measurement, metrics, data, and statistics, as a key tool for process improvement and quality control. And yet he also painstakingly tried to drive in points like this:
+
+-   **“It is wrong to suppose that if you can’t measure it, you can’t manage it – a costly myth.”**
+-   **“Eliminate management by numbers and numerical goals.”**
+
+How can this be? How can he simultaneously be pro-measurement, pro-data, and against data-driven management?
+
+## How can we resolve this false paradox?
+
+As a statistician, Deming was aware how important what you can’t measure is to making valid inferences. Statistics is not about data. It’s about combining data and context to make valid inferences. Data on its own has no meaning. Missing data - including both the data you wish you had and the data you don’t even know you’re missing - is more important than the data you have. A statistician’s work is to help learn about such unknowns. It’s a fallacy to make decisions based only on available data - the [McNamara fallacy](https://en.wikipedia.org/wiki/McNamara_fallacy).
+
+> “But when the McNamara discipline is applied too literally, the first step is to measure whatever can be easily measured. The second step is to disregard that which can't easily be measured or given a quantitative value. The third step is to presume that what can't be measured easily really isn't important. The fourth step is to say that what can't be easily measured really doesn't exist. This is suicide.” — [Daniel Yankelovich](https://en.wikipedia.org/wiki/Daniel_Yankelovich), "[Interpreting the New Life Styles](https://archive.org/details/sim_sales-management_1971-11-15_107_11/page/26/mode/2up?view=theater)", Sales Management (1971)
+
+The problem isn’t data or measurement. In fact, you should aim to measure as much as you can, as often as you can. You should build measurement and observability as core components of your systems and infrastructures. You should work to continually improve your approach to measurement of what matters. And you should have statisticians or data scientists make sense of these numbers through their context, given specific goals.
+
+But here’s the thing: **measurement is not management.**
+
+As a manager, your job is to create and maintain structures that drive customer value and continuous improvement. To achieve this, you need to think about knowns (i.e., data, metrics) and unknowns. Statisticians or data scientists can help you contextualize data and shed light on unknowns, athough it’s not always an easy process.
+
+## In Short
+
+There are many misconceptions surrounding data and its use in management. It is important for all to understand both the importance of data and its limitations. We can do so by learning from resources such as the Deming Institute’s website:
+
+```{=html}
+<script src="https://cdn.jsdelivr.net/npm/@mariusbongarts/previewbox/dist/index.min.js"></script>
+```
+
+<previewbox-link 
+  url="https://deming.org/explore/fourteen-points" 
+  title="Deming's Fourteen points"
+  description="Dr. W. Edwards Deming offered 14 key principles for management to follow to improve the effectiveness of a business or organization significantly. The principles (points) were first presented in his book Out of the Crisis. Below is the condensation of the 14 Points for Management, but these alone will not improve your business."
+  imageUrl="https://upload.wikimedia.org/wikipedia/commons/7/73/W._Edwards_Deming.jpg"
+  title=""
+  ></previewbox-link>
+
+Deming advocated for structures that removed fear in workers, fostered continuous improvement, and enabled taking pride in one’s work.

@@ -1,0 +1,133 @@
+---
+title: "Test-Driven Development is Free"
+description: TDD is about speeding up development and building things right the first time.
+date: 2024-08-24
+categories:
+  - technical
+  - python
+format: html
+---
+
+Test-driven development (TDD) is the practice of writing tests before starting to write functional code.
+
+It’s sounds a bit formal, but it’s very close to what we do when developing interactively in a Python notebook: starting with a working example before refactoring code in a general-purpose function, and iterating on the process of creating examples, testing, and developing. The practice started in the early days of programming, which is why some of the guides on the topic can seem complicated. But, in short:
+
+**TDD was interactive development, before interactive development was a thing!**
+
+Now there are advantages to formalizing TDD, without needing to move away from interactive development. I won’t list all of them here, but I will point out the ones that support my argument that TDD is free.
+
+## Why TDD Is Free
+
+Here’s a key assumption I’m making: **doing things right the first time is free.** If you’re not doing it right the first time, you’ll have to come back to it later anyway. And not doing it right the first time is likely to create many unnecessary costs along the way.
+
+So, how do you do something right the first time? There are 2 parts to this:
+
+1.  You need to **know what’s the “right” thing** you want to do.
+
+2.  You need to **check that you actually did it right.**
+
+Point (2) is testing. You’ll have to test, whether it is at the beginning, throughout, or at the end.
+
+Point (1) is having clear requirements. Sure, you can write down requirements specification in detail and work off of that. But you know what else is a clear requirement? A test case.
+
+You can save time by combining points (1) and (2) together in test cases. Just keep in mind that you’ll have to **write tests first** in order to satisfy point (1).
+
+**So, TDD is free**: it’s not doing anything that you wouldn’t have to do anyway, and it’s saving you from extra work now and in the future.
+
+Note that there is a learning curve to TDD. You need to find a TDD workflow that works for you. That takes a bit of time. But afterwards, you are saving time.
+
+## This Isn’t a New Idea
+
+**You’re already doing TDD:**
+
+-   In agile development, we use “User Stories” to describe specifications. These are high-level test case descriptions: "given starting point X, I want to do Y to achieve Z." User stories don’t tell you how to code things - that’s the functional implementation. It’s something you figure out afterwards, once you know what the input looks like, what the function is meant to do, and what the result should look like.
+
+-   As mentioned earlier, interactive development is informal TDD. How can you formalize TDD in interactive development, without losing the benefits of interactive development? Simply bring the tests to your interactive development workflow. It can be done by staying organized, or you can use tools like the “ipytest” library for unit testing in Python notebooks.
+
+## Next Steps
+
+You’re already doing TDD, but maybe you’re not doing it in the most effective way. If you answer yes to some of the questions below, then it might be worth it to improve your TDD practices:
+
+-   Could you save time by catching bugs earlier?
+-   Could you save time by writing examples/tests, instead of long-form documentation?
+-   Could you save time by keeping track of the experiments, tests, and examples you use in a notebook as you develop?
+-   Could you save time by clicking a single button to run all tests in your notebook, instead of backtracking to execute notebook cells one by one?
+-   Do you often have to go back to fix bugs in your code or other people’s code?
+
+There are lots of guides online about TDD. But remember: you need to create a workflow that works for you. TDD is not about formality, complicated testing, or full-coverage testing. TDD is about speeding up your development and building things right the first time.
+
+## TDD Myths
+
+Be careful not to fall into the following traps:
+
+-   “All tests need to be written upfront.” No. Your TDD tests only need to cover what you want to code up in the next 5-30 minutes. They’re meant to help you develop, not give you analysis paralysis.
+-   “Tests can’t change.” No. TDD tests are there to help you develop. Change them as much as you like.
+-   “I can’t add more test after I’m done implementing.” No. TDD is an iterative process. Create a test, make sure it runs (and generally fails), develop, create more tests, check what fails, develop, and keep going until you are satisfied.
+-   “I don’t need QA if I do TDD.” No. TDD is all about development. It helps develop faster and better. It’s about you, as a developer, building what you want to build right the first time. But, as often happens, it’s not because something is built right that it is the right thing for your customer!
+
+## Practical Example
+
+Here’s what TDD looks like in practice.
+
+Say I want to code a function “fibonacci” that computes the first n numbers of the standard Fibonacci sequence.
+
+### Step 1: A first simple example and test
+
+First, I’ll write an example or what I want to do. This defines requirements for my function and lets me check it. The first tests should be simple and useful for development. If I don’t know in advance what the output should be, that’s OK: I can do a smoke test instead (just check that the function runs without error and show its output).
+
+``` python
+# Input
+input_n = 5
+
+# Output
+expected_output = [1, 2, 3, 5, 8]
+```
+
+Then I keep track of this as a test case, so it’s easy to execute.
+
+``` python
+def test_fibonacci():
+  assert fibonnaci(input_n) == expected_output
+```
+
+Notice that this first step is very simple and directly related to my current development task: develop a function that gets the logic right. I don’t want to worry about edge cases and every detail right now, so I don’t write tests/examples for that.
+
+### Step 2: Implement and check
+
+Now I code the function and test it.
+
+``` python
+def fibonacci(n):
+  result = [1, 2]
+  while len(result) < n:
+    result.append(result[-1], result[-2])
+  
+  return result
+
+test_fibonacci()
+```
+
+If it doesn’t pass, make changes until it does. When it passes, great! We have the right logic. Now we can think about edge cases and iterate.
+
+### Step 3: Iterate
+
+First, create examples/test cases. Again, this specifies what we want to achieve, and makes it easy for us to check it.
+
+``` python
+def test_fibonacci_edge_cases():
+  assert fibonacci(0) = []
+  assert fibonacci(1) = [1]
+  # etc 
+```
+
+Then, make changes to your function and run the tests:
+
+``` python
+def fibonacci(n):
+  ...
+
+test_fibonacci() # Make sure I didn't break anything
+test_fibonacci_edge_cases() # New tests
+```
+
+A large number of tests can quickly become unwieldy. This is where testing frameworks like pytest become handy. They keep track of test suites and let you run all tests in a single click.
