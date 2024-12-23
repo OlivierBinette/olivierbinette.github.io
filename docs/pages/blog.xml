@@ -918,7 +918,7 @@ font-style: inherit;"># New tests</span></span></code></pre></div>
 </div><div class="column" style="width:20%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://olivierbinette.ca/pages/posts/2024-08-15-measurement-and-management/deming.jpeg" class="preview-image img-fluid figure-img"></p>
+<p><a href="deming.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="W. Edwards Deming"><img src="https://olivierbinette.ca/pages/posts/2024-08-15-measurement-and-management/deming.jpeg" class="preview-image img-fluid figure-img" alt="W. Edwards Deming"></a></p>
 <figcaption>W. Edwards Deming</figcaption>
 </figure>
 </div>
@@ -2290,6 +2290,1272 @@ Tromp, Miranda, Anita C. Ravelli, Gouke J. Bonsel, Arie Hasman, and Johannes B. 
   <category>statistics</category>
   <guid>https://olivierbinette.ca/pages/posts/2022-01-01-record-linkage-at-the-gpsg-community-pantry/record-linkage-at-the-gpsg-community-pantry.html</guid>
   <pubDate>Thu, 23 Dec 2021 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Validating function arguments in R</title>
+  <link>https://olivierbinette.ca/pages/posts/2020-11-15-validating-arguments-in-r/2020-11-15-validating-arguments.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><strong>Update:</strong> The <code>assert</code> package is now available on CRAN:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"assert"</span>)</span></code></pre></div>
+<hr>
+<p>I was programming a Gibbs sampler the other day and all hell broke loose: small errors were hard to trace back to the source of the problem and debugging was a pain.</p>
+<p>The bugs could have been caught much more early if I had properly validated the input arguments of my various helper functions. So I decided it was time for me to learn how to do this properly.</p>
+<section id="validating-function-input-arguments-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="validating-function-input-arguments-in-r">Validating function input arguments in R</h2>
+<p>The easiest way is to manually incorporate checks.</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1">mySum <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(a, b) {</span>
+<span id="cb2-2">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.numeric</span>(a) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.numeric</span>(b)) {</span>
+<span id="cb2-3">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">stop</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Arguments should be numeric."</span>)</span>
+<span id="cb2-4">  }</span>
+<span id="cb2-5">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(a) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(b)) {</span>
+<span id="cb2-6">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">stop</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Arguments should be of the same length."</span>)</span>
+<span id="cb2-7">  } </span>
+<span id="cb2-8">  </span>
+<span id="cb2-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(a<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>b)</span>
+<span id="cb2-10">}</span></code></pre></div>
+<p>This works well enough, but it takes up a lot of space and you have to manually write up the description of the errors.</p>
+<section id="a-first-solution" class="level3">
+<h3 class="anchored" data-anchor-id="a-first-solution">A first solution</h3>
+<p>Let’s use the <code>assertthat</code> package.</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1">mySum <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(a, b) {</span>
+<span id="cb3-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">assert_that</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.numeric</span>(a), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.numeric</span>(b))</span>
+<span id="cb3-3">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">assert_that</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(a) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(b))</span>
+<span id="cb3-4">  </span>
+<span id="cb3-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(a<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>b)</span>
+<span id="cb3-6">}</span></code></pre></div>
+<p>This is neater, but the error messages are not very descriptive.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mySum</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1"</span>)</span>
+<span id="cb4-2">        Error<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> b is not a numeric or integer vector </span></code></pre></div>
+<p>What is <code>b</code> here? What arguments in the function call caused the error? It’s a bit hard to tell, especially if the call to this function is hidden in some large Gibbs sampler.</p>
+</section>
+<section id="the-assert-function" class="level3">
+<h3 class="anchored" data-anchor-id="the-assert-function">The <code>assert</code> function</h3>
+<p>My solution is the <code>assert</code> function which you can find <a href="https://gist.github.com/OlivierBinette/a048d7c1f470740b64e95c74828c8516">on my Github Gist</a>.</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">source</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"assert.R"</span>)</span></code></pre></div>
+<p>Usage is similar to what we did above:</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1">mySum <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(a, b) {</span>
+<span id="cb6-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">assert</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.numeric</span>(a), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.numeric</span>(b))</span>
+<span id="cb6-3">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">assert</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(a) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(b))</span>
+<span id="cb6-4">  </span>
+<span id="cb6-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(a<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>b)</span>
+<span id="cb6-6">}</span></code></pre></div>
+<p>But now we have much more descriptive error messages.</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mySum</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1"</span>)</span>
+<span id="cb7-2">        Error<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mySum</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">a =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">b =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1"</span>)</span>
+<span id="cb7-3">        Failed checks<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> </span>
+<span id="cb7-4">            <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.numeric</span>(b) </span></code></pre></div>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>technical</category>
+  <category>r-programming</category>
+  <guid>https://olivierbinette.ca/pages/posts/2020-11-15-validating-arguments-in-r/2020-11-15-validating-arguments.html</guid>
+  <pubDate>Sun, 15 Nov 2020 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>The Credibility of confidence intervals</title>
+  <link>https://olivierbinette.ca/pages/posts/2019-09-11-credibility-confidence-intervals/2019-09-11-credibility-confidence-intervals.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Andrew Gelman and Sander Greenman went “head to head” in a <a href="https://www.bmj.com/content/366/bmj.l5381">discussion on the interpretation of confidence intervals in <em>The BMJ</em></a>. Greenman stated the following, which doesn’t seem quite right to me.</p>
+<blockquote class="blockquote">
+<p>The label “95% confidence interval” evokes the idea that we should invest the interval with 95/5 (19:1) betting odds that the observed interval contains the true value (which would make the confidence interval a 95% bayesian posterior interval<img src="https://latex.codecogs.com/png.latex?%5E%7B11%7D">). This view may be harmless in a perfect randomized experiment with no background information to inform the bet (the original setting for the “confidence” concept); more often, however […]</p>
+</blockquote>
+<p>It’s not true that “this view may is harmless in perfect randomized experiments”, and I’m not sure where this “original setting of the confidence concept” is coming from. In fact, even in the simplest possible cases, the posterior probability of a <img src="https://latex.codecogs.com/png.latex?95%5C%25"> confidence interval can be pretty much anything.</p>
+<p>Imagine a “perfect randomized experiment”, where we use a test of the hypothesis <img src="https://latex.codecogs.com/png.latex?H_0:%20%5Cmu%20=%200"> for which, for some reason, has zero power. If <img src="https://latex.codecogs.com/png.latex?p%20%3C%200.05">, meaning that the associated confidence interval excludes <img src="https://latex.codecogs.com/png.latex?0">, then we are certain that <img src="https://latex.codecogs.com/png.latex?H_0"> holds and the posterior probability of the confidence interval is zero.</p>
+<p>Let this sink in. For some (albeit trivial) statistical tests, observing <img src="https://latex.codecogs.com/png.latex?p%20%3C%200.05"> brings evidence <em>in favor</em> of the null.</p>
+<p>The power of the test carries information, and the posterior probability of a confidence interval (or of an hypothesis), depends on this power among other things, even in perfect randomized experiments.</p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>statistics</category>
+  <guid>https://olivierbinette.ca/pages/posts/2019-09-11-credibility-confidence-intervals/2019-09-11-credibility-confidence-intervals.html</guid>
+  <pubDate>Wed, 11 Sep 2019 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Global Bounds for the Jensen Functional</title>
+  <link>https://olivierbinette.ca/pages/posts/2019-05-19-global-bounds-for-jensen-functional/2019-05-19-global-bounds-jensen-functional.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Given a convex function <img src="https://latex.codecogs.com/png.latex?%5Cvarphi%20:%20%5Cmathbb%7BR%7D%20%5Crightarrow%20%5Cmathbb%7BR%7D"> and <img src="https://latex.codecogs.com/png.latex?X"> a random variable on <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BR%7D">, the Jensen functional of <img src="https://latex.codecogs.com/png.latex?%5Cvarphi"> and <img src="https://latex.codecogs.com/png.latex?X"> is defined as</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathcal%7BJ%7D(%5Cvarphi,%20X)%20=%20%5Cmathbb%7BE%7D%5B%5Cvarphi(X)%5D%20-%5Cvarphi(%5Cmathbb%7BE%7D%5BX%5D).%5Ctag%7B1%7D%0A"></p>
+<p>The well-known Jensen inequality states that <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BJ%7D(%5Cvarphi,%20X)%20%5Cgeq%200">. For instance, if <img src="https://latex.codecogs.com/png.latex?%5Cvarphi(x)%20=%20x%5E2">, then <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BJ%7D(%5Cvarphi,%20X)%20=%20%5Ctext%7BVar%7D(X)%20%5Cgeq%200">. If <img src="https://latex.codecogs.com/png.latex?%5Cmu"> and <img src="https://latex.codecogs.com/png.latex?%5Cnu"> are two probability measures, <img src="https://latex.codecogs.com/png.latex?X%20%5Csim%20%5Cnu"> and <img src="https://latex.codecogs.com/png.latex?%5Cvarphi"> is convex with <img src="https://latex.codecogs.com/png.latex?%5Cvarphi(1)%20=%200">, then <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BJ%7D(%5Cvarphi,%20%5Ctfrac%7Bd%5Cmu%7D%7Bd%5Cnu%7D(X))%20=:%20D_%5Cvarphi(%5Cmu,%20%5Cnu)"> is a so-called <a href="https://en.wikipedia.org/wiki/F-divergence"><img src="https://latex.codecogs.com/png.latex?f">-divergence between probability measures</a> such as the total variation distance, the Kullback-Leibler divergence, the <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2"> divergence, etc.</p>
+<p>If <img src="https://latex.codecogs.com/png.latex?X"> is bounded, then a converse to the Jensen inequality can be easily obtained as follows: let <img src="https://latex.codecogs.com/png.latex?m"> and <img src="https://latex.codecogs.com/png.latex?M"> be the infimum and maximum of <img src="https://latex.codecogs.com/png.latex?X">, and write <img src="https://latex.codecogs.com/png.latex?X%20=%20%5Calpha%20m%20+%20(1-%5Calpha)M"> for some random variable <img src="https://latex.codecogs.com/png.latex?%5Calpha"> taking values in <img src="https://latex.codecogs.com/png.latex?%5B0,1%5D">. Then <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BE%7D%5B%5Calpha%5D%20=%20(M%20-%20%5Cmu)/(M-m)"> and consequently with <img src="https://latex.codecogs.com/png.latex?%5Cmu:=%20%5Cmathbb%7BE%7D%5BX%5D">,</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathcal%7BJ%7D(%5Cvarphi,%20X)%20%5Cleq%20%5Cmathbb%7BE%7D%5B%5Calpha%5Cphi(m)%20+%20(1-%5Calpha)%5Cphi(M)%5D%20-%20%5Cvarphi(%5Cmu)%0A=%20%5Cfrac%7B(M-%5Cmu)%5Cvarphi(m)%20+%20(%5Cmu-m)%5Cvarphi(M)%7D%7BM-m%7D-%20%5Cvarphi(%5Cmu).%5Ctag%7B2%7D%0A"></p>
+<!--more-->
+<p>When <img src="https://latex.codecogs.com/png.latex?%5Cmu"> is unknown in practice, then maximizing the above over all possibilities is the bound <img src="https://latex.codecogs.com/png.latex?%0A%5Cmathcal%7BJ%7D(%5Cvarphi,%20X)%20%5Cleq%20%5Cmax_%7Bp%20%5Cin%20%5B0,1%5D%7D%20%5Cleft%5C%7Bp%5Cvarphi(m)%20+%20(1-p)%5Cvarphi(M)%20-%20%5Cvarphi(pm%20+%20(1-p)%20M)%5Cright%5C%7D%5Ctag%7B3%7D%0A"></p>
+<p>which is Theorem C in <a href="https://www.sciencedirect.com/science/article/abs/pii/S0096300309007346">Simic (2011)</a>.</p>
+<section id="some-examples" class="level2">
+<h2 class="anchored" data-anchor-id="some-examples">Some examples</h2>
+<p><strong>Variance bound.</strong> Consider for example the case where <img src="https://latex.codecogs.com/png.latex?%5Cvarphi(x)%20=%20x%5E2">, so that <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BJ%7D(%5Cvarphi,%20X)%20=%20%5Ctext%7BVar%7D(X)">. Then for <img src="https://latex.codecogs.com/png.latex?X"> taking values in say <img src="https://latex.codecogs.com/png.latex?%5B0,1%5D">, the above bounds read as</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7BVar%7D(X)%20%5Cleq%20%5Cmu(1-%5Cmu)%20%5Cleq%201/4%0A"></p>
+<p>which is a well-known elementary result.</p>
+<p><strong><img src="https://latex.codecogs.com/png.latex?f">-divergence bounds.</strong> In <a href="https://arxiv.org/abs/1805.05135">(Binette, 2019)</a>, I show how we can use similar ideas to get best-possible <em>reverse Pinsker inequalities</em>: upper bounds on <img src="https://latex.codecogs.com/png.latex?f">-divergences in terms of the total variation distance and likelihood ratio extremums. In particular, with <img src="https://latex.codecogs.com/png.latex?D(%5Cmu%5C%7C%5Cnu)%20=%20%5Cint%20%5Clog%5Cleft(%5Cfrac%7Bd%5Cmu%7D%7Bd%5Cnu%7D%5Cright)%20d%5Cmu"> the Kullback-Leibler divergence between the probability measures <img src="https://latex.codecogs.com/png.latex?%5Cmu"> and <img src="https://latex.codecogs.com/png.latex?%5Cnu">, we find that if <img src="https://latex.codecogs.com/png.latex?a%20=%20%5Cinf%20%5Cfrac%7Bd%5Cnu%7D%7Bd%5Cmu%7D"> and <img src="https://latex.codecogs.com/png.latex?b%20=%20%5Csup%20%5Cfrac%7Bd%5Cnu%7D%7Bd%5Cmu%7D">, then <img src="https://latex.codecogs.com/png.latex?%0AD(%5Cmu%7C%5Cnu)%20%5Cleq%20%5Csup_A%7C%5Cmu(A)%20-%20%5Cnu(A)%7C%20%5Cleft(%5Cfrac%7B%5Clog(a)%7D%7Ba-1%7D%20+%5Cfrac%7B%5Clog(b)%7D%7B1-b%7D%5Cright).%0A"></p>
+<p>Applying again the Jensen functional bound to <img src="https://latex.codecogs.com/png.latex?%5Csup_A%20%5Clvert%20%5Cmu(A)-%5Cnu(A)%20%5Crvert%20=%20%5Cfrac%7B1%7D%7B2%7D%5Cint%5Cleft%20%5Clvert%20%5Cfrac%7Bd%5Cmu%7D%7Bd%5Cnu%7D%20-%201%5Cright%20%5Crvert%20%20d%5Cnu">, we obtain</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Csup_A%7C%5Cmu(A)%20-%20%5Cnu(A)%7C%20%5Cleq%20%5Cfrac%7B(M-1)(1-m)%7D%7BM-m%7D%0A"></p>
+<p>and this implies the <em>range of values theorem</em></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AD(%5Cmu%7C%5Cnu)%20%5Cleq%20%5Cfrac%7B(a-1)%5Clog(b)%20+%20(1-b)%5Clog(a)%7D%7Bb-a%7D.%0A"></p>
+</section>
+<section id="variations" class="level2">
+<h2 class="anchored" data-anchor-id="variations">Variations</h2>
+<p>In cases where <img src="https://latex.codecogs.com/png.latex?%5Cmu"> is unknown and optimizing over all possibilities is not quite feasible, we can use the following trick.</p>
+<p>Let <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20x%5Cvarphi(m)%20+%20(1-x)%5Cvarphi(M)%20-%20%5Cvarphi(x%20m%20+(1-x)M)"> be the term involved in the maximization step of <img src="https://latex.codecogs.com/png.latex?(3)">. Then <img src="https://latex.codecogs.com/png.latex?f"> is concave with <img src="https://latex.codecogs.com/png.latex?f(0)%20=%20f(1)%20=%200">, and hence for any <img src="https://latex.codecogs.com/png.latex?p%20%5Cin%20(0,1)"> we have that</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmax_%7Bx%20%5Cin%20%5B0,1%5D%7D%20f(x)%20%5Cleq%20(%5Cmin%5C%7Bp,%201-p%5C%7D)%5E%7B-1%7Df%5Cleft(pm%20+(1-p)M%5Cright).%0A"></p>
+<p>In particular, taking <img src="https://latex.codecogs.com/png.latex?p%20=%201/%202">, we obtain the result of <a href="https://www.sciencedirect.com/science/article/pii/S0022247X08000814">Simic (2008)</a> stating that</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathcal%7BJ%7D(%5Cvarphi,%20X)%20%5Cleq%20%5Cvarphi(m)%20+%20%5Cvarphi(M)%20-%202%5Cvarphi%5Cleft(%5Cfrac%7Bm+M%7D%7B2%7D%5Cright).%0A"></p>
+<p>When <img src="https://latex.codecogs.com/png.latex?%5Cvarphi"> is differentiable (this assumption is not strictly necessary but it facilitate the statements), then we can use the concavity of <img src="https://latex.codecogs.com/png.latex?f"> (using the fact that <img src="https://latex.codecogs.com/png.latex?f(0)%20=%20f(1)%20=%200">) to very easily obtain</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathcal%7BJ%7D(%5Cvarphi,%20X)%20%5Cleq%20%5Cfrac%7Bf'(1)f'(0)%7D%7Bf'(1)-f'(0)%7D%20%5Cleq%20%5Cfrac%7B1%7D%7B4%7D(f'(0)-f'(1))%20=%20%5Cfrac%7B1%7D%7B4%7D(M-m)(%5Cvarphi'(M)%20-%20%5Cvarphi'(m))%0A"></p>
+<p>which is an inequality attributed to S.S. Dragomir (1999), although I haven’t managed to find the original paper yet.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>technical</category>
+  <category>math</category>
+  <guid>https://olivierbinette.ca/pages/posts/2019-05-19-global-bounds-for-jensen-functional/2019-05-19-global-bounds-jensen-functional.html</guid>
+  <pubDate>Sun, 19 May 2019 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Two sampling algorithms for trigonometric densities</title>
+  <link>https://olivierbinette.ca/pages/posts/2019-04-15-two-sampleing-algorithms/2019-04-15-two-sampling-algorithms.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Trigonometric densities (or non-negative trigonometric sums) are probability density functions of circular random variables (i.e.&nbsp;<img src="https://latex.codecogs.com/png.latex?2%5Cpi">-periodic densities) which take the form <img src="https://latex.codecogs.com/png.latex?%0Af(u)%20=%20a_0%20+%20%5Csum_%7Bk=1%7D%5En(a_k%20%5Csin(k%20u)%20+%20b_k%5Ccos(ku))%20%5Ctag%7B1%7D%0A"></p>
+<p>for some real coefficients <img src="https://latex.codecogs.com/png.latex?a_k,%20b_k%20%5Cin%20%5Cmathbb%7BR%7D"> which are such that <img src="https://latex.codecogs.com/png.latex?f(u)%20%5Cgeq%200"> and <img src="https://latex.codecogs.com/png.latex?a_0%20=%20%5Cfrac%7B1%7D%7B2%5Cpi%7D%20%5Cint%20f(u)%5C,du%20=%20(2%5Cpi)%5E%7B-1%7D">. These provide flexible models of circular distributions. Circular density modelling comes up in studies about the mechanisms of animal orientation and also come up in bio-informatics in relationship to the protein structure prediction problem (the secondary structure of a protein - the way its backbone folds - is determined by a sequence of angles).</p>
+<p>Here I am discussing two simple sampling algorithms for such trigonometric densities. The first is the rejection sampling algorithm proposed in Fernández-Durán et al.&nbsp;(2014) and the second uses negative mixture sampling.</p>
+<!--more-->
+<section id="parametrizing-trigonometric-densities" class="level3">
+<h3 class="anchored" data-anchor-id="parametrizing-trigonometric-densities">Parametrizing trigonometric densities</h3>
+<p>By Féjer’s Theorem, the conditions on the coefficients <img src="https://latex.codecogs.com/png.latex?a_k"> and <img src="https://latex.codecogs.com/png.latex?b_k"> can be stated as follows: there exists a vector of complex coefficients <img src="https://latex.codecogs.com/png.latex?c%20=%20(c_0,%20c_1,%20%5Cdots,%20c_n)"> with <img src="https://latex.codecogs.com/png.latex?%5C%7Cc%5C%7C%5E2%20=%20(2%5Cpi)%5E%7B-1%7D"> and satisfying</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Af(u)%20=%20%5Cleft%5C%7C%20%5Csum_%7Bk=0%7D%5En%20c_k%20e%5E%7Bik%20u%7D%20%5Cright%5C%7C%5E2.%20%5Ctag%7B2%7D%0A"></p>
+<p>This provides an explicit parametrization of the space of trigonometric densities in terms of a complex hypersphere. See Fernandez-Duran (2004) for more details.</p>
+<section id="density-basis-of-the-trigonometric-polynomials" class="level4">
+<h4 class="anchored" data-anchor-id="density-basis-of-the-trigonometric-polynomials">Density basis of the trigonometric polynomials</h4>
+<p>In <a href="https://arxiv.org/pdf/1807.00305.pdf">Binette &amp; Guillotte (2019)</a>, we studied the <em>De la Vallée Poussin</em> density basis of the trigonometric polynomials given by</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AC_%7Bj,n%7D(u)%20=%20%5Cfrac%7B2%5En%7D%7B2%5Cpi%20%7B2n%20%5Cchoose%20n%7D%7D%20%5Cleft(1+%5Ccos%5Cleft(u%20-%20%5Ctfrac%7B2%5Cpi%20j%7D%7B2n+1%7D%5Cright)%5Cright)%5En,%5Cquad%20j%5Cin%20%5C%7B0,1,%5Cdots,%202n%5C%7D.%20%5Ctag%7B3%7D%0A"></p>
+<p>These can be used to express trigonometric densities as mixtures of probability density functions (instead of the functions <img src="https://latex.codecogs.com/png.latex?%5Ccos"> and <img src="https://latex.codecogs.com/png.latex?%5Csin">, and the change of basis formula follows from the expression</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AC_%7Bj,n%7D(u)%20=%20T_%7Bj,n%7D%5C,%5Cleft%5Be%5E%7B-i%20nu%7D%5C;%20%5Ccdots%5C;%20e%5E%7B-i%20u%7D%5C;%201%5C;%20e%5E%7Bi%20u%7D%5C;%20%5Ccdots%5C;%20e%5E%7Bi%20nu%7D%5Cright%5D%5E%7BT%7D%0A"></p>
+<p>where</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AT_%7Bj,n%7D%20=%20%5Cleft%5B%5Cexp%5Cleft%5C%7B%20-i%5Cfrac%7B2%5Cpi%20j%20p%7D%7B2n+1%7D%20u%20%5Cright%5C%7D%7B2n%20%5Cchoose%20n-p%7D%20%5CBig%20/%20%7B2n%20%5Cchoose%20n%7D%5Cright%5D_%7Bp%20%5Cin%20%5C%7B-n,%20%5Cdots,%20n%5C%7D%7D.%0A"></p>
+<p>We’re using the complex functions <img src="https://latex.codecogs.com/png.latex?e%5E%7Bi2%5Cpi%20k%20u%7D"> instead of <img src="https://latex.codecogs.com/png.latex?%5Csin"> and <img src="https://latex.codecogs.com/png.latex?%5Ccos"> simply because they are neater to work with; it doesn’t change much otherwise.</p>
+<p>We also show in our paper that if <img src="https://latex.codecogs.com/png.latex?V%20%5Csim%20%5Ctext%7BBer%7D(1%20/%202)"> and <img src="https://latex.codecogs.com/png.latex?W%20%5Csim%20%5Ctext%7BBeta%7D(1%20/%202,%201%20/%202+n)">, then</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A(1-2V)%5Carccos(1-2W)%20+%5Ctfrac%7B2%5Cpi%20j%7D%7B2n+1%7D%20%5Csim%20C_%7Bj,n%7D.%0A"></p>
+<p>This provide an easily formula to sample from the basis functions <img src="https://latex.codecogs.com/png.latex?C_%7Bj,n%7D"> and their mixtures.</p>
+</section>
+</section>
+<section id="algorithm-1-naive-rejection-sampling" class="level2">
+<h2 class="anchored" data-anchor-id="algorithm-1-naive-rejection-sampling">Algorithm 1: Naive rejection sampling</h2>
+<p>Given an uniform upper bound <img src="https://latex.codecogs.com/png.latex?C"> on the family <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BV%7D_n"> of trigonometric densities, we can sample from a given <img src="https://latex.codecogs.com/png.latex?f%5Cin%20%5Cmathcal%7BV%7D_n"> using simple rejection sampling as follows:</p>
+<ol type="1">
+<li>Let <img src="https://latex.codecogs.com/png.latex?(x,%20y)"> be uniformly distributed over <img src="https://latex.codecogs.com/png.latex?%5B0,%202%5Cpi)%20%5Ctimes%20%5B0,%20C%5D">;</li>
+<li>If <img src="https://latex.codecogs.com/png.latex?y%20%5Cleq%20f(x)">, then return <img src="https://latex.codecogs.com/png.latex?x">; otherwise return to step 1.</li>
+</ol>
+<p>Now the problem is to figure out a good upper bound <img src="https://latex.codecogs.com/png.latex?C">. The most basic idea is to do as in Fernandez-Duran et al.&nbsp;(2014) and to apply the Cauchy-Schwarz inequality</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Af(u)%20=%20%5Cleft%5C%7C%20%5Csum_%7Bk=0%7D%5En%20c_k%20e%5E%7Bi%20k%20u%7D%20%5Cright%5C%7C%5E2%20%5Cleq%20%5C%7Cc%5C%7C%5E2%20%5Csum_%7Bk=0%7D%5En%7Ce%5E%7Biku%7D%7C%20=%20%5Cfrac%7Bn+1%7D%7B2%5Cpi%7D.%0A"></p>
+<p>Can we find a better bound? I think that <img src="https://latex.codecogs.com/png.latex?C%20=%20%5Csqrt%7Bn%7D/%5Cpi"> would work, but I have no clue how to prove it….</p>
+<p>Let’s implement this in R.</p>
+<section id="implementation" class="level3">
+<h3 class="anchored" data-anchor-id="implementation">Implementation</h3>
+<p>First we need a trigonometric density model.</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1">trig_function <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(c_real, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">complex=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span>) {</span>
+<span id="cb1-2">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Returns the trigonometric function defined as either:</span></span>
+<span id="cb1-3">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#     f(u) = 1/(2\pi) + \sum_{k=1}^{n} c_real[2*k-1] \sin(k u) + c_real[2*k] \cos(ku),</span></span>
+<span id="cb1-4">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># or</span></span>
+<span id="cb1-5">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#   f(u) = \| \sum_{k=0}^n complex e^{i k u} \|^2,</span></span>
+<span id="cb1-6">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># where n is the degree of the polynomial.</span></span>
+<span id="cb1-7">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#</span></span>
+<span id="cb1-8">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Args</span></span>
+<span id="cb1-9">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#   c_real: Vector of 2*n real numbers, where n is the degree of </span></span>
+<span id="cb1-10">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#           the trigonometric polynomial.</span></span>
+<span id="cb1-11">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#   complex: Vector of (n+1) complex numbers.</span></span>
+<span id="cb1-12">  </span>
+<span id="cb1-13">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.null</span>(complex)) {</span>
+<span id="cb1-14">    lambd <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(u) {</span>
+<span id="cb1-15">      n <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(complex) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb1-16">      k <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>n</span>
+<span id="cb1-17">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">abs</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(complex <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">exp</span>(u <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> k <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>i)))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb1-18">    }</span>
+<span id="cb1-19">  }</span>
+<span id="cb1-20">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span> {</span>
+<span id="cb1-21">    lambd <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(u) {</span>
+<span id="cb1-22">      n <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(c_real)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb1-23">      k <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>n</span>
+<span id="cb1-24">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pi) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(c_real[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>k <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cos</span>(k<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>u)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(c_real[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>k] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cos</span>(k<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>u)))</span>
+<span id="cb1-25">    }</span>
+<span id="cb1-26">  }</span>
+<span id="cb1-27">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Vectorize</span>(lambd));</span>
+<span id="cb1-28">}</span></code></pre></div>
+<p>We can also generate random trigonometric densities of a fixed degree as follows.</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1">rtrig <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(n) {</span>
+<span id="cb2-2">  u <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(n);</span>
+<span id="cb2-3">  v <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(n);</span>
+<span id="cb2-4">  c_comp <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> u <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> v<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>i;</span>
+<span id="cb2-5">  c_comp <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> c_comp <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> (<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pi<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">abs</span>(c_comp)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)));</span>
+<span id="cb2-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">trig_function</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">complex=</span>c_comp))</span>
+<span id="cb2-7">}</span></code></pre></div>
+<p>Usage is like this:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1">u <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pi, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.005</span>)</span>
+<span id="cb3-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(u, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rtrig</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)(u), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"l"</span>)</span></code></pre></div>
+<p><a href="p1.svg?style=centerme" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://olivierbinette.ca/pages/posts/2019-04-15-two-sampleing-algorithms/p1.svg?style=centerme" class="img-fluid"></a></p>
+<p>And finally we can implement the naive rejection sampling algorithm.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1">naive_rejection_sampling <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(f, n) {</span>
+<span id="cb4-2">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Returns a random variate following the trigonometric density f of degree n.</span></span>
+<span id="cb4-3">  drawn <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span></span>
+<span id="cb4-4">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">while</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>drawn) {</span>
+<span id="cb4-5">    x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runif</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pi</span>
+<span id="cb4-6">    y <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runif</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>(n<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pi)</span>
+<span id="cb4-7">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (y <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">f</span>(x)) {</span>
+<span id="cb4-8">      drawn <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span></span>
+<span id="cb4-9">    }</span>
+<span id="cb4-10">  }</span>
+<span id="cb4-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(x);</span>
+<span id="cb4-12">}</span></code></pre></div>
+</section>
+</section>
+<section id="algorithm-2-negative-mixture-sampling" class="level2">
+<h2 class="anchored" data-anchor-id="algorithm-2-negative-mixture-sampling">Algorithm 2: Negative Mixture Sampling</h2>
+<p>Another approach to simulate from trigonometric densities relies on the De la Vallée Poussin mixture representation. That is, any <img src="https://latex.codecogs.com/png.latex?f%5Cin%20%5Cmathcal%7BV%7D_n"> can be written as</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Af%20=%20%5Calpha%20f_a%20-%20(%5Calpha%20-%201)%20f_b,%5Cqquad%20f_a%20=%20%5Csum_%7Bj=0%7D%5E%7B2n%7D%20a_j%20C_%7Bj_n%7D,%20%5Cquad%20f_b%20=%20%5Csum_%7Bj=0%7D%5E%7B2n%7D%20b_j%20C_%7Bj,n%7D,%0A"></p>
+<p>where $ $, <img src="https://latex.codecogs.com/png.latex?a_j,%20b_j%20%5Cgeq%200"> and <img src="https://latex.codecogs.com/png.latex?%5Csum_%20j%20a_j%20=%20%5Csum_%20j%20b_%20j%20=%201">. We can assume that <img src="https://latex.codecogs.com/png.latex?a_j%20b_j%20=%200"> for every $j $; i.e.&nbsp;there is no redundancy in the components of <img src="https://latex.codecogs.com/png.latex?f_a"> and <img src="https://latex.codecogs.com/png.latex?f_b">. The density <img src="https://latex.codecogs.com/png.latex?f_b"> accounts for negative weights in the mixture representation of <img src="https://latex.codecogs.com/png.latex?f"> using the De la Vallée Poussin densities <img src="https://latex.codecogs.com/png.latex?(3)">.</p>
+<p>We can now sample from <img src="https://latex.codecogs.com/png.latex?f"> using samples from <img src="https://latex.codecogs.com/png.latex?f_a"> and a simple rejection method.</p>
+<p><strong>Algorithm 2.</strong></p>
+<ol type="1">
+<li>Let <img src="https://latex.codecogs.com/png.latex?x%20%5Csim%20f_a">.</li>
+<li>Return <img src="https://latex.codecogs.com/png.latex?x"> with probability <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bf(x)%7D%7B%5Calpha%20f_a(x)%7D">; otherwise return to step 1.</li>
+</ol>
+<section id="implementation-1" class="level3">
+<h3 class="anchored" data-anchor-id="implementation-1">Implementation</h3>
+<p><strong>De la Vallée Poussin densities and its random variate generator.</strong></p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1">dvallee <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(u, j, n) {</span>
+<span id="cb5-2">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># De la Vallée Poussin density $C_{j,n}(u)$</span></span>
+<span id="cb5-3">  </span>
+<span id="cb5-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span>n <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cos</span>(u <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pi<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>j)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>n<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span>n <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pi<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">choose</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>n, n)))</span>
+<span id="cb5-5">}</span></code></pre></div>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1">rvallee <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(j, n, m) {</span>
+<span id="cb6-2">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Returns m random variates following the De la Vallée Poussin density $C_{j,n}$.</span></span>
+<span id="cb6-3">  </span>
+<span id="cb6-4">  V <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runif</span>(m) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span></span>
+<span id="cb6-5">  W <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbeta</span>(m, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> n)</span>
+<span id="cb6-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>((<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1-2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>V)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">acos</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1-2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>W) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pi<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>j)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>n <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span>
+<span id="cb6-7">}</span></code></pre></div>
+<p>Usage:</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1">s <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rvallee</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10000</span>)</span>
+<span id="cb7-2">u <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>pi, pi, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>)</span>
+<span id="cb7-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">hist</span>(s, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prob=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlim=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>pi,pi))</span>
+<span id="cb7-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(u, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dvallee</span>(u, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div>
+<p><a href="2019-04-11/p2.svg?style=centerme" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="https://olivierbinette.ca/pages/posts/2019-04-15-two-sampleing-algorithms/2019-04-11/p2.svg?style=centerme" class="img-fluid"></a></p>
+<p><strong>De la Vallée Poussin mixtures.</strong></p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1">dValleeMixture <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(coeffs) {</span>
+<span id="cb8-2">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># De la Vallée Poussin mixture densities</span></span>
+<span id="cb8-3">  </span>
+<span id="cb8-4">  n <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> (<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(coeffs) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>;</span>
+<span id="cb8-5">  </span>
+<span id="cb8-6">  lambd <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(u) {</span>
+<span id="cb8-7">    j <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>n)</span>
+<span id="cb8-8">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dvallee</span>(u, j, n) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> coeffs))</span>
+<span id="cb8-9">  }</span>
+<span id="cb8-10">  </span>
+<span id="cb8-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Vectorize</span>(lambd))</span>
+<span id="cb8-12">}</span></code></pre></div>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1">rValleeMixture <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(coeffs) {</span>
+<span id="cb9-2">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Random sample from a De la Vallée Poussin mixture density. The mixture weights are allowed to take negative values.</span></span>
+<span id="cb9-3">  </span>
+<span id="cb9-4">  f <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dValleeMixture</span>(coeffs)</span>
+<span id="cb9-5">  n <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> (<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(coeffs) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb9-6"></span>
+<span id="cb9-7">  a <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> coeffs <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (coeffs <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb9-8">  b <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> coeffs <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (coeffs <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb9-9">  </span>
+<span id="cb9-10">  alpha <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(a)</span>
+<span id="cb9-11">  a <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> a <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> alpha</span>
+<span id="cb9-12">  b <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> b <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>alpha)</span>
+<span id="cb9-13">  fa <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dValleeMixture</span>(a)</span>
+<span id="cb9-14">  </span>
+<span id="cb9-15">  drawn <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span></span>
+<span id="cb9-16">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">while</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>drawn) {</span>
+<span id="cb9-17">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Sample from f_a</span></span>
+<span id="cb9-18">    i <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sample</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>n), <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prob =</span> a)</span>
+<span id="cb9-19">    x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rvallee</span>(i, n, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb9-20">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> ( <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runif</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">f</span>(x)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(alpha<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fa</span>(x))) {</span>
+<span id="cb9-21">      drawn <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span></span>
+<span id="cb9-22">    }</span>
+<span id="cb9-23">  }</span>
+<span id="cb9-24">  </span>
+<span id="cb9-25">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(x <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%%</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pi))</span>
+<span id="cb9-26">}</span></code></pre></div>
+<p>Example:</p>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1">coeffs <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.55</span>, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.15</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.55</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>)</span>
+<span id="cb10-2">f <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dValleeMixture</span>(coeffs)</span>
+<span id="cb10-3">u <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pi, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>)</span>
+<span id="cb10-4">s <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">replicate</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50000</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rValleeMixture</span>(coeffs))</span>
+<span id="cb10-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">hist</span>(s, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prob=</span>T, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylim=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.6</span>))</span>
+<span id="cb10-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(u, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">f</span>(u), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div>
+<p><a href="p3.svg?style=centerme" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="https://olivierbinette.ca/pages/posts/2019-04-15-two-sampleing-algorithms/p3.svg?style=centerme" class="img-fluid"></a></p>
+<section id="other-things-we-could-do" class="level4">
+<h4 class="anchored" data-anchor-id="other-things-we-could-do">Other things we could do:</h4>
+<ul>
+<li>The <a href="http://github.com/olivierBinette/lipsample">black box Lipschitz sampling</a> algorithm can also be used to sample from trigonometric densities. This requires to compute good upper bounds on the Lipchitz constant on the density, which should be doable using the De la Vallée Poussin mixture representation.</li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>technical</category>
+  <category>statistics</category>
+  <guid>https://olivierbinette.ca/pages/posts/2019-04-15-two-sampleing-algorithms/2019-04-15-two-sampling-algorithms.html</guid>
+  <pubDate>Mon, 15 Apr 2019 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>The Significance of the adjusted R squared coefficient</title>
+  <link>https://olivierbinette.ca/pages/posts/2019-04-10-significance-adjusted-r2/2019-04-10-significance-adjusted-r2.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>My friend <a href="https://anthonycoache.ca/">Anthony Coache</a> and I have been curious about uses and misuses of the <em>adjusted</em> <img src="https://latex.codecogs.com/png.latex?R%5E2"> coefficient which comes up in linear regression for model comparison and as a measure of “goodness of fit”. We were underwhelmed by the depth of the literature arguing for its use, and wanted to show exactly how it behaves under certain sets of assumptions. Investigating the issue brought us to re-interpret the adjusted <img src="https://latex.codecogs.com/png.latex?R%5E2"> and to highlight a new distribution-free perspective on nested model comparison which is equivalent, under Gaussian assumptions, to Fisher’s classical <img src="https://latex.codecogs.com/png.latex?F">-test. This generalizes to nested GLMs comparison and provides exact comparison tests that are not based on asymptotic approximations. We still have many questions to answer, but here’s some of what we’ve done.</p>
+<!--more-->
+<p>So, in the context of least squares linear regression, the model for relating a vector of <img src="https://latex.codecogs.com/png.latex?n"> observed responses <img src="https://latex.codecogs.com/png.latex?Y"> to <img src="https://latex.codecogs.com/png.latex?p-1"> independent covariates is <img src="https://latex.codecogs.com/png.latex?Y%20=%20X%20%5Cbeta%20+%20%5Cvarepsilon">, where <img src="https://latex.codecogs.com/png.latex?X"> is the design matrix and <img src="https://latex.codecogs.com/png.latex?%5Cvarepsilon"> is the vector of random errors. One of many summary statistics arising from data analyses based on this model is the adjusted <img src="https://latex.codecogs.com/png.latex?R%5E2"> coefficient, defined as</p>
+<p><img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20X)%20=%201%20-%20%5Cfrac%7B%5C%7C%5Chat%20%5Cvarepsilon%5C%7C%5E2%7D%7B%5Cleft%5C%7CY%20-%20%5Cbar%20Y%20%5Cright%5C%7C%5E2%7D%5Cfrac%7Bn-1%7D%7Bn-p%7D,"></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?%5Chat%20%5Cvarepsilon"> is the vector of residual errors and <img src="https://latex.codecogs.com/png.latex?%5Cbar%20Y"> is the mean of <img src="https://latex.codecogs.com/png.latex?Y"> (Cramer, 1987; Ohtani, 2004). The <img src="https://latex.codecogs.com/png.latex?R%5E2"> coefficient and its adjusted counterpart are widely used as measures of goodness of fit, as model selection criteria and as estimators of the squared multiple correlation coefficient <img src="https://latex.codecogs.com/png.latex?%5Crho%5E2"> of the parent population. While their properties have been thoroughly studied in these contexts (Olkin, 1958; Helland, 1987; Cramer, 1987; Meepagala, 1992; Ohtani, 2004), the literature is scarce in explanations as to what, exactly, <img src="https://latex.codecogs.com/png.latex?R%5E2_a"> adjusts for in non-trivial cases. It is not an unbiased estimator of <img src="https://latex.codecogs.com/png.latex?%5Crho%5E2"> and the <em>degrees of freedom adjustment</em> heuristic (Theil, 1971) is of limited depth.</p>
+<p>Here we show in what sense the adjusted <img src="https://latex.codecogs.com/png.latex?R%5E2"> coefficient may be considered “unbiased”. For nested models comparison, we also suggest how to test the significance of a <img src="https://latex.codecogs.com/png.latex?R%5E2_a"> difference between two nested models which is equivalent to Fisher’s <img src="https://latex.codecogs.com/png.latex?F">-test under Gaussian assymptions. The <img src="https://latex.codecogs.com/png.latex?R%5E2_a"> test is however done from a largely distribution-free perspective which is conditional on the observation of <img src="https://latex.codecogs.com/png.latex?Y">. The results are then reinterpreted under classical Gaussian assumptions, which emphasize the dual perspectives between those two tests.</p>
+<section id="model-and-notations" class="level3">
+<h3 class="anchored" data-anchor-id="model-and-notations">Model and notations</h3>
+<p>Given a matrix <img src="https://latex.codecogs.com/png.latex?A">, let <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSpan%7D(A)"> denote the subspace spanned by its columns and <img src="https://latex.codecogs.com/png.latex?P_A"> be the (orthogonal) projection on <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSpan%7D(A)">.</p>
+<p>The commonly used linear regression model is <img src="https://latex.codecogs.com/png.latex?Y%20=%20X%20%5Cbeta%20+%20%5Cvarepsilon,"> where <img src="https://latex.codecogs.com/png.latex?Y"> is a <img src="https://latex.codecogs.com/png.latex?n%20%5Ctimes%201"> vector of observed responses, the design matrix <img src="https://latex.codecogs.com/png.latex?X"> consists of a constant column vector followed by <img src="https://latex.codecogs.com/png.latex?p-1"> column vectors of covariates, <img src="https://latex.codecogs.com/png.latex?%5Cbeta"> is the vector of parameters to be estimated and <img src="https://latex.codecogs.com/png.latex?%5Cvarepsilon"> is the vector of random errors. The fixed design matrix is supposed to be non-random and of full rank <img src="https://latex.codecogs.com/png.latex?p">. Let also <img src="https://latex.codecogs.com/png.latex?%5Chat%20%5Cvarepsilon%20=%20Y%20-%20P_X%20Y"> denote the residuals errors obtained by linear least squares fitting.</p>
+</section>
+<section id="testing-for-an-increase-of-r2_a" class="level2">
+<h2 class="anchored" data-anchor-id="testing-for-an-increase-of-r2_a">Testing for an increase of <img src="https://latex.codecogs.com/png.latex?R%5E2_a"></h2>
+<p>Suppose we have two design matrices <img src="https://latex.codecogs.com/png.latex?X"> and <img src="https://latex.codecogs.com/png.latex?%5Ctilde%20X">, where <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSpan%7D(X)%20%5Csubset%20%5Ctext%7BSpan%7D(%5Ctilde%20X)">. Let <img src="https://latex.codecogs.com/png.latex?p=%5Ctext%7Brank%7D(X)"> and <img src="https://latex.codecogs.com/png.latex?%5Ctilde%20p%20=%20%5Ctext%7Brank%7D(%5Ctilde%20X)%20=%20p+k">. Given the vector of observations <img src="https://latex.codecogs.com/png.latex?Y">, we observe two values <img src="https://latex.codecogs.com/png.latex?R%5E2%20_%20a%20(Y,%20X)"> and <img src="https://latex.codecogs.com/png.latex?R%5E2_%20a%20(Y,%20%5Ctilde%20X)"> associated to the nested models. The classical way to test for a significant increase of <img src="https://latex.codecogs.com/png.latex?R%5E2%20_%20a"> is to carry out Fisher’s <img src="https://latex.codecogs.com/png.latex?F">-test based on the statistics</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AF%20=%20%5Cfrac%7B%5C%7C%20%5Chat%20Y_0%20-%20%5Chat%20Y%20%5C%7C%5E2%7D%7B%5C%7C%20Y%20-%20%5Chat%20Y%20%5C%7C%5E2%7D%20%5Cfrac%7Bn%20-%20%5Ctilde%20p%20%7D%7Bk%7D,%0A"></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?%5Chat%20Y_0%20=%20P_X%20Y"> and <img src="https://latex.codecogs.com/png.latex?%5Chat%20Y%20=%20P_%20%7B%5Ctilde%20X%7DY">. This is a function of both <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20X)"> and <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20%5Ctilde%20X)">, which, under the assumption</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AH_0:%20%5Cquad%20Y%20=%20X%20%5Cbeta%20+%20%5Cvarepsilon%0A"></p>
+<p>for <img src="https://latex.codecogs.com/png.latex?%5Cvarepsilon%20%5Csim%20N(0,%20%5Csigma%5E2%20I_n)">, has an <img src="https://latex.codecogs.com/png.latex?F">-distribution.</p>
+<p>This is, however, a rather convoluted way of going about comparing the two numbers <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20X)"> and <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20%5Ctilde%20X)">. Can we do simpler, and can we drop the Gaussian assumption? The answer is yes, although we’ll have to change a bit our point of view on the problem.</p>
+<section id="a-dual-perspective-on-nested-model-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="a-dual-perspective-on-nested-model-comparison">A Dual perspective on nested model comparison</h3>
+<p>The whole point of nested model comparison is to see if the new covariates in <img src="https://latex.codecogs.com/png.latex?%5Ctilde%20X">, i.e.&nbsp;those that are not part of <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSpan%7D(X)">, bring new information about <img src="https://latex.codecogs.com/png.latex?Y">. In the context of an exploratory analysis where the observations and predictors are all observed, we propose to change our perspective to the following testing procedure:</p>
+<ol type="1">
+<li>condition on the observation of <img src="https://latex.codecogs.com/png.latex?Y"> and <img src="https://latex.codecogs.com/png.latex?X"> (consider them fixed, observed values);</li>
+<li>tests if the new covariates in <img src="https://latex.codecogs.com/png.latex?%5Ctilde%20X"> are random noise.</li>
+</ol>
+<p>Hence, rather than testing the model <img src="https://latex.codecogs.com/png.latex?Y%20=%20X%5Cbeta%20+%20%5Cvarepsilon"> under a Gaussian noise assumption, we test for <em>covariate randomness</em>, our null hypothesis becomes</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AH_0':%5Cquad%20%5Ctext%7Bthe%20complement%20of%20$%5Ctext%7BSpan%7D(X)$%20in%20$%5Ctext%7BSpan%7D(%5Ctilde%20X)$%20is%20a%20random%20subspace.%7D%0A"></p>
+<p>This test can be carried out using any test statistic <img src="https://latex.codecogs.com/png.latex?T">, and obviously the distribution of <img src="https://latex.codecogs.com/png.latex?T"> under <img src="https://latex.codecogs.com/png.latex?H_0'"> (and conditionally on <img src="https://latex.codecogs.com/png.latex?Y">), will not depend on the unknown parameter <img src="https://latex.codecogs.com/png.latex?%5Cbeta"> nor on the noise structure <img src="https://latex.codecogs.com/png.latex?%5Cvarepsilon"> (which has been conditionned out of randomness). In particular, we can take <img src="https://latex.codecogs.com/png.latex?T%20=%20R%5E2_a(Y,%20%5Ctilde%20X)">.</p>
+<p>Does it make any sense? Well it does not change anything! The test obtained in this framework is entirely equivalent to Fisher’s <img src="https://latex.codecogs.com/png.latex?F">-test we reviewed before: for any given observation of <img src="https://latex.codecogs.com/png.latex?Y">, <img src="https://latex.codecogs.com/png.latex?X"> and <img src="https://latex.codecogs.com/png.latex?%5Ctilde%20X">, the two tests will give the same results.</p>
+<p>Let me make all of this more precise.</p>
+</section>
+<section id="some-precisions" class="level3">
+<h3 class="anchored" data-anchor-id="some-precisions">Some precisions</h3>
+<p>Let <img src="https://latex.codecogs.com/png.latex?%5Ctilde%20X%20=%20%5BX%20%5C;%20W%5D%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bn%20%5Ctimes%20%5Ctilde%20p%7D"> be the concatenation of <img src="https://latex.codecogs.com/png.latex?X"> with a matrix <img src="https://latex.codecogs.com/png.latex?W%20=%20%5BW_1%20%5C,%20%5Ccdots%20%5C,%20W_k%5D"> of <img src="https://latex.codecogs.com/png.latex?k"> new covariates. The goal is to test whether or not <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20%5Ctilde%20X)"> has significantly increased from <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20X)">. Henceforth, we shall assume that both <img src="https://latex.codecogs.com/png.latex?Y"> and <img src="https://latex.codecogs.com/png.latex?X"> are fixed and the null hypothesis is</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AH_0':%5C;%20%5Ctext%7B%20the%20%7D%20W_i%20%5Ctext%7B%20are%20independent%20and%20of%20uniformly%20distributed%20directions.%7D%0A"></p>
+<p>By saying that <img src="https://latex.codecogs.com/png.latex?W_i"> has a <em>uniformly distributed direction</em>, we mean that <img src="https://latex.codecogs.com/png.latex?W_i/%5C%7CW_i%5C%7C"> is uniformly distributed on the <img src="https://latex.codecogs.com/png.latex?n">-sphere. This is satisfied, for instance, if <img src="https://latex.codecogs.com/png.latex?W_i%20%5Csim%20N(0,%20%5Csigma_i%5E2%20I_n)"> and this represents the augmentation of the covariate space through random directions. It is equivalent to saying that the complement of <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSpan%7D(X)"> in <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSpan%7D(%5Ctilde%20X)"> is a random subspace. The following proposition shows that the expected value of <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20%5Ctilde%20X)"> is invariant under the addition of such covariates and provides the distribution of <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20%5Ctilde%20X)"> under <img src="https://latex.codecogs.com/png.latex?H_0'">.</p>
+<p><strong>Proposition 1.</strong> Let <img src="https://latex.codecogs.com/png.latex?Y%20%5Cin%20%5Cmathbb%7BR%7D%5En"> and <img src="https://latex.codecogs.com/png.latex?X%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bn%20%5Ctimes%20p%7D"> be fixed and let <img src="https://latex.codecogs.com/png.latex?%5Ctilde%20X%20=%20%5BX%20%5C;%20W_1%20%5C,%20%5Ccdots%20%5C,%20W_k%5D"> be the concatenation of <img src="https://latex.codecogs.com/png.latex?X"> with <img src="https://latex.codecogs.com/png.latex?k%20%5Cleq%20n-%20p"> independent random vectors <img src="https://latex.codecogs.com/png.latex?W_1,%20%5Cldots,%20W_k"> of uniformly distributed directions. Then</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbb%7BE%7D%5Cleft%5B%20R%5E2_a(Y,%20%5Ctilde%20X)%20%5Cright%5D%20=%20R%5E2_a(Y,%20X).%0A"></p>
+<p>and, more precisely, under <img src="https://latex.codecogs.com/png.latex?H_0"> we have that <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20%5Ctilde%20X)"> is distributed as</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A1-%20%20%5Cfrac%7B(n-1)%5C%7C%20%5Chat%20%5Cvarepsilon%20%5C%7C%5E2%7D%7B(n-%5Ctilde%20p)%20%5C%7C%20Y%20-%20%5Cbar%20Y%20%5C%7C%5E2%7D%5Ctext%7BBeta%7D%5Cleft(%5Ctfrac%7Bn-%5Ctilde%20p%7D%7B2%7D,%20%5Ctfrac%7Bk%7D%7B2%7D%20%5Cright)%0A"></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BBeta%7D%5Cleft(%5Ctfrac%7B(n-%5Ctilde%20p)%7D%7B2%7D,%20%5Ctfrac%7Bk%7D%7B2%7D%20%5Cright)"> is a Beta random variable of parameters <img src="https://latex.codecogs.com/png.latex?(n-%5Ctilde%20p)/2"> and <img src="https://latex.codecogs.com/png.latex?k/2">.</p>
+<p><strong>Proof.</strong> Let <img src="https://latex.codecogs.com/png.latex?%5Comega"> be the projection of <img src="https://latex.codecogs.com/png.latex?%5BW_1%20%5C,%20%5Ccdots%20%5C,%20W_k%5D"> on the orthogonal <img src="https://latex.codecogs.com/png.latex?V"> of <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSpan%7D(X)"> and denote by <img src="https://latex.codecogs.com/png.latex?P_%5Comega"> the orthogonal projection onto <img src="https://latex.codecogs.com/png.latex?V_%5Comega%20=%20%20%5Ctext%7BSpan%7D(%5Comega)">. By the Pythagorean theorem we have <img src="https://latex.codecogs.com/png.latex?%5C%7CY%20-%20P_%20%7B%5Ctilde%20X%7D%20Y%20%5C%7C%5E2%20+%20%5C%7CP_%5Comega%20%5Chat%20%5Cvarepsilon%5C%7C%5E2%20=%20%5C%7C%5Chat%20%5Cvarepsilon%5C%7C%5E2"> and hence we may write</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%20%20%20%20R%5E2_a(Y,%20%5Ctilde%20X)%20=%201-%20%5Cfrac%7B(n-1)%5C%7C%5Chat%20%5Cvarepsilon%5C%7C%5E2%7D%7B(n-%5Ctilde%20p)%20%5Cleft%5C%7C%20Y%20-%20%5Cbar%20Y%5Cright%5C%7C%5E2%7D%20%5Cleft(1%20-%20%5Cfrac%7B%5C%7CP_%5Comega%20%5Chat%20%5Cvarepsilon%5C%7C%5E2%7D%7B%5C%7C%5Chat%20%5Cvarepsilon%5C%7C%5E2%7D%20%5Cright).%0A"></p>
+<p>We now derive the distribution of <img src="https://latex.codecogs.com/png.latex?%5C%7CP_%5Comega%20%5Chat%20%5Cvarepsilon%5C%7C%5E2/%5C%7C%5Chat%20%5Cvarepsilon%5C%7C%5E2">. This term is the squared norm of projection of the unit vector <img src="https://latex.codecogs.com/png.latex?%5Chat%20%5Cvarepsilon%20/%20%5C%7C%5Chat%20%5Cvarepsilon%5C%7C%20%5Cin%20V"> on the random subspace <img src="https://latex.codecogs.com/png.latex?V_%5Comega%20%5Csubset%20V">. Let us now introduce a random unitary matrix <img src="https://latex.codecogs.com/png.latex?U"> obtained by orthonormalizing <img src="https://latex.codecogs.com/png.latex?%5Cdim(V)%20=%20n%20-%20p"> random vectors of uniformly distributed directions, so that <img src="https://latex.codecogs.com/png.latex?P_%5Comega%20%5Chat%20%5Cvarepsilon"> is distributed as the first <img src="https://latex.codecogs.com/png.latex?k"> components of the vector <img src="https://latex.codecogs.com/png.latex?U%20%5Chat%20%5Cvarepsilon">. Since <img src="https://latex.codecogs.com/png.latex?U%5Chat%20%5Cvarepsilon%20/%20%5C%7C%5Chat%20%5Cvarepsilon%5C%7C"> is uniformly distributed on the unit sphere of <img src="https://latex.codecogs.com/png.latex?V">, it follows that the squared norm of its first <img src="https://latex.codecogs.com/png.latex?k"> components has a <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BBeta%7D(k/2,%20(n-%5Ctilde%20p)/2)"> distribution. In other words, we have shown that <img src="https://latex.codecogs.com/png.latex?%5C%7CP_%5Comega%20%5Chat%20%5Cvarepsilon%5C%7C%5E2/%5C%7C%5Chat%20%5Cvarepsilon%5C%7C%5E2%20%5Csim%20%5Ctext%7BBeta%7D%5Cleft(%5Ctfrac%7Bk%7D%7B2%7D,%20%5Ctfrac%7Bn-%5Ctilde%20p%7D%7B2%7D%20%5Cright)">.</p>
+<p>The expectation of <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20%5Ctilde%20X)"> is obtained from this distributional expression. <img src="https://latex.codecogs.com/png.latex?%5CBox"></p>
+</section>
+<section id="reinterpretation-under-gaussian-hypotheses" class="level3">
+<h3 class="anchored" data-anchor-id="reinterpretation-under-gaussian-hypotheses">Reinterpretation under Gaussian hypotheses</h3>
+<p>While the preceding analysis was conditional on the observation of <img src="https://latex.codecogs.com/png.latex?Y">, suppose now that <img src="https://latex.codecogs.com/png.latex?Y%20=%20X%20%5Cbeta%20+%20%5Cvarepsilon">, where <img src="https://latex.codecogs.com/png.latex?%5Cvarepsilon%20%5Csim%20N(0,%20%5Csigma%5E2)"> for some <img src="https://latex.codecogs.com/png.latex?%5Csigma%5E2%20%3E%200">. The distribution of <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20X)"> is then intricately related to the unknown parameter <img src="https://latex.codecogs.com/png.latex?%5Cbeta">, preventing a direct analysis.</p>
+<p>However, as shown in Cramer (1987), the adjusted <img src="https://latex.codecogs.com/png.latex?R%5E2"> coefficient can still be understood as compensating for irrelevant covariates: in a correctly specified model, its expected value is invariant under the addition of covariates. This is formalized in Proposition 2 below. We preferred a more elementary proof than found therein, avoiding the rather involved explicit expression of the expected value that depends on the unknown parameter <img src="https://latex.codecogs.com/png.latex?%5Cbeta">.</p>
+<p><strong>Proposition 2.</strong> Suppose <img src="https://latex.codecogs.com/png.latex?Y%20=%20X%20%5Cbeta%20+%20%5Cvarepsilon">, where <img src="https://latex.codecogs.com/png.latex?%5Cbeta%20%5Cin%20%5Cmathbb%7BR%7D%5E%7Bp%7D"> and <img src="https://latex.codecogs.com/png.latex?%5Cvarepsilon%20%5Csim%20N(0,%20%5Csigma%5E2%20I_n)"> is Gaussian noise. If <img src="https://latex.codecogs.com/png.latex?%5Ctilde%20X"> is another design matrix of rank <img src="https://latex.codecogs.com/png.latex?%5Ctilde%20p"> such that <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSpan%7D(X)%20%5Csubset%20%5Ctext%7BSpan%7D(%5Ctilde%20X)">, then</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbb%7BE%7D%5Cleft%5B%20R%5E2_a(Y,%20%5Ctilde%20X)%20%5Cright%5D%20=%20%5Cmathbb%7BE%7D%5Cleft%5BR%5E2_a(Y,%20X)%5Cright%5D.%0A"></p>
+<p><strong>Remark.</strong> More precisely, we know the conditional distribution of <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20%5Ctilde%20X)"> given <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20X)">: it is the same as the distribution which appears in the context of Proposition 1. The above results then follows from a simple computation.</p>
+<p><strong>Proof.</strong> Let <img src="https://latex.codecogs.com/png.latex?%5Chat%20%5Cvarepsilon%5E%7B*%7D%20=%20Y%20-%20P_%20%7B%5Ctilde%20X%7D%20Y"> and write <img src="https://latex.codecogs.com/png.latex?%5Clambda%20=%20%5Cleft%5C%7C%5Cmathbb%7BE%7D%5Cleft%5BY%20-%20%5Cbar%20Y%5Cright%5D%5Cright%5C%7C%5E2/%5Csigma%5E2">. Then <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5C%7C%5Chat%20%5Cvarepsilon%5E%7B*%7D%5C%7C%5E2%7D%7B%5Cleft%5C%7CY%20-%20%5Cbar%20Y%5Cright%5C%7C%5E2%7D"> is distributed as <img src="https://latex.codecogs.com/png.latex?%0A%20%20%20%20%5Cfrac%7B%5Csum_%20%7Bi=1%7D%5E%7Bn%20-%20%5Ctilde%20p%7D%20Z_i%5E2%7D%7B%5Csum_%20%7Bi=1%7D%5E%7Bn%20-%20%5Ctilde%20p%7D%20Z_i%5E2%20+%20%5Cchi%5E2_%20%7B%5Ctilde%20p%20-1%7D%20(%5Clambda)%7D%0A"></p>
+<p>for independent <img src="https://latex.codecogs.com/png.latex?Z_i%20%5Csim%20N(0,1)"> and <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2_%20%7B%5Ctilde%20p%20-%201%7D%20(%5Clambda)"> a noncentral <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2"> random variable of parameter <img src="https://latex.codecogs.com/png.latex?%5Clambda">. Hence</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathbb%7BE%7D%5Cleft%5B%20%5Cfrac%7B%5C%7C%5Chat%20%5Cvarepsilon%5E%7B%7D%5C%7C%5E2%7D%7B%5Cleft%5C%7CY%20-%20%5Cbar%20Y%5Cright%5C%7C%5E2%7D%20%5Cright%5D%20=%20(n-%5Ctilde%20p)%20%5Cmathbb%7BE%7D%5Cleft%5B%5Cfrac%7BZ_1%5E2%7D%7B%5Csum%7Bi=1%7D%5E%7Bn%20-%20%5Ctilde%20p%7D%20Z_i%5E2%20+%20%5Cchi%5E2%7B%5Ctilde%20p%20-1%7D%20(%5Clambda)%7D%5Cright%5D%0A%20%20%20%20=%20(n-%5Ctilde%20p)K,%0A"></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?K%20=%20%5Cmathbb%7BE%7D%5Cleft%5B%5Cfrac%7BZ_1%5E2%7D%7BZ_1%5E2%20+%20%5Cchi%5E2_%20%7Bn%20-%202%7D%20(%5Clambda)%7D%5Cright%5D"> and <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2_%20%7Bn-2%7D(%5Clambda)"> is a new and independent noncentral <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2"> random variable. It follows that</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%20%20%20%20%5Cmathbb%7BE%7D%20%5Cleft%5BR%5E2_a(Y,%20%5Ctilde%20X)%20%5Cright%5D%20=%201%20-%20(n-1)K%0A"></p>
+<p>depends on <img src="https://latex.codecogs.com/png.latex?%5Ctilde%20X"> only through <img src="https://latex.codecogs.com/png.latex?X"> and must equal <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BE%7D%20%5Cleft%5BR%5E2_a(Y,%20X)%20%5Cright%5D">. <img src="https://latex.codecogs.com/png.latex?%5CBox"></p>
+</section>
+<section id="relationship-with-fishers-f-test" class="level3">
+<h3 class="anchored" data-anchor-id="relationship-with-fishers-f-test">Relationship with Fisher’s <img src="https://latex.codecogs.com/png.latex?F">-test</h3>
+<p>In the context of Proposition 2, suppose in particular that <img src="https://latex.codecogs.com/png.latex?%5Ctilde%20X%20=%20%5BX%20%5C;%20W%5D">, where <img src="https://latex.codecogs.com/png.latex?W%20=%20%5BW_1%5C,%20%5Ccdots%20%5C,%20W_k%5D"> is a matrix of additional fixed regressors. Recall that the <img src="https://latex.codecogs.com/png.latex?F">-statistic for Fisher’s test with nested models of <img src="https://latex.codecogs.com/png.latex?p"> and <img src="https://latex.codecogs.com/png.latex?%5Ctilde%20p%20=%20p%20+%20k"> parameters respectively is given by</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AF%20=%20%5Cfrac%7B%5C%7C%20%5Chat%20Y_0%20-%20%5Chat%20Y%20%5C%7C%5E2%7D%7B%5C%7C%20Y%20-%20%5Chat%20Y%20%5C%7C%5E2%7D%20%5Cfrac%7Bn%20-%20%5Ctilde%20p%20%7D%7Bk%7D,%0A"></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?%5Chat%20Y_0%20=%20P_X%20Y"> and <img src="https://latex.codecogs.com/png.latex?%5Chat%20Y%20=%20P_%7B%5Ctilde%20X%7D%20Y"> are the vector of predicted values for the models corresponding to <img src="https://latex.codecogs.com/png.latex?X"> and <img src="https://latex.codecogs.com/png.latex?%5Ctilde%20X">. The test of significance devised in Section 2, based on <img src="https://latex.codecogs.com/png.latex?R%5E2_a(Y,%20%5Ctilde%20X)">, is then equivalent to Fisher’s <img src="https://latex.codecogs.com/png.latex?F">-test of the hypothesis</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AH_0%5E%7B%5Ctext%7BGauss%7D%7D:%5C;%20Y%20=%20X%5Cbeta%20+%20%5Cvarepsilon%5C,%20%5Ctext%7B%20where%20%7D%5C,%5Cvarepsilon%20%5Csim%20N(0,%20%5Csigma%5E2%20I_n).%0A"></p>
+<p>To see this, let <img src="https://latex.codecogs.com/png.latex?%5Comega"> be, as in the proof of Proposition 1, the projection of <img src="https://latex.codecogs.com/png.latex?%5BW_1%5C,%5Ccdots%5C,W_k%5D"> on the orthogonal of <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSpan%7D(X)"> and denote by <img src="https://latex.codecogs.com/png.latex?P_%5Comega"> the projection on <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSpan%7D(%5Comega)">. Then the <img src="https://latex.codecogs.com/png.latex?F">-statistic can be written as</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%20%20%20%20F%20=%20%5Cfrac%7B%5C%7CP_%5Comega%20%5Chat%20%5Cvarepsilon%5C%7C%5E2%7D%7B%5C%7C%5Chat%20%5Cvarepsilon%20-%20P_%5Comega%20%5Chat%20%5Cvarepsilon%20%5C%7C%5E2%7D%20%5Cfrac%7Bn-%5Ctilde%20p%7D%7Bk%7D%20=%20%5Cfrac%7B%5C%7CP_%5Comega%20%5Chat%20%5Cvarepsilon%5C%7C%5E2/%5C%7C%5Chat%20%5Cvarepsilon%5C%7C%5E2%7D%7B1%20-%20%5C%7CP_%5Comega%20%5Chat%20%5Cvarepsilon%20%5C%7C%5E2/%5C%7C%5Chat%20%5Cvarepsilon%5C%7C%5E2%7D%20%5Cfrac%7Bn-%5Ctilde%20p%7D%7Bk%7D.%0A"></p>
+<p>This is a monotonous invertible transform of <img src="https://latex.codecogs.com/png.latex?%5C%7CP_%5Comega%20%5Chat%20%5Cvarepsilon%5C%7C%5E2/%5C%7C%5Chat%20%5Cvarepsilon%5C%7C%5E2"> which, under <img src="https://latex.codecogs.com/png.latex?H_0%5E%7B%5Ctext%7BGauss%7D%7D">, follows a Beta distribution of parameters <img src="https://latex.codecogs.com/png.latex?k/2"> and <img src="https://latex.codecogs.com/png.latex?(n-%5Ctilde%20p)/2">. Yet in the framework of Section 2 and under <img src="https://latex.codecogs.com/png.latex?H_0">, where now <img src="https://latex.codecogs.com/png.latex?%5Comega"> is random and <img src="https://latex.codecogs.com/png.latex?%5Chat%20%5Cvarepsilon"> fixed, the test statistic <img src="https://latex.codecogs.com/png.latex?R%5E2_%20a(Y,%20%5Ctilde%20X)"> is also a monotonous invertible function of <img src="https://latex.codecogs.com/png.latex?%5C%7CP_%20%5Comega%20%5Chat%20%5Cvarepsilon%5C%7C%5E2/%5C%7C%5Chat%20%5Cvarepsilon%5C%7C%5E2%20%5Csim%20%5Ctext%7BBeta%7D(k/2,%20(n-%5Ctilde%20p)/2)">. This shows that the two unilateral tests are equivalent: the same observations yield the same <img src="https://latex.codecogs.com/png.latex?p">-values.</p>
+</section>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>We have highlighted dual perspectives on nested models comparison. An increase of <img src="https://latex.codecogs.com/png.latex?R%5E2"> may be due to random noise that correlates with fixed regressors, or to random regressors that correlate with fixed observations. Fisher’s test of the first hypothesis is equivalent to the <img src="https://latex.codecogs.com/png.latex?R%5E2_a"> test of the second. Furthermore, we showed that <img src="https://latex.codecogs.com/png.latex?R%5E2_a"> compensates properly, on the average, for both types of inflation of <img src="https://latex.codecogs.com/png.latex?R%5E2">. We suggest this provides a clear explanation of what <img src="https://latex.codecogs.com/png.latex?R%5E2_a"> exactly adjusts for and how it can properly be used for models comparison.</p>
+<p>Furthermore, the fact that random covariate tests, conditional on the observations, can be carried out exactly using any measure of goodness of fit (e.g.&nbsp;the likelihood or the AIC) suggests that our approach may be helpful in devising nested model comparison tests for GLMs. Testing at a chosen confidence level also provides more flexibility than using a rule-based procedure such as the AIC.</p>
+<p><strong>References</strong></p>
+<ul>
+<li>Cramer, J. S. (1987). Mean and variance of r2 in small and moderate samples. <em>Journal of Econometrics 35(2)</em>, 253 – 266.</li>
+<li>Helland, I. S. (1987). On the interpretation and use of r2 in regression analysis. <em>Biometrics 43(1)</em>, 61–69.</li>
+<li>Meepagala, G. (1992). The small sample properties of r2 in a misspecified regression model with stochastic regressors. <em>Economics Letters 40(1)</em>, 1 – 6.</li>
+<li>Ohtani, K. and H. Tanizaki (2004). Exact distributions of r2 and adjusted r2 ina linear regression model with multivariate t error terms. <em>Journal of the Japan Statistical Society 34(1)</em>, 101–109.</li>
+<li>Olkin, I. and J. W. Pratt (1958). Unbiased estimation of certain correlation coefficients. <em>The Annals of Mathematical Statistics 29(1)</em>, 201–211.</li>
+<li>Theil, H. (1971). <em>Principles of econometrics (1 ed.)</em>. New York: J. Wiley.</li>
+</ul>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>technical</category>
+  <category>statistics</category>
+  <guid>https://olivierbinette.ca/pages/posts/2019-04-10-significance-adjusted-r2/2019-04-10-significance-adjusted-r2.html</guid>
+  <pubDate>Wed, 10 Apr 2019 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>3D data visualization with WebGL/Three.js</title>
+  <link>https://olivierbinette.ca/pages/posts/2019-01-06-3d-data-visualization-with-webglthreejs/2019-01-06-3d-data-visualization-with-webglthreejs.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<!-- wp:paragraph -->
+<p>
+<a href="http://olivierbinette.github.io/earthquakes">Javascript app</a> to visualize the positions and depths of earthquakes of magnitude greater than 6 from January 1st 2014 up to January 1st 2019. Data is from the US Geological Survey (usgs.gov). Code is <a href="https://github.com/OlivierBinette/earthquakes">on GitHub</a>.
+</p>
+<!-- /wp:paragraph -->
+<p><a href="screenshot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="https://olivierbinette.ca/pages/posts/2019-01-06-3d-data-visualization-with-webglthreejs/screenshot.png" class="img-fluid"></a></p>
+<!-- wp:paragraph -->
+<p>
+The original motivation was to make a web tool for high-dimensional data exploration through spherical multidimensional scaling (S-MDS). The basic idea of S-MDS is to map a possibly high-dimensional dataset on the sphere while approximately preserving a matrix of pairwise distances (or divergences). An interactive visualization tool could help explore the mapped dataset and translate observations back to the original data domain. To be continued…
+</p>
+<!-- /wp:paragraph -->
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>general</category>
+  <category>data-viz</category>
+  <guid>https://olivierbinette.ca/pages/posts/2019-01-06-3d-data-visualization-with-webglthreejs/2019-01-06-3d-data-visualization-with-webglthreejs.html</guid>
+  <pubDate>Sun, 06 Jan 2019 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Short Proof: Critical Points in Invariant Domains</title>

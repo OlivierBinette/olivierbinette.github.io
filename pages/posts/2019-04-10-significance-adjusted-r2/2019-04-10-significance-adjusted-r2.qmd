@@ -1,0 +1,179 @@
+---
+title: "The Significance of the adjusted R squared coefficient"
+description: |
+  A sound re-interpretation of the adjusted $R^2$ value for model comparison.
+date: 2019-04-10
+categories:
+  - technical
+  - statistics
+---
+
+My friend [Anthony Coache](https://anthonycoache.ca/) and I have been curious about uses and misuses of the *adjusted* $R^2$ coefficient which comes up in linear regression for model comparison and as a measure of "goodness of fit". We were underwhelmed by the depth of the literature arguing for its use, and wanted to show exactly how it behaves under certain sets of assumptions. Investigating the issue brought us to re-interpret the adjusted $R^2$ and to highlight a new distribution-free perspective on nested model comparison which is equivalent, under Gaussian assumptions, to Fisher's classical $F$-test. This generalizes to nested GLMs comparison and provides exact comparison tests that are not based on asymptotic approximations. We still have many questions to answer, but here's some of what we've done.
+
+<!--more-->
+
+So, in the context of least squares linear regression, the model for relating a vector of $n$ observed responses $Y$ to $p-1$ independent covariates is $Y = X \beta + \varepsilon$, where $X$ is the design matrix and $\varepsilon$ is the vector of random errors. One of many summary statistics arising from data analyses based on this model is the adjusted $R^2$ coefficient, defined as
+
+$$R^2_a(Y, X) = 1 - \frac{\|\hat \varepsilon\|^2}{\left\|Y - \bar Y \right\|^2}\frac{n-1}{n-p},$$
+
+where $\hat \varepsilon$ is the vector of residual errors and $\bar Y$ is the mean of $Y$ (Cramer, 1987; Ohtani, 2004). The $R^2$ coefficient and its adjusted counterpart are widely used as measures of goodness of fit, as model selection criteria and as estimators of the squared multiple correlation coefficient $\rho^2$ of the parent population. While their properties have been thoroughly studied in these contexts (Olkin, 1958; Helland, 1987; Cramer, 1987; Meepagala, 1992; Ohtani, 2004), the literature is scarce in explanations as to what, exactly, $R^2_a$ adjusts for in non-trivial cases. It is not an unbiased estimator of $\rho^2$ and the *degrees of freedom adjustment* heuristic (Theil, 1971) is of limited depth.
+
+Here we show in what sense the adjusted $R^2$ coefficient may be considered "unbiased". For nested models comparison, we also suggest how to test the significance of a $R^2_a$ difference between two nested models which is equivalent to Fisher's $F$-test under Gaussian assymptions. The $R^2_a$ test is however done from a largely distribution-free perspective which is conditional on the observation of $Y$. The results are then reinterpreted under classical Gaussian assumptions, which emphasize the dual perspectives between those two tests.
+
+
+
+### Model and notations
+
+Given a matrix $A$, let $\text{Span}(A)$ denote the subspace spanned by its columns and $P_A$ be the (orthogonal) projection on $\text{Span}(A)$.
+
+
+The commonly used linear regression model is $$Y = X \beta + \varepsilon,$$ where $Y$ is a $n \times 1$ vector of observed responses, the design matrix $X$ consists of a constant column vector followed by $p-1$ column vectors of covariates, $\beta$ is the vector of parameters to be estimated and $\varepsilon$ is the vector of random errors. The fixed design matrix is supposed to be non-random and of full rank $p$. Let also $\hat \varepsilon = Y - P_X Y$ denote the residuals errors obtained by linear least squares fitting.
+
+## Testing for an increase of $R^2_a$
+
+Suppose we have two design matrices $X$ and $\tilde X$, where $\text{Span}(X) \subset \text{Span}(\tilde X)$. Let $p=\text{rank}(X)$ and $\tilde p = \text{rank}(\tilde X) = p+k$. Given the vector of observations $Y$, we observe two values $R^2 _ a (Y, X)$ and $R^2_ a (Y, \tilde X)$ associated to the nested models. The classical way to test for a significant increase of $R^2 _ a$ is to carry out Fisher's $F$-test based on the statistics
+
+$$
+F = \frac{\| \hat Y_0 - \hat Y \|^2}{\| Y - \hat Y \|^2} \frac{n - \tilde p }{k},
+$$
+
+where $\hat Y_0 = P_X Y$ and $\hat Y = P_ {\tilde X}Y$. This is a function of both $R^2_a(Y, X)$ and $R^2_a(Y, \tilde X)$, which, under the assumption
+
+$$
+H_0: \quad Y = X \beta + \varepsilon
+$$
+
+for $\varepsilon \sim N(0, \sigma^2 I_n)$, has an $F$-distribution.
+
+This is, however, a rather convoluted way of going about comparing the two numbers $R^2_a(Y, X)$ and $R^2_a(Y, \tilde X)$. Can we do simpler, and can we drop the Gaussian assumption? The answer is yes, although we'll have to change a bit our point of view on the problem.
+
+### A Dual perspective on nested model comparison
+
+The whole point of nested model comparison is to see if the new covariates in $\tilde X$, i.e. those that are not part of $\text{Span}(X)$, bring new information about $Y$. In the context of an exploratory analysis where the observations and predictors are all observed, we propose to change our perspective to the following testing procedure:
+
+1. condition on the observation of $Y$ and $X$ (consider them fixed, observed values);
+2. tests if the new covariates in $\tilde X$ are random noise.
+
+Hence, rather than testing the model $Y = X\beta + \varepsilon$ under a Gaussian noise assumption, we test for *covariate randomness*, our null hypothesis becomes
+
+$$
+H_0':\quad \text{the complement of $\text{Span}(X)$ in $\text{Span}(\tilde X)$ is a random subspace.}
+$$
+
+This test can be carried out using any test statistic $T$, and obviously the distribution of $T$ under $H_0'$ (and conditionally on $Y$), will not depend on the unknown parameter $\beta$ nor on the noise structure $\varepsilon$ (which has been conditionned out of randomness). In particular, we can take $T = R^2_a(Y, \tilde X)$.
+
+Does it make any sense? Well it does not change anything! The test obtained in this framework is entirely equivalent to Fisher's $F$-test we reviewed before: for any given observation of $Y$, $X$ and $\tilde X$, the two tests will give the same results.
+
+Let me make all of this more precise.
+
+### Some precisions
+
+Let $\tilde X = [X \; W] \in \mathbb{R}^{n \times \tilde p}$ be the concatenation of $X$ with a matrix $W = [W_1 \, \cdots \, W_k]$ of $k$ new covariates. The goal is to test whether or not $R^2_a(Y, \tilde X)$ has significantly increased from $R^2_a(Y, X)$. Henceforth, we shall assume that both $Y$ and $X$ are fixed and the null hypothesis is
+
+$$
+H_0':\; \text{ the } W_i \text{ are independent and of uniformly distributed directions.}
+$$
+
+By saying that $W_i$ has a *uniformly distributed direction*, we mean that $W_i/\|W_i\|$ is uniformly distributed on the $n$-sphere. This is satisfied, for instance, if $W_i \sim N(0, \sigma_i^2 I_n)$ and this represents the augmentation of the covariate space through random directions. It is equivalent to saying that the complement of $\text{Span}(X)$ in $\text{Span}(\tilde X)$ is a random subspace. The following proposition shows that the expected value of $R^2_a(Y, \tilde X)$ is invariant under the addition of such covariates and provides the distribution of $R^2_a(Y, \tilde X)$ under $H_0'$.
+
+**Proposition 1.**
+Let $Y \in \mathbb{R}^n$ and $X \in \mathbb{R}^{n \times p}$ be fixed and let $\tilde X = [X \; W_1 \, \cdots \, W_k]$ be the concatenation of $X$ with $k \leq n- p$ independent random vectors $W_1, \ldots, W_k$ of uniformly distributed directions. Then
+
+$$
+\mathbb{E}\left[ R^2_a(Y, \tilde X) \right] = R^2_a(Y, X).
+$$
+
+and, more precisely, under $H_0$ we have that $R^2_a(Y, \tilde X)$ is distributed as
+
+$$
+1-  \frac{(n-1)\| \hat \varepsilon \|^2}{(n-\tilde p) \| Y - \bar Y \|^2}\text{Beta}\left(\tfrac{n-\tilde p}{2}, \tfrac{k}{2} \right)
+$$
+
+where $\text{Beta}\left(\tfrac{(n-\tilde p)}{2}, \tfrac{k}{2} \right)$ is a Beta random variable of parameters $(n-\tilde p)/2$ and $k/2$.
+
+**Proof.**
+Let $\omega$ be the projection of $[W_1 \, \cdots \, W_k]$ on the orthogonal $V$ of $\text{Span}(X)$ and denote by $P_\omega$ the orthogonal projection onto $V_\omega =  \text{Span}(\omega)$. By the Pythagorean theorem we have $\|Y - P_ {\tilde X} Y \|^2 + \|P_\omega \hat \varepsilon\|^2 = \|\hat \varepsilon\|^2$ and hence we may write
+
+$$
+    R^2_a(Y, \tilde X) = 1- \frac{(n-1)\|\hat \varepsilon\|^2}{(n-\tilde p) \left\| Y - \bar Y\right\|^2} \left(1 - \frac{\|P_\omega \hat \varepsilon\|^2}{\|\hat \varepsilon\|^2} \right).
+$$
+
+We now derive the distribution of $\|P_\omega \hat \varepsilon\|^2/\|\hat \varepsilon\|^2$. This term is the squared norm of projection of the unit vector $\hat \varepsilon / \|\hat \varepsilon\| \in V$ on the random subspace $V_\omega \subset V$. Let us now introduce a random unitary matrix $U$ obtained by orthonormalizing $\dim(V) = n - p$ random vectors of uniformly distributed directions, so that $P_\omega \hat \varepsilon$ is distributed as the first $k$ components of the vector $U \hat \varepsilon$. Since $U\hat \varepsilon / \|\hat \varepsilon\|$ is uniformly distributed on the unit sphere of $V$, it follows that the squared norm of its first $k$ components has a $\text{Beta}(k/2, (n-\tilde p)/2)$ distribution. In other words, we have shown that $\|P_\omega \hat \varepsilon\|^2/\|\hat \varepsilon\|^2 \sim \text{Beta}\left(\tfrac{k}{2}, \tfrac{n-\tilde p}{2} \right)$.
+
+The expectation of $R^2_a(Y, \tilde X)$ is obtained from this distributional expression. $\Box$
+
+### Reinterpretation under Gaussian hypotheses
+
+While the preceding analysis was conditional on the observation of $Y$, suppose now that $Y = X \beta + \varepsilon$, where $\varepsilon \sim N(0, \sigma^2)$ for some $\sigma^2 > 0$. The distribution of $R^2_a(Y, X)$ is then intricately related to the unknown parameter $\beta$, preventing a direct analysis.
+
+However, as shown in Cramer (1987), the adjusted $R^2$ coefficient can still be understood as compensating for irrelevant covariates: in a correctly specified model, its expected value is invariant under the addition of covariates. This is formalized in Proposition 2 below. We preferred a more elementary proof than found therein, avoiding the rather involved explicit expression of the expected value that depends on the unknown parameter $\beta$.
+
+**Proposition 2.**
+Suppose $Y = X \beta + \varepsilon$, where $\beta \in \mathbb{R}^{p}$ and $\varepsilon \sim N(0, \sigma^2 I_n)$ is Gaussian noise. If $\tilde X$ is another design matrix of rank $\tilde p$ such that $\text{Span}(X) \subset \text{Span}(\tilde X)$, then
+
+$$
+\mathbb{E}\left[ R^2_a(Y, \tilde X) \right] = \mathbb{E}\left[R^2_a(Y, X)\right].
+$$
+
+**Remark.**
+More precisely, we know the conditional distribution of $R^2_a(Y, \tilde X)$ given $R^2_a(Y, X)$: it is the same as the distribution which appears in the context of Proposition 1. The above results then follows from a simple computation.
+
+**Proof.**
+Let $\hat \varepsilon^{*} = Y - P_ {\tilde X} Y$ and write $\lambda = \left\|\mathbb{E}\left[Y - \bar Y\right]\right\|^2/\sigma^2$. Then $\frac{\|\hat \varepsilon^{*}\|^2}{\left\|Y - \bar Y\right\|^2}$ is distributed as
+$$
+    \frac{\sum_ {i=1}^{n - \tilde p} Z_i^2}{\sum_ {i=1}^{n - \tilde p} Z_i^2 + \chi^2_ {\tilde p -1} (\lambda)}
+$$
+
+for independent $Z_i \sim N(0,1)$ and $\chi^2_ {\tilde p - 1} (\lambda)$ a noncentral $\chi^2$ random variable of parameter $\lambda$. Hence
+
+$$
+\mathbb{E}\left[ \frac{\|\hat \varepsilon^{}\|^2}{\left\|Y - \bar Y\right\|^2} \right] = (n-\tilde p) \mathbb{E}\left[\frac{Z_1^2}{\sum{i=1}^{n - \tilde p} Z_i^2 + \chi^2{\tilde p -1} (\lambda)}\right]
+    = (n-\tilde p)K,
+$$
+
+where $K = \mathbb{E}\left[\frac{Z_1^2}{Z_1^2 + \chi^2_ {n - 2} (\lambda)}\right]$ and $\chi^2_ {n-2}(\lambda)$ is a new and independent noncentral $\chi^2$ random variable. It follows that
+
+$$
+    \mathbb{E} \left[R^2_a(Y, \tilde X) \right] = 1 - (n-1)K
+$$
+
+depends on $\tilde X$ only through $X$ and must equal $\mathbb{E} \left[R^2_a(Y, X) \right]$. $\Box$
+
+### Relationship with Fisher's $F$-test
+
+In the context of Proposition 2, suppose in particular that $\tilde X = [X \; W]$, where $W = [W_1\, \cdots \, W_k]$ is a matrix of additional fixed regressors. Recall that the $F$-statistic for Fisher's test with nested models of $p$ and $\tilde p = p + k$ parameters respectively is given by
+
+$$
+F = \frac{\| \hat Y_0 - \hat Y \|^2}{\| Y - \hat Y \|^2} \frac{n - \tilde p }{k},
+$$
+
+where $\hat Y_0 = P_X Y$ and $\hat Y = P_{\tilde X} Y$ are the vector of predicted values for the models corresponding to $X$ and $\tilde X$. The test of significance devised in Section 2, based on $R^2_a(Y, \tilde X)$, is then equivalent to Fisher's $F$-test of the hypothesis
+
+$$
+H_0^{\text{Gauss}}:\; Y = X\beta + \varepsilon\, \text{ where }\,\varepsilon \sim N(0, \sigma^2 I_n).
+$$
+
+To see this, let $\omega$ be, as in the proof of Proposition 1, the projection of $[W_1\,\cdots\,W_k]$ on the orthogonal of $\text{Span}(X)$ and denote by $P_\omega$ the projection on $\text{Span}(\omega)$. Then the $F$-statistic can be written as
+
+$$
+    F = \frac{\|P_\omega \hat \varepsilon\|^2}{\|\hat \varepsilon - P_\omega \hat \varepsilon \|^2} \frac{n-\tilde p}{k} = \frac{\|P_\omega \hat \varepsilon\|^2/\|\hat \varepsilon\|^2}{1 - \|P_\omega \hat \varepsilon \|^2/\|\hat \varepsilon\|^2} \frac{n-\tilde p}{k}.
+$$
+
+This is a monotonous invertible transform of $\|P_\omega \hat \varepsilon\|^2/\|\hat \varepsilon\|^2$ which, under $H_0^{\text{Gauss}}$, follows a Beta distribution of parameters $k/2$ and $(n-\tilde p)/2$. Yet in the framework of Section 2 and under $H_0$, where now $\omega$ is random and $\hat \varepsilon$ fixed, the test statistic $R^2_ a(Y, \tilde X)$ is also a monotonous invertible function of $\|P_ \omega \hat \varepsilon\|^2/\|\hat \varepsilon\|^2 \sim \text{Beta}(k/2, (n-\tilde p)/2)$. This shows that the two unilateral tests are equivalent: the same observations yield the same $p$-values.
+
+## Discussion
+
+We have highlighted dual perspectives on nested models comparison. An increase of $R^2$ may be due to random noise that correlates with fixed regressors, or to random regressors that correlate with fixed observations. Fisher's test of the first hypothesis is equivalent to the $R^2_a$ test of the second. Furthermore, we showed that $R^2_a$ compensates properly, on the average, for both types of inflation of $R^2$. We suggest this provides a clear explanation of what $R^2_a$ exactly adjusts for and how it can properly be used for models comparison.
+
+Furthermore, the fact that random covariate tests, conditional on the observations, can be carried out exactly using any measure of goodness of fit (e.g. the likelihood or the AIC) suggests that our approach may be helpful in devising nested model comparison tests for GLMs. Testing at a chosen confidence level also provides more flexibility than using a rule-based procedure such as the AIC.
+
+**References**
+
+  - Cramer, J. S. (1987). Mean and variance of r2 in small and moderate samples. *Journal of Econometrics 35(2)*, 253 – 266.
+  - Helland, I. S. (1987). On the interpretation and use of r2 in regression analysis. *Biometrics 43(1)*, 61–69.
+  - Meepagala, G. (1992). The small sample properties of r2 in a misspecified regression model with stochastic regressors. *Economics Letters 40(1)*, 1 – 6.
+  - Ohtani, K. and H. Tanizaki (2004). Exact distributions of r2 and adjusted r2 ina linear regression model with multivariate t error terms. *Journal of the Japan Statistical Society 34(1)*, 101–109.
+  - Olkin, I. and J. W. Pratt (1958). Unbiased estimation of certain correlation coefficients. *The Annals of Mathematical Statistics 29(1)*, 201–211.
+  - Theil, H. (1971). *Principles of econometrics (1 ed.)*. New York: J. Wiley.
+
+

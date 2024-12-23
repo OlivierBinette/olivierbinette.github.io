@@ -1,0 +1,90 @@
+---
+title: "Validating function arguments in R"
+date: 2020-11-15
+categories:
+  - technical
+  - r-programming
+---
+
+**Update:** The `assert` package is now available on CRAN:
+
+```r
+install.packages("assert")
+```
+
+---
+
+I was programming a Gibbs sampler the other day and all hell broke loose: small errors were hard to trace back to the source of the problem and debugging was a pain. 
+
+The bugs could have been caught much more early if I had properly validated the input arguments of my various helper functions. So I decided it was time for me to learn how to do this properly.
+
+## Validating function input arguments in R
+
+The easiest way is to manually incorporate checks.
+
+```R
+mySum <- function(a, b) {
+  if (!is.numeric(a) | !is.numeric(b)) {
+    stop("Arguments should be numeric.")
+  }
+  if (length(a) != length(b)) {
+    stop("Arguments should be of the same length.")
+  } 
+  
+  return(a+b)
+}
+```
+
+This works well enough, but it takes up a lot of space and you have to manually write up the description of the errors.
+
+### A first solution
+
+Let's use the `assertthat` package. 
+
+```R
+mySum <- function(a, b) {
+  assert_that(is.numeric(a), is.numeric(b))
+	assert_that(length(a) == length(b))
+  
+  return(a+b)
+}
+```
+
+This is neater, but the error messages are not very descriptive.
+
+```R
+> mySum(1, "1")
+		Error: b is not a numeric or integer vector 
+```
+
+What is `b` here? What arguments in the function call caused the error?  It's a bit hard to tell, especially if the call to this function is hidden in some large Gibbs sampler.
+
+### The `assert` function
+
+My solution is the `assert` function which you can find [on my Github Gist](https://gist.github.com/OlivierBinette/a048d7c1f470740b64e95c74828c8516).
+
+```R
+source("assert.R")
+```
+
+Usage is similar to what we did above:
+
+```R
+mySum <- function(a, b) {
+  assert(is.numeric(a), is.numeric(b))
+	assert(length(a) == length(b))
+  
+  return(a+b)
+}
+```
+
+But now we have much more descriptive error messages.
+
+```R
+> mySum(1, "1")
+		Error: in mySum(a = 1, b = "1")
+		Failed checks: 
+			is.numeric(b) 
+```
+
+
