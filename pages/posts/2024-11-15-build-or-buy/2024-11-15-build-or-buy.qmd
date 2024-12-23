@@ -7,9 +7,20 @@ categories:
   - management
 ---
 
+::::{.columns}
+
+
+:::{.column width="70%"}
 Choosing where to get what you need - whether that’s software, hardware, or people - is called **strategic sourcing.** It’s about minimizing the **total cost of ownership**, including the costs associated with using, not using, or maintaining the thing you need.
 
 The problem is particularly tricky for software developers. They’re paid to build, after all, and they know or want to know how to build. So why should they buy a solution when they can make it themselves?
+:::
+
+:::{.column width="30%"}
+![](bernie.jpg){fig-align=center width="90%"}
+:::
+
+::::
 
 > Before you build, make sure you understand the real costs to succeed over the long term, and only embark on those code-writing efforts you’re sure your business is capable of. - [Robert Sher, HBR](https://hbr.org/2021/12/when-should-your-company-develop-its-own-software)
 
@@ -29,9 +40,9 @@ There are exceptions to this, such as if this is an area of core capability wher
 
 ---
 
-Other tips from PipDecks' Strategy Tactics:
+Other tips from [PipDecks](https://pipdecks.com)' Strategy Tactics:
 
 ![](pip-1.png){width="50%" fig-align="center"}
 
-![](pip-2.png){width="50%" fig-align="center"}
+![https://pipdecks.com/products/strategy-tactics](pip-2.png){width="50%" fig-align="center"}
 
