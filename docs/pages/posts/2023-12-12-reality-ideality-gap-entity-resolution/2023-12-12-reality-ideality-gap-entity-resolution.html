@@ -7,10 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Olivier Binette">
-<meta name="dcterms.date" content="2024-08-15">
-<meta name="description" content="“It is wrong to suppose that if you can’t measure it, you can’t manage it – a costly myth.” - Edwards Deming">
+<meta name="dcterms.date" content="2023-12-12">
 
-<title>Measurement and Management – Olivier Binette</title>
+<title>What is the Reality-Ideality-Gap in Entity Resolution? – Olivier Binette</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -42,9 +41,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap-a8ea1e82486677e597140ce0ae75ad78.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -99,16 +95,12 @@ background: #f8f8f8;
 </style>
 
 
-<meta property="og:title" content="Measurement and Management – Olivier Binette">
-<meta property="og:description" content="“It is wrong to suppose that if you can’t measure it, you can’t manage it – a costly myth.” - Edwards Deming">
-<meta property="og:image" content="https://olivierbinette.ca/pages/posts/2024-08-15-measurement-and-management/deming.jpeg">
+<meta property="og:title" content="What is the Reality-Ideality-Gap in Entity Resolution? – Olivier Binette">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Olivier Binette">
-<meta property="og:image:alt" content="W. Edwards Deming">
-<meta name="twitter:title" content="Measurement and Management – Olivier Binette">
-<meta name="twitter:description" content="“It is wrong to suppose that if you can’t measure it, you can’t manage it – a costly myth.” - Edwards Deming">
-<meta name="twitter:image" content="https://olivierbinette.ca/pages/posts/2024-08-15-measurement-and-management/deming.jpeg">
-<meta name="twitter:image:alt" content="W. Edwards Deming">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What is the Reality-Ideality-Gap in Entity Resolution? – Olivier Binette">
+<meta name="twitter:description" content="">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="floating nav-fixed">
@@ -172,15 +164,10 @@ background: #f8f8f8;
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Measurement and Management</h1>
-                  <div>
-        <div class="description">
-          “It is wrong to suppose that if you can’t measure it, you can’t manage it – a costly myth.” - Edwards Deming
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">general</div>
-                <div class="quarto-category">management</div>
+      <h1 class="title">What is the Reality-Ideality-Gap in Entity Resolution?</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">technical</div>
+                <div class="quarto-category">record-linkage</div>
               </div>
                   </div>
   </div>
@@ -192,7 +179,7 @@ background: #f8f8f8;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 15, 2024</p>
+        <p class="date">December 12, 2023</p>
       </div>
     </div>
     
@@ -203,15 +190,7 @@ background: #f8f8f8;
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#dont-manage-by-numbers." id="toc-dont-manage-by-numbers." class="nav-link active" data-scroll-target="#dont-manage-by-numbers.">Don’t manage by numbers.</a></li>
-  <li><a href="#how-can-we-resolve-this-false-paradox" id="toc-how-can-we-resolve-this-false-paradox" class="nav-link" data-scroll-target="#how-can-we-resolve-this-false-paradox">How can we resolve this false paradox?</a></li>
-  <li><a href="#in-short" id="toc-in-short" class="nav-link" data-scroll-target="#in-short">In Short</a></li>
-  </ul>
-</nav>
+    
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -224,55 +203,26 @@ background: #f8f8f8;
 
 
 
-<div class="columns">
-<div class="column" style="width:80%;">
-<p>W. Edwards Deming pioneered the use of measurement and statistics in manufacturing industries, using data to improve processes. Some even credit part of the success of the post-WWII Japanese auto industry (e.g.&nbsp;Toyota) to Deming’s japanese career, where he taught and popularized the use of Statistical Process Control (SPC) [1].</p>
-<p>Unfortunately, Deming’s work and ideas are widely misunderstood. And Deming was aware of this. Much of his later writings emphasize how a <strong>naive understanding of quality management is counterproductive</strong>. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-</div><div class="column" style="width:20%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="deming.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="W. Edwards Deming"><img src="deming.jpeg" class="preview-image img-fluid figure-img" alt="W. Edwards Deming"></a></p>
-<figcaption>W. Edwards Deming</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<section id="dont-manage-by-numbers." class="level2">
-<h2 class="anchored" data-anchor-id="dont-manage-by-numbers.">Don’t manage by numbers.</h2>
-<p>It’s a bit confusing: Deming encouraged the use of measurement, metrics, data, and statistics, as a key tool for process improvement and quality control. And yet he also painstakingly tried to drive in points like this:</p>
-<ul>
-<li><strong>“It is wrong to suppose that if you can’t measure it, you can’t manage it – a costly myth.”</strong></li>
-<li><strong>“Eliminate management by numbers and numerical goals.”</strong></li>
-</ul>
-<p>How can this be? How can he simultaneously be pro-measurement, pro-data, and against data-driven management?</p>
-</section>
-<section id="how-can-we-resolve-this-false-paradox" class="level2">
-<h2 class="anchored" data-anchor-id="how-can-we-resolve-this-false-paradox">How can we resolve this false paradox?</h2>
-<p>As a statistician, Deming was aware how important what you can’t measure is to making valid inferences. Statistics is not about data. It’s about combining data and context to make valid inferences. Data on its own has no meaning. Missing data - including both the data you wish you had and the data you don’t even know you’re missing - is more important than the data you have. A statistician’s work is to help learn about such unknowns. It’s a fallacy to make decisions based only on available data - the <a href="https://en.wikipedia.org/wiki/McNamara_fallacy">McNamara fallacy</a>.</p>
+<p><a href="https://www.ijcai.org/proceedings/2022/0552.pdf">Wang et al (2022)</a> describe the frustration when real-world performance does not match expectations obtained from benchmark datasets. This difference is the “reality-ideality” gap which is all too common in real-world applications of entity resolution.<br>
+<br>
+Why does it happen? They posit that three main issues limit the generalizability of current benchmarks, specifically in the context of deep learning approaches to entity resolution:<br>
+<br>
+1. 𝐓𝐡𝐞𝐫𝐞 𝐢𝐬 𝐥𝐞𝐚𝐤𝐚𝐠𝐞 𝐟𝐫𝐨𝐦 𝐭𝐡𝐞 𝐭𝐫𝐚𝐢𝐧𝐢𝐧𝐠 𝐬𝐞𝐭 𝐢𝐧𝐭𝐨 𝐭𝐡𝐞 𝐭𝐞𝐬𝐭 𝐬𝐞𝐭. In typical benchmark constructions, record pairs are randomly sampled, leading to the same cluster being represented in both the train and test dataset. This biases results, especially in deep learning approaches which rely on learning record embeddings.<br>
+<br>
+2. 𝐑𝐞𝐚𝐥-𝐰𝐨𝐫𝐥𝐝 𝐝𝐚𝐭𝐚 𝐢𝐬 𝐦𝐮𝐜𝐡 𝐦𝐨𝐫𝐞 𝐢𝐦𝐛𝐚𝐥𝐚𝐧𝐜𝐞𝐝 𝐭𝐡𝐚𝐧 𝐛𝐞𝐧𝐜𝐡𝐦𝐚𝐫𝐤 𝐝𝐚𝐭𝐚𝐬𝐞𝐭𝐬 in terms of matching vs non-matching record pairs. In other words, there is much more opportunity for error in real data than in a benchmark dataset.<br>
+<br>
+3. Partly as a consequence of the two above issues, 𝐭𝐲𝐩𝐢𝐜𝐚𝐥 𝐛𝐞𝐧𝐜𝐡𝐦𝐚𝐫𝐤𝐬 𝐮𝐧𝐝𝐞𝐫𝐞𝐬𝐭𝐢𝐦𝐚𝐭𝐞 𝐭𝐡𝐞 𝐢𝐦𝐩𝐨𝐫𝐭𝐚𝐧𝐜𝐞 𝐨𝐟 𝐚𝐝𝐝𝐢𝐭𝐢𝐨𝐧𝐚𝐥 𝐟𝐞𝐚𝐭𝐮𝐫𝐞𝐬 𝐚𝐧𝐝 𝐦𝐮𝐥𝐭𝐢𝐦𝐨𝐝𝐚𝐥 𝐢𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧. This leads to under-specified systems which do not perform as well as they could.<br>
+<br>
+The paper goes on to define clear tasks for entity resolution systems and detail issues with current benchmarks:<br>
+</p>
 <blockquote class="blockquote">
-<p>“But when the McNamara discipline is applied too literally, the first step is to measure whatever can be easily measured. The second step is to disregard that which can’t easily be measured or given a quantitative value. The third step is to presume that what can’t be measured easily really isn’t important. The fourth step is to say that what can’t be easily measured really doesn’t exist. This is suicide.” — <a href="https://en.wikipedia.org/wiki/Daniel_Yankelovich">Daniel Yankelovich</a>, “<a href="https://archive.org/details/sim_sales-management_1971-11-15_107_11/page/26/mode/2up?view=theater">Interpreting the New Life Styles</a>”, Sales Management (1971)</p>
+<p>“Our findings reveal that previous benchmarks biased the evaluation of the progress of current entity matching approaches, and there is still a long way to go to build effective entity matchers.”</p>
 </blockquote>
-<p>The problem isn’t data or measurement. In fact, you should aim to measure as much as you can, as often as you can. You should build measurement and observability as core components of your systems and infrastructures. You should work to continually improve your approach to measurement of what matters. And you should have statisticians or data scientists make sense of these numbers through their context, given specific goals.</p>
-<p>But here’s the thing: <strong>measurement is not management.</strong></p>
-<p>As a manager, your job is to create and maintain structures that drive customer value and continuous improvement. To achieve this, you need to think about knowns (i.e., data, metrics) and unknowns. Statisticians or data scientists can help you contextualize data and shed light on unknowns, athough it’s not always an easy process.</p>
-</section>
-<section id="in-short" class="level2">
-<h2 class="anchored" data-anchor-id="in-short">In Short</h2>
-<p>There are many misconceptions surrounding data and its use in management. It is important for all to understand both the importance of data and its limitations. We can do so by learning from resources such as the Deming Institute’s website:</p>
-<script src="https://cdn.jsdelivr.net/npm/@mariusbongarts/previewbox/dist/index.min.js"></script>
-<p><previewbox-link url="https://deming.org/explore/fourteen-points" title="Deming's Fourteen points" description="Dr. W. Edwards Deming offered 14 key principles for management to follow to improve the effectiveness of a business or organization significantly. The principles (points) were first presented in his book Out of the Crisis. Below is the condensation of the 14 Points for Management, but these alone will not improve your business." imageurl="https://upload.wikimedia.org/wikipedia/commons/7/73/W._Edwards_Deming.jpg"></previewbox-link></p>
-<p>Deming advocated for structures that removed fear in workers, fostered continuous improvement, and enabled taking pride in one’s work.</p>
+<embed src="https://www.ijcai.org/proceedings/2022/0552.pdf" width="100%" height="100%">
 
 
-</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Deming started working in Japan in 1947, bringing knowledge of the theory of Statistical Process Control (SPC) that was pioneered by Walter A. Shewhart at Bell Laboratories a few decades earlier. During post-war reconstruction, the Union of Japanese Scientists and Engineers (JUSE) invited Deming to teach SPC to engineers and managers. He went on to work with private enterprises and received multiple awards for his contributions.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div></main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -751,38 +701,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

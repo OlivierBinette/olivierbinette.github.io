@@ -1041,6 +1041,40 @@ Example
   <pubDate>Mon, 18 Mar 2024 04:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>What is the Reality-Ideality-Gap in Entity Resolution?</title>
+  <link>https://olivierbinette.ca/pages/posts/2023-12-12-reality-ideality-gap-entity-resolution/2023-12-12-reality-ideality-gap-entity-resolution.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p><a href="https://www.ijcai.org/proceedings/2022/0552.pdf">Wang et al (2022)</a> describe the frustration when real-world performance does not match expectations obtained from benchmark datasets. This difference is the “reality-ideality” gap which is all too common in real-world applications of entity resolution.<br>
+<br>
+Why does it happen? They posit that three main issues limit the generalizability of current benchmarks, specifically in the context of deep learning approaches to entity resolution:<br>
+<br>
+1. 𝐓𝐡𝐞𝐫𝐞 𝐢𝐬 𝐥𝐞𝐚𝐤𝐚𝐠𝐞 𝐟𝐫𝐨𝐦 𝐭𝐡𝐞 𝐭𝐫𝐚𝐢𝐧𝐢𝐧𝐠 𝐬𝐞𝐭 𝐢𝐧𝐭𝐨 𝐭𝐡𝐞 𝐭𝐞𝐬𝐭 𝐬𝐞𝐭. In typical benchmark constructions, record pairs are randomly sampled, leading to the same cluster being represented in both the train and test dataset. This biases results, especially in deep learning approaches which rely on learning record embeddings.<br>
+<br>
+2. 𝐑𝐞𝐚𝐥-𝐰𝐨𝐫𝐥𝐝 𝐝𝐚𝐭𝐚 𝐢𝐬 𝐦𝐮𝐜𝐡 𝐦𝐨𝐫𝐞 𝐢𝐦𝐛𝐚𝐥𝐚𝐧𝐜𝐞𝐝 𝐭𝐡𝐚𝐧 𝐛𝐞𝐧𝐜𝐡𝐦𝐚𝐫𝐤 𝐝𝐚𝐭𝐚𝐬𝐞𝐭𝐬 in terms of matching vs non-matching record pairs. In other words, there is much more opportunity for error in real data than in a benchmark dataset.<br>
+<br>
+3. Partly as a consequence of the two above issues, 𝐭𝐲𝐩𝐢𝐜𝐚𝐥 𝐛𝐞𝐧𝐜𝐡𝐦𝐚𝐫𝐤𝐬 𝐮𝐧𝐝𝐞𝐫𝐞𝐬𝐭𝐢𝐦𝐚𝐭𝐞 𝐭𝐡𝐞 𝐢𝐦𝐩𝐨𝐫𝐭𝐚𝐧𝐜𝐞 𝐨𝐟 𝐚𝐝𝐝𝐢𝐭𝐢𝐨𝐧𝐚𝐥 𝐟𝐞𝐚𝐭𝐮𝐫𝐞𝐬 𝐚𝐧𝐝 𝐦𝐮𝐥𝐭𝐢𝐦𝐨𝐝𝐚𝐥 𝐢𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧. This leads to under-specified systems which do not perform as well as they could.<br>
+<br>
+The paper goes on to define clear tasks for entity resolution systems and detail issues with current benchmarks:<br>
+</p>
+<blockquote class="blockquote">
+<p>“Our findings reveal that previous benchmarks biased the evaluation of the progress of current entity matching approaches, and there is still a long way to go to build effective entity matchers.”</p>
+</blockquote>
+<embed src="https://www.ijcai.org/proceedings/2022/0552.pdf" width="100%" height="100%">
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Olivier Binette</div></div></section></div> ]]></description>
+  <category>technical</category>
+  <category>record-linkage</category>
+  <guid>https://olivierbinette.ca/pages/posts/2023-12-12-reality-ideality-gap-entity-resolution/2023-12-12-reality-ideality-gap-entity-resolution.html</guid>
+  <pubDate>Tue, 12 Dec 2023 05:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Record Linkage at the Duke GPSG Community Pantry</title>
   <link>https://olivierbinette.ca/pages/posts/2022-01-01-record-linkage-at-the-gpsg-community-pantry/record-linkage-at-the-gpsg-community-pantry.html</link>
   <description><![CDATA[ 
@@ -3558,7 +3592,7 @@ The original motivation was to make a web tool for high-dimensional data explora
   <pubDate>Sun, 06 Jan 2019 05:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>2017-11-05-sampling-lipschitz-continuous-densities</title>
+  <title>Sampling Lipschitz Continuous Densities</title>
   <link>https://olivierbinette.ca/pages/posts/2017-11-05-sampling-lipschitz-continuous-densities/2017-11-05-sampling-lipschitz-continuous-densities.html</link>
   <description><![CDATA[ 
 
@@ -3567,7 +3601,7 @@ The original motivation was to make a web tool for high-dimensional data explora
 
 
 <p>Full code: <a href="https://github.com/OlivierBinette/LipSample">https://github.com/OlivierBinette/LipSample</a></p>
-<embed src="simulation.pdf" width="800px" height="800px">
+<embed src="simulation.pdf" width="100%" height="100%">
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource matlab number-lines code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;

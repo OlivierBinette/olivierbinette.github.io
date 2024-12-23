@@ -5,12 +5,13 @@
 $my-accent-color: #c00000;
 $my-accent-bg: #fffbfb;
 $my-text-color: #404040;
-$my-secondary-text-color: rgba(0, 0, 0, 0.6);
+$my-secondary-text-color: rgba(0, 0, 0, 0.7);
 $my-title-font: "Noto Serif", serif;
 $my-body-font: "Noto Sans", sans-serif;
 
 // General
 $link-color: $my-accent-color;
+$body-secondary: $my-secondary-text-color;
 
 // Headings
 $headings-font-family: $my-title-font;

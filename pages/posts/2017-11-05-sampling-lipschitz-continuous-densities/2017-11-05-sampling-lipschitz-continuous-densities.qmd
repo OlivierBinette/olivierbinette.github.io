@@ -1,5 +1,5 @@
 ---
-title: "2017-11-05-sampling-lipschitz-continuous-densities"
+title: "Sampling Lipschitz Continuous Densities"
 description: Simple and efficient algorithm for generating random variates from the class of Lipschitz continuous densities.
 date: 2017-11-05
 categories:
@@ -11,7 +11,7 @@ Full code: [https://github.com/OlivierBinette/LipSample](https://github.com/Oliv
 
 
 ```{=html}
-<embed src="simulation.pdf" width="800px" height="800px" />
+<embed src="simulation.pdf" width="100%" height="100%"/>
 ```
 
 ```matlab

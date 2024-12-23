@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2017-11-05">
 <meta name="description" content="Simple and efficient algorithm for generating random variates from the class of Lipschitz continuous densities.">
 
-<title>2017-11-05-sampling-lipschitz-continuous-densities – Olivier Binette</title>
+<title>Sampling Lipschitz Continuous Densities – Olivier Binette</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-41d0922e3213cd14dddcd51cd5a0b369.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-997f2e1e445b8bd128d69734730053d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-a8ea1e82486677e597140ce0ae75ad78.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -130,10 +130,10 @@ background: #f8f8f8;
 </style>
 
 
-<meta property="og:title" content="2017-11-05-sampling-lipschitz-continuous-densities – Olivier Binette">
+<meta property="og:title" content="Sampling Lipschitz Continuous Densities – Olivier Binette">
 <meta property="og:description" content="Simple and efficient algorithm for generating random variates from the class of Lipschitz continuous densities.">
 <meta property="og:site_name" content="Olivier Binette">
-<meta name="twitter:title" content="2017-11-05-sampling-lipschitz-continuous-densities – Olivier Binette">
+<meta name="twitter:title" content="Sampling Lipschitz Continuous Densities – Olivier Binette">
 <meta name="twitter:description" content="Simple and efficient algorithm for generating random variates from the class of Lipschitz continuous densities.">
 <meta name="twitter:card" content="summary">
 </head>
@@ -199,7 +199,7 @@ background: #f8f8f8;
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">2017-11-05-sampling-lipschitz-continuous-densities</h1>
+      <h1 class="title">Sampling Lipschitz Continuous Densities</h1>
                   <div>
         <div class="description">
           Simple and efficient algorithm for generating random variates from the class of Lipschitz continuous densities.
@@ -244,7 +244,7 @@ background: #f8f8f8;
 
 
 <p>Full code: <a href="https://github.com/OlivierBinette/LipSample">https://github.com/OlivierBinette/LipSample</a></p>
-<embed src="simulation.pdf" width="800px" height="800px">
+<embed src="simulation.pdf" width="100%" height="100%">
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource matlab number-lines code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">function</span> [<span class="va">sample</span><span class="op">,</span> <span class="va">x</span><span class="op">,</span> <span class="va">y</span>] <span class="op">=</span> <span class="va">lipsample</span>(<span class="va">f</span><span class="op">,</span> <span class="va">L</span><span class="op">,</span> <span class="va">limits</span><span class="op">,</span> <span class="va">m</span><span class="op">,</span> <span class="va">varargin</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="co">% Random variates from a Lipschitz continuous probability density function on [a,b].</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="co">%</span></span>
