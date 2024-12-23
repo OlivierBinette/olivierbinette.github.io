@@ -8,7 +8,7 @@ categories:
 ---
 
 ::: {.callout-note appearance="simple"}
-Everything that follows is a quote from Terry's book, with minimal adaptations for flow in some places.
+Everything that follows is a quote from Terry's book, with minimal adaptations for flow in some places. It's an excellent book. Get it [here](https://www.amazon.com/Strategic-Project-Management-Made-Simple/dp/1119718171).
 :::
 
 The most potent opportunities seldom show up labeled as “projects,” but arrive disguised as problems, issues, or murky messes. Tackling so called Big, Hairy, Audacious Goals, as Jim Collins describes them in Built to Last, involves juggling a full spectrum of slippery Objectives that can be difficult to define, let alone manage.
