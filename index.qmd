@@ -27,7 +27,7 @@ title-block-banner: false
 
 I'm Olivier, a data scientist at American Institutes for Research. I have a Ph.D. in Statistics from Duke University.
 
-I specialize in applied data science R&D, in the statistical evaluation of AI/machine learning systems, and in entity resolution for data integration, cleaning, and enrichment. My work combines engineering, machine learning, and statistics to address applied problems in these areas.
+I specialize in applied data science, AI/ML evaluation, and data linkage. My work combines engineering, machine learning, and statistics to address applied problems in these areas.
 :::
 
 <!--
