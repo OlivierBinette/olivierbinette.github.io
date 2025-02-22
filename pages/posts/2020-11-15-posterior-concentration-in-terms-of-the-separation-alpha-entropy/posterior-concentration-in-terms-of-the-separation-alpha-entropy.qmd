@@ -1,0 +1,121 @@
+---
+title: "Posterior Concentration in terms of the Separation Alpha-Entropy"
+description: |
+  Notes on some research in progress.
+author:
+  - name: Olivier Binette
+date: 10-11-2019
+categories:
+  - technical
+  - math
+  - statistics
+format: html
+---
+
+This post continues the series on posterior concentration under misspecification. Here I introduce an unifying point of view on the subject through the introduction of the *separation $\alpha$-entropy*. We use this notion of prior entropy to bridge the gap between Bayesian fractional posteriors and regular posterior distributions: in the case where this entropy is finite, direct analogues to some of the concentration results for fractional posteriors (Bhattacharya et al., 2019) are recovered.
+
+This post is going to be quite abstract, just like last week. I'll talk in a future post about how this separation $\alpha$-entropy generalizes generalizes the covering numbers for testing under misspecification of Kleijn et al. (2006) as well as the prior summability conditions of De Blasi et al. (2013). 
+
+Quick word of warning: this is not the definitive version of the results I'm working on, but I still had to get them out somewhere. 
+
+Another word of warning: Wordpress has gotten significantly worse at dealing with math recently. I will find a new platform, but for now expect to find typos and some rendering issues.
+
+## The framework
+
+We continue in the same theoretical framework as before: $\mathbb{F}$ is a set of densities on a complete and separable metric space $\mathcal{X}$ with respect to a $\sigma$-finite measure $\mu$ defined on the Borel $\sigma$-algebra of $\mathcal{X}$, $H$ is the Hellinger distance defined by 
+$$ H(f, g) = \left(\int \left(\sqrt{f} - \sqrt{g}\right)^2 \, d\mu\right)^{1/2}$$
+and we make use of the Rényi divergences defined by
+$$ d_\alpha(f, g) = -\alpha^{-1}\log A_\alpha(f, g),\quad A_\alpha(f, g) = \int f^{\alpha}g^{1-\alpha} \,d\mu .$$
+Here we assume that data is generated following a distribution $f_0 \in \mathbb{F}$ having a density in our model (this assumption could be weakened), and therefore defined the *off-centered* Rényi divergence
+$$ d_\alpha^{f_0}(f, f^\star) = -\alpha^{-1}\log(A_\alpha^{f_0}(f, f^\star))$$
+where
+$$ A_\alpha^{f_0}(f, f^\star) = \int (f/f^\star)^\alpha f_0\,d\mu$$
+assuming that all this is well defined.
+
+### Prior and posterior distributions
+
+Now let $\Pi$ be a prior on $\mathbb{F}$. Given either a single data point $X \sim f_0$ or a sequence of independent variables $X^{(n)} = \{X_i\}_{i=1}^n$ with common probability density function $f_0$, the posterior distribution of $\Pi$ given $X^{(n)}$ is the random quantity $\Pi(\cdot \mid X^{(n)})$ defined by
+$$ \Pi\left(A\mid X^{(n)}\right) = \int_A \prod_{i=1}^n f(X_i) \Pi(df)\Big/ \int_{\mathbb{F}} \prod_{i=1}^n f(X_i) \Pi(df)$$
+and $\Pi(\cdot \mid X) = \Pi(\cdot \mid X^{(1)})$. This may not always be well-defined, but I don't want to get into technicalities for now.
+
+## Separation $\alpha$-entropy
+
+We state our concentration results in terms of the separation $\alpha$-entropy. It is inspired by the Hausdorff $\alpha$-entropy introduced in Xing et al. (2009), although the separation $\alpha$-entropy has no relationship with the Hausdorff measure and instead builds upon the concept of $\delta$-separation of Choi et al. (2008) defined below.
+
+Given a set $A \subset \mathbb{F}$, we denote by $\langle A \rangle$ the convex hull of $A$: it is the set of all densities of the form $\int_A f \,\nu(df)$ where $\nu$ is a probability measure on $A$.
+
+**Definition** ($\delta$-separation).
+ Let $f_0 \in \mathbb{F}$ be fixed as above. A set of densities $A \subset \mathbb{F}$ is said to be $\delta$-separated from $f^\star \in \mathbb{F}$ with respect to the divergence $d_\alpha^{f_0}$ if for every $f \in \langle A \rangle$,
+$$ d_\alpha^{f_0}\left(f, f^\star\right) \geq \delta.$$
+A collection of sets $\{A_i\}_{i=1}^\infty$ is said to be $\delta$-separated from $f_0$ if every $A \in \{A_i\}_{i=1}^\infty $ is $\delta$-separated from $f_0$.
+
+An important property of $\delta$-separation, first noted by Walker (2004) and used for the study of posterior consistency, is that it scales with product densities. The general statement of the result is stated in the following lemma.
+
+**Lemma** (Separation of product densities).
+*Let $(\mathcal{X}_i, \mathcal{B}_{i}, \mu_i)$, $i \in\{ 1,2, \dots, n\}$, be a sequence of $\sigma$-finite measured spaces where each $\mathcal{X}_i$ is a complete and separable locally compact metric space and $\mathcal{B}_i$ is the corresponding Borel $\sigma$-algebra. Denote by $\mathbb{F}_i$ the set of probability density functions on $(\mathcal{X}_i, \mathcal{B}{i}, \mu_i)$, fix $f_{0,i} \in \mathbb{F}_i$ and let $A_i \subset \mathbb{F}_i$ be $\delta_i$-separated from $f_{i}^\star \in \mathbb{F}_i$ with respect to $d_\alpha^{f_{0,i}}$ for some $\delta_i \geq 0$. Let $\prod_{i=1}^n A_i = \left\{\prod_{i=1}^n f_{i} \mid f_i \in \mathbb{F}_i\right\}$ where $\prod_{i=1}^n f_i$ is the product density on $\prod_{i=1}^n \mathcal{X}_i$ defined by $(x_1, \dots, x_n) \mapsto \prod_{i=1}^n f_i(x_i)$. Then $\prod_{i=1}^nA_i$ is $\left(\sum_{i=1}^n\delta_i\right)$-separated from $\prod_{i=1}^n f_{i}^\star$ with respect to $d_\alpha^{f_0}$ where $f_0 = \prod_{i=1}^nf_{0,i}$.*
+
+We can now define the *separation $\alpha$-entropy* of a set $A\subset \mathbb{F}$ with parameter $\delta > 0$ as the minimal $\alpha$-entropy of a $\delta$-separated covering of $A$. When this entropy is finite, we can study the concentration properties of the posterior distribution using simple information-theoretic techniques similar to those used in Bhattacharya (2019) for the study of Bayesian fractional posteriors.
+
+**Definition** (Separation $\alpha$-entropy).
+ Fix $\delta > 0$, $\alpha \in (0,1)$ and let $A$ be a subset of $\mathbb{F}$. Recall $\Pi$, $f_0$ and $f^\star$ fixed as previously. The *separation $\alpha$-entropy* of $A$ is defined as 
+$$ \mathcal{S}_\alpha^\star(A, \delta) = \mathcal{S}_\alpha^\star(A, \delta; \Pi, f_0, f^\star) = \inf \,(1-\alpha)^{-1} \log \sum_{i=1}^\infty \left(\frac{\Pi(A_i)}{\Pi(A)}\right)^\alpha$$
+where the infimum is taken over all (measurable) families $\{A_i\}_{i=1}^\infty$, $A_i \subset \mathbb{F}$, satisfying $\Pi(A \backslash (\cup_{i}A_i)) = 0$ and which are $\delta$-separated from $f_0$ with respect to the divergence $d_\alpha^{f_0}$. When no such covering exists we let $\mathcal{S}_\alpha(A, \delta) = \infty$, and when $\Pi(A) = 0$ we define $\mathcal{S}_\alpha(A, \delta) = 0$.
+
+**Remark.**
+     *When $f_0 = f^\star$, so that $d_\alpha^{f_0}(f, f^\star) = d_\alpha(f, f_0)$, we drop the indicator $\star$ and denote $\mathcal{S}_\alpha(A, \delta) = \mathcal{S}^\star(A, \delta)$,  to emphasize the fact.*
+
+**Proposition** (Properties of the separation $\alpha$-entropy). 
+*The separation $\alpha$-entropy $\mathcal{S}_\alpha^\star(A, \delta)$ of a set $A\subset \mathbb{F}$ is non-negative and $\mathcal{S}_\alpha(A, \delta) = 0$ if $A$ is $\delta$-separated from $f^\star$ with respect to the divergence $d_\alpha^{f_0}$. Furthermore, if $0 < \alpha \leq \beta < 1$ and $0 < \delta \leq \delta'$, then*  
+$$ {}\mathcal{S}_\alpha^\star(A, \delta) \leq \mathcal{S}_\alpha^\star(A, \delta')$$
+*and if also $f^\star = f_0$, then*  
+$$ {}\mathcal{S}_\beta(A, \tfrac{1-\beta}{\beta}\delta) \leq \mathcal{S}_\alpha(A, \tfrac{1-\alpha}{\alpha}\delta).$$
+*For a subset $A \subset B \subset \mathbb{F}$ with $\Pi(A) > 0$, we have*
+
+![img](img.png)
+
+*and, more generally, if $A \subset \bigcup_{n=1}^\infty B_n$ for subsets $B_n \subset \mathbb{F}$, then*
+$$ {}\Pi(A)^{\alpha}\left(\exp\mathcal{S}_\alpha^\star(A, \delta)\right)^{1-\alpha}         \leq \sum_{n=1}^\infty \Pi(B_n)^\alpha \left(\exp\mathcal{S}_\alpha^\star(B_n, \delta)\right)^{1-\alpha}.$$
+
+
+## Posterior consistency
+
+**Theorem** (Posterior consistency).
+*Let $f_0, f^\star \in \mathbb{F}$ and let $\{X_i\}$ be a sequence of independent random variables with common probability density $f_0$. Suppose there exists $\delta > 0$ such that*
+$$ \Pi\left({f \in \mathbb{F} \mid D(f_0| f) < \delta}\right) > 0.$$
+*If $A \subset \mathbb{F}$ satisfies $\mathcal{S}_\alpha^\star\left(A, \delta\right) < \infty$ for some $\alpha \in (0,1)$, then     $\Pi\left(A\mid \{X_i\}_{i=1}^n\right) \rightarrow 0$ almost surely as $n\rightarrow \infty$.*
+
+**Remark.**
+*The condition $\mathcal{S}_\alpha^\star(A, \delta) < \infty$ implies in particular that $A \subset \{f\in \mathbb{F} \mid d_\alpha^{f_0}(f, f^\star) \geq \delta\}$.*
+
+**Corollary** (Well-specified consistency).
+ *Suppose that $f_0$ is in the Kullback-Leibler support of $\Pi$. If $A \subset \mathbb{F}$ satisfies $\mathcal{S}_\alpha(A, \delta) < \infty$ for some $\alpha \in (0,1)$ and for some $\delta > 0$, then $\Pi_n(A) \rightarrow 0$ almost surely as $n \rightarrow \infty$.*
+
+**Corollary** (Well-specified Hellinger consistency).
+     *Suppose that $f_0$ is in the Kullback-Leibler support of $\Pi$ and fix $\varepsilon > 0$. If there exists a covering $\{A_i\}_{i=1}^\infty$ of $\mathbb{F}$ by Hellinger balls of diameter at most $\delta < \varepsilon$ satisfying $\sum_{i=1}^\infty \Pi(A_i)^\alpha < \infty$ for some $\alpha \in (0,1)$, then $\Pi_n\left(\left\{f \in \mathbb{F} \mid H(f, f_0) \geq \varepsilon \right\}\right) \rightarrow 0$ almost surely as $n\rightarrow \infty$.*
+
+## Posterior concentration
+
+Following Kleijn et al. (2006) and Bhattacharya et al. (2019), we let
+$$ B(\delta, f^\star;f_0) = \left\{ f\in \mathbb{F} \mid \int \log \left(\frac{f}{f^\star}\right) f_0 \,d\mu \leq \delta,\, \int \left(\log \left(\frac{f}{f^\star}\right)\right)^2 f_0 \,d\mu \leq \delta \right\}$$
+be a Kullback-Leibler type neighborhood of $f^\star$ (relatively to $f_0$) where the second moment of the log likelihood ratio $\log(f/f^\star)$ is also controlled.
+
+**Theorem** (Posterior concentration bound).
+   *Let $f_0, f^\star \in \mathbb{F}$ and let $X \sim f_0$. For any $\delta > 0$ and $\kappa > 1$ we have that*
+$$ \log\Pi(A \mid X) \leq \frac{1-\alpha}{\alpha}\mathcal{S}_\alpha^\star(A, \kappa \delta)- \log\Pi(B(\delta, f^\star;f_0)) - \kappa\delta$$
+*holds with probability at least $1-8/(\alpha^2\delta)$.*
+
+**Corollary** (Posterior concentration bound, i.i.d. case).
+*Let $f_0, f^\star \in \mathbb{F}$ and let $\{X_i\}$ be a sequence of independent random variables with common probability density $f_0$. For any $\delta > 0$ and $\kappa > 1$ we have that*
+$$ \log\Pi\left(A \mid \{X_i\}_{i=1}^n\right) \leq \frac{1-\alpha}{\alpha}\mathcal{S}_\alpha^\star(A, \kappa \delta)- \log\Pi(B(\delta, f^\star;f_0)) - n\kappa\delta$$
+*holds with probability at least $1-8/(\alpha^2 n \delta)$.*
+
+**References**
+
+- Bhattacharya,  A.,  D.  Pati,  and  Y.  Yang  (2019).Bayesian  fractional  posteriors.Ann.Statist. 47(1), 39–66.
+- Choi, T. and R. V. Ramamoorthi (2008).Remarks  on  consistency  of  posterior  distributions,Volume Volume 3, pp. 170–186. Beachwood, Ohio, USA: Institute of Mathematical Statistics.
+- De Blasi, P. and S. G. Walker (2013). Bayesian asymptotics with misspecified models.StatisticaSinica, 169–187.
+- Grünwald, P. and T. van Ommen (2017).  Inconsistency of bayesian inference for misspecifiedlinear models, and a proposal for repairing it.Bayesian Anal. 12(4), 1069–1103.
+- Kleijn, B. J., A. W. van der Vaart, et al. (2006). Misspecification in infinite-dimensional bayesianstatistics.The Annals of Statistics  34(2), 837–877.
+- Ramamoorthi, R. V., K. Sriram, and R. Martin (2015). On posterior concentration in misspec-ified models.Bayesian Anal. 10(4), 759–789.
+- Walker, S. (2004).  New approaches to Bayesian consistency.Ann. Statist. 32(5), 2028–2043.
+- Xing, Y. and B. Ranneby (2009).  Sufficient conditions for Bayesian consistency. J. Stat. Plan.Inference  139(7), 2479–2489.

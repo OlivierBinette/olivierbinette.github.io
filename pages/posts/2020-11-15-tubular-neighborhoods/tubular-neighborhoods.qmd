@@ -1,0 +1,64 @@
+---
+title: "Tubular neighborhoods"
+description: |
+  Complete proof of the tubular neighborhood theorem for submanifolds of euclidean space. I was unable to find an elementary version in the litterature.
+author:
+  - name: Olivier Binette
+date: 12-02-2016
+categories:
+  - technical
+  - math
+format: html
+---
+
+Let me introduce some notations. A $\mathcal{C}^l$ submanifold of dimension $m$ of $\mathbb{R}^k$ is a subset $M$ that is locally $\mathcal{C}^l$-diffeomorphic to open balls of $\mathbb{R}^m$. Similarily, a $\mathcal{C}^l$ manifold with boundary is locally diffeomorphic to open balls of the half space $\mathbb{H}^k = \{(x_1, \dots, x_m)\in \mathbb{R}^m | x_m \geq 0\}$.
+If $f : M \rightarrow N$ is a differentiable map between manifolds, we denote by $df_x: T_x M \rightarrow T_{f(x)} N$ the differential of $f$ at $x$. Each tangent space $T_x M$ has an orthogonal complement $N_x M$ in $\mathbb{R}^k$; the <em>normal bundle </em>of $M$ is $N(M) = \{(x, v) \in \mathbb{R}^{2k} | x \in M,\, v \in N_x M\}$. In the following, we assume $M$ is compact.
+
+Given $\varepsilon \gt; 0$, we let $V_\varepsilon = \{(x, v) \in N(M) \,|\, |v| \le \varepsilon\}$ and $P_\varepsilon = \{y \in \mathbb{R}^k | d(y, M) \le \varepsilon \}$, where $d$ is the euclidean distance. The set $V_\varepsilon$ is an $\varepsilon$-neighborhood of the cross-section $M \times \{0\}$ in $N(M)$, and $P_\varepsilon$ is a <em>tubular neighborhood</em> of $M$ in $\mathbb{R}^k$. We will prove the following theorem.
+
+**Tubular neighborhood theorem. **Let $M$ be a compact submanifold of $\mathbb{R}^k$, without boundary. For $\varepsilon \gt; 0$ sufficiently small, $V_\varepsilon$ and $P_\varepsilon$ are manifolds, diffeomorphic under the map $F : V_\varepsilon \rightarrow P_\varepsilon : (x, v) \mapsto x+v$.
+
+**Corollary 1.** If $\varepsilon \gt; 0$ is sufficiently small, then for each $w \in P_\varepsilon$ there exists an unique closest point to $w$ on $M$.
+
+Note, however, that this corollary may not hold when $M$ is only a $\mathcal{C}^1$ manifold. We will require $M$ to be at least $\mathcal{C}^2$. The proof will make clear why this is necessary, but I also present a counter-example.
+
+
+**Counterexample ($\mathcal{C}^1$ manifolds).** Let $M$ be the graph of $f: [-1,1] \rightarrow \mathbb{R} : t \mapsto t^{4/3}$ in $\mathbb{R}^2$. It is indeed a compact $\mathcal{C}^1$ manifold since $f$ is $\mathcal{C}^1$. However, the points $w_\varepsilon = (0, \varepsilon)$ have, for all $\varepsilon \gt; 0$, two closest points on $M$. To see this, first note that if $M$ had an unique closest point to $w_\varepsilon$, then that point would be $(0,0)$, by the parity of $f$. Now, consider the function $g_\varepsilon :[-\varepsilon, \varepsilon] \rightarrow \mathbb{R}: t \mapsto \varepsilon - \sqrt{\varepsilon^2 - t^2 }$, its graph being the lower half of a circle centered at $w_\varepsilon$ and crossing $(0,0)$. We find 
+$$\lim_{t \rightarrow 0} g_\varepsilon'(t)/f'(t) = \lim_{t \rightarrow 0} \frac{3}{4}\frac{t^{2/3}}{\sqrt{\varepsilon^2 - t^2}} = 0,$$ 
+meaning that the graph of $g_\varepsilon$ is under $M$ near $(0,0)$. This is a contradiction, as me may thus shrink the circle to find two intersection points on $M$ closer to $w_\varepsilon$ than $(0,0)$.
+
+## Proof of the theorem.
+
+In the following, $M$ is a compact $\mathcal{C}^2$ submanifold of $\mathbb{R}^k$ of dimension $m$.
+
+**Lemma 1.** The normal bundle $N(M)$ is a $\mathcal{C}^1$ submanifold of $\mathbb{R}^{2k}$ and $T_{(x,v)} N(M) = T_xM \times N_x M$.
+
+
+**Proof.** Let $(x_0, 0) \in N(M)$ and consider a neighborhood $\mathcal{U}$ of $x_0$ in $\mathbb{R}^k$. It may be chosen so that $M\cap \mathcal{U} = \phi^{-1}(0)$, for some $\phi : \mathcal{U} \rightarrow \mathbb{R}^{k-m}$ with $d\phi_x$ surjective. Restricting $\mathcal{U}$ some more, we can find a $\mathcal{C}^2$ diffeomorphism $\psi : \mathbb{R}^m \rightarrow M\cap \mathcal{U}$. Using $\phi$ and and $\psi$, we construct a $\mathcal{C}^1$ map $f : \mathbb{R}^k \times \mathbb{R}^k \rightarrow \mathbb{R}^k$ having $0$ as a regular value and such that $N(M\cap \mathcal{U}) = f^{-1}(0)$. It will follow from the preimage theorem that $N(M \cap \mathcal{U})$ is a $\mathcal{C}^1$ submanifold of dimension $k$. Furthermore, $N(M \cap \mathcal{U})$ is an open neighborhood of $(x_0, v)$ for all $v \in T_{x_0}M$ and we will have found that $N(M)$ is a $\mathcal{C}^1$ manifold.
+
+The map $f$ is defined as $f: \mathbb{R}^k \times \mathbb{R}^k \rightarrow \mathbb{R}^k$, $f(x, v) = \left(\phi(x), u(x, v)\right)$, where $u : \mathbb{R}^{2k} \rightarrow \mathbb{R}^m : (x,v) \mapsto (\langle v, d\psi_{\psi^{-1}(x)}(e_1) \rangle, \dots, \langle v, d\psi_{\psi^{-1}(x)}(e_m) \rangle)$ and $(e_i)$ is a basis of $\mathbb{R}^m$. Because the vectors $d\psi_{\psi^{-1}(x)}(e_i)$ form a basis of $T_x M$, the zero set $u^{-1}(0)$ is precisely $N_x M$ and we find that $f^{-1}(0) = M \cap \mathcal{U}$. To differentiate $f$, we use the fact that $\psi$ is $\mathcal{C}^2$. In its matrix form,
+
+$$
+  df_{(x,v)} = \left[\begin{array}{cc}d\phi_x& 0\\ *& \partial_2 u_{(x,v)}\end{array}\right]
+$$
+
+where both $d\phi_x$ and $\partial_2 u_(x,v) = u(x, \cdot)$ are surjective whenever $x \in M$. Thus $df_{(x,v)}$ is indeed surjective for all $(x,v) \in f^{-1}(0)$. The assertion $T_{(x,v)} N(M) = T_xM \times N_x M$ follows from $T_{(x,v)} N(M) = ker(df_{(x,v)}$.&nbsp; QED.
+
+**Lemma 2.** For all $\varepsilon \gt; 0$, $V_\varepsilon \subset N(M)$ is a submanifold with boundary.
+
+**Proof.** Let $f : N(M) \rightarrow \mathbb{R} : (x,v) \mapsto ||v||^2$. For any $(x, v) \in f^{-1}(\varepsilon^2)$, we have $df_{(x,v)}: T_x M \times N_x M \rightarrow \mathbb{R} : (y, u) \mapsto 2\langle u, v \rangle$ is surjective. By the preimage theorem, we find that $f^{-1}((-\infty, \varepsilon^2])$ is a submanifold of $N(M)$ with boundary $f^{-1}(\varepsilon^2)$. QED.
+
+**Lemma 3.** The map $F: V_\varepsilon \rightarrow \mathbb{R}^k$ is a local diffeomorphism onto its image $N_\varepsilon$.
+
+Proof. The differential of $F$ is simply $dF_{(x,v)} : T_xM \times N_xM \rightarrow \mathbb{R}^k : (a, b) \mapsto a+b$, an isomorphism since $\mathbb{R}^k$ is the direct sum of $T_xM$ and $N_xM$. By the inverse function theorem, it follows that $F$ is a local diffeomorphism onto its image.
+Now, it is clear that $F(V_\varepsilon) \subset N_\varepsilon$. If $w \in N_\varepsilon$, then by compacity of $M$ we can find a closest point $x \in M$. It is straightforward to verify that $w-x \in N_xM$, and thus $(x, w-x)\in V_\varepsilon$, $F(x, w-x) = w$. QED.
+
+**Lemma 4 (See Spivak, 1970). **If $\varepsilon \gt; 0$ is taken sufficiently small, then $F : V_\varepsilon \rightarrow N_\varepsilon : (x, v) \mapsto x+v$ is a diffeomorphism.
+
+**Proof. **It suffices to show that $F$ is bijective, whenever $\varepsilon \gt; 0$ is sufficiently small. The local diffeomorphism will then be a global diffeomorphism. Note that $F$ is injective on $M\times \{0\}$. Let $A = \{(a, b) \in N(M)^2 | a \not = b,\, F(a) = F(b)\}$ be the set of points showcasing the non-injectivity of $F$. This set is disjoint from the compact set $(M \times \{0\})^2$. Therefore, if we can show that $A$ is closed, we will find $d(A, (M \times \{0\})^2) \gt; 0$ and taking $\varepsilon \lt; d(A, (M \times \{0\})^2)$ will suffice.
+Let $\{(a_n, b_n)\}$ be a sequence of points in $A$ converging to some $(a,b)$. By continuity of $F$, we must have $F(a) = F(b)$. We cannot have $a = b$, as this would contradict the fact that $F$ is a local diffeomorphism. Therefore $a \not = b$ and $(a,b) \in A$. QED.
+
+**References:**
+
+Milnor, J.W. (1965) Topology from a differentiable point of view.
+Spivak, M. (1970) A comprehensive introduction to differential geometry.

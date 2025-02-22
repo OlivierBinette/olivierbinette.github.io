@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -92,10 +92,13 @@ div.csl-indent {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-41d0922e3213cd14dddcd51cd5a0b369.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-997f2e1e445b8bd128d69734730053d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -322,7 +325,7 @@ window.Quarto = {
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="pantry.jpg" class="external img-fluid figure-img"></p>
+<p><a href="pantry.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure from https://gpsg.duke.edu/resources-for-students/community-pantry/"><img src="pantry.jpg" class="external img-fluid figure-img" alt="Figure from https://gpsg.duke.edu/resources-for-students/community-pantry/"></a></p>
 <figcaption>Figure from <a href="https://gpsg.duke.edu/resources-for-students/community-pantry/" class="uri">https://gpsg.duke.edu/resources-for-students/community-pantry/</a></figcaption>
 </figure>
 </div>
@@ -332,7 +335,7 @@ window.Quarto = {
 <figcaption align="center">
 <p>Figure 1: Weekly number of customers at the Pantry. The black line is a moving average of weekly visits.</p>
 </figcaption>
-<p><img src="customers.png" class="preview-image img-fluid"></p>
+<p><a href="customers.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="customers.png" class="preview-image img-fluid"></a></p>
 <p>The weekly bag program, which began in May 2018 and is still the most popular pantry offering, provides quite a bit of data regarding pantry customers and their habits. Some customers have ordered more than 80 times in the past 2 years, while others only ordered once or twice. For every bag order, we have the customer’s first name and last initial, an email address (which became mandatory around mid 2018), a phone number in a few cases, an address in some cases (for delivery), we have demographic information some cases, and we have the food order information. Available quasi-identifying information is shown in Table 1 below.</p>
 <table class="caption-top table">
 <caption>Table 1: Quasi-identifying information provided on Qualtrics bag order forms. Note that phone number and address were only required while delivery was offered. Furthermore, most customers stop answering demographic questions after a few orders.</caption>
@@ -930,6 +933,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1040,6 +1045,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1326,6 +1332,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

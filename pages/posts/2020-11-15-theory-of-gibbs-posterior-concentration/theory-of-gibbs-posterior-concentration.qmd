@@ -1,0 +1,58 @@
+---
+title: "Theory of Gibbs posterior concentration"
+description: |
+  Notes on some research in progress.
+author:
+  - name: Olivier Binette
+date: 10-11-2019
+categories:
+  - technical
+  - math
+  - statistics
+format: html
+---
+
+Consider the statistical learning framework where we have data $X\sim Q$ for some unknown distribution $Q$, a model $\Theta$ and a loss function $\ell_\theta(X)$ measuring a cost associated with fitting the data $X$ using a particular $\theta\in\Theta$. Our goal is to use the data to learn about parameters which minimize the risk $R(\theta) = \mathbb{E}[\ell_\theta(X)]$. Here are two standard examples.
+
+**Density estimation.** Suppose we observe independent random variables $X_1, X_2, \dots, X_n$. Here the model $\Theta$ parametrizes a set $\mathcal{M} = \{p_\theta : \theta \in \Theta \}$ of probability density functions (with respect to some dominating measure on the sample space), and our loss for $X = (X_1, \dots, X_n)$ is defined as
+$$
+\ell_\theta(X) = - \sum_{i=1}^n \log p_\theta(X_i).
+$$
+If, for instance, the variables $X_i$ are independent with common distribution with density function $p_{\theta_0}$ for some $\theta_0 \in \mathbb{\Theta}$, then it follows from the positivity of the Kullback-Leibler divergence that $\theta_0 \in \arg\min _ \theta \mathbb{E}[\ell _ \theta(X)]$. That is, under identifiability conditions, our learning target is the true data-generating distribution.
+
+If the model is misspecified, roughly meaning that there is no $\theta_0\in \Theta$ such that $p_{\theta_0}$ is a density of $X_i$, then our framework sets up the learning problem to be about the parameter $\theta_0$ which is such that $p_{\theta_0}$ mininizes the Kullback-Leibler divergence between $p_{\theta_0}$ and the true marginal distribution of the $X_i$'s.
+
+**Regression.** Here our observations take the form $(Y_i, X_i)$, the model $\Theta$ parameterizes regression functions $f_\theta$ and we can consider a sum of squared errors loss
+$$
+\ell_\theta(X) = \sum_{i=1}^n(Y_i - f_\theta(X_i))^2.
+$$
+
+### Gibbs posterior distributions
+
+**Gibbs Learning** approaches this problem from a pseudo Bayesian point of view. While typically a Bayesian approach would require the specification of a full data-generating model, here we replace the likelihood function by the *pseudo-likelihood* function $\theta \mapsto e^{-\ell_\theta(X)}$. Given a prior $\pi$ on $\Theta$, the Gibbs posterior distribution is then given by
+$$
+\pi(\theta \mid X) \propto e^{-\ell_\theta(X)} \pi(\theta)
+$$
+and satisfies
+$$
+\pi(\cdot \mid X) \in \text{argmin}_{\hat \pi} \left\{ \mathbb{E}_{\theta \sim \hat \pi}[\ell_\theta(X)] + D_{\text{KL}}(\hat \pi \mid \pi) \right\}
+$$
+whenever these expressions are well defined. 
+
+In the context of integrable pseudo-likelihoods, the above can be re-interpreted as a regular posterior distributions built from density functions $f _ \theta(x) \propto e^{-\ell _ \theta(x)}$ and with a prior $\tilde \pi$ satisfying
+$$
+\frac{d\tilde \pi}{d\pi}(\theta) \propto \int e^{-\ell_\theta(x)}\,dx =: c(\theta).
+$$
+However, the reason we cannot apply standard asymptotic theory to the analysis of Gibbs posterior is that the quantity $c(\theta)$ will typically be sample-size dependent. That is, if $X=X^n=(X_1, X_2, \dots, X_n)$ for i.i.d. random variables $X_i$ and if the loss $\ell_\theta$ separates as the sum
+$$
+\ell_\theta(X) = \sum_{i=1}^nl_{\theta}(X_i),
+$$
+then $c(\theta) = \left(\int e^{-l_\theta(x_1)} \, dx_1\right)^n$. This data-dependent prior, tilting $\pi$ by the function $c(\theta)^n$, is what allows Gibbs learning to target general risk-minimizing parameters rather than likelihood Kullback-Leibler minimizers.
+
+Some of my ongoing research, presented as a poster at the O'Bayes conference in Warwick last summer, focused on understand the theoretical behaviour of Gibbs posterior distributions. I studied the posterior convergence and finite sample concentration properties of Gibbs posterior distributions under the large sample regime with additive losses $\ell_\theta^{(n)}(X_1, \dots, X_n) = \sum_{i=1}^n\ell_\theta(X_i)$. I've attached [the poster](http://olivierbinette.github.io/blog/media/2019-10-11/poster.pdf) (joint work with Yu Luo) below and you can find the additional references [here](http://olivierbinette.github.io/blog/media/2019-10-11/references.pdf).
+
+Note that this is very preliminary work. We're still in the process of exploring interesting directions (and I have very limited time this semester with the beginning of my PhD at Duke).
+
+![](poster.png)
+
+

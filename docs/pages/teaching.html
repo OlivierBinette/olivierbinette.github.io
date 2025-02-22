@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-41d0922e3213cd14dddcd51cd5a0b369.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-997f2e1e445b8bd128d69734730053d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -138,6 +138,10 @@ background: #f8f8f8;
     <a class="dropdown-item" href="../pages/software.html">
  <span class="dropdown-text">Software</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../pages/teaching.html">
+ <span class="dropdown-text">Teaching</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item compact">
@@ -181,9 +185,13 @@ background: #f8f8f8;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructional-ta-at-duke-university" id="toc-instructional-ta-at-duke-university" class="nav-link active" data-scroll-target="#instructional-ta-at-duke-university">Instructional TA at Duke University</a></li>
+  <li><a href="#recent-talks" id="toc-recent-talks" class="nav-link active" data-scroll-target="#recent-talks">Recent Talks</a></li>
+  <li><a href="#classes" id="toc-classes" class="nav-link" data-scroll-target="#classes">Classes</a>
+  <ul class="collapse">
+  <li><a href="#instructional-ta-at-duke-university" id="toc-instructional-ta-at-duke-university" class="nav-link" data-scroll-target="#instructional-ta-at-duke-university">Instructional TA at Duke University</a></li>
   <li><a href="#instructional-ta-at-université-du-québec-à-montréal" id="toc-instructional-ta-at-université-du-québec-à-montréal" class="nav-link" data-scroll-target="#instructional-ta-at-université-du-québec-à-montréal">Instructional TA at Université du Québec à Montréal</a></li>
   <li><a href="#other-teaching-activities" id="toc-other-teaching-activities" class="nav-link" data-scroll-target="#other-teaching-activities">Other teaching activities</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -198,6 +206,47 @@ background: #f8f8f8;
 
 
 
+<section id="recent-talks" class="level2">
+<h2 class="anchored" data-anchor-id="recent-talks">Recent Talks</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 35%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Event</th>
+<th>Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Feb 2025</td>
+<td>Duke Responsible AI Symposium</td>
+<td>Poster on “Improving the Validity and Practical Usefulness of AI/ML Evaluations Using an Estimands Framework”</td>
+</tr>
+<tr class="even">
+<td>Oct 2024</td>
+<td>Princeton Symposium on Advances in Record Linkage</td>
+<td>End-to-End Evaluation of Entity Resolution Systems</td>
+</tr>
+<tr class="odd">
+<td>Summer 2024</td>
+<td>Joint Statistical Meetings</td>
+<td>End-to-End Evaluation of Entity Resolution Systems</td>
+</tr>
+<tr class="even">
+<td>Summer 2023</td>
+<td>Joint Statistical Meetings</td>
+<td>On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes" class="level2">
+<h2 class="anchored" data-anchor-id="classes">Classes</h2>
 <section id="instructional-ta-at-duke-university" class="level3">
 <h3 class="anchored" data-anchor-id="instructional-ta-at-duke-university">Instructional TA at Duke University</h3>
 <ul>
@@ -228,6 +277,7 @@ background: #f8f8f8;
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -313,6 +363,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -423,6 +475,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

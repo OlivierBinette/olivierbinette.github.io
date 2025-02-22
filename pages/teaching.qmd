@@ -2,6 +2,17 @@
 title: "Teaching"
 ---
 
+## Recent Talks
+
+|Date|Event|Topic|
+|---|-------|----------|
+|Feb 2025| Duke Responsible AI Symposium | Poster on "Improving the Validity and Practical Usefulness of AI/ML Evaluations Using an Estimands Framework"|
+|Oct 2024|Princeton Symposium on Advances in Record Linkage|End-to-End Evaluation of Entity Resolution Systems|
+|Summer 2024| Joint Statistical Meetings| End-to-End Evaluation of Entity Resolution Systems |
+|Summer 2023|Joint Statistical Meetings|On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery|
+
+## Classes
+
 ### Instructional TA at Duke University
 
 - STA 323 - Statistical Computing (Spring 2024)

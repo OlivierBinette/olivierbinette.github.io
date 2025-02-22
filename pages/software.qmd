@@ -1,124 +1,36 @@
 ---
-title: "Software"
+title: "Open-Source Software"
 ---
 
-## Python packages
+## Python Packages
 
-###### [CSVMeta](https://github.com/OlivierBinette/CSVMeta)
-
-Lightweight csv read/write, keeping track of csv dialect and other metadata.
-
-```bash
-pip install csvmeta
-```
-
-##### [Streamlit-Survey](https://github.com/Valires/streamlit-survey)
-
-Survey components for Streamlit apps.
-
-```bash
-pip install streamlit-survey
-```
-
-##### [ER-Evaluation](https://github.com/Valires/er-evaluation)
-
-An End-to-End Evaluation Framework for Entity Resolution Systems.
-
-```bash
-pip install er-evaluation
-```
-
-##### [StringCompare](https://github.com/olivierbinette/StringCompare)
-
-**StringCompare** is a Python package (implemented in C++ through pybind11) for efficient string similarity computation and approximate string matching.
-
-```bash
-pip install git+https://github.com/OlivierBinette/stringcompare.git
-```
-
-## R packages
-
-##### [FingermatchR](https://github.com/forensic-science/fingermatchR)
-
-Fingerprint matching tools based on NIST's Biometric Image Software, on FingerJet minutiae extraction tool, and on the libfmr library.
-
-```r
-devtools::install_github("forensic-science/fingermatchR")
-```
-
-##### [MSETools](https://github.com/OlivierBinette/MSETools)
-
-Code and analyses for the paper titled “On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery” (Binette and Steorts, 2021).
-
-```r
-devtools::install_github("OlivierBinette/MSETools")
-```
-
-##### [cache](https://github.com/OlivierBinette/cache)
-
-[![](https://www.r-pkg.org/badges/version/assert)](https://cran.r-project.org/package=cache)
-
-Simple interface to caching which works across interactive R sessions, R scripts and Rmarkdown documents.
-
-```r
-install.packages("cache")
-```
-
-##### [assert](https://github.com/OlivierBinette/assert)
-
-[![](https://www.r-pkg.org/badges/version/assert)](https://cran.r-project.org/package=assert)
-
-Lightweight validation tool for checking function arguments and data analysis scripts.
-
-```r
-install.packages("assert")
-```
-
-##### [dgaFast](https://github.com/OlivierBinette/dgaFast)
-
-Multiple Systems Estimation Using Decomposable Graphical Models. This is an efficient re-implementation and extension of the [**dga**](https://github.com/hrdag/dga) R package (it is now part of [**dga**](https://github.com/hrdag/dga)).
-
-```r
-devtools::install_github("OlivierBinette/dgaFast")
-```
-
-##### [TessTools](https://github.com/OlivierBinette/TessTools)
-
-Tools for the use of Tesseract OCR in R and for the analysis of historical newspaper archives.
-
-```r
-devtools::install_github("OlivierBinette/TessTools")
-```
-
-<!--
-##### [splinit](https://github.com/OlivierBinette/splinit)
-
-Periodic spline regression and closed curve reconstruction.
-
-```r
-devtools::install_github("OlivierBinette/splinit")
-```
-
-##### [pretty](https://github.com/OlivierBinette/pretty)
-
-Better base plots in R.
-
-```r
-devtools::install_github("OlivierBinette/pretty")
-```
--->
+| Project | Description | Role |
+|----|-------------|---|
+|[PatentsView-Code-Examples](https://github.com/PatentsView/PatentsView-Code-Examples)| Training resources for working with PatentsView APIs and Open Data. | Lead |
+| [Deepchecks' PerformanceBias](https://kagi.com/search?q=deepchecks+performance+bias) |  Contributed the `performance_bias` module to Deepchecks' open-source package (3.7k+ stars on Github). |  Core Contributor |
+| [Streamlit-Survey](https://github.com/Valires/streamlit-survey)  | Survey components for Streamlit apps. | Creator |
+| [CSVMeta](https://github.com/OlivierBinette/CSVMeta)  | Lightweight csv read/write, keeping track of csv dialect and other metadata.  | Creator |
+| [ER-Evaluation](https://github.com/Valires/er-evaluation)  | End-to-end evaluation of entity resolution systems.  | Creator |
+| [StringCompare](https://github.com/olivierbinette/StringCompare) | Efficient string similarity using C++ and PyBind11. | Creator  |
 
 
-## Javascript apps
+## R Packages
 
-##### [Fractals](https://olivierbinette.github.io/Fractals/)
+| Project | Description | Role |
+|----|-------------|---|
+| [MSETools](https://github.com/OlivierBinette/MSETools) | Code and analyses for the paper titled “On the Reliability of Multiple Systems Estimation for the Quantification of Modern Slavery” (Binette and Steorts, 2021). | Creator |
+| [FingermatchR](https://github.com/forensic-science/fingermatchR) | Fingerprint matching tools based on NIST's Biometric Image Software, on FingerJet minutiae extraction tool, and on the libfmr library. | Creator |
+| [cache](https://github.com/OlivierBinette/cache) | Lightweight caching for data science workflows.| Creator |
+| [assert](https://github.com/OlivierBinette/assert) | Lightweight assertions for data science workflows. | Creator |
+| [dgaFast/dga](https://github.com/olivierBinette/dgaFast) | Multiple Systems Estimation Using Decomposable Graphical Models. | Maintainer |
+| [TessTools](https://github.com/OlivierBinette/TessTools) | Tools for the use of Tesseract OCR in R and for the analysis of historical newspaper archives. | Creator |
 
-High resolution visualization for the Mandelbrot set. A [Java version](https://github.com/olivierBinette/Fractals) with more features is also available.
 
-##### [Earthquakes](https://olivierbinette.github.io/earthquakes/)
+## Other Software
 
-Visualize earthquakes on the globe.
-
-## Other software
-
--   [**lipsample**](https://github.com/OlivierBinette/lipsample): Sampling from arbitrary Lipschitz continuous densities on the interval in matlab.
+| Project | Description | Role |
+|----|-------------|---|
+| [Fractals](https://olivierbinette.github.io/Fractals/) | A Javascript Mendelbrot set visualization app, built using early browser multithreading technologies (2014). | Creator |
+| [Welcome to the Moon App](https://github.com/OlivierBinette/welcome-to-the-moon-card-flipper) | Companion app to the wonderful *Welcome to the Moon* board game. | Creator |
+| [Earthquakes](https://olivierbinette.github.io/earthquakes/) | Visualize earthquakes on the globe. | Creator |
+| [lipsample](https://github.com/OlivierBinette/lipsample) | Sampling from arbitrary Lipschitz continuous densities on the interval in Matlab | Creator |

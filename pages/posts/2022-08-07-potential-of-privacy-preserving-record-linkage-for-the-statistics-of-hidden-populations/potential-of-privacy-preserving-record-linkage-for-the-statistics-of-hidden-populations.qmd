@@ -1,0 +1,28 @@
+---
+title: "Potential of Privacy-Preserving Record Linkage for the Statistics of Hidden Population"
+description: |
+  Many populations are "hidden" from the point of view of traditional probabilistic surveys. They are populations for which we have no meaningful sampling frame and whose members may be difficult to identify. Examples include victims of human trafficking and civilian casualties in armed conflicts. Understanding these populations is central to policymaking and to prosecuting human rights violations, yet statistical inference remains extremely difficult in practice. [...]
+preview: thumbnail.jpg
+author:
+  - name: Andrew Demma
+    affiliation: Duke University
+  - name: Olivier Binette
+    url: https://olivierbinette.github.io
+    affiliation: Duke University
+    orcid_id: 0000-0001-6009-5206
+date: 2022-08-07
+repository_url: https://github.com/olivierbinette/olivierbinette.github.io
+citation_url: https://olivierbinette.github.io/posts/2022-08-07-potential-of-privacy-preserving-record-linkage-for-the-statistics-of-hidden-populations
+creative-commons: CC BY-SA
+categories:
+  - technical
+  - statistics
+  - machine learning
+  - entity resolution
+  - privacy
+format: html
+---
+
+
+
+<embed src="PPRL.pdf" type="application/pdf" width="100%" height="800px" />
