@@ -22,14 +22,12 @@ website:
         text: "Home"
       - href: pages/blog.qmd
         text: "Blog"
-      - text: Creations
-        menu:
-        - href: pages/research.qmd
-          text: "Publications"
-        - href: pages/software.qmd
-          text: "Software"
-        - href: pages/teaching.qmd
-          text: "Teaching"
+      - href: pages/research.qmd
+        text: "Publications"
+      - href: pages/software.qmd
+        text: "Software"
+      - href: pages/teaching.qmd
+        text: "Teaching"
       - icon: github
         href: https://www.github.com/OlivierBinette
       - icon: rss
