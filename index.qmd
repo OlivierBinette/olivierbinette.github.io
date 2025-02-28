@@ -30,6 +30,10 @@ I'm Olivier, a data scientist at American Institutes for Research. I have a Ph.D
 I specialize in applied data science, AI/ML evaluation, and data linkage. My work combines engineering, machine learning, and statistics to address applied problems in these areas.
 :::
 
+# Let's Meet
+
+<iframe width='100%' height='750px' src='https://olivierbinette.zohobookings.com/portal-embed#/1' frameborder='0' allowfullscreen='' > </iframe>
+
 <!--
 I contribute to open source projects related to my research and I maintain various R and Python packages. My open-source work has previously been supported by individual contributors through Github Sponsors and by G-Research.
 

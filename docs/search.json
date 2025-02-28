@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "👋 Welcome!",
     "section": "",
-    "text": "Github\n  \n  \n    \n     LinkedIn\n  \n\n  \n  \n\n👋 Welcome!\nI’m Olivier, a data scientist at American Institutes for Research. I have a Ph.D. in Statistics from Duke University.\nI specialize in applied data science, AI/ML evaluation, and data linkage. My work combines engineering, machine learning, and statistics to address applied problems in these areas."
+    "text": "Github\n  \n  \n    \n     LinkedIn\n  \n\n  \n  \n\n👋 Welcome!\nI’m Olivier, a data scientist at American Institutes for Research. I have a Ph.D. in Statistics from Duke University.\nI specialize in applied data science, AI/ML evaluation, and data linkage. My work combines engineering, machine learning, and statistics to address applied problems in these areas.\n\n\n\n\n\nLet’s Meet"
   },
   {
     "objectID": "pages/blog.html",
@@ -649,5 +649,19 @@
     "title": "Untitled",
     "section": "Slide with Plot",
     "text": "Slide with Plot"
+  },
+  {
+    "objectID": "index.html#book-a-time",
+    "href": "index.html#book-a-time",
+    "title": "👋 Welcome!",
+    "section": "Book a Time",
+    "text": "Book a Time"
+  },
+  {
+    "objectID": "index.html#lets-meet",
+    "href": "index.html#lets-meet",
+    "title": "👋 Welcome!",
+    "section": "Let’s Meet",
+    "text": "Let’s Meet"
   }
 ]
