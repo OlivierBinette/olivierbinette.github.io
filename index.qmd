@@ -25,9 +25,9 @@ title-block-banner: false
 ::: {#olivier-heading}
 # 👋 Welcome!
 
-I'm Olivier, a data scientist at American Institutes for Research. I have a Ph.D. in Statistics from Duke University.
+I'm Olivier. I work as a machine learning research scientist at Upstart. Prior to that, I worked as a data scientist at American Institutes for Research and obtained my Ph.D. in Statistics from Duke University.
 
-I specialize in applied data science, AI/ML evaluation, and data linkage. My work combines engineering, machine learning, and statistics to address applied problems in these areas.
+I specialize in applied data science and machine learning, AI/ML evaluation, and data linkage. My work combines engineering, machine learning, and statistics to address applied problems in these areas.
 :::
 
 # Let's Meet

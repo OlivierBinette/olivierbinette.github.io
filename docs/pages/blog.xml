@@ -1194,7 +1194,7 @@ The paper goes on to define clear tasks for entity resolution systems and detail
 <h3 class="anchored" data-anchor-id="example">Example</h3>
 <p>Let’s look at an example to make things concrete. This is adapted from <a href="https://scikit-optimize.github.io/stable/auto_examples/hyperparameter-optimization.html">scikit-optimize’s tutorial for tuning scikit-learn estimators</a>.</p>
 <p>We’ll consider the <a href="https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset">California housing dataset</a> from the scikit-learn library. Each row in this dataset represents a census block and contains aggregated information regarding houses in that block. Our goal will be to predict median house price at the block level given these other covariates.</p>
-<div id="cf166312" class="cell" data-execution_count="1">
+<div id="30e089e8" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
@@ -1389,7 +1389,7 @@ font-style: inherit;"># Median house prices</span></span>
 </div>
 </div>
 <p>For the regression, we’ll use scikit-learn’s gradient boosted trees estimator. This model has a number of internal parameters which don’t need to know much about, as well as hyperparameters which can be used to tune the model. This includes the <code>max_depth</code> hyperparameter for the maximum depth of decision trees, <code>learning_rate</code> for the learning rate of gradient boosting, <code>max_features</code> for the maximum number of features to use in each decision trees, and a few more. Ranges of reasonable values for these parameters are specified in the <code>space</code> variable below.</p>
-<div id="57ae97b6" class="cell" data-execution_count="2">
+<div id="2857b2b0" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
@@ -1457,7 +1457,7 @@ font-style: inherit;">'min_samples_leaf'</span>)</span>
 </details>
 </div>
 <p>Now, the last thing we need is an estimator <img src="https://latex.codecogs.com/png.latex?%5Chat%20R"> for the model’s performance. This is our <code>Rhat()</code> function (i.e.&nbsp;<img src="https://latex.codecogs.com/png.latex?%5Chat%20R">) which we’ll try to maximize. Here we use a cross-validated mean absolute error score.</p>
-<div id="08c578bc" class="cell" data-execution_count="3">
+<div id="ea0d6a3f" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
@@ -1498,7 +1498,7 @@ font-style: inherit;">"neg_mean_absolute_error"</span>))</span></code></pre></di
 </details>
 </div>
 <p>With this, we can fit the model to the data (using default hyperparameter values to begin with), and evaluate the model’s performance.</p>
-<div id="3312eb48" class="cell" data-execution_count="4">
+<div id="d9e64557" class="cell" data-execution_count="4">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1">model.fit(X, y)</span>
@@ -1538,7 +1538,7 @@ font-style: inherit;">"neg_mean_absolute_error"</span>))</span></code></pre></di
 <li>The runtime is tied to the hyperparameter search space which you specify. To reduce runtime, you need to manually redefine this space.</li>
 </ol>
 <p>Let’s see an example of how this works in practice. First, we define a grid of hyperparameter values to evaluate. Given the scoring function <img src="https://latex.codecogs.com/png.latex?%5Chat%20R">, we can then use scikit-learn’s <code>GridSearchCV()</code> function to evaluate the model performance at each hyperparameter combination. This is done below:</p>
-<div id="ec077486" class="cell" data-execution_count="5">
+<div id="973db1cf" class="cell" data-execution_count="5">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="im" style="color: #00769E;
@@ -1623,7 +1623,7 @@ font-style: inherit;">=</span>scoring).fit(X, y)</span></code></pre></div>
 </details>
 </div>
 <p>We can then recover the best score and best hyperparameters. The best model is slightly better than the default model we looked at earlier, with a $4,000 decrease in average absolute error.</p>
-<div id="7f366a0b" class="cell" data-execution_count="6">
+<div id="04996684" class="cell" data-execution_count="6">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="op" style="color: #5E5E5E;
@@ -1650,7 +1650,7 @@ font-style: inherit;"># Best parameters</span></span></code></pre></div>
 </div>
 </div>
 <p>It is also informative to plot an histogram for the distribution of model scores. We can see that most model configurations performed much worst than the default.</p>
-<div id="350ef480" class="cell" data-execution_count="7">
+<div id="bdf987a9" class="cell" data-execution_count="7">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="im" style="color: #00769E;
@@ -1703,7 +1703,7 @@ font-style: inherit;">"Cross-validated average absolute error"</span>)</span>
 <p>The answer is that doing so <strong>removes all computational penalties</strong> from the consideration of useless hyperparameter dimensions. That is, imagine that a number <img src="https://latex.codecogs.com/png.latex?s"> of your hyperparameters have actually no impact on model performance. With grid search, the consideration of these hyperparameters would incur you a computational penalty which is exponential in <img src="https://latex.codecogs.com/png.latex?s">. With random search, however, there is <strong>no penalty at all</strong> for adding these <img src="https://latex.codecogs.com/png.latex?s"> additional hyperparameter dimensions. The results from random search with or without these additional dimensions are <strong>exactly the same</strong> in both cases.</p>
 <p>This is the huge advantage of random search over grid search: you do not get penalized for useless dimensions. Furthermore, in practice, being able to tune the search effort through the number of samples <img src="https://latex.codecogs.com/png.latex?k"> can be quite convenient.</p>
 <p>Let’s see how this can be implemented in practice. We’ll define a hyperparameter space which is similar to the grid space we specified earlier, but which is filled in with additional possible values. We can then run scikit-learn’s <code>RandomizedSearchCV()</code> function to do the randomized search:</p>
-<div id="1dece01b" class="cell" data-execution_count="8">
+<div id="0d914dad" class="cell" data-execution_count="8">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="im" style="color: #00769E;
@@ -1786,7 +1786,7 @@ font-style: inherit;">0</span>).fit(X, y)</span></code></pre></div>
 </details>
 </div>
 <p>The results are below. By considering a richer hyperparameter space, and without being penalized by this in the same way we would with a grid search, randomized search allows us to find a better model with the same amount of effort.</p>
-<div id="a0627aee" class="cell" data-execution_count="9">
+<div id="78b2454b" class="cell" data-execution_count="9">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="op" style="color: #5E5E5E;
@@ -1813,7 +1813,7 @@ font-style: inherit;"># Best parameters</span></span></code></pre></div>
 </div>
 </div>
 <p>Again, we can look at the distribution of model performance for sampled hyperparameter configurations. It’s quite similar to grid search, with only a few better-performing models being identified.</p>
-<div id="c27bdb0b" class="cell" data-execution_count="10">
+<div id="8bb9cbaf" class="cell" data-execution_count="10">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="im" style="color: #00769E;
@@ -1870,7 +1870,7 @@ font-style: inherit;">"Cross-validated average absolute error"</span>)</span>
 <li>A method to guess the next best hyperparameter value to pick. Typically, <img src="https://latex.codecogs.com/png.latex?%5Clambda_%7Bn+1%7D"> is chosen to maximize the <strong>expected improvement criterion</strong>. This chooses <img src="https://latex.codecogs.com/png.latex?%5Clambda"> to maximize the expected value of <img src="https://latex.codecogs.com/png.latex?%5Cmax%5C%7B%5Chat%20R(%5Clambda)%20-%20R%5E*,%200%5C%7D">, where <img src="https://latex.codecogs.com/png.latex?R%5E*"> is the current observed performance maximum. In other words, we want to maximize the potential for improving the current optimum, without penalizing for the possibility of observing a lower performance. This allows us to optimize <img src="https://latex.codecogs.com/png.latex?%5Chat%20R"> while still exploring the hyperparameter space. I refer the reader to <a href="https://www.cse.wustl.edu/~garnett/cse515t/spring_2015/files/lecture_notes/12.pdf">here</a> for a review of a few other selection criterions.</li>
 </ol>
 <p>When a Bayesian inferential framework is chosen, then sequential model-based optimization is called <strong>Bayesian optimization</strong> or <strong>Bayesian search</strong>. It is beyond of the scope of this blog post to go into the details of gaussian processes, but below I show howthe scikit-optimize library can be used to perform Bayesian optimization based on Gaussian Processes and the expected improvement criterion:</p>
-<div id="8d881370" class="cell" data-execution_count="11">
+<div id="a3aeca5a" class="cell" data-execution_count="11">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><span class="im" style="color: #00769E;
@@ -1935,7 +1935,7 @@ font-style: inherit;">## 0.46</span></span></code></pre></div>
 </details>
 </div>
 <p>With Bayesian optimization, we see that much more time is spent sampling performant models.</p>
-<div id="85949e1e" class="cell" data-execution_count="12">
+<div id="7b1eb831" class="cell" data-execution_count="12">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1">plt.clf()</span>
@@ -1971,7 +1971,7 @@ font-style: inherit;">"Cross-validated average absolute error"</span>)</span>
 </div>
 </div>
 <p>Furthermore, we can see that the algorithm quickly converges towards performant models.</p>
-<div id="55a08ddb" class="cell" data-execution_count="13">
+<div id="518c0157" class="cell" data-execution_count="13">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="im" style="color: #00769E;
