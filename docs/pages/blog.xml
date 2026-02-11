@@ -212,7 +212,7 @@ font-style: inherit;">True</span></span>
 <span id="cb1-33">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">def</span> fuzzySearch(<span class="va" style="color: #111111;
+font-style: inherit;">def</span> fuzzy_search(<span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>, query, n):</span>
 <span id="cb1-34">        query <span class="op" style="color: #5E5E5E;
@@ -457,7 +457,7 @@ font-style: inherit;">self</span>.inverted_index[word].add(doc)</span>
 <span id="cb1-71">    <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">def</span> fuzzySearch(<span class="va" style="color: #111111;
+font-style: inherit;">def</span> fuzzy_search(<span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">self</span>, query, n):</span>
 <span id="cb1-72">        <span class="cf" style="color: #003B4F;
@@ -473,7 +473,7 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">self</span>.trie.fuzzySearch(query, n)</span>
+font-style: inherit;">self</span>.trie.fuzzy_search(query, n)</span>
 <span id="cb1-75">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -510,7 +510,7 @@ font-style: inherit;">"Did you know that Jean-Emmanuel Depraz (pictured) won a M
 <span id="cb2-9">index <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> Index(docs)</span>
-<span id="cb2-10">index.fuzzySearch(<span class="st" style="color: #20794D;
+<span id="cb2-10">index.fuzzy_search(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Willipedia"</span>, <span class="dv" style="color: #AD0000;
 background-color: null;

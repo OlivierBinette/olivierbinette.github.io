@@ -301,7 +301,7 @@ background: #f8f8f8;
 <span id="cb1-30"><a href="#cb1-30"></a>            node <span class="op">=</span> node.children.setdefault(char, Node(word[: i <span class="op">+</span> <span class="dv">1</span>], node))</span>
 <span id="cb1-31"><a href="#cb1-31"></a>        node.is_word <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb1-32"><a href="#cb1-32"></a></span>
-<span id="cb1-33"><a href="#cb1-33"></a>    <span class="kw">def</span> fuzzySearch(<span class="va">self</span>, query, n):</span>
+<span id="cb1-33"><a href="#cb1-33"></a>    <span class="kw">def</span> fuzzy_search(<span class="va">self</span>, query, n):</span>
 <span id="cb1-34"><a href="#cb1-34"></a>        query <span class="op">=</span> <span class="va">self</span>.preprocess(query)</span>
 <span id="cb1-35"><a href="#cb1-35"></a>        matching_set, visited, stack <span class="op">=</span> <span class="bu">set</span>(), <span class="bu">set</span>(), [<span class="va">self</span>.root]</span>
 <span id="cb1-36"><a href="#cb1-36"></a>        <span class="cf">while</span> stack:</span>
@@ -339,10 +339,10 @@ background: #f8f8f8;
 <span id="cb1-68"><a href="#cb1-68"></a>                <span class="va">self</span>.trie.insert(word)</span>
 <span id="cb1-69"><a href="#cb1-69"></a>                <span class="va">self</span>.inverted_index[word].add(doc)</span>
 <span id="cb1-70"><a href="#cb1-70"></a></span>
-<span id="cb1-71"><a href="#cb1-71"></a>    <span class="kw">def</span> fuzzySearch(<span class="va">self</span>, query, n):</span>
+<span id="cb1-71"><a href="#cb1-71"></a>    <span class="kw">def</span> fuzzy_search(<span class="va">self</span>, query, n):</span>
 <span id="cb1-72"><a href="#cb1-72"></a>        <span class="cf">return</span> {</span>
 <span id="cb1-73"><a href="#cb1-73"></a>            doc</span>
-<span id="cb1-74"><a href="#cb1-74"></a>            <span class="cf">for</span> word <span class="kw">in</span> <span class="va">self</span>.trie.fuzzySearch(query, n)</span>
+<span id="cb1-74"><a href="#cb1-74"></a>            <span class="cf">for</span> word <span class="kw">in</span> <span class="va">self</span>.trie.fuzzy_search(query, n)</span>
 <span id="cb1-75"><a href="#cb1-75"></a>            <span class="cf">for</span> doc <span class="kw">in</span> <span class="va">self</span>.inverted_index[word]</span>
 <span id="cb1-76"><a href="#cb1-76"></a>        }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -357,7 +357,7 @@ background: #f8f8f8;
 <span id="cb2-7"><a href="#cb2-7"></a>]</span>
 <span id="cb2-8"><a href="#cb2-8"></a></span>
 <span id="cb2-9"><a href="#cb2-9"></a>index <span class="op">=</span> Index(docs)</span>
-<span id="cb2-10"><a href="#cb2-10"></a>index.fuzzySearch(<span class="st">"Willipedia"</span>, <span class="dv">2</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>index.fuzzy_search(<span class="st">"Willipedia"</span>, <span class="dv">2</span>)</span>
 <span id="cb2-11"><a href="#cb2-11"></a><span class="co">## {'Wikipedia is hosted by the Wikimedia Foundation, a non-profit organization that also hosts a range of other projects.'}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="notes" class="level2">
@@ -860,7 +860,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false,"selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

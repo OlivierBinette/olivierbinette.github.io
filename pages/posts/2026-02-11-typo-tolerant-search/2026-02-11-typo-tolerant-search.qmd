@@ -60,7 +60,7 @@ class Trie:
             node = node.children.setdefault(char, Node(word[: i + 1], node))
         node.is_word = True
 
-    def fuzzySearch(self, query, n):
+    def fuzzy_search(self, query, n):
         query = self.preprocess(query)
         matching_set, visited, stack = set(), set(), [self.root]
         while stack:
@@ -98,10 +98,10 @@ class Index:
                 self.trie.insert(word)
                 self.inverted_index[word].add(doc)
 
-    def fuzzySearch(self, query, n):
+    def fuzzy_search(self, query, n):
         return {
             doc
-            for word in self.trie.fuzzySearch(query, n)
+            for word in self.trie.fuzzy_search(query, n)
             for doc in self.inverted_index[word]
         }
 ```
@@ -118,7 +118,7 @@ docs = [
 ]
 
 index = Index(docs)
-index.fuzzySearch("Willipedia", 2)
+index.fuzzy_search("Willipedia", 2)
 ## {'Wikipedia is hosted by the Wikimedia Foundation, a non-profit organization that also hosts a range of other projects.'}
 ```
 
