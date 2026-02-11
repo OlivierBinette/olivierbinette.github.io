@@ -1,0 +1,23 @@
+---
+title: "Do you have any advice on how to build practical skills efficiently?"
+description: A second-year PhD student in statistics with a non-statistics and non-programming background asked me this question.
+date: 2026-02-11
+categories:
+  - general
+  - questions
+---
+
+A second-year PhD student in statistics already passed his prelim and started research. But coming from a non-statistics and non-computing background, he's wondering how he can efficiently build practical skills.
+
+Here is my answer that focuses on a few useful resources:
+
+> I'd highly recommend using https://www.datacamp.com/ as a tool to quickly gain more confidence using R and various other technologies. It's fast-paced, interactive, starts at the basics, but also gets into more intermediate and advanced topics. I highly recommend subscribing for a month and doing a day or two of intensive learning on that platform.
+>
+> Never be afraid to go back to the basics and take your time in working through bugs or inefficiencies. For example, if you find you have difficulty working with your command line interface, take the most basic DataCamp course on the topic to make sure you're not missing anything essential.
+>
+> The book "[Advanced R](https://adv-r.hadley.nz/)" is an essential read for understanding R at a deeper level. While some of it may seem unnecessarily detailed, getting a rough understanding of the contents of this book will make day-to-day work with R a breeze.
+>
+> Once you're comfortable with your tools, you'll likely start working on bigger projects. At that stage, being organized and having efficient workflows is very important. There are two resources I'd recommend to help you organize practical research done with R:
+>
+>    - This blog post talks about organizing a reproducible data analysis: https://hrdag.org/2016/06/14/the-task-is-a-quantum-of-workflow/
+>    - For larger-scale scientific projects, there are packages and frameworks like rrtools (https://github.com/benmarwick/rrtools) to help keep things organized.
